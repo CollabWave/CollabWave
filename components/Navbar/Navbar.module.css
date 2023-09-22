@@ -1,0 +1,21 @@
+.navbar {
+  background: radial-gradient(circle, #153736 0%, #000000 100%);
+  background: transparent;
+  weight: 400;
+  size: 18px;
+  line-height: 21.78px;
+  font-family: var(--font-inter);
+  color: white;
+}
+.ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+.li:not(:last-child) {
+  margin-right: 20px;
+}
+.more_space_icon {
+  margin-right: 7px;
+}
