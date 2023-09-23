@@ -5,6 +5,7 @@ import { Button } from '../Button/button';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
 import { navigation } from '../../utils';
+import Link from 'next/link';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <a onClick={() => setIsOpen(!isOpen)} href="" className={styles.ul}>
+              <button onClick={() => setIsOpen(!isOpen)} href="" className={styles.ul}>
                 <p className={styles.more_space_icon}>More</p>
 
                 <div>
@@ -53,7 +54,7 @@ export default function NavBar() {
                     />
                   </svg>
                 </div>
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
@@ -84,7 +85,7 @@ export default function NavBar() {
         </nav>
       </div>
 
-      {/* <Button>{"Some Text"}</Button> */}
+      <Button>{'Some Text'}</Button>
     </div>
   );
 }
