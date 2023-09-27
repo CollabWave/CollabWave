@@ -33,7 +33,14 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <a onClick={() => setIsOpen(!isOpen)} href="" className={styles.ul}>
+              <a
+                onClick={e => {
+                  e.preventDefault();
+                  setIsOpen(!isOpen);
+                }}
+                href=""
+                className={styles.ul}
+              >
                 <p className={styles.more_space_icon}>More</p>
 
                 <div>
