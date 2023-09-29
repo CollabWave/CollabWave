@@ -1,5 +1,5 @@
-import { cinzel, saira } from "../fonts";
-import styles from "../page.module.css";
+import { cinzel, saira } from "../utils/fonts";
+import styles from "../homepage/page.module.css";
 
 export default function ContactPage() {
   return (
