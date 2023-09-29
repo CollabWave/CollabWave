@@ -1,7 +1,7 @@
 .navbar {
   background: radial-gradient(circle, #153736 0%, #000000 100%);
   background: transparent;
-  weight: 400;
+  font-weight: 400;
   size: 18px;
   line-height: 21.78px;
   font-family: var(--font-inter);

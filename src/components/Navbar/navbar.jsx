@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { Button } from '../Button/button';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { navigation } from '../../utils';
+import { navigation } from '../../app/utils/common';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  console.log('isOpen :-', isOpen);
+
   return (
     <div className={styles.navbar}>
       <div className={styles.ul}>
@@ -23,12 +23,22 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <a href="">
+              <a
+                href=""
+                onClick={e => {
+                  e.preventDefault();
+                }}
+              >
                 <p>I m blogger</p>
               </a>
             </li>
             <li className={styles.li}>
-              <a href="">
+              <a
+                href=""
+                onClick={e => {
+                  e.preventDefault();
+                }}
+              >
                 <p>I m brand</p>
               </a>
             </li>
@@ -78,7 +88,12 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <a href="">
+              <a
+                href=""
+                onClick={e => {
+                  e.preventDefault();
+                }}
+              >
                 <Image
                   src="/Icon_world.png"
                   alt="Icon World with drop down menu"
