@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '../Button/button';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { navigation } from '../../app/utils/common';
+import { navigation } from '../../utils/common';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
