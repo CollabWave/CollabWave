@@ -39,7 +39,14 @@ export function Model(props) {
         start: 'top top',
         endTrigger: '#about',
         end: 'top top',
-        scrub: 1,
+        scrub: true,
+        pin: true,
+        onLeave: () => {
+          props.setStartSphereFalling(true);
+        },
+        onEnterBack: () => {
+          props.setStartSphereFalling(false);
+        },
       },
     });
 
@@ -52,6 +59,9 @@ export function Model(props) {
       x: 0.75,
       z: -0.1,
     }); */
+    return () => {
+      if (t1) t1.kill();
+    };
   }, []);
 
   return (
