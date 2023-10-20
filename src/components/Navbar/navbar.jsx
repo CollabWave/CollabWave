@@ -4,12 +4,14 @@ import { useState } from 'react';
 import { Button } from '../Button/button';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import { moreNavigation } from '../../app/utils/common';
+import { moreNavigation, languages } from '../../app/utils/common';
 import Link from 'next/link';
+import useOutsideClickClose from '@/hooks/outsideClickClose';
 
 export default function NavBar() {
-  const [isOpenMore, setIsOpenMore] = useState(false);
-  const [isOpenWorld, setIsOpenWorld] = useState(false);
+  // const [isOpenMore, setIsOpenMore] = useState(false);
+  const [isOpenLangMenu, setIsOpenLangMenu] = useState(false);
+  const { ref, isShow, setIsShow } = useOutsideClickClose(false);
 
   return (
     <div className={styles.navbar}>
@@ -19,34 +21,34 @@ export default function NavBar() {
           {' '}
           <ul style={{}} className={styles.ul}>
             <li className={styles.li}>
-              <a className="" href="/">
+              <Link className="" href="/">
                 <Image src="/Logo.png" alt="Logo GetPromo icon" width={250} height={100} />
-              </a>
+              </Link>
             </li>
             <li className={styles.li}>
-              <a
-                href=""
-                onClick={e => {
-                  e.preventDefault();
-                }}
+              <Link
+                href="bloger"
+                // onClick={e => {
+                //   e.preventDefault();
+                // }}
               >
-                <p>I m blogger</p>
-              </a>
+                <p>I’m bloger</p>
+              </Link>
             </li>
             <li className={styles.li}>
-              <a
-                href=""
-                onClick={e => {
-                  e.preventDefault();
-                }}
+              <Link
+                href="brand"
+                // onClick={e => {
+                //   e.preventDefault();
+                // }}
               >
-                <p>I m brand</p>
-              </a>
+                <p>I’m brand</p>
+              </Link>
             </li>
             <li className={styles.li}>
               <Button
-                isOpen={isOpenMore}
-                setIsOpen={setIsOpenMore}
+                isOpen={isShow}
+                setIsOpen={setIsShow}
                 onClick={e => {
                   e.preventDefault();
                   setIsOpen(!isOpen);
@@ -58,7 +60,7 @@ export default function NavBar() {
                 {
                   <div>
                     <svg
-                      className={isOpenMore ? styles.up : styles.down}
+                      className={isShow ? styles.up : styles.down}
                       width="12"
                       height="6"
                       viewBox="0 0 24 12"
@@ -75,8 +77,8 @@ export default function NavBar() {
                   </div>
                 }
               </Button>
-              {isOpenMore && (
-                <div className={styles.dropDownMoreMenu}>
+              {isShow && (
+                <div ref={ref} className={styles.dropDownMoreMenu}>
                   <ul className={styles.ulMore}>
                     {moreNavigation &&
                       moreNavigation.map((navItem, index) => {
@@ -89,7 +91,7 @@ export default function NavBar() {
                               href={navItem.href}
                               className=""
                               onClick={() => {
-                                setIsOpenMore(!isOpenMore);
+                                setIsShow(!isShow);
                               }}
                             >
                               <p className={styles.pMore}>{navItem.name}</p>
@@ -117,11 +119,19 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <a
+              <Button
+                isOpen={isOpenLangMenu}
+                setIsOpen={setIsOpenLangMenu}
+                // isOpen={isShow}
+                // setIsOpen={setIsShow}
                 onClick={e => {
                   e.preventDefault();
-                  setIsOpenWorld(!isOpenWorld);
+                  setIsOpen(!isOpen);
                 }}
+                // onClick={e => {
+                //   e.preventDefault();
+                //   setIsOpenLangMenu(!isOpen);
+                // }}
                 href=""
                 className={styles.ul}
               >
@@ -135,7 +145,7 @@ export default function NavBar() {
                 <div>
                   {' '}
                   <svg
-                    className={isOpenWorld ? styles.up : styles.down}
+                    className={isOpenLangMenu ? styles.up : styles.down}
                     width="12"
                     height="6"
                     viewBox="0 0 24 12"
@@ -150,13 +160,37 @@ export default function NavBar() {
                     />
                   </svg>
                 </div>
-              </a>
+              </Button>
+              {/* {isOpenLangMenu && ( */}
+              {isOpenLangMenu && (
+                <div ref={ref} className={styles.dropDownLangMenu}>
+                  <ul className={styles.ulMore}>
+                    {languages &&
+                      languages.map((navItem, index) => {
+                        return (
+                          <li key={[navItem.name, index].join(':;$')}>
+                            <Link
+                              href={navItem.href}
+                              className=""
+                              // onClick={() => {
+                              //   setIsShow(!isShow);
+                              // }}
+                              onClick={() => {
+                                setIsOpenLangMenu(!isOpenLangMenu);
+                              }}
+                            >
+                              <p className={styles.pMore}>{navItem.name}</p>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              )}
             </li>
           </ul>
         </nav>
       </div>
-
-      {/* <Button>{"Some Text"}</Button> */}
     </div>
   );
 }

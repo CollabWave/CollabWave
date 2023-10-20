@@ -7,6 +7,13 @@ const moreNavigation = [
   { name: 'Review', href: 'review' },
   { name: 'Blog', href: 'blog' },
 ];
+const languages = [
+  { name: 'ENG', href: 'en' },
+  { name: 'UKR', href: 'uk' },
+  { name: 'RUS', href: 'ru' },
+  { name: 'ITA', href: 'it' },
+];
+
 const goToTop = () => {
   window.scrollTo({
     top: 0,
@@ -14,4 +21,4 @@ const goToTop = () => {
   });
 };
 
-export { moreNavigation, goToTop };
+export { moreNavigation, goToTop, languages };
