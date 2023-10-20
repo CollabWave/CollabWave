@@ -12,6 +12,7 @@ export default function NavBar() {
   // const [isOpenMore, setIsOpenMore] = useState(false);
   const [isOpenLangMenu, setIsOpenLangMenu] = useState(false);
   const { ref, isShow, setIsShow } = useOutsideClickClose(false);
+  // const { ref2, isShow2, setIsShow2 } = useOutsideClickClose(false);
 
   return (
     <div className={styles.navbar}>
@@ -122,8 +123,8 @@ export default function NavBar() {
               <Button
                 isOpen={isOpenLangMenu}
                 setIsOpen={setIsOpenLangMenu}
-                // isOpen={isShow}
-                // setIsOpen={setIsShow}
+                // isOpen={isShow2}
+                // setIsOpen={setIsShow2}
                 onClick={e => {
                   e.preventDefault();
                   setIsOpen(!isOpen);
@@ -177,6 +178,7 @@ export default function NavBar() {
                               // }}
                               onClick={() => {
                                 setIsOpenLangMenu(!isOpenLangMenu);
+                                // setIsShow2(!isShow2);
                               }}
                             >
                               <p className={styles.pMore}>{navItem.name}</p>

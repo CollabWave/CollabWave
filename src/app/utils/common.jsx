@@ -1,6 +1,6 @@
 const moreNavigation = [
   { name: 'About us', href: 'about' },
-  { name: 'Contacts', href: 'contact' },
+  { name: 'Contacts', href: 'contacts' },
   { name: 'Payment system', href: 'payments' },
   { name: 'Statistics', href: 'statistics' },
   { name: 'Features', href: 'features' },
