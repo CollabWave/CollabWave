@@ -7,14 +7,32 @@
   font-family: var(--font-inter);
   color: white;
 }
+
 .ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  /* border: medium dashed green; */
+  position: relative;
 }
+
+.ulMore {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  /* position: relative; */
+}
+
 .li:not(:last-child) {
   margin-right: 20px;
+}
+.liMore:hover {
+  background-color: #2c7975;
+}
+.pMore:hover {
+  color: #82efee;
 }
 .more_space_icon {
   margin-right: 7px;
@@ -26,4 +44,34 @@
 .down {
   transform: rotate(0deg);
   transition: 0.1s;
+}
+.dropDownMoreMenu {
+  padding: 10px 0px 10px 10px;
+  /* position: fixed; */
+  position: absolute;
+  z-index: 1;
+  left: 88%;
+  top: 64%;
+  width: 150px;
+  height: auto;
+  overflow: auto;
+  /* background: radial-gradient(circle, #153736 0%, #000000 100%); */
+  /* background: linear-gradient(to bottom, #121a19 80%, #2c7975 80%, #121a19 0%, #82efee 70%); */
+  /* background: linear-gradient(to right, #121a19 0%, #121a19 80%, #2c7975 80%, #82efee 70%); */
+
+  background-color: #225c59;
+  border-radius: 10px;
+}
+.dropDownLangMenu {
+  padding: 10px 0px 10px 10px;
+  /* position: fixed; */
+  position: absolute;
+  z-index: 1;
+  left: 70%;
+  top: 125%;
+  width: 57px;
+  height: auto;
+  overflow: auto;
+  background-color: #225c59;
+  border-radius: 8px;
 }
