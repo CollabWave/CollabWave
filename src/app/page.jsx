@@ -8,17 +8,23 @@ import { useSpring, animated } from 'react-spring';
 import { Container } from '@/components/Container/Container';
 
 import { Title } from './homepage/Title';
-import { PhoneModel } from '@/components/PhoneModel/PhoneModel';
-//import { FallingSphere } from '@/components/SphereModel/FallingSphere';
+
 import { AboutSection } from '@/app/homepage/AboutSection';
-import { SphereModel } from '@/components/SphereModel/FallingSphere';
+import { PhoneModel } from '@/components/PhoneModel/PhoneModel';
+import { SphereModel } from '@/components/SphereModel/SphereModel';
+import { BloggerButtonModel } from '@/components/3D Buttons/BloggerButton/BloggerButtonModel';
+import { BrandButtonModel } from '@/components/3D Buttons/BrandButton/BrandButtonModel';
 
 import styles from './homepage/page.module.css';
 
 export default function Home() {
   const [animationFinished, setAnimationFinished] = useState(false);
   const [startSphereFalling, setStartSphereFalling] = useState(false);
-  const [positionY, setPositionY] = useState(-5);
+  const [isSphereTranslatedTo40Percent, setIsSphereTranslatedTo40Percent] = useState(false);
+  const [itemDisplayed, setItemDisplayed] = useState('sphere');
+
+  const [visibleItem, setVisibleItem] = useState(itemDisplayed);
+  const onFadeOut = () => setVisibleItem(itemDisplayed);
 
   useEffect(() => {
     const animationDuration = 2000;
@@ -27,7 +33,9 @@ export default function Home() {
       setAnimationFinished(true);
     }, animationDuration);
 
-    return () => clearTimeout(animationTimer);
+    return () => {
+      clearTimeout(animationTimer);
+    };
   }, []);
 
   const phoneModelSpring = useSpring({
@@ -35,25 +43,27 @@ export default function Home() {
     config: { duration: 2000 },
   });
 
-  const springProps = useSpring({
-    from: { positionY: -5 },
-    to: { positionY: startSphereFalling ? 0 : -5 },
-    config: {
-      duration: 3000,
-      easing: 'easeInOutCubic',
-    },
-    onRest: () => {
-      if (!startSphereFalling) {
-        setPositionY(-5);
-      }
-    },
-  });
-
-  useEffect(() => {
-    if (startSphereFalling) {
-      setPositionY(0);
-    }
-  }, [startSphereFalling]);
+  const animationStyles = useSpring(
+    startSphereFalling
+      ? {
+          from: { opacity: 0, transform: 'translateY(0%)' },
+          to: [{ opacity: 1, transform: 'translateY(40%)' }],
+          config: { duration: '1500' },
+          onRest: () => {
+            setIsSphereTranslatedTo40Percent(true);
+            setItemDisplayed('buttons');
+          },
+        }
+      : {
+          from: { opacity: 1, transform: 'translateY(40%)' },
+          to: [{ opacity: 0, transform: 'translateY(0%)' }],
+          config: { duration: '1500' },
+          onRest: () => {
+            setIsSphereTranslatedTo40Percent(false);
+            setItemDisplayed('sphere');
+          },
+        }
+  );
 
   return (
     <main className={styles.justBackgr}>
@@ -67,12 +77,30 @@ export default function Home() {
         </animated.div>
         <AboutSection />
         <div style={{ height: '300px' }}></div>
-        {startSphereFalling && (
-          <animated.div position-y={springProps.positionY}>
-            <SphereModel />
+        {startSphereFalling && visibleItem !== 'buttons' && (
+          <animated.div className={styles.sphereContainer} style={animationStyles}>
+            <SphereModel dissolve={isSphereTranslatedTo40Percent} dissolveVisible={itemDisplayed === 'sphere'} onFadeOut={onFadeOut} />
           </animated.div>
         )}
-        {/*  {animationFinished && <FallingSphere />} */} {/* Render the FallingSphere component */}
+        {visibleItem === 'buttons' && (
+          <div className={styles.buttonsContainer}
+
+          >
+            <div className={styles.buttonWrap} onClick={(e) => console.log('click')}>
+              <BloggerButtonModel
+                dissolveVisible={itemDisplayed === 'buttons'}
+                onFadeOut={onFadeOut}
+                style={{ cursor: 'pointer' }}
+              />
+            </div>
+            <div className={styles.buttonWrap}>
+              <BrandButtonModel
+                dissolveVisible={itemDisplayed === 'buttons'}
+                onFadeOut={onFadeOut}
+              />
+            </div>
+          </div>
+        )}
       </Container>
     </main>
   );

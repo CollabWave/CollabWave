@@ -6,7 +6,6 @@ import gsap from 'gsap';
 
 import { useGLTF } from '@react-three/drei';
 import { useLoader, useThree } from '@react-three/fiber';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -54,11 +53,7 @@ export function Model(props) {
       x: 2.1,
       y: 0.45,
       z: 0,
-    }); /* to(scene.rotation, {
-      y: 0.72,
-      x: 0.75,
-      z: -0.1,
-    }); */
+    });
     return () => {
       if (t1) t1.kill();
     };
