@@ -36,7 +36,7 @@ export function Model(props) {
       scrollTrigger: {
         trigger: '#phone-model',
         start: 'top top',
-        endTrigger: '#about',
+        endTrigger: '#mobileStop',
         end: 'top top',
         scrub: true,
         pin: true,

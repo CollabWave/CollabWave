@@ -10,7 +10,7 @@ import styles from './PhoneModel.module.css';
 export const PhoneModel = ({ setStartSphereFalling }) => {
   return (
     <div className={styles.model__container} id="phone-model">
-      <Canvas style={{ pointerEvents: 'none' }}>
+      <Canvas>
         <ambientLight intensity={0.1} />
         <Model setStartSphereFalling={setStartSphereFalling} />
         <Environment preset="night" />
