@@ -1,22 +1,19 @@
 'use client';
+
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls } from '@react-three/drei';
-import { Model } from '@/components/phoneModel/Phone';
+import { Environment } from '@react-three/drei';
+
+import { Model } from '@/components/PhoneModel/Phone';
 
 import styles from './PhoneModel.module.css';
 
-export const PhoneModel = () => {
+export const PhoneModel = ({ setStartSphereFalling }) => {
   return (
     <div className={styles.model__container} id="phone-model">
-      <Canvas style={{pointerEvents: "none"}} >
+      <Canvas>
         <ambientLight intensity={0.1} />
-        <Model />
+        <Model setStartSphereFalling={setStartSphereFalling} />
         <Environment preset="night" />
-        {/* <OrbitControls
-          autoRotate
-          autoRotateSpeed={1}
-          enableZoom={false}
-        /> */}
       </Canvas>
     </div>
   );

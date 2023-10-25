@@ -6,7 +6,6 @@ import gsap from 'gsap';
 
 import { useGLTF } from '@react-three/drei';
 import { useLoader, useThree } from '@react-three/fiber';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,9 +36,16 @@ export function Model(props) {
       scrollTrigger: {
         trigger: '#phone-model',
         start: 'top top',
-        endTrigger: '#about',
+        endTrigger: '#mobileStop',
         end: 'top top',
-        scrub: 1,
+        scrub: true,
+        pin: true,
+        onLeave: () => {
+          props.setStartSphereFalling(true);
+        },
+        onEnterBack: () => {
+          props.setStartSphereFalling(false);
+        },
       },
     });
 
@@ -47,11 +53,10 @@ export function Model(props) {
       x: 2.1,
       y: 0.45,
       z: 0,
-    }); /* to(scene.rotation, {
-      y: 0.72,
-      x: 0.75,
-      z: -0.1,
-    }); */
+    });
+    return () => {
+      if (t1) t1.kill();
+    };
   }, []);
 
   return (

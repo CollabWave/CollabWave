@@ -144,6 +144,30 @@
 .green_text {
   color: #82efee;
 }
+
+.sphereContainer {
+  height: 600px;
+  overflow: hidden;
+}
+
+.buttonsContainer {
+  width: 100%;
+  height: 600px;
+  margin-top: 300px;
+  padding-left: 200px;
+  display: flex;
+  gap: 20px;
+}
+
+.buttonWrap {
+  width: 420px;
+  height: 80px;
+  pointer-events: none;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
