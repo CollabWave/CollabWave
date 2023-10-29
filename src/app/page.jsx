@@ -9,6 +9,7 @@ import { Title } from './homepage/Title';
 
 import { ButtonsSection } from '@/app/homepage/ButtonsSection';
 import { AnimationSection } from './homepage/AnimationSection';
+import { AboutSection } from './homepage/AboutSection';
 
 import styles from './homepage/page.module.css';
 
@@ -31,9 +32,14 @@ export default function Home() {
           setItemDisplayed={setItemDisplayed}
           onFadeOut={onFadeOut}
         />
-        {visibleItem === 'buttons' && (
-          <ButtonsSection itemDisplayed={itemDisplayed} onFadeOut={onFadeOut} />
-        )}
+
+        <ButtonsSection
+          itemDisplayed={itemDisplayed}
+          visibleItem={visibleItem}
+          onFadeOut={onFadeOut}
+        />
+
+        <AboutSection />
       </Container>
     </main>
   );
