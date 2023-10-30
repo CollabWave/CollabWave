@@ -24,7 +24,9 @@
   list-style: none;
   /* position: relative; */
 }
-
+.li {
+  z-index: 2;
+}
 .li:not(:last-child) {
   margin-right: 20px;
 }

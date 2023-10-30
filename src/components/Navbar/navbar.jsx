@@ -95,9 +95,9 @@ export default function NavBar() {
           <ul className={styles.ul}>
             {' '}
             <li className={styles.li}>
-              <a href="">
+              <Link href="registration">
                 <p>Sign up</p>
-              </a>
+              </Link>
             </li>
             <li className={styles.li}>
               <a href="">
