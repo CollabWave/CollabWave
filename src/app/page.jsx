@@ -11,8 +11,6 @@ import { ButtonsSection } from '@/app/homepage/ButtonsSection';
 import { AnimationSection } from './homepage/AnimationSection';
 import { AboutSection } from './homepage/AboutSection';
 
-import styles from './homepage/page.module.css';
-
 export default function Home() {
   const [startSphereFalling, setStartSphereFalling] = useState(false);
   const [itemDisplayed, setItemDisplayed] = useState('sphere');
@@ -21,7 +19,7 @@ export default function Home() {
   const onFadeOut = () => setVisibleItem(itemDisplayed);
 
   return (
-    <main className={styles.justBackgr}>
+    <main>
       <Container>
         <Title />
         <AnimationSection

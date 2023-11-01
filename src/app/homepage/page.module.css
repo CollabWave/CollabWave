@@ -1,7 +1,6 @@
 .mainhome {
   padding: 15px;
   min-height: 100vh;
-  background: radial-gradient(circle, #153736 0%, #000000 100%);
   /* filter: blur(5px); */
   color: white;
 }
@@ -134,11 +133,29 @@
 }
 
 .title {
+  z-index: 2;
+  position: relative;
   font-size: 52px;
   width: 621px;
   line-height: 2.35;
   text-align: center;
   margin-top: 65px;
+}
+
+.light__spot_outer {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 765px;
+  height: 785px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle farthest-side,
+    rgba(60, 147, 141, 0.4),
+    rgba(8, 38, 35, 0.2) 80%,
+    rgba(3, 12, 14, 0.2) 100%
+  );
 }
 
 .green_text {
@@ -190,7 +207,7 @@
   font-size: 26px;
   font-weight: 700;
   line-height: 1.35;
-  color: #FFD439;
+  color: #ffd439;
 }
 
 .about__cardText {
