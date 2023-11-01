@@ -1,6 +1,4 @@
 .navbar {
-  background: radial-gradient(circle, #153736 0%, #000000 100%);
-  background: transparent;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.21;
@@ -60,7 +58,7 @@
   padding: 10px 0px 10px 10px;
   /* position: fixed; */
   position: absolute;
-  z-index: 1;
+  z-index: 1000;
   left: 88%;
   top: 64%;
   width: 150px;
