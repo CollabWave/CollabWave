@@ -1,6 +1,7 @@
 import { BrandButtonModel } from '@/components/3D Buttons/BrandButton/BrandButtonModel';
 import { BloggerButtonModel } from '@/components/3D Buttons/BloggerButton/BloggerButtonModel';
-import styles from './page.module.css';
+
+import styles from './animations.module.css';
 
 export const ButtonsSection = ({ itemDisplayed, visibleItem, onFadeOut }) => {
   return (

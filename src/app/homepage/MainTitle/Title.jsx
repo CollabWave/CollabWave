@@ -1,6 +1,7 @@
 import { AnimatedTitle } from './AnimatedTitle';
 
-import styles from '../homepage/page.module.css';
+import pageStyles from '../../homepage/page.module.css';
+import styles from './title.module.css'
 
 export const Title = () => {
   return (
@@ -10,7 +11,7 @@ export const Title = () => {
         <span className={styles.green_text}>COLLABORATION</span> BETWEEN <br />
         BLOGGERS & BRANDS
       </AnimatedTitle>
-      <div className={styles.light__spot_outer}></div>
+      <div className={pageStyles.light__spot}></div>
     </>
   );
 };

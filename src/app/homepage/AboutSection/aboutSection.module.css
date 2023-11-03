@@ -1,0 +1,31 @@
+.about__cards {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__card {
+  width: 522px;
+  list-style: none;
+}
+
+.about__cardBottomWrap {
+  padding: 25px 5px 15px 5px;
+  text-align: center;
+}
+
+.about__cardTitle {
+  margin-bottom: 30px;
+  font-family: var(--font-cinzel);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffd439;
+}
+
+.about__cardText {
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+}

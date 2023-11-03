@@ -4,11 +4,11 @@ import { cloneElement, isValidElement, Children } from 'react';
 
 import { useSpring, animated } from 'react-spring';
 
-import styles from '../homepage/page.module.css';
-import { cinzel } from '../../utils/fonts';
+import styles from './title.module.css';
+import { cinzel } from '../../../utils/fonts';
 
 const animateJSX = (element, delay) => {
-  return Children.map(element, (child, index) => {
+  return Children.map(element, (child) => {
     if (typeof child === 'string') {
       const characters = child.split('').map((char, charIndex) => (
         <animated.span

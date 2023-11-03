@@ -1,0 +1,83 @@
+.features__description {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: 100%;
+  font-family: var(--font-roboto);
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+  border-left: 1px solid #82efee;
+}
+
+.features__titleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+  height: 413px;
+  border-radius: 20px;
+  border: 1px solid #82efee;
+  background: linear-gradient(
+    to bottom,
+    #030c0e 5%,
+    #121a19 22%,
+    rgba(44, 121, 117, 0.2) 50%,
+    #121a19 68%,
+    #030c0e
+  );
+}
+
+.features__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.features__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  width: 414px;
+  border-bottom: 1px solid #fff;
+  will-change: transform, opacity;
+}
+
+.features__cardText {
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.features__listWrap {
+  display: flex;
+  justify-content: space-around;
+}
+
+.features__listItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 414px;
+  height: 105px;
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  line-height: 1.4;
+  border-radius: 20px;
+  background: linear-gradient(
+    to bottom,
+    #030c0e 5%,
+    rgba(18, 26, 25, 0.6) 22%,
+    rgba(44, 121, 117, 0.3) 50%,
+    rgba(18, 26, 25, 0.6) 68%,
+    #030c0e
+  );
+  cursor: default;
+}
