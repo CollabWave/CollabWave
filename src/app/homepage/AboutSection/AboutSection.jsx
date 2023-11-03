@@ -8,11 +8,11 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { Section } from '@/components/Section/Section';
 import { SectionTitle } from '@/components/SectionTitle.jsx/SectionTitle';
 
-import computer from '../../assets/images/mainPage/computer.webp';
-import xl from '../../assets/images/mainPage/xl.webp';
+import computer from '../../../assets/images/mainPage/computer.webp';
+import xl from '../../../assets/images/mainPage/xl.webp';
 
-import styles from './page.module.css';
-import { roboto, cinzel } from '../../utils/fonts';
+import styles from './aboutSection.module.css';
+import { roboto, cinzel } from '../../../utils/fonts';
 
 export const AboutSection = () => {
   const aboutTriggerRef = useRef();

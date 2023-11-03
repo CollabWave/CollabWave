@@ -5,11 +5,12 @@ import { useState } from 'react';
 
 import { Container } from '@/components/Container/Container';
 
-import { Title } from './homepage/Title';
+import { Title } from './homepage/MainTitle/Title';
 
-import { ButtonsSection } from '@/app/homepage/ButtonsSection';
-import { AnimationSection } from './homepage/AnimationSection';
-import { AboutSection } from './homepage/AboutSection';
+import { ButtonsSection } from './homepage/Animations/ButtonsSection';
+import { AnimationSection } from './homepage/Animations/AnimationSection';
+import { AboutSection } from './homepage/AboutSection/AboutSection';
+import { FeaturesSection } from './homepage/FeaturesSection/FeaturesSection';
 
 export default function Home() {
   const [startSphereFalling, setStartSphereFalling] = useState(false);
@@ -38,6 +39,7 @@ export default function Home() {
         />
 
         <AboutSection />
+        <FeaturesSection />
       </Container>
     </main>
   );

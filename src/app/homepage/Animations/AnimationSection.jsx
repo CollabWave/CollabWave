@@ -6,7 +6,7 @@ import { useSpring, animated } from 'react-spring';
 import { PhoneModel } from '@/components/PhoneModel/PhoneModel';
 import { SphereModel } from '@/components/SphereModel/SphereModel';
 
-import styles from './page.module.css';
+import styles from './animations.module.css';
 
 export const AnimationSection = ({
   startSphereFalling,

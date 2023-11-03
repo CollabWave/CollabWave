@@ -132,17 +132,7 @@
   position: relative;
 }
 
-.title {
-  z-index: 2;
-  position: relative;
-  font-size: 52px;
-  width: 621px;
-  line-height: 2.35;
-  text-align: center;
-  margin-top: 65px;
-}
-
-.light__spot_outer {
+.light__spot {
   position: absolute;
   top: 10px;
   left: 50%;
@@ -156,65 +146,6 @@
     rgba(8, 38, 35, 0.2) 80%,
     rgba(3, 12, 14, 0.2) 100%
   );
-}
-
-.green_text {
-  color: #82efee;
-}
-
-.sphereContainer {
-  height: 500px;
-  overflow: hidden;
-}
-
-.buttonsContainer {
-  width: 100%;
-  height: 250px;
-  margin-top: 300px;
-  padding-left: 200px;
-  display: flex;
-  gap: 20px;
-}
-
-.buttonWrap {
-  width: 420px;
-  height: 80px;
-  pointer-events: none;
-  text-align: center;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.about__cards {
-  margin-top: 80px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.about__card {
-  width: 522px;
-  list-style: none;
-}
-
-.about__cardBottomWrap {
-  padding: 25px 5px 15px 5px;
-  text-align: center;
-}
-
-.about__cardTitle {
-  margin-bottom: 30px;
-  font-family: var(--font-cinzel);
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: #ffd439;
-}
-
-.about__cardText {
-  font-family: var(--font-roboto);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.4;
 }
 
 /* Enable hover only on non-touch devices */
