@@ -11,6 +11,7 @@ import { ButtonsSection } from './homepage/Animations/ButtonsSection';
 import { AnimationSection } from './homepage/Animations/AnimationSection';
 import { AboutSection } from './homepage/AboutSection/AboutSection';
 import { FeaturesSection } from './homepage/FeaturesSection/FeaturesSection';
+import { BlogSection } from './homepage/BlogSection/BlogSection';
 
 export default function Home() {
   const [startSphereFalling, setStartSphereFalling] = useState(false);
@@ -40,6 +41,7 @@ export default function Home() {
 
         <AboutSection />
         <FeaturesSection />
+        <BlogSection />
       </Container>
     </main>
   );
