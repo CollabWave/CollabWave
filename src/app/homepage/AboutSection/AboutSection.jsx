@@ -12,7 +12,7 @@ import computer from '../../../assets/images/mainPage/computer.webp';
 import xl from '../../../assets/images/mainPage/xl.webp';
 
 import styles from './aboutSection.module.css';
-import { roboto, cinzel } from '../../../utils/fonts';
+import { roboto } from '../../../utils/fonts';
 
 export const AboutSection = () => {
   const aboutTriggerRef = useRef();

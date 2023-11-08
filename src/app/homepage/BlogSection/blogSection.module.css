@@ -1,0 +1,50 @@
+.list {
+  position: relative;
+  margin-top: 77px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1150px;
+  justify-content: space-between;
+  overflow: clip !important;
+  overflow-clip-margin: 26px;
+}
+
+.card {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.title {
+  width: 517px;
+  padding: 0 9px;
+  color: #ffd439;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: var(--font-cinzel);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.3px;
+}
+
+.relativeWrap {
+  position: relative;
+  width: 1250px;
+}
+
+.leftArrow {
+  position: absolute;
+  width: 45px;
+  top: 285px;
+  left: -25px;
+  cursor: pointer;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 285px;
+  right: -25px;
+  cursor: pointer;
+}
