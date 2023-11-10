@@ -80,4 +80,15 @@
     #030c0e
   );
   cursor: default;
+  transition: all 0.5s ease-in-out;
+}
+
+.features__listItem:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 26, 25, 0.4) 0%,
+    rgba(44, 121, 117, 0.4) 52.08%,
+    rgba(18, 26, 25, 0) 100%
+  );
+  scale: 1.03;
 }
