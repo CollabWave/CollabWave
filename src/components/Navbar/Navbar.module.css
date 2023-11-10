@@ -24,6 +24,10 @@
 }
 .li {
   z-index: 2;
+  padding: 10px 15px;
+}
+.li * {
+  transition: all 0.35 ease;
 }
 .li:not(:last-child) {
   margin-right: 20px;
@@ -42,11 +46,18 @@
   font-family: var(--font-inter);
   color: white;
 }
+.moreHover:hover .more_space_icon,
+.moreHover:hover .down {
+  color: #82efee;
+}
+.moreActive .more_space_icon {
+  color: #82efee;
+}
 .up {
   transform: rotate(180deg);
   transition: 0.1s;
   position: relative;
-  color: white;
+  color: #82efee;
   z-index: 1000;
 }
 .down {
@@ -55,6 +66,9 @@
   position: relative;
   color: white;
   z-index: 1000;
+}
+.down:hover {
+  color: #82efee;
 }
 .dropDownMoreMenu {
   padding: 10px 0px 10px 10px;
@@ -85,4 +99,50 @@
   overflow: auto;
   background-color: #225c59;
   border-radius: 8px;
+}
+
+.liForHover {
+  position: relative;
+}
+
+.link {
+  transition: all 0.35s ease;
+}
+
+.link::before,
+.link::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.link::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #46a3a2;
+  border-right: 3px solid #367d7c;
+  transform: translate(-100%, 50%);
+}
+
+.link::after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #367d7c;
+  border-left: 3px solid #46a3a2;
+  transform: translate(100%, -50%);
+}
+
+.link:hover:before,
+.link:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.link:hover {
+  color: #82efee;
 }

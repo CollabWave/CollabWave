@@ -8,7 +8,11 @@ import { moreNavigation, languages } from '@/utils/common';
 import Link from 'next/link';
 import useOutsideClickClose from '@/hooks/outsideClickClose';
 
+import worldColored from '../../assets/images/mainPage/svg/worldColored.svg';
+
 export default function NavBar() {
+  const [hoveredIcon, setHoveredIcon] = useState(false);
+
   const {
     ref: refMore,
     isShow: isShowMore,
@@ -19,6 +23,14 @@ export default function NavBar() {
     isShow: isShowLang,
     setIsShow: setIsShowLang,
   } = useOutsideClickClose(false);
+
+  const handleMouseEnter = () => {
+    setHoveredIcon(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIcon(false);
+  };
 
   return (
     <div className={styles.navbar}>
@@ -32,17 +44,23 @@ export default function NavBar() {
                 <Image src="/Logo.png" alt="Logo GetPromo icon" width={250} height={100} />
               </Link>
             </li>
-            <li className={styles.li}>
-              <Link href="bloger">
+            <li className={`${styles.li} ${styles.liForHover}`}>
+              <Link className={styles.link} href="bloger">
                 <p>I’m bloger</p>
               </Link>
             </li>
-            <li className={styles.li}>
-              <Link href="brand">
+            <li className={`${styles.li} ${styles.liForHover}`}>
+              <Link className={styles.link} href="brand">
                 <p>I’m brand</p>
               </Link>
             </li>
-            <li className={styles.li}>
+            <li
+              className={
+                isShowMore
+                  ? `${styles.li} ${styles.moreActive}`
+                  : `${styles.li} ${styles.moreHover}`
+              }
+            >
               <Button isOpen={isShowMore} setIsOpen={setIsShowMore}>
                 {<p className={styles.more_space_icon}>More</p>}
 
@@ -94,25 +112,33 @@ export default function NavBar() {
         <nav>
           <ul className={styles.ul}>
             {' '}
-            <li className={styles.li}>
-              <Link href="registration">
+            <li className={`${styles.li} ${styles.liForHover}`}>
+              <Link className={styles.link} href="registration">
                 <p>Sign up</p>
               </Link>
             </li>
-            <li className={styles.li}>
-              <a href="">
+            <li className={`${styles.li} ${styles.liForHover}`}>
+              <Link className={styles.link} href="">
                 <p>Log in</p>
-              </a>
+              </Link>
             </li>
-            <li className={styles.li}>
-              <Button isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
-                <Image
+            <li className={styles.li} onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
+              <Button  isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
+                {isShowLang || hoveredIcon ? <Image
+                  className={styles.more_space_icon}
+                  priority
+                  src={worldColored}
+                  alt="Icon World with drop down menu"
+                  width={29}
+                  height={29}
+                /> : <Image
                   className={styles.more_space_icon}
                   src="/Icon_world.png"
                   alt="Icon World with drop down menu"
                   width={29}
                   height={29}
-                />
+                />}
                 <div>
                   {' '}
                   <svg
