@@ -1,3 +1,5 @@
 import styles from './container.module.css';
 
-export const Container = ({ children }) => <div className={styles.container}>{children}</div>;
+export const Container = ({ children, line }) => (
+  <div className={line ? `${styles.container} ${styles.topLine}` : styles.container}>{children}</div>
+);
