@@ -146,3 +146,13 @@
 .link:hover {
   color: #82efee;
 }
+.btn {
+  display: flex;
+  margin-right: 7px;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -45,7 +45,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li className={`${styles.li} ${styles.liForHover}`}>
-              <Link className={styles.link} href="bloger">
+              <Link className={styles.link} href="blogger">
                 <p>I’m bloger</p>
               </Link>
             </li>
