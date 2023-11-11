@@ -33,8 +33,8 @@ export default function NavBar() {
               </Link>
             </li>
             <li className={styles.li}>
-              <Link href="bloger">
-                <p>I’m bloger</p>
+              <Link href="blogger">
+                <p>I’m blogger</p>
               </Link>
             </li>
             <li className={styles.li}>
@@ -43,7 +43,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li className={styles.li}>
-              <Button isOpen={isShowMore} setIsOpen={setIsShowMore}>
+              <Button isOpen={isShowMore} setIsOpen={setIsShowMore} btn_styles={styles.btn}>
                 {<p className={styles.more_space_icon}>More</p>}
 
                 {
@@ -105,7 +105,12 @@ export default function NavBar() {
               </a>
             </li>
             <li className={styles.li}>
-              <Button isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
+              <Button
+                isOpen={isShowLang}
+                setIsOpen={setIsShowLang}
+                className={styles.ul}
+                btn_styles={styles.btn}
+              >
                 <Image
                   className={styles.more_space_icon}
                   src="/Icon_world.png"
