@@ -1,10 +1,10 @@
 import styles from './Button.module.css';
 
-export function Button({ isOpen, setIsOpen, children }) {
+export function Button({ isOpen, setIsOpen, children, btn_styles }) {
   return (
     <button
       type="button"
-      className={styles.btn}
+      className={btn_styles}
       onClick={e => {
         e.preventDefault();
         setIsOpen(!isOpen);
