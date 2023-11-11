@@ -44,15 +44,9 @@ export default function NavBar() {
                 <Image src="/Logo.png" alt="Logo GetPromo icon" width={250} height={100} />
               </Link>
             </li>
-<<<<<<< HEAD
             <li className={`${styles.li} ${styles.liForHover}`}>
-              <Link className={styles.link} href="bloger">
+              <Link className={styles.link} href="blogger">
                 <p>I’m bloger</p>
-=======
-            <li className={styles.li}>
-              <Link href="blogger">
-                <p>I’m blogger</p>
->>>>>>> blogger_page
               </Link>
             </li>
             <li className={`${styles.li} ${styles.liForHover}`}>
@@ -60,7 +54,6 @@ export default function NavBar() {
                 <p>I’m brand</p>
               </Link>
             </li>
-<<<<<<< HEAD
             <li
               className={
                 isShowMore
@@ -69,10 +62,6 @@ export default function NavBar() {
               }
             >
               <Button isOpen={isShowMore} setIsOpen={setIsShowMore}>
-=======
-            <li className={styles.li}>
-              <Button isOpen={isShowMore} setIsOpen={setIsShowMore} btn_styles={styles.btn}>
->>>>>>> blogger_page
                 {<p className={styles.more_space_icon}>More</p>}
 
                 {
@@ -133,7 +122,6 @@ export default function NavBar() {
                 <p>Log in</p>
               </Link>
             </li>
-<<<<<<< HEAD
             <li className={styles.li} onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
               <Button  isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
@@ -145,16 +133,6 @@ export default function NavBar() {
                   width={29}
                   height={29}
                 /> : <Image
-=======
-            <li className={styles.li}>
-              <Button
-                isOpen={isShowLang}
-                setIsOpen={setIsShowLang}
-                className={styles.ul}
-                btn_styles={styles.btn}
-              >
-                <Image
->>>>>>> blogger_page
                   className={styles.more_space_icon}
                   src="/Icon_world.png"
                   alt="Icon World with drop down menu"

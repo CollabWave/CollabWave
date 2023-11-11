@@ -100,7 +100,6 @@
   background-color: #225c59;
   border-radius: 8px;
 }
-<<<<<<< HEAD
 
 .liForHover {
   position: relative;
@@ -146,7 +145,7 @@
 
 .link:hover {
   color: #82efee;
-=======
+}
 .btn {
   display: flex;
   margin-right: 7px;
@@ -156,5 +155,4 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
->>>>>>> blogger_page
 }
