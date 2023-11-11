@@ -1,35 +1,40 @@
-'use client';
-import { useLayoutEffect } from 'react';
-
+import React, { useLayoutEffect } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
-
 import { useGLTF } from '@react-three/drei';
-import { useLoader, useThree } from '@react-three/fiber';
+import { useThree } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/phone-transformed.glb');
-
   const phoneScreenMesh = nodes.Cube001;
 
-  const screenTexture = useLoader(TextureLoader, '/4e30b4e4-df96-4d17-9330-f8fa1a34932b.jpg');
+  const screenTexture = new TextureLoader().load(
+    '/4e30b4e4-df96-4d17-9330-f8fa1a34932b.jpg',
+    (loadedTexture) => {
+      loadedTexture.flipY = false; 
+      const screenMaterial = new THREE.MeshBasicMaterial({
+        map: loadedTexture,
+        color: 0x999999,
+        flipY: false,
+      });
+  
+      phoneScreenMesh.material = screenMaterial;
+  
+      phoneScreenMesh.geometry = phoneScreenMesh.geometry.clone();
 
-  const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, color: 0x999999 });
-
-  phoneScreenMesh.material = screenMaterial;
-
-  phoneScreenMesh.geometry.attributes.uv.array.forEach((uv, index) => {
-    if (index % 2 === 1) {
-      phoneScreenMesh.geometry.attributes.uv.array[index] = 1 - uv;
+      phoneScreenMesh.geometry.attributes.uv.array = phoneScreenMesh.geometry.attributes.uv.array.map(
+        (uv, index) => (index % 2 === 1 ? 1 - uv : uv)
+      );
+      phoneScreenMesh.geometry.attributes.uv.needsUpdate = true;
     }
-  });
+  );
 
   gsap.registerPlugin(ScrollTrigger);
 
-  let camera = useThree(state => state.camera);
-  let scene = useThree(state => state.scene);
+  let camera = useThree((state) => state.camera);
+  let scene = useThree((state) => state.scene);
 
   useLayoutEffect(() => {
     let t1 = gsap.timeline({
@@ -54,6 +59,7 @@ export function Model(props) {
       y: 0.45,
       z: 0,
     });
+
     return () => {
       if (t1) t1.kill();
     };
