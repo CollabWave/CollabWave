@@ -196,7 +196,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
+                    href={'blog'}
                   >
                     Blog
                   </Link>
