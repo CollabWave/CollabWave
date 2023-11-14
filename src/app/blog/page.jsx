@@ -1,5 +1,7 @@
-
-
 export default function BlogPage() {
-    return <h1>I'm a blog</h1>
+  return (
+    <>
+      <h1>I'm a blog</h1>
+    </>
+  );
 }

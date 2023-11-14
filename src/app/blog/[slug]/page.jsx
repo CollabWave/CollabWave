@@ -1,8 +1,7 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import BlogWrapper from './BlogWrapper';
 
 export default function BlogPage() {
-  const slug = usePathname();
-  return <p>Post: {slug}</p>;
+  return <BlogWrapper />;
 }

@@ -1,12 +1,13 @@
 'use client';
 
 import ReduxProvider from '@/redux/ReduxProvider';
-import { BlogCarousel } from './BlogCarousel';
+
+import { PostBlogPage } from './PostBlogPage';
 
 export default function BlogWrapper() {
   return (
     <ReduxProvider>
-      <BlogCarousel />
+      <PostBlogPage />
     </ReduxProvider>
   );
 }
