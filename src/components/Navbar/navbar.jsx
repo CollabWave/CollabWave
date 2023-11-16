@@ -8,7 +8,7 @@ import { moreNavigation, languages } from '@/utils/common';
 import Link from 'next/link';
 import useOutsideClickClose from '@/hooks/outsideClickClose';
 
-import worldColored from '../../assets/images/mainPage/svg/worldColored.svg';
+import worldColored from '../../assets/images/svg/worldColored.svg';
 
 export default function NavBar() {
   const [hoveredIcon, setHoveredIcon] = useState(false);

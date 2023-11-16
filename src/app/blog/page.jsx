@@ -1,7 +1,9 @@
+import BlogWrapper from './BlogWrapper';
+
 export default function BlogPage() {
   return (
-    <>
-      <h1>I'm a blog</h1>
-    </>
+    <main>
+      <BlogWrapper />
+    </main>
   );
 }

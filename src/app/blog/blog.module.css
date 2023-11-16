@@ -1,0 +1,201 @@
+.container {
+  padding-top: 70px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.title {
+  font-family: var(--font-cinzel);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: #ffd439;
+}
+
+.upperWrap {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.inputWrap {
+  width: 245px;
+  display: flex;
+  align-items: first center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.input {
+  width: 0px;
+  height: 30px;
+  padding-bottom: 6px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #82efee;
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  background-color: transparent;
+  color: #fff;
+
+  -webkit-transition: width 0.55s ease;
+  -moz-transition: width 0.55s ease;
+  -ms-transition: width 0.55s ease;
+  -o-transition: width 0.55s ease;
+  transition: width 0.55s ease;
+}
+
+.input::placeholder {
+  color: #65737e;
+}
+
+.input::-webkit-search-cancel-button {
+  filter: invert(100%) sepia(20%) saturate(90%) hue-rotate(90deg);
+}
+
+.input:focus,
+.input:active {
+  outline: none;
+  width: 200px;
+}
+
+.inputWrap:hover .input {
+  width: 200px;
+}
+
+.buttonsWrap {
+  display: flex;
+  gap: 30px;
+}
+
+.allPostsButton {
+  font-family: var(--font-roboto);
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  color: #82efee;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.75em;
+}
+
+.allPostsButton::before,
+.allPostsButton::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: center;
+}
+
+.allPostsButton::before {
+  border-top: 0.2em solid #367d7c;
+  border-bottom: 0.2em solid #367d7c;
+  transform: scale3d(0, 1, 1);
+}
+
+.allPostsButton::after {
+  border-left: 0.2em solid #367d7c;
+  border-right: 0.2em solid #367d7c;
+  transform: scale3d(1, 0, 1);
+}
+
+.allPostsButton:hover::before,
+.allPostsButton:hover::after {
+  transform: scale3d(1, 1, 1);
+  transition: transform 900ms;
+}
+
+.postsWrap {
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.post {
+  display: inline-block;
+  height: 386px;
+  text-align: left;
+  opacity: 0.99;
+  /* overflow: hidden; */
+  position: relative;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.post::before {
+  content: '';
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  width: 100%;
+  height: 50%;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transition-property: top, opacity;
+  transition-duration: 0.3s;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.postTitle {
+  width: 350px;
+  font-family: var(--font-roboto);
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  color: #ffd439;
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  z-index: 100;
+  display: block;
+  opacity: 1;
+  position: absolute;
+  transition-property: bottom, opacity;
+  transition-duration: 0.3s;
+  transition-delay: 0s;
+}
+
+.postLi:focus .post::before,
+.postLi:hover .post::before,
+.postLi:focus .postTitle,
+.postLi:hover .postTitle {
+  opacity: 1;
+}
+
+.postLi:focus .post::before,
+.postLi:hover .post::before {
+  top: 50%;
+}
+
+.postLi:focus .postTitle,
+.postLi:hover .postTitle {
+  bottom: 10%;
+  transition-delay: 0.15s;
+}
+
+/* .postLi:focus .image,
+.postLi:hover .image {
+  height: 486px;
+  transition-delay: 0.15s;
+} */

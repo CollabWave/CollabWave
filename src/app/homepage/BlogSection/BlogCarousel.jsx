@@ -10,8 +10,8 @@ import Carousel from 'react-multi-carousel';
 
 import { BlogCard } from './BlogCard';
 
-import arrowLeft from '../../../assets/images/mainPage/svg/arrowLeft.svg';
-import arrowRight from '../../../assets/images/mainPage/svg/arrowRight.svg';
+import arrowLeft from '../../../assets/images/svg/arrowLeft.svg';
+import arrowRight from '../../../assets/images/svg/arrowRight.svg';
 
 import styles from './blogSection.module.css';
 import 'react-multi-carousel/lib/styles.css';

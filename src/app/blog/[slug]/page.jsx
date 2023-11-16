@@ -3,5 +3,9 @@
 import BlogWrapper from './BlogWrapper';
 
 export default function BlogPage() {
-  return <BlogWrapper />;
+  return (
+    <main>
+      <BlogWrapper />
+    </main>
+  );
 }

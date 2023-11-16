@@ -22,7 +22,7 @@ export const PostBlogPage = () => {
 
   const imagePath = 'http://localhost:3030/blogImages/'; //заменить на переменную из .env
   return (
-    <main className={styles.main}>
+    <div className={styles.container}>
       <div className={styles.pageWrap}>
         {postToShow && (
           <div>
@@ -70,6 +70,6 @@ export const PostBlogPage = () => {
           </ul>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
