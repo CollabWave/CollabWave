@@ -1,10 +1,10 @@
-import { root } from './globals.css';
-import NavBar from '../components/Navbar/navbar.jsx';
+import { root } from '../globals.css';
+import NavBar from '../../components/Navbar/navbar.jsx';
 import { Footer } from '@/components/Footer/Footer';
 
 import { Cinzel, Saira, Inter } from 'next/font/google';
 
-import styles from './homepage/page.module.css';
+import styles from '../homepage/page.module.css';
 
 export const cinzel = Cinzel({
   variable: '--font-cinzel',

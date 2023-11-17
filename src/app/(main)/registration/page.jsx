@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import regImg from '../../image/regImg.jpg';
-import google from '../../image/google.png';
+import regImg from '../../../image/regImg.jpg';
+import google from '../../../image/google.png';
 import styles from './Registration.module.css';
 import Link from 'next/link';
 const Registration = () => {

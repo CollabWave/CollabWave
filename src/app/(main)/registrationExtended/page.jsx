@@ -4,7 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 import Image from 'next/image';
 import styles from './RegistrationExtended.module.css';
-import regImg from '../../image/reg-ext.jpeg';
+import regImg from '../../../image/reg-ext.jpeg';
 import Link from 'next/link';
 const RegistrationExtended = () => {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
