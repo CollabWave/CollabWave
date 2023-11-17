@@ -1,0 +1,159 @@
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.pageWrap {
+  display: flex;
+  gap: 90px;
+}
+
+.postWrap {
+  margin-bottom: 70px;
+  display: flex;
+  gap: 80px;
+}
+
+.title {
+  margin-bottom: 70px;
+  font-family: var(--font-cinzel);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: #82efee;
+}
+
+.text {
+  font-family: var(--font-roboto);
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+.allPostsWrap {
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ffd439;
+}
+
+.smallTitle {
+  margin-bottom: 20px;
+  font-family: var(--font-cinzel);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: #ffd439;
+}
+
+.smallText {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-family: var(--font-roboto);
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.buttonWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 60px;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 16rem;
+  height: auto;
+}
+
+.circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 26, 25, 0.35) 0%,
+    rgba(44, 121, 117, 0.35) 52.08%,
+    rgba(18, 26, 25, 0) 100%
+  );
+  border-radius: 1.625rem;
+}
+
+.icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #82efee;
+}
+
+.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #82efee;
+  border-right: 0.125rem solid #82efee;
+  transform: rotate(45deg);
+}
+
+.buttonText {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 2.7rem;
+  color: #fff;
+  font-family: var(--font-roboto);
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.button:hover .circle {
+  width: 100%;
+}
+
+.button:hover .icon {
+  background: #82efee;
+  transform: translate(1rem, 0);
+}
+.button:hover .arrow {
+  background: #82efee;
+  transform: translate(1rem, 0);
+}
+
+.button:hover .buttonText {
+  color: #82efee;
+}

@@ -7,23 +7,23 @@ import { useState } from 'react';
 
 import { Container } from '../Container/Container';
 
-import phone from '../../assets/images/mainPage/svg/phone.svg';
-import phoneHover from '../../assets/images/mainPage/svg/phoneHover.svg';
-import letter from '../../assets/images/mainPage/svg/letter.svg';
-import letterHover from '../../assets/images/mainPage/svg/letterHover.svg';
-import telegram from '../../assets/images/mainPage/svg/telegram.svg';
-import telegramHover from '../../assets/images/mainPage/svg/telegramHover.svg';
-import facebook from '../../assets/images/mainPage/svg/facebook.svg';
-import facebookHover from '../../assets/images/mainPage/svg/facebookHover.svg';
-import instagram from '../../assets/images/mainPage/svg/instagram.svg';
-import instagramHover from '../../assets/images/mainPage/svg/instagramHover.svg';
-import tiktok from '../../assets/images/mainPage/svg/tikTok.svg';
-import tiktokHover from '../../assets/images/mainPage/svg/tikTokHover.svg';
-import visa from '../../assets/images/mainPage/svg/visa.svg';
-import visaHover from '../../assets/images/mainPage/svg/visaHover.svg';
-import master from '../../assets/images/mainPage/svg/master.svg';
-import masterHover from '../../assets/images/mainPage/svg/masterHover.svg';
-import autorship from '../../assets/images/mainPage/svg/authorship.svg';
+import phone from '../../assets/images/svg/phone.svg';
+import phoneHover from '../../assets/images/svg/phoneHover.svg';
+import letter from '../../assets/images/svg/letter.svg';
+import letterHover from '../../assets/images/svg/letterHover.svg';
+import telegram from '../../assets/images/svg/telegram.svg';
+import telegramHover from '../../assets/images/svg/telegramHover.svg';
+import facebook from '../../assets/images/svg/facebook.svg';
+import facebookHover from '../../assets/images/svg/facebookHover.svg';
+import instagram from '../../assets/images/svg/instagram.svg';
+import instagramHover from '../../assets/images/svg/instagramHover.svg';
+import tiktok from '../../assets/images/svg/tikTok.svg';
+import tiktokHover from '../../assets/images/svg/tikTokHover.svg';
+import visa from '../../assets/images/svg/visa.svg';
+import visaHover from '../../assets/images/svg/visaHover.svg';
+import master from '../../assets/images/svg/master.svg';
+import masterHover from '../../assets/images/svg/masterHover.svg';
+import autorship from '../../assets/images/svg/authorship.svg';
 
 import styles from './footer.module.css';
 import { cinzel, roboto } from '@/utils/fonts';
@@ -196,7 +196,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
+                    href={'blog'}
                   >
                     Blog
                   </Link>
