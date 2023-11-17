@@ -5,13 +5,13 @@ import { useState } from 'react';
 
 import { Container } from '@/components/Container/Container';
 
-import { Title } from './homepage/MainTitle/Title';
+import { Title } from '../homepage/MainTitle/Title';
 
-import { ButtonsSection } from './homepage/Animations/ButtonsSection';
-import { AnimationSection } from './homepage/Animations/AnimationSection';
-import { AboutSection } from './homepage/AboutSection/AboutSection';
-import { FeaturesSection } from './homepage/FeaturesSection/FeaturesSection';
-import { BlogSection } from './homepage/BlogSection/BlogSection';
+import { ButtonsSection } from '../homepage/Animations/ButtonsSection';
+import { AnimationSection } from '../homepage/Animations/AnimationSection';
+import { AboutSection } from '../homepage/AboutSection/AboutSection';
+import { FeaturesSection } from '../homepage/FeaturesSection/FeaturesSection';
+import { BlogSection } from '../homepage/BlogSection/BlogSection';
 
 export default function Home() {
   const [startSphereFalling, setStartSphereFalling] = useState(false);

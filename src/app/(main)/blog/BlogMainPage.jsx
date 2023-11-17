@@ -11,7 +11,7 @@ import { selectBlogState } from '@/redux/blog/blogSlice'; */
 
 import { blog } from '@/mockData/blog';
 
-import search from '../../assets/images/svg/search.svg';
+import search from '../../../assets/images/svg/search.svg';
 
 import styles from './blog.module.css';
 import { cinzel, roboto } from '@/utils/fonts';

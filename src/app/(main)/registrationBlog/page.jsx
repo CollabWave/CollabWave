@@ -3,17 +3,17 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './RegistrationBlog.module.css';
 import Image from 'next/image';
-import blogImg from '../../image/reg-blog.png';
-import telegram from '../../assets/images/svg/telegram.svg';
-import telegramHover from '../../assets/images/svg/telegramHover.svg';
-import facebook from '../../assets/images/svg/facebook.svg';
-import facebookHover from '../../assets/images/svg/facebookHover.svg';
-import instagram from '../../assets/images/svg/instagram.svg';
-import instagramHover from '../../assets/images/svg/instagramHover.svg';
-import tiktok from '../../assets/images/svg/tikTok.svg';
-import tiktokHover from '../../assets/images/svg/tikTokHover.svg';
-import youTube from '../../assets/images/svg/youtube.svg';
-import youTubeHover from '../../assets/images/svg/youtubeHover.svg';
+import blogImg from '../../../image/reg-blog.png';
+import telegram from '../../../assets/images/svg/telegram.svg';
+import telegramHover from '../../../assets/images/svg/telegramHover.svg';
+import facebook from '../../../assets/images/svg/facebook.svg';
+import facebookHover from '../../../assets/images/svg/facebookHover.svg';
+import instagram from '../../../assets/images/svg/instagram.svg';
+import instagramHover from '../../../assets/images/svg/instagramHover.svg';
+import tiktok from '../../../assets/images/svg/tikTok.svg';
+import tiktokHover from '../../../assets/images/svg/tikTokHover.svg';
+import youTube from '../../../assets/images/svg/youtube.svg';
+import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import { roboto } from '@/utils/fonts';
 
 const RegistrationBlog = () => {
