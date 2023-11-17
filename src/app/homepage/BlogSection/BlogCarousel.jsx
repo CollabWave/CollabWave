@@ -1,10 +1,12 @@
 import Image from 'next/image';
 
-import { useEffect } from 'react';
+/* import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectBlogState } from '@/redux/blog/blogSlice';
+import { selectBlogState } from '@/redux/blog/blogSlice'; */
+
+import { blog } from '@/mockData/blog';
 
 import Carousel from 'react-multi-carousel';
 
@@ -18,14 +20,14 @@ import 'react-multi-carousel/lib/styles.css';
 import { fetchBlogPosts } from '@/redux/blog/blogOperations';
 
 export const BlogCarousel = () => {
-  const dispatch = useDispatch();
+  /* const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBlogPosts());
   }, []);
 
   const blog = useSelector(selectBlogState);
-
+ */
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },

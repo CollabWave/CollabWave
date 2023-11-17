@@ -121,81 +121,59 @@
 .postsWrap {
   margin-bottom: 100px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .post {
   display: inline-block;
-  height: 386px;
-  text-align: left;
-  opacity: 0.99;
-  /* overflow: hidden; */
+  height: 486px;
+  width: 350px;
   position: relative;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
 }
 
-.post::before {
+.post::before,
+.post::after {
   content: '';
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
-  width: 100%;
-  height: 50%;
-  opacity: 0;
+  box-sizing: border-box;
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 2;
-  transition-property: top, opacity;
-  transition-duration: 0.3s;
+  height: 100%;
+  width: 100%;
+  transform-origin: center;
 }
 
-.image {
-  display: block;
-  max-width: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.post::before {
+  border-top: 0.2em solid #c9ac1a;
+  border-bottom: 0.2em solid #c9ac1a;
+  border-radius: 10px;
+  transform: scale3d(0, 1, 1);
+}
+
+.post::after {
+  border-left: 0.2em solid #c9ac1a;
+  border-right: 0.2em solid #c9ac1a;
+  border-radius: 10px;
+  transform: scale3d(1, 0, 1);
+}
+
+.post:hover::before,
+.post:hover::after {
+  transform: scale3d(1, 1, 1);
+  transition: transform 900ms;
 }
 
 .postTitle {
-  width: 350px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--font-roboto);
   font-size: 20px;
   text-align: center;
   padding: 20px;
   color: #ffd439;
-  position: absolute;
-  bottom: -30%;
-  left: 0;
-  z-index: 100;
-  display: block;
-  opacity: 1;
-  position: absolute;
-  transition-property: bottom, opacity;
-  transition-duration: 0.3s;
-  transition-delay: 0s;
 }
-
-.postLi:focus .post::before,
-.postLi:hover .post::before,
-.postLi:focus .postTitle,
-.postLi:hover .postTitle {
-  opacity: 1;
-}
-
-.postLi:focus .post::before,
-.postLi:hover .post::before {
-  top: 50%;
-}
-
-.postLi:focus .postTitle,
-.postLi:hover .postTitle {
-  bottom: 10%;
-  transition-delay: 0.15s;
-}
-
-/* .postLi:focus .image,
-.postLi:hover .image {
-  height: 486px;
-  transition-delay: 0.15s;
-} */

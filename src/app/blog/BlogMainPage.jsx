@@ -5,9 +5,11 @@ import Link from 'next/link';
 
 import { useState } from 'react';
 
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux';
 
-import { selectBlogState } from '@/redux/blog/blogSlice';
+import { selectBlogState } from '@/redux/blog/blogSlice'; */
+
+import { blog } from '@/mockData/blog';
 
 import search from '../../assets/images/svg/search.svg';
 
@@ -15,11 +17,11 @@ import styles from './blog.module.css';
 import { cinzel, roboto } from '@/utils/fonts';
 
 export const BlogMainPage = () => {
-  const blog = useSelector(selectBlogState);
+  /* const blog = useSelector(selectBlogState); */
   const [filteredPosts, setFilteredPosts] = useState(blog);
   const [query, setQuery] = useState('');
 
-  const imagePath = 'http://localhost:3030/blogImages/'; //заменить на переменную из .env
+  /* const imagePath = 'http://localhost:3030/blogImages/'; */ //заменить на переменную из .env
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} ${cinzel.variable}`}>Blog</h2>
@@ -85,14 +87,14 @@ export const BlogMainPage = () => {
       </div>
       <ul className={styles.postsWrap}>
         {filteredPosts.map(post => (
-          <li className={styles.postLi}>
+          <li key={post.slug} className={styles.postLi}>
             <Link href={`/blog/${post.slug}`}>
               <div className={styles.post}>
                 <Image
                   className={styles.image}
                   width={350}
                   height={386}
-                  src={`${imagePath}${post.image}`}
+                  src={post.image}/* {`${imagePath}${post.image}`} */
                   alt={post.title}
                 />
                 <p className={`${styles.postTitle} ${roboto.variable}`}>{post.title}</p>

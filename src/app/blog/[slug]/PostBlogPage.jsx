@@ -3,16 +3,18 @@ import Link from 'next/link';
 
 import { usePathname, useRouter } from 'next/navigation';
 
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux';
 
-import { selectBlogState } from '@/redux/blog/blogSlice';
+import { selectBlogState } from '@/redux/blog/blogSlice'; */
+
+import { blog } from '@/mockData/blog';
 
 import styles from './postBlogPage.module.css';
 import { cinzel, roboto } from '@/utils/fonts';
 
 export const PostBlogPage = () => {
   const slug = usePathname();
-  const blog = useSelector(selectBlogState);
+  /* const blog = useSelector(selectBlogState); */
   const router = useRouter();
 
   const match = slug.match(/\/([^\/]+)$/);
@@ -20,7 +22,7 @@ export const PostBlogPage = () => {
 
   const lastPosts = blog.slice(-3);
 
-  const imagePath = 'http://localhost:3030/blogImages/'; //заменить на переменную из .env
+  /* const imagePath = 'http://localhost:3030/blogImages/'; */ //заменить на переменную из .env
   return (
     <div className={styles.container}>
       <div className={styles.pageWrap}>
@@ -31,7 +33,7 @@ export const PostBlogPage = () => {
               <Image
                 width={517}
                 height={570}
-                src={`${imagePath}${postToShow.image}`}
+                src={postToShow.image}/* {`${imagePath}${postToShow.image}`} */
                 alt={postToShow.title}
               />
 
@@ -56,7 +58,7 @@ export const PostBlogPage = () => {
                   <Image
                     width={250}
                     height={275}
-                    src={`${imagePath}${post.image}`}
+                    src={post.image}/* {`${imagePath}${post.image}`} */
                     alt={post.title}
                   />
                   <p className={`${styles.smallText} ${roboto.variable}`}>
