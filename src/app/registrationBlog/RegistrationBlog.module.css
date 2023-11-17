@@ -1,0 +1,164 @@
+.socialIcons {
+  display: flex;
+  justify-content: center; /* Вирівнювання по горизонталі в центрі */
+  align-items: center; /* Вирівнювання по вертикалі в центрі */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.socialIcons li {
+  margin: 0 10px; /* Простір між елементами */
+}
+
+.socialIcons li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  text-decoration: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  /* background: radial-gradient(circle, #1b4b4a 0%, #232121 100%); */
+  transition: 0.5s;
+}
+
+.socialIcons li a:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.socialIcons li a .fab {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #fff, #ddd);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size: 24px;
+  color: #262626;
+  transition: 0.5s;
+}
+
+.input {
+  border-radius: 20px;
+  width: 320px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
+  color: white;
+}
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.conatainer {
+  display: flex;
+}
+.container_form {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  margin-left: 150px;
+}
+.title {
+  font-family: var(--font-inter);
+  margin-top: 25%;
+  margin-left: 25%;
+  color: #ffd439;
+  margin-bottom: 25px;
+}
+.text {
+  font-family: var(--font-inter);
+  margin-bottom: 25px;
+}
+.link {
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.linkWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hoverLink {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #82efee, #82efee 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+
+.hoverLink:hover {
+  background-position: 0;
+}
+.button {
+  display: flex;
+  position: relative;
+  background-color: black;
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 0.8em 1.8em;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  margin-top: 30px;
+}
+
+.button:hover {
+  transition-duration: 0.1s;
+  background-color: #3a3a3a;
+}
+
+.button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+.button:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.button:active {
+  top: 1px;
+}
