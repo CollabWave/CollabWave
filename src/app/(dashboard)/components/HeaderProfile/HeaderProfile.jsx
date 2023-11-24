@@ -20,7 +20,7 @@ export const HeaderProfile = () => {
       trigger="click"
       color={resolvedTheme === 'dark' ? 'rgb(37, 40, 75)' : '#fff'}
     >
-      <Space className={`${styles.wrap} ${montserrat.className}`}>
+      <Space size={20} className={`${styles.wrap} ${montserrat.className}`}>
         <Avatar
           alt={`${user.firstName} ${user.lastName}`}
           icon={<UserOutlined />}

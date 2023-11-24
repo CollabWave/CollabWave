@@ -43,6 +43,11 @@ html {
   font-family: var(--font-montserrat);
 }
 
+main {
+  height: 100%;
+  position: relative;
+}
+
 .light {
   color: rgb(64, 64, 64);
 }
@@ -73,11 +78,13 @@ html {
   background-color: transparent !important;
 }
 
-.light .header {
+.light .header,
+.light .main {
   background-color: var(--bg-secondary-color-light);
 }
 
-.dark .header {
+.dark .header,
+.dark .main {
   background-color: var(--bg-layout-dark);
 }
 
@@ -151,4 +158,20 @@ html {
 .icon__header:hover,
 .icon__header:focus {
   color: var(--text-hover-dark);
+}
+
+.light .sider__list_item:hover,
+.light .sider__list_item:focus,
+.light .sider__list_item_active {
+  color: #ffb765;
+}
+
+.dark .sider__list {
+  color: #797c9a;
+}
+
+.dark .sider__list_item:hover,
+.dark .sider__list_item:focus,
+.dark .sider__list_item_active {
+  color: #339cfd;
 }
