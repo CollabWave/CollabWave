@@ -45,12 +45,22 @@ export default function NavBar() {
               </Link>
             </li>
             <li className={`${styles.li} ${styles.liForHover}`}>
-              <Link className={styles.link} href="blogger">
+              <Link
+                className={styles.link}
+                href={{
+                  pathname: '/blogger',
+                }}
+              >
                 <p>I’m bloger</p>
               </Link>
             </li>
             <li className={`${styles.li} ${styles.liForHover}`}>
-              <Link className={styles.link} href="brand">
+              <Link
+                className={styles.link}
+                href={{
+                  pathname: '/brand',
+                }}
+              >
                 <p>I’m brand</p>
               </Link>
             </li>
@@ -122,23 +132,30 @@ export default function NavBar() {
                 <p>Log in</p>
               </Link>
             </li>
-            <li className={styles.li} onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}>
-              <Button  isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
-                {isShowLang || hoveredIcon ? <Image
-                  className={styles.more_space_icon}
-                  priority
-                  src={worldColored}
-                  alt="Icon World with drop down menu"
-                  width={29}
-                  height={29}
-                /> : <Image
-                  className={styles.more_space_icon}
-                  src="/Icon_world.png"
-                  alt="Icon World with drop down menu"
-                  width={29}
-                  height={29}
-                />}
+            <li
+              className={styles.li}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Button isOpen={isShowLang} setIsOpen={setIsShowLang} className={styles.ul}>
+                {isShowLang || hoveredIcon ? (
+                  <Image
+                    className={styles.more_space_icon}
+                    priority
+                    src={worldColored}
+                    alt="Icon World with drop down menu"
+                    width={29}
+                    height={29}
+                  />
+                ) : (
+                  <Image
+                    className={styles.more_space_icon}
+                    src="/Icon_world.png"
+                    alt="Icon World with drop down menu"
+                    width={29}
+                    height={29}
+                  />
+                )}
                 <div>
                   {' '}
                   <svg

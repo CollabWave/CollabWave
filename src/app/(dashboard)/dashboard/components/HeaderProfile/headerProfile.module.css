@@ -1,0 +1,47 @@
+.wrap {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.window {
+  width: 150px;
+  padding: 30px 30px 15px 30px;
+  color: var(--text-main-dark);
+  background-color: var(--bg-color-dark);
+}
+
+.windowLight {
+  width: 150px;
+  padding: 30px;
+  color: var(--text-main-light);
+  background-color: var(--bg-color-light);
+}
+
+.profileList {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 22px;
+}
+
+.profileListLight {
+  color: var(--text-hover-dark);
+  transition: color 250ms ease-out;
+}
+
+.profileListLight:hover,
+.profileListLight:focus {
+  color: rgb(2, 106, 204);
+}
+
+.profileListDark {
+  color: rgb(51, 156, 253);
+  transition: color 250ms ease-out;
+}
+
+.profileListDark:hover,
+.profileListDark:focus {
+  color: rgb(32, 120, 214);
+}

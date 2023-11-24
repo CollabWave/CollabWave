@@ -1,0 +1,17 @@
+.wraper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  padding-left: 55px;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+}
