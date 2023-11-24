@@ -1,0 +1,19 @@
+.outerWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.iconExit {
+  color: var(--text-hover-dark);
+  padding: 5px;
+  border: 1px solid var(--text-hover-dark);
+  border-radius: 7px;
+  transition: color 250ms ease-out, border-color 250ms ease-out;
+}
+
+.iconExit:hover,
+.iconExit:focus {
+  color: rgb(2, 92, 176);
+  border-color: rgb(2, 92, 176);
+}

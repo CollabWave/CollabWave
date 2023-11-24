@@ -1,0 +1,9 @@
+.text {
+  font-size: 20px;
+  color: var(--text-main-dark);
+}
+
+.textLight {
+  font-size: 20px;
+  color: var(--text-main-light);
+}
