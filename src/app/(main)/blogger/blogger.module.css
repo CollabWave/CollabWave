@@ -1,3 +1,49 @@
+.blogger_title {
+  color: #ffd439;
+  font-family: var(--font-cinzel);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.3px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 150px;
+}
+
+.blogger_btn {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 150px;
+}
+.blogger_slider_icon {
+  width: 100px;
+  height: 100px;
+}
+
+.logo_carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.usage_title,
+.usage_span {
+  color: #82efee;
+}
+.usage_text {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.usage_span {
+  margin-left: 3px;
+}
+
+/* Maksa */
+
 .container {
   width: 100%;
   margin: 0 auto;
