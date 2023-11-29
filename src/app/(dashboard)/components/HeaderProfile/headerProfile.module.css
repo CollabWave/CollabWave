@@ -45,3 +45,13 @@
 .profileListDark:focus {
   color: rgb(32, 120, 214);
 }
+
+.modalTitle {
+  font-size: 22px;
+  color: var(--text-main-light);
+}
+
+.modalTitleDark {
+  font-size: 22px;
+  color: var(--text-main-dark);
+}

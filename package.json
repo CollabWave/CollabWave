@@ -16,6 +16,8 @@
     "antd": "^5.11.2",
     "autoprefixer": "^10.4.14",
     "axios": "^1.6.1",
+    "country-list": "^2.3.0",
+    "dayjs": "^1.11.10",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "gl-noise": "^1.6.1",

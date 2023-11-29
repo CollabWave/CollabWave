@@ -47,3 +47,21 @@ export const hexToRGB = hex => {
 
   return `${r}, ${g}, ${b}`;
 };
+
+export const makeUserAreaString = arr => {
+  const newArr = arr.map(el => el.value);
+  if (newArr.length === 0) {
+    return ' ';
+  }
+  if (newArr.length === 1) {
+    return `${newArr[0].charAt(0).toUpperCase() + newArr[0].slice(1)} blogger`;
+  }
+  if (newArr.length === 2) {
+    return `${newArr[0].charAt(0).toUpperCase() + newArr[0].slice(1)} and ${newArr[1]} blogger`;
+  }
+  if (newArr.length > 2) {
+    return `${newArr[0].charAt(0).toUpperCase() + newArr[0].slice(1)}, ${newArr
+      .slice(1, -1)
+      .join(', ')} and ${newArr[newArr.length - 1]} blogger`;
+  }
+};

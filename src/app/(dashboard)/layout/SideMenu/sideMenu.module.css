@@ -1,8 +1,5 @@
 .sider {
-  height: 100%;
   overflow: visible;
-  min-height: 100vh;
-  max-height: 100vh;
   padding-left: 30px;
   padding-right: 30px;
 }
