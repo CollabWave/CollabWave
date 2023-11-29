@@ -17,7 +17,19 @@ export const SideMenu = () => {
   };
 
   return (
-    <Layout.Sider className={`${styles.sider} sider`} width={360}>
+    <Layout.Sider
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        bottom: 0,
+      }}
+      trigger={null}
+      className={`${styles.sider} sider`}
+      width={360}
+    >
       <Link className="" href="/dashboard">
         <Image src="/Logo.png" alt="Collabwave logo" width={250} height={100} />
       </Link>

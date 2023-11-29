@@ -9,7 +9,7 @@
   --bg-color-dark: rgb(37, 40, 75);
   --bg-secondary-color-light: rgb(248, 251, 255);
   --bg-secondary-color-dark: rgb(28, 33, 55);
-  --bg-collapse-light: rgb(0, 108, 207);
+  --bg-collapse-light: rgba(0, 107, 207, 0.918);
   --bg-collapse-dark: rgb(29, 32, 62);
   --bg-sider-dark: rgb(18, 20, 48);
   --bg-layout-dark: rgb(30, 33, 66);
@@ -62,6 +62,10 @@ main {
   align-items: center !important;
 }
 
+.ant-collapse {
+  background-color: inherit !important;
+}
+
 .ant-collapse-item {
   border-bottom: none !important;
 }
@@ -79,12 +83,14 @@ main {
 }
 
 .light .header,
-.light .main {
+.light .main,
+.light .footer {
   background-color: var(--bg-secondary-color-light);
 }
 
 .dark .header,
-.dark .main {
+.dark .main,
+.dark .footer {
   background-color: var(--bg-layout-dark);
 }
 
@@ -107,7 +113,8 @@ main {
   border: 1px solid #95c0ed;
 }
 
-.light .header__search::placeholder {
+.light .header__search::placeholder,
+.light .profile-heading {
   color: var(--text-main-light);
 }
 
@@ -172,6 +179,227 @@ main {
 
 .dark .sider__list_item:hover,
 .dark .sider__list_item:focus,
-.dark .sider__list_item_active {
+.dark .sider__list_item_active,
+.dark .profile-nav-link:hover,
+.dark .profile-nav-link:focus,
+.light .profile-nav-link:hover,
+.light .profile-nav-link:focus {
   color: #339cfd;
+}
+
+.confirm-logout .ant-modal-confirm-btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.confirm-logout .ant-modal-confirm-btns .ant-btn {
+  float: right;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-logout .ant-modal-confirm-btns .ant-btn span {
+  font-size: 20px;
+}
+
+.dark .confirm-logout .ant-modal-content {
+  background-color: var(--bg-layout-dark);
+}
+
+.dark .confirm-logout .ant-btn-default {
+  color: var(--text-main-dark);
+  background-color: var(--bg-layout-dark);
+}
+
+.dark .icon-profile-nav {
+  background-color: #292b52;
+}
+
+.light .icon-profile-nav {
+  background-color: rgba(1, 80, 154, 0.06);
+}
+
+.profile-nav-link {
+  transition: color 250ms ease-out;
+}
+
+.dark .profile-nav-item:hover,
+.dark .profile-nav-item:focus,
+.dark .profile-nav-item_active {
+  background-color: #2d2f59;
+}
+
+.light .profile-nav-item:hover,
+.light .profile-nav-item:focus,
+.light .profile-nav-item_active {
+  background-color: rgba(1, 80, 154, 0.04);
+}
+
+.dark .profile-card {
+  background-color: var(--bg-color-dark);
+}
+
+.light .profile-card {
+  background-color: var(--bg-color-light);
+}
+
+.dark .profile-input-label,
+.dark .ant-input-prefix,
+.dark .personal-info-cancel {
+  color: #339cfd;
+}
+
+.dark .personal-info-cancel {
+  border: 1px solid #339cfd;
+}
+
+.dark .personal-info-cancel:hover,
+.dark .personal-info-cancel:focus {
+  border-color: #01509a;
+  color: #01509a;
+}
+
+.dark .personal-info-save:hover,
+.dark .personal-info-save:focus,
+.light .personal-info-save {
+  background-color: #01509a !important;
+}
+
+.light .profile-input-label,
+.light .ant-input-prefix,
+.light .personal-info-cancel {
+  color: #01509a;
+}
+
+.light .personal-info-save:hover,
+.light .personal-info-save:focus {
+  background-color: #339cfd !important;
+}
+
+.light .personal-info-cancel {
+  border: 1px solid #01509a;
+}
+
+.light .personal-info-cancel:hover,
+.light .personal-info-cancel:focus {
+  border-color: #339cfd;
+  color: #339cfd;
+}
+
+.dark .profile-input,
+.dark .profile-heading,
+.dark #facebook.ant-input,
+.dark .icon-account-input,
+.dark #instagram.ant-input,
+.dark #youtube.ant-input,
+.dark #tiktok.ant-input,
+.dark #telegram.ant-input,
+.dark .ant-select-selection-item-remove {
+  color: var(--text-main-dark);
+}
+
+.light .profile-input {
+  color: var(--text-main-light);
+}
+
+.ant-select-selector,
+#facebook.ant-input,
+#youtube.ant-input,
+#telegram.ant-input,
+#tiktok.ant-input,
+#instagram.ant-input,
+.ant-select-selection-item {
+  background-color: inherit !important;
+}
+
+.ant-picker-panel-container {
+  width: 360px;
+}
+
+.ant-picker-panel-layout,
+.ant-picker-date-panel,
+.ant-picker-panel,
+.ant-picker-content {
+  width: 100% !important;
+}
+
+.ant-input-prefix {
+  margin-right: 10px !important;
+}
+
+.ant-picker-input input {
+  font-size: 22px !important;
+}
+
+.ant-picker-cell,
+.ant-picker-header,
+.ant-picker-header button,
+.ant-picker-body th,
+.ant-picker-footer {
+  font-size: 20px;
+}
+
+.ant-picker-cell-inner {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 30px !important;
+  width: 30px;
+}
+
+.ant-picker-cell-inner::before {
+  border: none !important;
+}
+
+.ant-select-item-option,
+.ant-select-selection-item,
+.ant-select-item-option-content,
+.ant-select-selection-search-input {
+  font-size: 22px;
+}
+
+.dark .ant-picker-cell,
+.dark .ant-picker-header,
+.dark .ant-picker-header button,
+.dark .ant-picker-body th,
+.dark .ant-picker-input input,
+.dark .ant-select-selection-search-input {
+  color: var(--text-main-dark) !important;
+}
+
+.dark .ant-picker-input input::placeholder,
+.dark .ant-picker-suffix {
+  color: var(--text-light-dark);
+}
+
+.dark .ant-select-item-option,
+.dark .ant-select-selection-item {
+  color: var(--text-main-dark) !important;
+}
+
+.dark .ant-select-item-option-selected,
+.dark .ant-select-item-option-content:hover,
+.dark .ant-select-item-option-content:focus {
+  background-color: #6467a1 !important;
+}
+
+.light .ant-select-item-option-selected,
+.light .ant-select-item-option-content:hover,
+.light .ant-select-item-option-content:focus {
+  background-color: #f5f5f5 !important;
+}
+
+.dark .ant-picker-panel-container {
+  background-color: var(--bg-color-dark) !important;
+}
+
+.dark .ant-select-suffix {
+  color: #fff !important;
+}
+
+.dark .ant-select-dropdown {
+  background-color: var(--bg-color-dark) !important;
 }

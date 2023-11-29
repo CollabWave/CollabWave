@@ -1,0 +1,35 @@
+.rightSide {
+  margin-right: 50px;
+  padding: 90px 70px;
+  border-radius: 7px;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.input {
+  height: 60px;
+  font-size: 22px;
+  background-color: inherit;
+}
+
+.button {
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 29px;
+  padding-bottom: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms ease-out, border-color 250ms ease-out, color 250ms ease-out;
+}
+
+.buttonsWrap {
+  margin-top: 50px;
+}
