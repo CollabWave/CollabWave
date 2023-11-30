@@ -1,4 +1,4 @@
-import { Cinzel, Saira, Inter, Roboto, Teko } from 'next/font/google';
+import { Cinzel, Saira, Inter, Roboto, Montserrat } from 'next/font/google';
 
 export const cinzel = Cinzel({
   variable: '--font-cinzel',
@@ -27,9 +27,11 @@ export const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
 });
-export const teko = Teko({
-  variable: '--font-roboto',
-  weight: ['400', '500'],
+
+export const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
 });
