@@ -53,7 +53,7 @@ export const AboutSection = () => {
             <h3 className={styles.about__cardTitle}>Work with brands</h3>
             <p className={`${styles.about__cardText} ${roboto.variable}`}>
               Professional bloggers - inspiration for your brand! <br /> On the platform, YOU will
-              find talented people ready to embody your values in creative content. <br /> Let's
+              find talented people ready to embody your values in creative content. <br /> Let&#39;s
               make the world brighter together!
             </p>
           </div>
