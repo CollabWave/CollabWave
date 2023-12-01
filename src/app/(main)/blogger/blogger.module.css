@@ -29,19 +29,46 @@
   align-content: center;
 }
 
-.usage_title,
 .usage_span {
   color: #82efee;
+  margin-left: 3px;
 }
 .usage_text {
   padding-top: 80px;
   text-align: center;
 }
 
-.usage_span {
-  margin-left: 3px;
+.features_title {
+  padding-bottom: 80px;
 }
 
+.features_list_wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+.features_list {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 800px;
+}
+
+.features_list li {
+  display: flex;
+  align-items: center;
+}
+
+.features_text {
+  padding-left: 80px;
+}
+
+.form_text {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
 /* Maksa */
 
 .container {
