@@ -3,7 +3,12 @@
 import Link from 'next/link';
 
 import { Col, Avatar, Space } from 'antd';
-import { UserOutlined, SecurityScanOutlined, DollarOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  SecurityScanOutlined,
+  DollarOutlined,
+  BellOutlined,
+} from '@ant-design/icons';
 
 import { usePathname } from 'next/navigation';
 
@@ -56,6 +61,21 @@ export const BloggerProfileLeftSide = ({ user }) => {
                 style={{ color: '#57D682' }}
               />
               Security Settings
+            </Space>
+          </Link>
+        </li>
+        <li
+          className={`${styles.navItem} ${
+            pathname.endsWith('notifications') ? 'profile-nav-item_active' : null
+          } profile-nav-item`}
+        >
+          <Link className="profile-nav-link" href={'/dashboard/profile/notifications'}>
+            <Space>
+              <BellOutlined
+                className={`${styles.icon} icon-profile-nav`}
+                style={{ color: '#FF5252' }}
+              />
+              Notifications
             </Space>
           </Link>
         </li>
