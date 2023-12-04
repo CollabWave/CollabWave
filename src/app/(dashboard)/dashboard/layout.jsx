@@ -26,7 +26,14 @@ export const montserrat = Montserrat({
 export default function DashboardLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
         <UiContext>
           <Layout hasSider>
             <SideMenu />

@@ -33,3 +33,14 @@
 .buttonsWrap {
   margin-top: 50px;
 }
+
+.flagWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flag {
+  font-size: 30px;
+  line-height: 30px;
+}

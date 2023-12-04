@@ -47,6 +47,14 @@ const blogAreas = [
   { id: 30, value: 'influencer blogger' },
 ];
 
+const phonePattern =
+  /^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
+
+const websitePattern =
+  /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)?/gi;
+
+const emailPattern = /[^\s@]+@[^\s@]+\.[^\s@]+/gi;
+
 const goToTop = () => {
   window.scrollTo({
     top: 0,
@@ -54,4 +62,12 @@ const goToTop = () => {
   });
 };
 
-export { moreNavigation, goToTop, languages, blogAreas };
+export {
+  moreNavigation,
+  goToTop,
+  languages,
+  blogAreas,
+  phonePattern,
+  websitePattern,
+  emailPattern,
+};

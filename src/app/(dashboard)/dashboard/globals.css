@@ -62,10 +62,6 @@ main {
   align-items: center !important;
 }
 
-.ant-collapse {
-  background-color: inherit !important;
-}
-
 .ant-collapse-item {
   border-bottom: none !important;
 }
@@ -109,12 +105,18 @@ main {
   transition: border 250ms ease-out;
 }
 
+.light .icon__header {
+  color: var(--text-main-light);
+  transition: color 250ms ease-out;
+}
+
 .light .header__search:focus {
   border: 1px solid #95c0ed;
 }
 
 .light .header__search::placeholder,
-.light .profile-heading {
+.light .profile-heading,
+.light .profile-input {
   color: var(--text-main-light);
 }
 
@@ -126,10 +128,6 @@ main {
 
 .dark .header__search:focus {
   border: 1px solid rgba(110, 190, 255, 0.3);
-}
-
-.dark .header__search::placeholder {
-  color: var(--text-light-dark);
 }
 
 .light .icon__search {
@@ -150,11 +148,6 @@ main {
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-}
-
-.light .icon__header {
-  color: var(--text-main-light);
-  transition: color 250ms ease-out;
 }
 
 .dark .icon__header {
@@ -183,7 +176,12 @@ main {
 .dark .profile-nav-link:hover,
 .dark .profile-nav-link:focus,
 .light .profile-nav-link:hover,
-.light .profile-nav-link:focus {
+.light .profile-nav-link:focus,
+.dark .profile-input-label,
+.dark .ant-input-prefix,
+.dark .personal-info-cancel,
+.dark .security-title,
+.dark .security-link {
   color: #339cfd;
 }
 
@@ -199,10 +197,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.confirm-logout .ant-modal-confirm-btns .ant-btn span {
-  font-size: 20px;
 }
 
 .dark .confirm-logout .ant-modal-content {
@@ -238,18 +232,15 @@ main {
   background-color: rgba(1, 80, 154, 0.04);
 }
 
-.dark .profile-card {
+.dark .profile-card,
+.dark .security-modal,
+.dark .ant-modal-content {
   background-color: var(--bg-color-dark);
 }
 
 .light .profile-card {
   background-color: var(--bg-color-light);
-}
-
-.dark .profile-input-label,
-.dark .ant-input-prefix,
-.dark .personal-info-cancel {
-  color: #339cfd;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.07);
 }
 
 .dark .personal-info-cancel {
@@ -270,7 +261,9 @@ main {
 
 .light .profile-input-label,
 .light .ant-input-prefix,
-.light .personal-info-cancel {
+.light .personal-info-cancel,
+.light .security-title,
+.light .security-link {
   color: #01509a;
 }
 
@@ -297,12 +290,44 @@ main {
 .dark #youtube.ant-input,
 .dark #tiktok.ant-input,
 .dark #telegram.ant-input,
-.dark .ant-select-selection-item-remove {
+.dark #password.ant-input,
+.dark #new-password.ant-input,
+.dark #confirm-password.ant-input,
+.dark .ant-select-selection-item-remove,
+.dark .security-back,
+.dark .security-text {
   color: var(--text-main-dark);
 }
 
-.light .profile-input {
-  color: var(--text-main-light);
+.dark .ant-input-password-icon {
+  color: rgb(126, 126, 126) !important;
+}
+
+.light .ant-input-password-icon {
+  color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark .ant-input-password-icon:hover,
+.dark .ant-input-password-icon:focus,
+.dark #passwordForm_confirm-password,
+.dark #passwordForm_new-password,
+.dark #passwordForm_password,
+.dark .ant-picker-cell,
+.dark .ant-picker-header,
+.dark .ant-picker-header button,
+.dark .ant-picker-body th,
+.dark .ant-picker-input input,
+.dark .ant-select-selection-search-input,
+.dark .ant-select-item-option,
+.dark .ant-select-selection-item {
+  color: var(--text-main-dark) !important;
+}
+
+.light .ant-input-password-icon:hover,
+.light .ant-input-password-icon:focus,
+.swal2-title,
+.swal2-html-container {
+  color: var(--text-main-light) !important;
 }
 
 .ant-select-selector,
@@ -311,7 +336,9 @@ main {
 #telegram.ant-input,
 #tiktok.ant-input,
 #instagram.ant-input,
-.ant-select-selection-item {
+.ant-select-selection-item,
+.ant-input,
+.ant-collapse {
   background-color: inherit !important;
 }
 
@@ -338,7 +365,9 @@ main {
 .ant-picker-header,
 .ant-picker-header button,
 .ant-picker-body th,
-.ant-picker-footer {
+.ant-picker-footer,
+.ant-form-item-explain-error,
+.confirm-logout .ant-modal-confirm-btns .ant-btn span {
   font-size: 20px;
 }
 
@@ -354,6 +383,10 @@ main {
   border: none !important;
 }
 
+.ant-form-item-required::before {
+  display: none !important;
+}
+
 .ant-select-item-option,
 .ant-select-selection-item,
 .ant-select-item-option-content,
@@ -361,23 +394,10 @@ main {
   font-size: 22px;
 }
 
-.dark .ant-picker-cell,
-.dark .ant-picker-header,
-.dark .ant-picker-header button,
-.dark .ant-picker-body th,
-.dark .ant-picker-input input,
-.dark .ant-select-selection-search-input {
-  color: var(--text-main-dark) !important;
-}
-
 .dark .ant-picker-input input::placeholder,
-.dark .ant-picker-suffix {
+.dark .ant-picker-suffix,
+.dark .header__search::placeholder {
   color: var(--text-light-dark);
-}
-
-.dark .ant-select-item-option,
-.dark .ant-select-selection-item {
-  color: var(--text-main-dark) !important;
 }
 
 .dark .ant-select-item-option-selected,
@@ -392,7 +412,8 @@ main {
   background-color: #f5f5f5 !important;
 }
 
-.dark .ant-picker-panel-container {
+.dark .ant-picker-panel-container,
+.dark .ant-select-dropdown {
   background-color: var(--bg-color-dark) !important;
 }
 
@@ -400,6 +421,50 @@ main {
   color: #fff !important;
 }
 
-.dark .ant-select-dropdown {
-  background-color: var(--bg-color-dark) !important;
+.swal2-html-container {
+  font-size: 20px !important;
+}
+
+#twoFactorAuth_2fa {
+  width: 60px;
+  height: 30px;
+}
+#twoFactorAuth_2fa .ant-switch-handle::before {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  right: 5px;
+  inset-inline-start: -5px;
+}
+
+.vi__character {
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 700;
+  border: 3px solid #c5d3e0;
+  border-radius: 0.625rem;
+  width: 55px;
+  height: 80px;
+}
+
+.vi__character--inactive {
+  border: 3px solid #c5d3e0;
+}
+
+.dark .vi__character--selected {
+  border: 3px solid #339cfd;
+}
+
+.light .vi__character--selected {
+  border: 3px solid #01509a;
+}
+
+.dark .vi__character {
+  color: var(--text-main-dark);
+  background-color: var(--bg-color-dark);
+}
+
+.light .vi__character {
+  color: var(--text-main-light);
+  background-color: var(--bg-color-light);
 }

@@ -30,7 +30,7 @@ export const roboto = Roboto({
 
 export const montserrat = Montserrat({
   variable: '--font-montserrat',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Arial', 'sans-serif'],

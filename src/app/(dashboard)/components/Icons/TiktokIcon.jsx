@@ -4,7 +4,7 @@ export const TiktokIcon = () => (
     width="30px"
     height="30px"
     fill="currentColor"
-    class="bi bi-tiktok"
+    className="bi bi-tiktok"
     viewBox="0 0 16 16"
   >
     {' '}
