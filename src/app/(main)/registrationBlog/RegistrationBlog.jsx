@@ -16,7 +16,7 @@ import youTube from '../../../assets/images/svg/youtube.svg';
 import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import { roboto } from '@/utils/fonts';
 
-const RegistrationBlog = () => {
+const RegistrationBlog = ({ onNextClick }) => {
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
   const thematicOptions = [
     'Мода',
