@@ -15,7 +15,7 @@ import ReactCountryFlag from 'react-country-flag';
 import countryList from 'country-list';
 import dayjs from 'dayjs';
 
-import { blogAreas } from '@/utils/common';
+import { blogAreas, phonePattern, websitePattern } from '@/utils/common';
 
 import { FacebookIcon } from '@/app/(dashboard)/components/Icons/FacebookIcon';
 import { TelegramIcon } from '@/app/(dashboard)/components/Icons/TelegramIcon';
@@ -33,12 +33,9 @@ export const BloggerPersonalInfo = ({ user }) => {
 
   const countriesSelectOptions = countries.map(country => (
     <Select.Option key={country.name} value={country.code}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div className={styles.flagWrap}>
         <ReactCountryFlag
-          style={{
-            fontSize: '30px',
-            lineHeight: '30px',
-          }}
+          className={styles.flag}
           countryCode={country.code}
           svg
           alt="country flag"
@@ -51,6 +48,17 @@ export const BloggerPersonalInfo = ({ user }) => {
   const areasSelectOptions = blogAreas.map(area => (
     <Select.Option key={area.id} value={area.value}></Select.Option>
   ));
+
+  const getHref = href =>
+    href.startsWith('http' || 'https')
+      ? href
+      : href.startsWith('www')
+      ? `https://${href}`
+      : `https://www.${href}`;
+
+  const onCancel = () => {
+    form.setFieldsValue(user);
+  };
 
   return (
     <Col md={15} className={`${styles.rightSide} profile-card`}>
@@ -200,6 +208,13 @@ export const BloggerPersonalInfo = ({ user }) => {
                 </p>
               }
               name="phone"
+              rules={[
+                { required: true, message: 'This field is required!' },
+                {
+                  pattern: phonePattern,
+                  message: 'Wrong phone number format!',
+                },
+              ]}
             >
               <Input className={`${styles.input} profile-input`} />
             </Form.Item>
@@ -212,6 +227,13 @@ export const BloggerPersonalInfo = ({ user }) => {
                 </p>
               }
               name="email"
+              rules={[
+                { required: true, message: 'This field is required!' },
+                {
+                  type: 'email',
+                  message: 'Please input a valid email address!',
+                },
+              ]}
             >
               <Input className={`${styles.input} profile-input`} />
             </Form.Item>
@@ -301,7 +323,15 @@ export const BloggerPersonalInfo = ({ user }) => {
             </h3>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item name="facebook">
+            <Form.Item
+              name="facebook"
+              rules={[
+                {
+                  pattern: websitePattern,
+                  message: 'Please input a valid URL!',
+                },
+              ]}
+            >
               <Input
                 className={`${styles.input} profile-input`}
                 prefix={<FacebookIcon />}
@@ -309,9 +339,8 @@ export const BloggerPersonalInfo = ({ user }) => {
                   <Tooltip title={'Open in new tab'}>
                     <Button
                       size="small"
-                      href={user.facebook}
+                      href={getHref(valuesForm.facebook)}
                       target="_blank"
-                      /* disabled={!isMatch} */
                       type="text"
                       icon={
                         <FileTextOutlined
@@ -326,7 +355,15 @@ export const BloggerPersonalInfo = ({ user }) => {
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item name="instagram">
+            <Form.Item
+              name="instagram"
+              rules={[
+                {
+                  pattern: websitePattern,
+                  message: 'Please input a valid URL!',
+                },
+              ]}
+            >
               <Input
                 className={`${styles.input} profile-input`}
                 prefix={<InstagramOutlined style={{ fontSize: '30px' }} />}
@@ -334,7 +371,7 @@ export const BloggerPersonalInfo = ({ user }) => {
                   <Tooltip title={'Open in new tab'}>
                     <Button
                       size="small"
-                      href={user.instagram}
+                      href={getHref(valuesForm.instagram)}
                       target="_blank"
                       disabled={!user.instagram}
                       type="text"
@@ -351,7 +388,15 @@ export const BloggerPersonalInfo = ({ user }) => {
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item name="youtube">
+            <Form.Item
+              name="youtube"
+              rules={[
+                {
+                  pattern: websitePattern,
+                  message: 'Please input a valid URL!',
+                },
+              ]}
+            >
               <Input
                 className={`${styles.input} profile-input`}
                 prefix={<YoutubeOutlined style={{ fontSize: '30px' }} />}
@@ -359,7 +404,7 @@ export const BloggerPersonalInfo = ({ user }) => {
                   <Tooltip title={'Open in new tab'}>
                     <Button
                       size="small"
-                      href={user.youtube}
+                      href={getHref(valuesForm.youtube)}
                       target="_blank"
                       disabled={!user.youtube}
                       type="text"
@@ -376,7 +421,15 @@ export const BloggerPersonalInfo = ({ user }) => {
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item name="telegram">
+            <Form.Item
+              name="telegram"
+              rules={[
+                {
+                  pattern: websitePattern,
+                  message: 'Please input a valid URL!',
+                },
+              ]}
+            >
               <Input
                 className={`${styles.input} profile-input`}
                 prefix={<TelegramIcon />}
@@ -384,7 +437,7 @@ export const BloggerPersonalInfo = ({ user }) => {
                   <Tooltip title={'Open in new tab'}>
                     <Button
                       size="small"
-                      href={user.telegram}
+                      href={getHref(valuesForm.telegram)}
                       target="_blank"
                       disabled={!user.telegram}
                       type="text"
@@ -401,7 +454,15 @@ export const BloggerPersonalInfo = ({ user }) => {
             </Form.Item>
           </Col>
           <Col xs={24} md={12}>
-            <Form.Item name="tiktok">
+            <Form.Item
+              name="tiktok"
+              rules={[
+                {
+                  pattern: websitePattern,
+                  message: 'Please input a valid URL!',
+                },
+              ]}
+            >
               <Input
                 className={`${styles.input} profile-input`}
                 prefix={<TiktokIcon />}
@@ -409,7 +470,7 @@ export const BloggerPersonalInfo = ({ user }) => {
                   <Tooltip title={'Open in new tab'}>
                     <Button
                       size="small"
-                      href={user.tiktok}
+                      href={getHref(valuesForm.tiktok)}
                       target="_blank"
                       disabled={!user.tiktok}
                       type="text"
@@ -453,7 +514,8 @@ export const BloggerPersonalInfo = ({ user }) => {
             <Button
               className={`${styles.button} personal-info-cancel`}
               block
-              type="ghost" /* onClick={onCancel}  */
+              type="ghost"
+              onClick={onCancel}
             >
               Cancel
             </Button>

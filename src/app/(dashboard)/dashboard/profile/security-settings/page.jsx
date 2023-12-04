@@ -1,20 +1,23 @@
 import { BloggerProfileLeftSide } from '../BloggerProfileLeftSide';
 import { BrandProfileLeftSide } from '../BrandProfileLeftSIde';
-import { BloggerPersonalInfo } from './BloggerPersonalInfo';
+import { SecuritySettings } from './SecuritySettings';
 
 import { user } from '@/mockData/user';
 
 import styles from '../profile.module.css';
 
-const PersonalInfoPage = () => {
+const SecuritySettingsPage = () => {
   return user.role === 'blogger' ? (
     <div className={styles.wrap}>
       <BloggerProfileLeftSide user={user} />
-      <BloggerPersonalInfo user={user} />
+      <SecuritySettings user={user} />
     </div>
   ) : (
-    <BrandProfileLeftSide />
+    <div className={styles.wrap}>
+      <BrandProfileLeftSide />
+      <SecuritySettings user={user} />
+    </div>
   );
 };
 
-export default PersonalInfoPage;
+export default SecuritySettingsPage;

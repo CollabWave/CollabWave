@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 import { useState } from 'react';
 
+import { emailPattern, phonePattern } from '@/utils/common';
+
 import { Container } from '../Container/Container';
 
 import phone from '../../assets/images/svg/phone.svg';
@@ -41,9 +43,6 @@ export const Footer = () => {
     setHoveredIcon('');
   };
 
-  const phoneRegex =
-    /^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
-
   const handleFormSubmit = e => {
     e.preventDefault();
     setErrorMessage('');
@@ -59,7 +58,7 @@ export const Footer = () => {
       setErrorMessage('Please enter the phone number!');
       return;
     }
-    if (phoneRegex.test(formData.phone) === false) {
+    if (phonePattern.test(formData.phone) === false) {
       setErrorMessage('Please enter a valid phone number!');
       return;
     }
@@ -67,7 +66,7 @@ export const Footer = () => {
       setErrorMessage('Please enter the email!');
       return;
     }
-    if (!formData.email.match(/[^\s@]+@[^\s@]+\.[^\s@]+/gi)) {
+    if (!formData.email.match(emailPattern)) {
       setErrorMessage('Please enter a valid email!');
       return;
     }
