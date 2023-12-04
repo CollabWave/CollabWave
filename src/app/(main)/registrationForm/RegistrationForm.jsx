@@ -4,7 +4,7 @@ import regImg from '../../../image/regImg.jpg';
 import google from '../../../image/google.png';
 import styles from './RegistrationForm.module.css';
 import Link from 'next/link';
-const RegistrationForm = () => {
+const RegistrationForm = ({ onNextClick }) => {
   return (
     <div className={styles.box_img}>
       <Image src={regImg} alt="Photo" width={450} />
@@ -21,17 +21,19 @@ const RegistrationForm = () => {
           <input type="text" id="password" name="password" className={styles.input} />
           <p className={styles.line}>or</p>
           <div className={styles.div_button}>
-            <button
-              // className={`${styles.button} ${styles['learn-more']}`}
-              className={`${styles.button} ${styles.button_google}`}
-            >
+            <button className={`${styles.button} ${styles.button_google}`}>
               <Image src={google} alt="Image Alt Text" width={20} className={styles.google_img} />
               Google
             </button>
             <div className={styles.div_button}>
-              <Link href="registrationExtended">
-                <button className={`${styles.button} ${styles.button_next}`}>Next</button>
-              </Link>
+              <button
+                className={`${styles.button} ${styles.button_next}`}
+                onClick={() => {
+                  onNextClick();
+                }}
+              >
+                Next
+              </button>
             </div>
           </div>
         </form>

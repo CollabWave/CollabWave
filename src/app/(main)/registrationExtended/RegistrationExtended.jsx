@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from './RegistrationExtended.module.css';
 import regImg from '../../../image/reg-ext.jpeg';
 import Link from 'next/link';
-const RegistrationExtended = () => {
+const RegistrationExtended = ({ onNextClick }) => {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
   const handleCheckboxChange = event => {
@@ -56,17 +56,25 @@ const RegistrationExtended = () => {
             </a>
           </p>
           <div className={styles.cont_button}>
-            <Link href="registration" className={styles.button_back}>
-              <button className={`${styles.button} ${styles.button_next}`}>Back</button>
-            </Link>
-            <Link href="registrationBlog">
+            {/* <Link href="registration" className={styles.button_back}> */}
+            {/* <button className={`${styles.button} ${styles.button_next}`}>Back</button> */}
+            {/* </Link> */}
+            {/* <Link href="registrationBlog"> */}
+            <div
+            // onClick={() => {
+            //   onNextClick();
+            // }}
+            >
               <button
                 className={`${styles.button} ${styles.button_next}`}
-                onClick={handleButtonClick}
+                onClick={() => {
+                  onNextClick();
+                }}
               >
                 Next
               </button>
-            </Link>
+            </div>
+            {/* </Link> */}
           </div>
         </form>
       </div>
