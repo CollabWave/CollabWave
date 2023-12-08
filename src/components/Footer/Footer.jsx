@@ -35,6 +35,9 @@ export const Footer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [errorMessage, setErrorMessage] = useState('');
 
+  const year = document.getElementById('current-year');
+  year.textContent = new Date().getFullYear();
+
   const handleLinkMouseEnter = iconName => {
     setHoveredIcon(iconName);
   };
@@ -353,7 +356,7 @@ export const Footer = () => {
         <div className={styles.copyright}>
           <Image width={17} height={20} priority src={autorship} alt="Copyright icon" />
           <p className={`${styles.link} ${roboto.variable} `}>
-            2024 CollabWave. All rights reserved.
+            <span id="current-year"></span> CollabWave. All rights reserved.
           </p>
         </div>
         <div className={styles.light__spot}></div>

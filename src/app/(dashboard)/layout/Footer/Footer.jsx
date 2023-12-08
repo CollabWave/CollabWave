@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+
 import Image from 'next/image';
 
 import { Row } from 'antd';
@@ -12,6 +16,14 @@ import { montserrat } from '@/utils/fonts';
 
 export const Footer = () => {
   const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    const year = document.getElementById("year");
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+  }, []);
+
   return (
     <Row className={`${styles.footer} footer`}>
       <div className={styles.copyright}>
@@ -21,7 +33,7 @@ export const Footer = () => {
           <Image width={17} height={20} priority src={autorshipDark} alt="Copyright icon" />
         )}
         <p className={`${styles.text} ${montserrat.variable} `}>
-          2024 CollabWave. All rights reserved.
+          <span id="year"></span> CollabWave. All rights reserved.
         </p>
       </div>
     </Row>

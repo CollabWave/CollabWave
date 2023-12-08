@@ -65,3 +65,17 @@ export const makeUserAreaString = arr => {
       .join(', ')} and ${newArr[newArr.length - 1]} blogger`;
   }
 };
+
+export const addKeysToArray = (arr) => {
+  return arr.map(item => {
+    return { ...item, key: item.id };
+  });
+}
+
+export const sortAgainstStatus = arr => {
+  return arr.sort((a, b) => {
+    const statusOrder = { active: 1, pending: 2, closed: 3 };
+
+    return statusOrder[a.status] - statusOrder[b.status];
+  });
+};
