@@ -11,7 +11,6 @@
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  /* border: medium dashed green; */
   position: relative;
 }
 
@@ -20,7 +19,6 @@
   flex-direction: column;
   align-items: flex-start;
   list-style: none;
-  /* position: relative; */
 }
 .li {
   z-index: 2;
@@ -46,13 +44,7 @@
   font-family: var(--font-inter);
   color: white;
 }
-.moreHover:hover .more_space_icon,
-.moreHover:hover .down {
-  color: #82efee;
-}
-.moreActive .more_space_icon {
-  color: #82efee;
-}
+
 .up {
   transform: rotate(180deg);
   transition: 0.1s;
@@ -70,26 +62,9 @@
 .down:hover {
   color: #82efee;
 }
-.dropDownMoreMenu {
-  padding: 10px 0px 10px 10px;
-  /* position: fixed; */
-  position: absolute;
-  z-index: 1000;
-  left: 88%;
-  top: 64%;
-  width: 150px;
-  height: auto;
-  overflow: auto;
-  /* background: radial-gradient(circle, #153736 0%, #000000 100%); */
-  /* background: linear-gradient(to bottom, #121a19 80%, #2c7975 80%, #121a19 0%, #82efee 70%); */
-  /* background: linear-gradient(to right, #121a19 0%, #121a19 80%, #2c7975 80%, #82efee 70%); */
 
-  background-color: #225c59;
-  border-radius: 10px;
-}
 .dropDownLangMenu {
   padding: 10px 0px 10px 10px;
-  /* position: fixed; */
   position: absolute;
   z-index: 1000;
   left: 70%;

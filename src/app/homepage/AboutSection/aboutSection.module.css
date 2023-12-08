@@ -1,16 +1,16 @@
 .about__cards {
   margin-top: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .about__card {
-  width: 522px;
+  width: 420px;
   list-style: none;
 }
 
 .about__cardBottomWrap {
-  padding: 25px 5px 15px 5px;
+  padding-top: 30px;
   text-align: center;
 }
 

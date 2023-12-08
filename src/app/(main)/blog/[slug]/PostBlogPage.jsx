@@ -30,13 +30,16 @@ export const PostBlogPage = () => {
           <div>
             <h2 className={`${styles.title} ${cinzel.variable}`}>{postToShow.title}</h2>
             <div className={styles.postWrap}>
-              <Image
-                width={517}
-                height={570}
-                src={postToShow.image}/* {`${imagePath}${postToShow.image}`} */
-                alt={postToShow.title}
-              />
-
+              <div className={styles.imageWrap}>
+                <Image
+                  sizes="100vw"
+                  className={styles.image}
+                  width={517}
+                  height={570}
+                  src={postToShow.image} /* {`${imagePath}${postToShow.image}`} */
+                  alt={postToShow.title}
+                />
+              </div>
               <p className={`${styles.text} ${roboto.variable}`}>{postToShow.text}</p>
             </div>
             <div className={styles.buttonWrap}>
@@ -58,7 +61,7 @@ export const PostBlogPage = () => {
                   <Image
                     width={250}
                     height={275}
-                    src={post.image}/* {`${imagePath}${post.image}`} */
+                    src={post.image} /* {`${imagePath}${post.image}`} */
                     alt={post.title}
                   />
                   <p className={`${styles.smallText} ${roboto.variable}`}>

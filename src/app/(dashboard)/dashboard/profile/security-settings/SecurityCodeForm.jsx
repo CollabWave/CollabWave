@@ -7,12 +7,13 @@ import { LeftOutlined } from '@ant-design/icons';
 import VerificationInput from 'react-verification-input';
 import { Spinner } from '@/components/Spinner/Spinner';
 
-import securityImage from '../../../../../assets/images/dashboard/email-security.png';
+import securityMailImage from '../../../../../assets/images/dashboard/email-security.png';
+import securityPhoneImage from '../../../../../assets/images/dashboard/phone-security.png';
 
 import styles from './securitySettings.module.css';
 import { montserrat } from '@/utils/fonts';
 
-export const SecurityCodeForm = ({ onBack, onFinish }) => {
+export const SecurityCodeForm = ({ onBack, onFinish, device }) => {
   let isLoading = false;
 
   const setSecurityCode = () => {};
@@ -23,11 +24,17 @@ export const SecurityCodeForm = ({ onBack, onFinish }) => {
           <LeftOutlined /> <p>Back</p>
         </div>
         <div className={styles.imageWrap}>
-          <Image width={200} src={securityImage} alt="code verification" />
+          <Image
+            width={200}
+            src={device === 'email' ? securityMailImage : securityPhoneImage}
+            alt="code verification"
+          />
         </div>
-        <h3 className={`${styles.title} security-title ${montserrat.variable}`}>Check your mail</h3>
+        <h3 className={`${styles.title} security-title ${montserrat.variable}`}>
+          {device === 'email' ? 'Check your mail' : 'Check your phone'}
+        </h3>
         <p className={`${styles.text} security-text ${montserrat.variable}`}>
-          We have sent a verification code to your email
+          We have sent a verification code to your {device}
         </p>
         {isLoading ? (
           <Spinner />

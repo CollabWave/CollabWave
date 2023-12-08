@@ -85,6 +85,7 @@
 }
 
 .button {
+  position: relative;
   width: 243px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -105,16 +106,26 @@
   );
   backdrop-filter: blur(9px);
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
 }
 
-.button:hover {
+.button::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: 20px;
   background: linear-gradient(
     180deg,
     rgba(18, 26, 25, 0.8) 0%,
     rgba(44, 121, 117, 0.8) 52.08%,
     rgba(18, 26, 25, 0) 100%
   );
+  opacity: 0;
+  z-index: -2;
+  transition: opacity 0.25s linear;
+}
+
+.button:hover::before {
+  opacity: 1;
 }
 
 .footerUpperWrap {

@@ -49,12 +49,14 @@ export const BloggerPersonalInfo = ({ user }) => {
     <Select.Option key={area.id} value={area.value}></Select.Option>
   ));
 
-  const getHref = href =>
-    href.startsWith('http' || 'https')
+  const getHref = href => {
+    if (!href) return;
+    return href.startsWith('http' || 'https')
       ? href
       : href.startsWith('www')
       ? `https://${href}`
       : `https://www.${href}`;
+  };
 
   const onCancel = () => {
     form.setFieldsValue(user);
