@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { emailPattern, phonePattern } from '@/utils/common';
 
@@ -35,13 +35,14 @@ export const Footer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [errorMessage, setErrorMessage] = useState('');
 
-  const year = document.getElementById('current-year');
-  year.textContent = new Date().getFullYear();
+  useEffect(() => {
+    const year = document.getElementById('current-year');
+    year.textContent = new Date().getFullYear();
+  }, []);
 
   const handleLinkMouseEnter = iconName => {
     setHoveredIcon(iconName);
   };
-
   const handleLinkMouseLeave = () => {
     setHoveredIcon('');
   };
