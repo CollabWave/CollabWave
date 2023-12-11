@@ -173,3 +173,12 @@
 .button:hover .buttonText {
   color: #82efee;
 }
+
+.smallImage {
+  transition: scale 250ms ease-out;
+}
+
+.latestPostItem:hover .smallImage,
+.latestPostItem:focus .smallImage {
+  scale: 1.05;
+}
