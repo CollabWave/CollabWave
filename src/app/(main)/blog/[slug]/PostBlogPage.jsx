@@ -40,7 +40,10 @@ export const PostBlogPage = () => {
                   alt={postToShow.title}
                 />
               </div>
-              <p className={`${styles.text} ${roboto.variable}`}>{postToShow.text}</p>
+              <p
+                className={`${styles.text} ${roboto.variable}`}
+                dangerouslySetInnerHTML={{ __html: postToShow.text }}
+              ></p>
             </div>
             <div className={styles.buttonWrap}>
               <button onClick={() => router.push('/blog')} className={styles.button}>
