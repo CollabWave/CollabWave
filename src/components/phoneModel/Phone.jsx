@@ -17,17 +17,10 @@ export function Model(props) {
       const screenMaterial = new THREE.MeshBasicMaterial({
         map: loadedTexture,
         color: 0x999999,
-        flipY: false,
+        flipY: true,
       });
   
       phoneScreenMesh.material = screenMaterial;
-  
-      phoneScreenMesh.geometry = phoneScreenMesh.geometry.clone();
-
-      phoneScreenMesh.geometry.attributes.uv.array = phoneScreenMesh.geometry.attributes.uv.array.map(
-        (uv, index) => (index % 2 === 1 ? 1 - uv : uv)
-      );
-      phoneScreenMesh.geometry.attributes.uv.needsUpdate = true;
     }
   );
 
