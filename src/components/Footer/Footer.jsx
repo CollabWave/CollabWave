@@ -89,7 +89,7 @@ export const Footer = () => {
         <div className={styles.footerUpperWrap}>
           <div>
             <h3 className={`${styles.footerTitle} ${cinzel.variable}`}>Contact us</h3>
-            <form className={styles.form}>
+            <form id="contact-form" className={styles.form}>
               <div className={styles.formWrap}>
                 <div className={styles.inputsWrap}>
                   <input
