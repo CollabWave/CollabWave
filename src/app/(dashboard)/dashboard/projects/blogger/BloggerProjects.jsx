@@ -37,7 +37,7 @@ export const BloggerProjects = () => {
 
   return (
     <>
-      <div className={`${styles.wrap} section-wrap`}>
+      <div className="right-main-wrap section-wrap">
         <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
           Projects
         </h3>

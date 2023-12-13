@@ -58,6 +58,14 @@ main {
   background-color: rgb(37, 40, 75);
 }
 
+.right-main-wrap {
+  margin: 130px auto 0 auto;
+  padding: 30px 20px;
+  width: 94%;
+  min-height: 80%;
+  border-radius: 7px;
+}
+
 .ant-collapse-header {
   display: flex;
   justify-content: space-between;
@@ -275,6 +283,11 @@ main {
   background-color: var(--intensive-blue) !important;
 }
 
+.dark .blue-hover:hover,
+.dark .blue-hover:focus {
+  color: var(--intensive-blue) !important;
+}
+
 .light .profile-input-label,
 .light .ant-input-prefix,
 .light .personal-info-cancel,
@@ -288,6 +301,11 @@ main {
 .light .personal-info-save:hover,
 .light .personal-info-save:focus {
   background-color: var(--light-blue) !important;
+}
+
+.light .blue-hover:hover,
+.light .blue-hover:focus {
+  color: var(--light-blue) !important;
 }
 
 .light .personal-info-cancel,
@@ -709,5 +727,13 @@ main {
 }
 
 .light .fulfillment-line {
-  background: linear-gradient(90deg, rgb(255, 177, 85) 0%, #FF5252 100%);
+  background: linear-gradient(90deg, rgb(255, 177, 85) 0%, #ff5252 100%);
+}
+
+.dark .arrow {
+  color: rgb(121, 124, 154);
+}
+
+.light .arrow {
+  color: rgb(121, 129, 154);
 }

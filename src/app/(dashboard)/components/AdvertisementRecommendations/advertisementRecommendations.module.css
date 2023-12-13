@@ -1,0 +1,14 @@
+.buttonsWrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.viewAll {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.arrow {
+    font-size: 190%;
+}

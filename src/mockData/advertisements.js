@@ -1,0 +1,38 @@
+export const advertisements = [
+  {
+    id: 1,
+    brand: 'Coffee Shop',
+    logo: '/dashboard/coffee-shop-icon.svg',
+    location: { country: 'Estonia', city: 'Tallinn' },
+    paymentType: 'cpc',
+    poster: '/dashboard/coffee-shop.webp',
+    category: 'food and cooking',
+  },
+  {
+    id: 2,
+    brand: 'Seasoning Haven',
+    logo: '/dashboard/seasoning-icon.svg',
+    location: { country: 'Estonia', city: 'Tallinn' },
+    paymentType: 'cpa',
+    poster: '/dashboard/seasoning.webp',
+    category: 'food and cooking',
+  },
+  {
+    id: 3,
+    brand: 'Cleo',
+    logo: '/dashboard/cleo-icon.svg',
+    location: { country: 'Estonia', city: 'Tallinn' },
+    paymentType: 'cpc',
+    poster: '/dashboard/cleo.webp',
+    category: 'cosmetics and skincare',
+  },
+  {
+    id: 4,
+    brand: 'Brand',
+    logo: '/dashboard/brand-icon.svg',
+    location: { country: 'Estonia', city: 'Tartu' },
+    paymentType: 'cpa',
+    poster: '/dashboard/brand.webp',
+    category: 'cosmetics and skincare',
+  },
+];
