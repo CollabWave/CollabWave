@@ -30,14 +30,20 @@ export const PostBlogPage = () => {
           <div>
             <h2 className={`${styles.title} ${cinzel.variable}`}>{postToShow.title}</h2>
             <div className={styles.postWrap}>
-              <Image
-                width={517}
-                height={570}
-                src={postToShow.image}/* {`${imagePath}${postToShow.image}`} */
-                alt={postToShow.title}
-              />
-
-              <p className={`${styles.text} ${roboto.variable}`}>{postToShow.text}</p>
+              <div className={styles.imageWrap}>
+                <Image
+                  sizes="100vw"
+                  className={styles.image}
+                  width={517}
+                  height={570}
+                  src={postToShow.image} /* {`${imagePath}${postToShow.image}`} */
+                  alt={postToShow.title}
+                />
+              </div>
+              <p
+                className={`${styles.text} ${roboto.variable}`}
+                dangerouslySetInnerHTML={{ __html: postToShow.text }}
+              ></p>
             </div>
             <div className={styles.buttonWrap}>
               <button onClick={() => router.push('/blog')} className={styles.button}>
@@ -53,12 +59,13 @@ export const PostBlogPage = () => {
           <h3 className={`${styles.smallTitle} ${cinzel.variable}`}>Latest posts:</h3>
           <ul>
             {lastPosts.map(post => (
-              <li>
+              <li className={styles.latestPostItem}>
                 <Link href={`/blog/${post.slug}`}>
                   <Image
                     width={250}
                     height={275}
-                    src={post.image}/* {`${imagePath}${post.image}`} */
+                    className={styles.smallImage}
+                    src={post.image} /* {`${imagePath}${post.image}`} */
                     alt={post.title}
                   />
                   <p className={`${styles.smallText} ${roboto.variable}`}>

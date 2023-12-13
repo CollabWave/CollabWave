@@ -120,18 +120,17 @@ export const TwoFactorAuth = ({ user }) => {
           )}
         </Row>
       </Form>
-      {selectedOption === 'email' && (
-        <Modal
-          width={'700px'}
-          destroyOnClose
-          open={verifyClicked}
-          footer={false}
-          closable={false}
-          onCancel={() => setVerifyClicked(false)}
-        >
-          <SecurityCodeForm onBack={() => setVerifyClicked(false)} onFinish={onVerify} />
-        </Modal>
-      )}
+
+      <Modal
+        width={'700px'}
+        destroyOnClose
+        open={verifyClicked}
+        footer={false}
+        closable={false}
+        onCancel={() => setVerifyClicked(false)}
+      >
+        <SecurityCodeForm device={selectedOption} onBack={() => setVerifyClicked(false)} onFinish={onVerify} />
+      </Modal>
     </>
   );
 };

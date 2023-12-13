@@ -127,9 +127,10 @@
   cursor: pointer;
   transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
-  margin-top: 30px;
 }
-
+.button_back {
+  margin-right: 135px;
+}
 .button:hover {
   transition-duration: 0.1s;
   background-color: #3a3a3a;

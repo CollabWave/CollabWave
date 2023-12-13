@@ -6,7 +6,8 @@
   font-size: 24px;
   line-height: 1.2;
   text-align: center;
-  border-left: 1px solid #82efee;
+  border-left-width: 1px;
+  border-left-style: solid;
 }
 
 .features__titleBox {
@@ -18,7 +19,6 @@
   margin-bottom: 80px;
   height: 413px;
   border-radius: 20px;
-  border: 1px solid #82efee;
   background: linear-gradient(
     to bottom,
     #030c0e 5%,

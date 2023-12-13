@@ -1,0 +1,97 @@
+.wrap {
+  margin: 130px auto 0 auto;
+  padding: 30px 20px;
+  width: 94%;
+  min-height: 80%;
+  border-radius: 7px;
+}
+
+.table {
+  border-radius: 0px;
+}
+
+.tag {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.copyButton {
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: border-color 250ms ease-out, color 250ms ease-out;
+}
+
+.popoverText {
+  font-size: 16px;
+  color: var(--text-main-light);
+}
+
+.modalWrap {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.rightSide {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.image {
+  display: block;
+}
+
+.projectName {
+  margin-bottom: 20px;
+}
+
+.projectName,
+.tasksMenuItem {
+  font-size: 22px;
+}
+
+.tasksMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.tasksMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.fulfillmentWrapper {
+  border-radius: 50px;
+  height: 40px;
+  margin-bottom: 60px;
+  width: 90%;
+}
+
+.fulfillmentLine {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 100%;
+  padding-right: 10px;
+  border-radius: 50px;
+}
+
+.smallText {
+  font-size: 18px;
+  text-align: center;
+}

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { emailPattern, phonePattern } from '@/utils/common';
 
@@ -35,10 +35,14 @@ export const Footer = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(() => {
+    const year = document.getElementById('current-year');
+    year.textContent = new Date().getFullYear();
+  }, []);
+
   const handleLinkMouseEnter = iconName => {
     setHoveredIcon(iconName);
   };
-
   const handleLinkMouseLeave = () => {
     setHoveredIcon('');
   };
@@ -85,7 +89,7 @@ export const Footer = () => {
         <div className={styles.footerUpperWrap}>
           <div>
             <h3 className={`${styles.footerTitle} ${cinzel.variable}`}>Contact us</h3>
-            <form className={styles.form}>
+            <form id="contact-form" className={styles.form}>
               <div className={styles.formWrap}>
                 <div className={styles.inputsWrap}>
                   <input
@@ -160,7 +164,7 @@ export const Footer = () => {
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
                     href={''}
                   >
-                    Reviews
+                    How does it work?
                   </Link>
                 </li>
               </ul>
@@ -168,14 +172,6 @@ export const Footer = () => {
             <div>
               <h3 className={`${styles.footerTitle} ${cinzel.variable}`}>Company</h3>
               <ul className={styles.list}>
-                <li>
-                  <Link
-                    className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
-                  >
-                    About
-                  </Link>
-                </li>
                 <li>
                   <Link
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
@@ -198,14 +194,6 @@ export const Footer = () => {
                     href={'blog'}
                   >
                     Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
-                  >
-                    Tell about us
                   </Link>
                 </li>
               </ul>
@@ -353,7 +341,7 @@ export const Footer = () => {
         <div className={styles.copyright}>
           <Image width={17} height={20} priority src={autorship} alt="Copyright icon" />
           <p className={`${styles.link} ${roboto.variable} `}>
-            2024 CollabWave. All rights reserved.
+            <span id="current-year"></span> CollabWave. All rights reserved.
           </p>
         </div>
         <div className={styles.light__spot}></div>

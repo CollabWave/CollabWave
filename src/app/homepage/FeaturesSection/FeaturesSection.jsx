@@ -27,13 +27,23 @@ export const FeaturesSection = () => {
   const [flipped, set] = useState(false);
   const [card, setCard] = useState('cpa');
 
-  const { size } = useSpring({
-    config: { duration: 1500 },
-    from: { size: '20%' },
+  const textStyle = useSpring({
+    config: { duration: 5500 },
+    from: { opacity: 0 },
     to: {
-      size: featuresRef?.isIntersecting ? '100%' : '20%',
+      opacity: featuresRef?.isIntersecting ? 1 : 0,
     },
-  })
+    delay: 1000,
+  });
+
+  const borderStyle = useSpring({
+    config: { duration: 3500 },
+    from: { borderColor: 'transparent' },
+    to: {
+      borderColor: featuresRef?.isIntersecting ? '#82EFEE' : 'transparent',
+    },
+    delay: 2000,
+  });
 
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -44,11 +54,15 @@ export const FeaturesSection = () => {
   return (
     <Section>
       <div ref={resizeRef} />
-      <a.div style={{width: size, height: size }} className={styles.features__titleBox}>
-        <a.div style={{width: size, height: size }} className={`${styles.features__wrap} ${styles.features__border}`}>
+      <a.div
+        style={{ ...borderStyle, borderWidth: '1px', borderStyle: 'solid' }}
+        className={styles.features__titleBox}
+      >
+        <a.div style={textStyle} className={`${styles.features__wrap} ${styles.features__border}`}>
           <SectionTitle animate={false} color={'#82EFEE'} title={'FEATURES'} />
         </a.div>
-        <a.p style={{width: size, height: size }}
+        <a.p
+          style={{ ...textStyle, ...borderStyle }}
           className={`${styles.features__description} ${roboto.variable} ${styles.features__wrap}`}
         >
           Our flexible solutions include easy project management, audience growth and
