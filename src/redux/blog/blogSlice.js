@@ -17,6 +17,6 @@ const blogSlice = createSlice({
   },
 });
 
-export const selectBlogState = (state) => state.blog.blogPosts;
+export const selectBlogState = state => state.blog.blogPosts;
 
 export default blogSlice.reducer;

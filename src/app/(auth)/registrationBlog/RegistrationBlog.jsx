@@ -16,7 +16,14 @@ import youTube from '../../../assets/images/svg/youtube.svg';
 import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import { roboto } from '@/utils/fonts';
 
-const RegistrationBlog = ({ onNextClick }) => {
+const RegistrationBlog = ({ formInputData, onNextClick }) => {
+  const [blogData, setBlogFormData] = React.useState({
+    // Оголосіть необхідні поля для даних, які ви очікуєте від RegistrationForm
+    // Наприклад, socialMedia,matic і т. д.
+    socialMedia: '',
+    thematic: '',
+  });
+  const [hoveredIcon, setHoveredIcon] = useState('');
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
   const thematicOptions = [
     'Мода',
@@ -51,11 +58,12 @@ const RegistrationBlog = ({ onNextClick }) => {
     'Блогер інфлюенсер',
   ];
 
-  const [selectedThematic, setSelectedThematic] = useState('');
-  const [hoveredIcon, setHoveredIcon] = useState('');
-
   const handleThematicChange = event => {
-    setSelectedThematic(event.target.value);
+    const selectedThematic = event.target.value;
+    setBlogFormData(prevData => ({
+      ...prevData,
+      thematic: selectedThematic,
+    }));
   };
   const handleLinkMouseEnter = iconName => {
     setHoveredIcon(iconName);
@@ -66,7 +74,49 @@ const RegistrationBlog = ({ onNextClick }) => {
   };
   const handleSocialMediaClick = socialMedia => {
     setSelectedSocialMedia(socialMedia);
-    console.log(socialMedia);
+    setBlogFormData(prevData => ({
+      ...prevData,
+      socialMedia,
+    }));
+
+    const handleIconClick = iconName => {
+      if (selectedSocialMedia === iconName) {
+        // Якщо клікнуто на вже вибрану іконку, зняти виділення
+        setSelectedSocialMedia(null);
+      } else {
+        // Якщо клікнуто на іншу іконку, встановити її як обрану
+        setSelectedSocialMedia(iconName);
+      }
+    };
+    // Викликати функцію handleInputChange і передати обрану соціальну мережу
+    handleInputChange({
+      target: {
+        name: 'socialMedia',
+        value: socialMedia,
+      },
+    });
+  };
+
+  // ... інший код
+
+  // Обробник змін для полів у формі RegistrationBlog
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    setBlogFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleNextClick = e => {
+    e.preventDefault();
+
+    // Викликаємо передану функцію onNextClick і передаємо дані
+    if (onNextClick) {
+      onNextClick(blogData);
+    }
+
+    // Виводимо дані в консоль для перевірки
   };
   return (
     <div className={styles.conatainer}>
@@ -87,7 +137,7 @@ const RegistrationBlog = ({ onNextClick }) => {
               target="_blank"
               onClick={() => handleSocialMediaClick('facebook')}
             >
-              {hoveredIcon === 'facebook' ? (
+              {hoveredIcon === 'facebook' || selectedSocialMedia === 'facebook' ? (
                 <Image priority src={facebookHover} alt="Facebook icon" />
               ) : (
                 <Image priority src={facebook} alt="Facebook icon" />
@@ -102,7 +152,7 @@ const RegistrationBlog = ({ onNextClick }) => {
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
               onClick={() => handleSocialMediaClick('telegram')}
             >
-              {hoveredIcon === 'telegram' ? (
+              {hoveredIcon === 'telegram' || selectedSocialMedia === 'telegram' ? (
                 <Image priority src={telegramHover} alt="Telegram icon" />
               ) : (
                 <Image priority src={telegram} alt="Telegram icon" />
@@ -118,7 +168,7 @@ const RegistrationBlog = ({ onNextClick }) => {
               target="_blank"
               onClick={() => handleSocialMediaClick('youTube')}
             >
-              {hoveredIcon === 'youTube' ? (
+              {hoveredIcon === 'youTube' || selectedSocialMedia === 'youTube' ? (
                 <Image priority src={youTubeHover} alt="youTube icon" />
               ) : (
                 <Image priority src={youTube} alt="youTube icon" />
@@ -133,7 +183,7 @@ const RegistrationBlog = ({ onNextClick }) => {
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
               onClick={() => handleSocialMediaClick('tiktok')}
             >
-              {hoveredIcon === 'tiktok' ? (
+              {hoveredIcon === 'tiktok' || selectedSocialMedia === 'tiktok' ? (
                 <Image priority src={tiktokHover} alt="TikTok icon" />
               ) : (
                 <Image priority src={tiktok} alt="TikTok icon" />
@@ -149,7 +199,7 @@ const RegistrationBlog = ({ onNextClick }) => {
               onClick={() => handleSocialMediaClick('instagram')}
               target="_blank"
             >
-              {hoveredIcon === 'instagram' ? (
+              {hoveredIcon === 'instagram' || selectedSocialMedia === 'instagram' ? (
                 <Image priority src={instagramHover} alt="Instagram icon" />
               ) : (
                 <Image priority src={instagram} alt="Instagram icon" />
@@ -161,7 +211,13 @@ const RegistrationBlog = ({ onNextClick }) => {
           <label htmlFor="social-link" className={styles.label}>
             Social Link
           </label>
-          <input type="text" id="social-link" name="social-link" className={styles.input} />
+          <input
+            type="text"
+            id="social-link"
+            name="social-link"
+            className={styles.input}
+            onChange={handleInputChange}
+          />
           <label htmlFor="thematic" className={styles.label}>
             Thematic
           </label>
@@ -170,16 +226,19 @@ const RegistrationBlog = ({ onNextClick }) => {
               id="thematic"
               name="thematic"
               className={styles.input}
-              value={selectedThematic}
               onChange={handleThematicChange}
+              value={blogData.thematic} // Додаємо це значення
             >
               <option value="">Оберіть тематику</option>
               {thematicOptions.map((thematic, index) => (
-                <option key={index} value={`option${index + 1}`}>
+                <option key={index} value={thematic}>
                   {thematic}
                 </option>
               ))}
             </select>
+            <button className={`${styles.button} ${styles.button_next}`} onClick={handleNextClick}>
+              Next
+            </button>
           </div>
         </form>
       </div>
