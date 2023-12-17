@@ -1,5 +1,6 @@
 import { Section } from '@/components/Section/Section';
 import { SectionTitle } from '@/components/SectionTitle.jsx/SectionTitle';
+import { CreateForm } from '@/components/CreateForm/CreateForm';
 
 import { about__cardText } from '../../../homepage/AboutSection/aboutSection.module.css';
 import styles from '../blogger.module.css';
@@ -12,6 +13,7 @@ export const FormSection = () => {
         You can enjoy our app, earn money, and collaborate with other bloggers. The only downside is
         that it can be addictive.
       </p>
+      <CreateForm />
     </Section>
   );
 };

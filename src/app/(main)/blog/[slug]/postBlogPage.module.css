@@ -36,6 +36,7 @@
 .image {
   width: '100%';
   height: 'auto';
+  border-radius: 7px;
 }
 
 .text {
@@ -171,4 +172,13 @@
 
 .button:hover .buttonText {
   color: #82efee;
+}
+
+.smallImage {
+  transition: scale 250ms ease-out;
+}
+
+.latestPostItem:hover .smallImage,
+.latestPostItem:focus .smallImage {
+  scale: 1.05;
 }
