@@ -35,4 +35,13 @@ export const advertisements = [
     poster: '/dashboard/brand.webp',
     category: 'cosmetics and skincare',
   },
+  {
+    id: 5,
+    brand: 'Seasoning Haven',
+    logo: '/dashboard/seasoning-icon.svg',
+    location: { country: 'Estonia', city: 'Tallinn' },
+    paymentType: 'cpa',
+    poster: '/dashboard/seasoning.webp',
+    category: 'food and cooking',
+  },
 ];

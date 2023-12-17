@@ -1,4 +1,8 @@
-import { useMemo } from 'react';
+'use client';
+
+import { useMemo, useRef } from 'react';
+
+import { useRouter } from 'next/navigation';
 
 import { Row, Col, Button, Carousel } from 'antd';
 
@@ -20,8 +24,13 @@ export const AdvertisementRecommendations = () => {
       </div>
     ));
   }, [advertisements]);
+
+  const sliderRef = useRef(null);
+
+  const router = useRouter();
+
   return (
-    <div className="right-main-wrap section-wrap">
+    <>
       <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
         Advertisement recommendations
       </h3>
@@ -32,6 +41,7 @@ export const AdvertisementRecommendations = () => {
             size="medium"
             borderd="false"
             type="text"
+            onClick={() => router.push('dashboard/advertisements')}
           >
             View All
           </Button>
@@ -40,7 +50,8 @@ export const AdvertisementRecommendations = () => {
         <Col>
           <Button
             type="text"
-            size="medium" /* onClick={() => sliderRef.current && sliderRef.current.slickPrev()} */
+            size="medium"
+            onClick={() => sliderRef.current && sliderRef.current.prev()}
           >
             <LeftOutlined className={`${styles.arrow} arrow blue-hover`} />
           </Button>
@@ -49,13 +60,16 @@ export const AdvertisementRecommendations = () => {
         <Col>
           <Button
             type="text"
-            size="medium" /* onClick={() => sliderRef.current && sliderRef.current.slickNext()}*/
+            size="medium"
+            onClick={() => sliderRef.current && sliderRef.current.next()}
           >
             <RightOutlined className={`${styles.arrow} arrow blue-hover`} />
           </Button>
         </Col>
       </Row>
-      <Carousel slidesToShow={3}>{advertisementsList}</Carousel>
-    </div>
+      <Carousel style={{ marginBottom: '30px' }} ref={sliderRef} dots={false} slidesToShow={4}>
+        {advertisementsList}
+      </Carousel>
+    </>
   );
 };
