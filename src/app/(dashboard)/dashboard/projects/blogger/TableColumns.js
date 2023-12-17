@@ -2,7 +2,7 @@
 
 import { Tag, Popover } from 'antd';
 
-import { setClicked } from './BloggerProjects';
+import { setClicked } from '@/app/(dashboard)/components/ProjectsTable/ProjectsTable';
 
 import styles from '../projects.module.css';
 import { montserrat } from '@/utils/fonts';

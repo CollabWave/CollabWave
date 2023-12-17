@@ -135,6 +135,10 @@ main {
   color: var(--text-main-light);
 }
 
+.light .secondary-text {
+  color: var(--text-light-light);
+}
+
 .dark .header__search {
   background-color: var(--bg-color-dark);
   color: var(--text-main-dark);
@@ -255,7 +259,8 @@ main {
 .dark .section-wrap,
 .dark .ant-table,
 .dark .copy-button,
-.dark .ant-pagination-item {
+.dark .ant-pagination-item,
+.dark .secondary-background {
   background-color: var(--bg-color-dark);
 }
 
@@ -275,6 +280,11 @@ main {
 .dark .copy-button:focus {
   border-color: var(--intensive-blue);
   color: var(--intensive-blue);
+}
+
+.light .advertisement-card {
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
 }
 
 .dark .personal-info-save:hover,
@@ -339,7 +349,8 @@ main {
 .dark .ant-table,
 .dark .ant-pagination-item > a,
 .dark .text,
-.dark .ant-modal-close-icon {
+.dark .ant-modal-close-icon,
+.dark .heading-small {
   color: var(--text-main-dark);
 }
 
@@ -440,7 +451,8 @@ main {
 
 .dark .ant-picker-input input::placeholder,
 .dark .ant-picker-suffix,
-.dark .header__search::placeholder {
+.dark .header__search::placeholder,
+.dark .secondary-text {
   color: var(--text-light-dark);
 }
 
@@ -736,4 +748,12 @@ main {
 
 .light .arrow {
   color: rgb(121, 129, 154);
+}
+
+.slick-list {
+  padding: 30px !important;
+}
+
+.light .heading-small {
+  color: #13264d;
 }
