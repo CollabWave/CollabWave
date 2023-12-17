@@ -1,15 +1,3 @@
-.wrap {
-  margin: 130px auto 0 auto;
-  padding: 30px 20px;
-  width: 94%;
-  min-height: 80%;
-  border-radius: 7px;
-}
-
-.table {
-  border-radius: 0px;
-}
-
 .tag {
   font-size: 18px;
   font-weight: 500;

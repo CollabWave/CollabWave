@@ -1,11 +1,12 @@
 export const blog = [
   {
     id: 1,
-    title: 'Meet New Faces: Up-and-coming Influencers Who Are Revolutionizing the Industry',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique tincidunt pellentesque. Phasellus diam neque, accumsan eu est ut, rhoncus ornare erat. Nam quis ligula orci. Proin vitae consequat libero. Quisque tempor, arcu id interdum porttitor, ipsum est vestibulum nibh, nec molestie justo risus in turpis. Vivamus massa ligula, aliquet in felis sed, condimentum suscipit quam. Maecenas luctus consectetur sem, vel finibus ipsum sodales eget. Quisque lectus purus, finibus eu purus quis, eleifend eleifend felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin massa ex, finibus nec justo vel, commodo consectetur leo. Phasellus nec justo quis est vulputate eleifend. Integer ultricies, lectus vitae porta ornare, dolor leo malesuada odio, in interdum ligula odio a felis. Cras vitae enim quis ex vulputate tempus maximus et sem. Nullam feugiat odio non mollis lobortis. Sed non malesuada lacus. Fusce sit amet pellentesque mi. Nulla quis lectus sit amet lectus gravida dapibus eu in nunc. Pellentesque quis neque arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer tincidunt lacus vel ex posuere fermentum. Donec pellentesque eget nulla vel tristique. Sed ac ante ac sapien tempus pulvinar dapibus vitae metus.',
-    image: '/blog/article1.webp',
-    slug: 'meet-new-faces',
-    category: 'bloggers',
+    title: 'Every blogger matters!',
+    text: `CollabWave is not just a platform where an influencer can find an opportunity for additional income. We often communicate with various bloggers, listen to their needs and problems. Based on what we hear, we make every effort to implement new features on our platform.<br /><br />    
+    As many know, there are four main categories of bloggers today, based on the number of subscribers:<br />nano: 1,000-10,000 subscribers;<br />micro: 10,000-100,000 subscribers;<br />macro: 100,000-1 million subscribers;<br />mega: over 1 million subscribers.<br /><br />Since our primary goal is to help influencers who are just starting their journey and may not yet have enough courage and determination, our main focus is on nano- and micro-bloggers. We have developed a support system for aspiring influencers and periodically organize various promotions and educational courses. Stay tuned for our news to be aware of upcoming events.<br />CollabWave cares about every individual blogger, regardless of the number of their subscribers! So, if you have any questions, wishes, or ideas, we are always happy to hear and discuss them <a href="#contact-form">here</a>.`,
+    image: '/blog/every-blogger-matters.webp',
+    slug: 'every-blogger-matters',
+    category: 'collabwave',
   },
   {
     id: 2,
@@ -19,8 +20,8 @@ export const blog = [
     id: 3,
     title: 'Nomer 3 Social Media and Brands: How Brands Choose Influencers to Advertise With',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique tincidunt pellentesque. Phasellus diam neque, accumsan eu est ut, rhoncus ornare erat. Nam quis ligula orci. Proin vitae consequat libero. Quisque tempor, arcu id interdum porttitor, ipsum est vestibulum nibh, nec molestie justo risus in turpis. Vivamus massa ligula, aliquet in felis sed, condimentum suscipit quam. Maecenas luctus consectetur sem, vel finibus ipsum sodales eget. Quisque lectus purus, finibus eu purus quis, eleifend eleifend felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas',
-    image: '/blog/article2.webp',
+    image: '/blog/article1.webp',
     slug: 'nomer-3',
-    category: 'collabwave',
+    category: 'bloggers',
   },
 ];

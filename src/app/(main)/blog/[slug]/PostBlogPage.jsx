@@ -40,7 +40,10 @@ export const PostBlogPage = () => {
                   alt={postToShow.title}
                 />
               </div>
-              <p className={`${styles.text} ${roboto.variable}`}>{postToShow.text}</p>
+              <p
+                className={`${styles.text} ${roboto.variable}`}
+                dangerouslySetInnerHTML={{ __html: postToShow.text }}
+              ></p>
             </div>
             <div className={styles.buttonWrap}>
               <button onClick={() => router.push('/blog')} className={styles.button}>
@@ -56,11 +59,12 @@ export const PostBlogPage = () => {
           <h3 className={`${styles.smallTitle} ${cinzel.variable}`}>Latest posts:</h3>
           <ul>
             {lastPosts.map(post => (
-              <li>
+              <li className={styles.latestPostItem}>
                 <Link href={`/blog/${post.slug}`}>
                   <Image
                     width={250}
                     height={275}
+                    className={styles.smallImage}
                     src={post.image} /* {`${imagePath}${post.image}`} */
                     alt={post.title}
                   />

@@ -89,7 +89,7 @@ export const Footer = () => {
         <div className={styles.footerUpperWrap}>
           <div>
             <h3 className={`${styles.footerTitle} ${cinzel.variable}`}>Contact us</h3>
-            <form className={styles.form}>
+            <form id="contact-form" className={styles.form}>
               <div className={styles.formWrap}>
                 <div className={styles.inputsWrap}>
                   <input
@@ -164,7 +164,7 @@ export const Footer = () => {
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
                     href={''}
                   >
-                    Reviews
+                    How does it work?
                   </Link>
                 </li>
               </ul>
@@ -172,14 +172,6 @@ export const Footer = () => {
             <div>
               <h3 className={`${styles.footerTitle} ${cinzel.variable}`}>Company</h3>
               <ul className={styles.list}>
-                <li>
-                  <Link
-                    className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
-                  >
-                    About
-                  </Link>
-                </li>
                 <li>
                   <Link
                     className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
@@ -202,14 +194,6 @@ export const Footer = () => {
                     href={'blog'}
                   >
                     Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
-                  >
-                    Tell about us
                   </Link>
                 </li>
               </ul>

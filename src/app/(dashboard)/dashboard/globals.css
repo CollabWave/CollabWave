@@ -58,6 +58,14 @@ main {
   background-color: rgb(37, 40, 75);
 }
 
+.right-main-wrap {
+  margin: 130px auto 0 auto;
+  padding: 30px 20px;
+  width: 94%;
+  min-height: 80%;
+  border-radius: 7px;
+}
+
 .ant-collapse-header {
   display: flex;
   justify-content: space-between;
@@ -125,6 +133,10 @@ main {
 .light .ant-pagination-prev .anticon-left,
 .light .ant-modal-close-icon {
   color: var(--text-main-light);
+}
+
+.light .secondary-text {
+  color: var(--text-light-light);
 }
 
 .dark .header__search {
@@ -247,7 +259,8 @@ main {
 .dark .section-wrap,
 .dark .ant-table,
 .dark .copy-button,
-.dark .ant-pagination-item {
+.dark .ant-pagination-item,
+.dark .secondary-background {
   background-color: var(--bg-color-dark);
 }
 
@@ -269,10 +282,20 @@ main {
   color: var(--intensive-blue);
 }
 
+.light .advertisement-card {
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
 .dark .personal-info-save:hover,
 .dark .personal-info-save:focus,
 .light .personal-info-save {
   background-color: var(--intensive-blue) !important;
+}
+
+.dark .blue-hover:hover,
+.dark .blue-hover:focus {
+  color: var(--intensive-blue) !important;
 }
 
 .light .profile-input-label,
@@ -288,6 +311,11 @@ main {
 .light .personal-info-save:hover,
 .light .personal-info-save:focus {
   background-color: var(--light-blue) !important;
+}
+
+.light .blue-hover:hover,
+.light .blue-hover:focus {
+  color: var(--light-blue) !important;
 }
 
 .light .personal-info-cancel,
@@ -321,7 +349,8 @@ main {
 .dark .ant-table,
 .dark .ant-pagination-item > a,
 .dark .text,
-.dark .ant-modal-close-icon {
+.dark .ant-modal-close-icon,
+.dark .heading-small {
   color: var(--text-main-dark);
 }
 
@@ -422,7 +451,8 @@ main {
 
 .dark .ant-picker-input input::placeholder,
 .dark .ant-picker-suffix,
-.dark .header__search::placeholder {
+.dark .header__search::placeholder,
+.dark .secondary-text {
   color: var(--text-light-dark);
 }
 
@@ -709,5 +739,21 @@ main {
 }
 
 .light .fulfillment-line {
-  background: linear-gradient(90deg, rgb(255, 177, 85) 0%, #FF5252 100%);
+  background: linear-gradient(90deg, rgb(255, 177, 85) 0%, #ff5252 100%);
+}
+
+.dark .arrow {
+  color: rgb(121, 124, 154);
+}
+
+.light .arrow {
+  color: rgb(121, 129, 154);
+}
+
+.slick-list {
+  padding: 30px !important;
+}
+
+.light .heading-small {
+  color: #13264d;
 }
