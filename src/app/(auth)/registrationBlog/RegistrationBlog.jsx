@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setRegistrationStep } from '@/redux/auth/authSlice';
 import styles from './RegistrationBlog.module.css';
 import Image from 'next/image';
 import blogImg from '../../../image/reg-blog.png';
@@ -17,6 +19,7 @@ import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import { roboto } from '@/utils/fonts';
 
 const RegistrationBlog = ({ formInputData, onNextClick }) => {
+  const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
     socialLinks: [{ platform: '', username: '', followers: '' }],
     // socialMedia: '???',
@@ -70,9 +73,9 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   ];
   const handleNextClick = e => {
     e.preventDefault();
+    dispatch(setRegistrationStep(4));
 
     // Опціонально, обробляти дані або передавати їх батьківському компоненту
-    console.log('Blog Data:', formDataSocial);
 
     // Передавання данних батьківському компоненту чи іншій функції
     if (onNextClick) {
@@ -102,7 +105,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
       const updatedSocialLinks = [...prevData.socialLinks];
       // Оновлюємо перший елемент масиву socialLinks
       updatedSocialLinks[0] = { ...updatedSocialLinks[0], platform: socialMedia };
-      console.log('Updated socialLinks:', updatedSocialLinks);
+
       return {
         ...prevData,
         socialLinks: updatedSocialLinks,

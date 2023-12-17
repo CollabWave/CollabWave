@@ -24,7 +24,6 @@ const RegistrationBrandNextStep = ({ onNextClick, onInputChange }) => {
   const handleButtonClick = e => {
     if (isCheckboxChecked) {
       e.preventDefault();
-      console.log('Terms of Use:', true);
     } else {
       e.preventDefault();
       alert('Будь ласка, погодьтеся з умовами користування, перш ніж продовжувати.');

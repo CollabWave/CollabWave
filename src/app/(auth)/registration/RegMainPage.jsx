@@ -11,19 +11,20 @@ import RegistrationForm from '../registrationForm/RegistrationForm';
 import RegistrationExtended from '../registrationExtended/RegistrationExtended';
 import RegistrationBrandNextStep from '../RegistrationBrandNextStep/RegistrationBrandNextStep';
 import RegistrationBrandInfo from '../RegistrationBrandInfo/RegistrationBrandInfo';
+import { BloggerProfileLeftSide } from '@/app/(dashboard)/dashboard/profile/BloggerProfileLeftSide';
 import { useDispatch, useSelector } from 'react-redux';
 import './globals.css';
 // import { setClientType, setRegistrationStep } from '../../../../../redux/auth/authSlice';
 import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 import { authService } from '@/api/auth/register.service';
+import { user } from '@/mockData/user';
 
 const Registration = () => {
   const dispatch = useDispatch();
   const clientType = useSelector(state => state.auth.clientType);
   const registrationStep = useSelector(state => state.auth.registrationStep);
-  // const [formInputData, setFormInputData] = useState({});
+  const [verify, setVerify] = useState(false);
   const [blogDataFetch, setBlogDataFetch] = useState(null);
-  const [verifyBlog, setVerifyBlog] = useState(null);
   const [dataStatus, setDataStatus] = useState('');
   const [userId, setUserId] = useState('');
 
@@ -42,18 +43,18 @@ const Registration = () => {
   //     ...blogData,
   //   }));
   // };
-  const handleVerificationBlogData = async blogData => {
-    if (registrationStep === 3) {
-      try {
-        const verificationResponse = await authService.verifyUser(userId, userDataSocMedia);
-        console.log('Verification successful', verificationResponse.data);
-      } catch (error) {
-        setDataStatus('Error');
-        console.error('Verification failed', error);
-      }
-    }
-    console.log('Received data in parent component:', blogData);
-  };
+  // const handleVerificationBlogData = async blogData => {
+  //   if (registrationStep === 3) {
+  //     try {
+  //       const verificationResponse = await authService.verifyUser(userId, userDataSocMedia);
+  //       console.log('Verification successful', verificationResponse.data);
+  //     } catch (error) {
+  //       setDataStatus('Error');
+  //       console.error('Verification failed', error);
+  //     }
+  //   }
+  //   console.log('Received data in parent component:', blogData);
+  // };
 
   const handleRegistrationBlogData = async blogData => {
     setBlogDataFetch(prevBlogData => ({
@@ -66,44 +67,45 @@ const Registration = () => {
       ...blogDataFetch,
     };
 
-    console.log('blogData', blogData);
-    console.log('blogDataFetch', blogDataFetch);
-
     if (registrationStep === 2) {
       try {
         const response = await authService.registerUser(combinedData);
-        console.log('Registration successful', response.data);
+
         setDataStatus('success');
         setUserId(response.data.data._id);
-        console.log(response.data.data._id);
       } catch (error) {
         setDataStatus('Error');
         console.error('Registration failed', error);
       }
     }
     if (registrationStep === 3) {
-      console.log('step3');
       try {
         const verificationResponse = await authService.verifyUser(userId, blogData);
         console.log('Verification successful', verificationResponse.data);
+        setVerify(true);
       } catch (error) {
         setDataStatus('Error');
         console.error('Verification failed', error);
       }
     }
+    if (registrationStep === 4) {
+      try {
+        // Отримайте значення email та password з combinedData
+        const { email, password } = combinedData;
+        const loginResponse = await authService.loginUser({ email, password });
+        console.log('Login successful', loginResponse.data);
+        // Додайте інші дії, які вам потрібні після успішного входу
+      } catch (error) {
+        console.error('Login failed', error);
+        // Додайте обробку помилок аутентифікації
+      }
+    }
   };
-  console.log(userId);
+
   const handleClientSelection = selectedClient => {
     dispatch(setClientType(selectedClient));
   };
 
-  // const handleFormInputChange = data => {
-  //   setFormInputData(prevState => {
-  //     const newData = { ...prevState, ...data };
-  //     handleNextClick(newData);
-  //     return newData;
-  //   });
-  // };
   return (
     <body className={styles.body}>
       <>
@@ -145,6 +147,10 @@ const Registration = () => {
         {registrationStep === 3 && clientType === 'blog' && (
           // dataStatus === 'success' &&
           <RegistrationBlog onNextClick={handleRegistrationBlogData} />
+        )}
+        {registrationStep === 4 && (
+          // dataStatus === 'success' &&
+          <BloggerProfileLeftSide user={user} />
         )}
         {registrationStep === 1 && clientType === 'brand' && (
           <RegistrationBrand onNextClick={handleRegistrationBlogData} />

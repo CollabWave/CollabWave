@@ -13,7 +13,7 @@ export const fetchRegistration = createAsyncThunk(
     }
   }
 );
-export const fetchVerify = createAsyncThunk('auth/verify', async (userId, thunkAPI) => {
+export const fetchVerify = createAsyncThunk('auth/verify', async userId => {
   try {
     const verificationResponse = await authService.verifyUser(userId, blogData);
     console.log('Verification successful', verificationResponse.data);
@@ -23,3 +23,16 @@ export const fetchVerify = createAsyncThunk('auth/verify', async (userId, thunkA
     throw error; // Якщо потрібно обробити помилку в редюсері
   }
 });
+export const fetchLogin = createAsyncThunk(
+  'auth/login',
+  async ({ email, password }, { rejectWithValue }) => {
+    try {
+      // Pass email and password to the loginUser method
+      const loginResponse = await authService.loginUser({ email, password });
+      console.log('Login successful', loginResponse.data);
+      return loginResponse.data; // If you need to return data for further processing in the reducer
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

@@ -71,7 +71,6 @@ const RegistrationBrandInfo = ({ formInputData, onNextClick }) => {
     e.preventDefault();
 
     // Опціонально, обробляти дані або передавати їх батьківському компоненту
-    console.log('Blog Data:', formDataSocial);
 
     // Передавання данних батьківському компоненту чи іншій функції
     if (onNextClick) {
@@ -101,7 +100,7 @@ const RegistrationBrandInfo = ({ formInputData, onNextClick }) => {
       const updatedSocialLinks = [...prevData.socialLinks];
       // Оновлюємо перший елемент масиву socialLinks
       updatedSocialLinks[0] = { ...updatedSocialLinks[0], platform: socialMedia };
-      console.log('Updated socialLinks:', updatedSocialLinks);
+
       return {
         ...prevData,
         socialLinks: updatedSocialLinks,
