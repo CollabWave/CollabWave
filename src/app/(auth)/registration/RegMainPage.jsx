@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './Registration.module.css';
 import blogger from '../../../image/blogger.jpeg';
@@ -11,13 +12,11 @@ import RegistrationForm from '../registrationForm/RegistrationForm';
 import RegistrationExtended from '../registrationExtended/RegistrationExtended';
 import RegistrationBrandNextStep from '../RegistrationBrandNextStep/RegistrationBrandNextStep';
 import RegistrationBrandInfo from '../RegistrationBrandInfo/RegistrationBrandInfo';
-import { BloggerProfileLeftSide } from '@/app/(dashboard)/dashboard/profile/BloggerProfileLeftSide';
+
 import { useDispatch, useSelector } from 'react-redux';
-import './globals.css';
 // import { setClientType, setRegistrationStep } from '../../../../../redux/auth/authSlice';
 import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 import { authService } from '@/api/auth/register.service';
-import { user } from '@/mockData/user';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -27,6 +26,8 @@ const Registration = () => {
   const [blogDataFetch, setBlogDataFetch] = useState(null);
   const [dataStatus, setDataStatus] = useState('');
   const [userId, setUserId] = useState('');
+
+  const router = useRouter();
 
   const handleNextClick = () => {
     if (registrationStep === 0) {
@@ -94,6 +95,7 @@ const Registration = () => {
         const { email, password } = combinedData;
         const loginResponse = await authService.loginUser({ email, password });
         console.log('Login successful', loginResponse.data);
+        router.push('/dashboard'); //переход на дашборд
         // Додайте інші дії, які вам потрібні після успішного входу
       } catch (error) {
         console.error('Login failed', error);
@@ -107,63 +109,57 @@ const Registration = () => {
   };
 
   return (
-    <body className={styles.body}>
-      <>
-        {registrationStep === 0 && clientType === '' && (
-          <div className={styles.container}>
-            <ul className={styles.ul}>
-              <li
-                className={styles.li}
-                data-tooltip="Блогер"
-                onClick={() => {
-                  handleClientSelection('blog');
-                  handleNextClick();
-                }}
-              >
-                <Image src={blogger} alt="blogger" width="400" />
-              </li>
-              <li
-                className={styles.li}
-                data-tooltip="Бренд"
-                onClick={() => {
-                  handleClientSelection('brand'); // Змінено з 'blog' на 'brand'
-                  handleNextClick();
-                }}
-              >
-                <Image src={brand} alt="brand" width="400" />
-              </li>
-            </ul>
-          </div>
-        )}
-        {registrationStep === 1 && clientType === 'blog' && (
-          <RegistrationForm
-            onNextClick={handleRegistrationBlogData}
-            // onInputChange={handleFormInputChange}
-          />
-        )}
-        {registrationStep === 2 && clientType === 'blog' && (
-          <RegistrationExtended onNextClick={handleRegistrationBlogData} />
-        )}
-        {registrationStep === 3 && clientType === 'blog' && (
-          // dataStatus === 'success' &&
-          <RegistrationBlog onNextClick={handleRegistrationBlogData} />
-        )}
-        {registrationStep === 4 && (
-          // dataStatus === 'success' &&
-          <BloggerProfileLeftSide user={user} />
-        )}
-        {registrationStep === 1 && clientType === 'brand' && (
-          <RegistrationBrand onNextClick={handleRegistrationBlogData} />
-        )}
-        {registrationStep === 2 && clientType === 'brand' && (
-          <RegistrationBrandNextStep onNextClick={handleRegistrationBlogData} />
-        )}
-        {registrationStep === 3 && clientType === 'brand' && (
-          // dataStatus === 'success' &&
-          <RegistrationBrandInfo onNextClick={handleRegistrationBlogData} />
-        )}
-      </>
-    </body>
+    <>
+      {registrationStep === 0 && clientType === '' && (
+        <div className={styles.container}>
+          <ul className={styles.ul}>
+            <li
+              className={styles.li}
+              data-tooltip="Блогер"
+              onClick={() => {
+                handleClientSelection('blog');
+                handleNextClick();
+              }}
+            >
+              <Image src={blogger} alt="blogger" width="400" />
+            </li>
+            <li
+              className={styles.li}
+              data-tooltip="Бренд"
+              onClick={() => {
+                handleClientSelection('brand'); // Змінено з 'blog' на 'brand'
+                handleNextClick();
+              }}
+            >
+              <Image src={brand} alt="brand" width="400" />
+            </li>
+          </ul>
+        </div>
+      )}
+      {registrationStep === 1 && clientType === 'blog' && (
+        <RegistrationForm
+          onNextClick={handleRegistrationBlogData}
+          // onInputChange={handleFormInputChange}
+        />
+      )}
+      {registrationStep === 2 && clientType === 'blog' && (
+        <RegistrationExtended onNextClick={handleRegistrationBlogData} />
+      )}
+      {registrationStep === 3 && clientType === 'blog' && (
+        // dataStatus === 'success' &&
+        <RegistrationBlog onNextClick={handleRegistrationBlogData} />
+      )}
+      {registrationStep === 1 && clientType === 'brand' && (
+        <RegistrationBrand onNextClick={handleRegistrationBlogData} />
+      )}
+      {registrationStep === 2 && clientType === 'brand' && (
+        <RegistrationBrandNextStep onNextClick={handleRegistrationBlogData} />
+      )}
+      {registrationStep === 3 && clientType === 'brand' && (
+        // dataStatus === 'success' &&
+        <RegistrationBrandInfo onNextClick={handleRegistrationBlogData} />
+      )}
+    </>
   );
 };
 
