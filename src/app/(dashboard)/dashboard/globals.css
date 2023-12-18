@@ -131,7 +131,8 @@ main {
 .light .checkboxes-content,
 .light .ant-pagination-next .anticon-right,
 .light .ant-pagination-prev .anticon-left,
-.light .ant-modal-close-icon {
+.light .ant-modal-close-icon,
+.light .ant-empty-description {
   color: var(--text-main-light);
 }
 
@@ -202,7 +203,8 @@ main {
 .dark .security-title,
 .dark .security-link,
 .dark .checkboxes-wrap .ant-checkbox-wrapper,
-.dark .ant-table-thead > tr > th {
+.dark .ant-table-thead > tr > th,
+.dark .ant-table-column-sorter-inner {
   color: var(--light-blue);
 }
 
@@ -309,7 +311,9 @@ main {
 }
 
 .light .personal-info-save:hover,
-.light .personal-info-save:focus {
+.light .personal-info-save:focus,
+.light .ant-table-filter-dropdown .ant-btn-primary:hover,
+.light .ant-table-filter-dropdown .ant-btn-primary:focus {
   background-color: var(--light-blue) !important;
 }
 
@@ -350,7 +354,8 @@ main {
 .dark .ant-pagination-item > a,
 .dark .text,
 .dark .ant-modal-close-icon,
-.dark .heading-small {
+.dark .heading-small,
+.dark .ant-empty-description {
   color: var(--text-main-dark);
 }
 
@@ -393,7 +398,20 @@ main {
 #instagram.ant-input,
 .ant-select-selection-item,
 .ant-input,
-.ant-collapse {
+.ant-collapse,
+.ant-table-column-sort,
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder,
+:where(.css-dev-only-do-not-override-nllxry).ant-table-wrapper
+  .ant-table-tbody
+  > tr.ant-table-placeholder:hover
+  > th,
+:where(.css-dev-only-do-not-override-nllxry).ant-table-wrapper
+  .ant-table-tbody
+  > tr.ant-table-placeholder:hover
+  > td,
+:where(.css-dev-only-do-not-override-nllxry).ant-table-wrapper
+  .ant-table-tbody
+  > tr.ant-table-placeholder {
   background-color: inherit !important;
 }
 
@@ -452,7 +470,8 @@ main {
 .dark .ant-picker-input input::placeholder,
 .dark .ant-picker-suffix,
 .dark .header__search::placeholder,
-.dark .secondary-text {
+.dark .secondary-text,
+.ant-table-filter-dropdown .ant-input::placeholder {
   color: var(--text-light-dark);
 }
 
@@ -542,13 +561,20 @@ main {
   border-color: var(--light-blue);
 }
 
-.dark .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox-checked > .ant-checkbox-inner {
+.dark .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox-checked > .ant-checkbox-inner,
+.dark .ant-table-filter-dropdown .ant-btn-primary {
   background-color: var(--light-blue);
 }
 
 .light .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox-checked > .ant-checkbox-inner,
-.light .ant-checkbox-indeterminate .ant-checkbox-inner:after {
+.light .ant-checkbox-indeterminate .ant-checkbox-inner:after,
+.light .ant-table-filter-dropdown .ant-btn-primary {
   background-color: var(--intensive-blue);
+}
+
+.dark .ant-table-filter-dropdown .ant-btn-primary:hover,
+.dark .ant-table-filter-dropdown .ant-btn-primary:focus {
+  background-color: var(--intensive-blue) !important;
 }
 
 .ant-checkbox-inner::after,
@@ -566,6 +592,14 @@ main {
   border-top: 1px solid rgba(51, 156, 253, 0.3);
   border-bottom: 1px solid rgba(51, 156, 253, 0.3);
   color: var(--light-blue);
+}
+
+.dark .ant-table-filter-dropdown {
+  background: var(--bg-layout-dark);
+}
+
+.dark .ant-table-filter-dropdown .ant-input {
+  color: var(--text-main-dark);
 }
 
 .light .checkboxes-header {
