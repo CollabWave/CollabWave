@@ -1,9 +1,11 @@
-.box_img {
+.container {
   display: flex;
 }
-.container_form {
+.divform {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   margin-left: 150px;
 }
 .form {
@@ -13,7 +15,6 @@
   justify-content: center;
   margin-top: 50px;
 }
-
 .input {
   border-radius: 20px;
   width: 320px;
@@ -29,16 +30,6 @@
   align-items: center;
   margin-bottom: 20px;
   margin-top: 20px;
-}
-
-.title {
-  margin-top: 25%;
-  margin-left: 25%;
-  color: #ffd439;
-}
-
-.google_img {
-  margin-right: 20px;
 }
 .button {
   display: flex;
@@ -56,7 +47,9 @@
   transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
 }
-
+.button_back {
+  margin-right: 135px;
+}
 .button:hover {
   transition-duration: 0.1s;
   background-color: #3a3a3a;
@@ -89,28 +82,33 @@
 .button:active {
   top: 1px;
 }
-.div_button {
-  margin-top: 50px;
+.title {
+  color: #ffd439;
 }
-.line {
-  text-align: center;
-  line-height: 1;
-  margin-top: 50px;
-}
-
-.line::before,
-.line::after {
-  content: '';
-  display: inline-block;
-  width: 120px;
-  border-top: 1px solid black;
-  vertical-align: middle;
-  margin: 0 10px;
-}
-.button_google {
-  justify-content: center;
+.checkbox {
+  margin-top: 20px;
+  margin-bottom: 50px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 320px;
-  height: 40px;
+}
+.checkbox_input {
+  margin-right: 10px;
+}
+.terms_link {
+  margin-left: 5px;
+}
+.inputContainer {
+  display: flex;
+  justify-content: space-between; /* Розташувати елементи один навпроти іншого */
+}
+.label_div {
+  margin-right: 25px;
+}
+.link {
+  margin-right: 5px;
+  color: #3366bb;
+}
+.cont_button {
+  display: flex;
 }

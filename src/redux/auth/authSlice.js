@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { register } from './auth-operations';
 import { fetchRegistration } from './auth-operations';
 const initialState = {
-  clientType: '', // 'blog' or 'brand'
+  clientType: '',
   registrationStep: 0,
-  verifay: false,
+  verify: false,
 };
 const authSlice = createSlice({
   name: 'auth',

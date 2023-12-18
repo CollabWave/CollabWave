@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import React from 'react';
 import Image from 'next/image';
-import styles from './RegistrationExtended.module.css';
+import styles from './RegistrationBrandNextStep.module.css';
 import regImg from '../../../image/reg-ext.jpeg';
 import PropTypes from 'prop-types'; // Імпортуємо PropTypes
 import { useDispatch } from 'react-redux';
 import { setRegistrationStep } from '@/redux/auth/authSlice';
-const RegistrationExtended = ({ onNextClick, onInputChange }) => {
+const RegistrationBrandNextStep = ({ onNextClick, onInputChange }) => {
   const dispatch = useDispatch();
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
   };
 
   // Додаємо визначення PropTypes для документації
-  RegistrationExtended.propTypes = {
+  RegistrationBrandNextStep.propTypes = {
     onNextClick: PropTypes.func.isRequired,
     onInputChange: PropTypes.func,
   };
@@ -80,17 +80,6 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
             value={formData.lastName}
             onChange={handleInputChange}
           />
-          {/* <label htmlFor="city" className={styles.label}>
-            City
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-          /> */}
           <p className={styles.checkbox}>
             <input
               type="checkbox"
@@ -119,4 +108,4 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
   );
 };
 
-export default RegistrationExtended;
+export default RegistrationBrandNextStep;

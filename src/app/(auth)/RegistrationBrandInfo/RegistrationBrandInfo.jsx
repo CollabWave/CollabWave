@@ -1,9 +1,7 @@
 'use client';
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setRegistrationStep } from '@/redux/auth/authSlice';
-import styles from './RegistrationBlog.module.css';
+import styles from './RegistrationBrandInfo.module.css';
 import Image from 'next/image';
 import blogImg from '../../../image/reg-blog.png';
 import telegram from '../../../assets/images/svg/telegram.svg';
@@ -18,8 +16,7 @@ import youTube from '../../../assets/images/svg/youtube.svg';
 import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import { roboto } from '@/utils/fonts';
 
-const RegistrationBlog = ({ formInputData, onNextClick }) => {
-  const dispatch = useDispatch();
+const RegistrationBrandInfo = ({ formInputData, onNextClick }) => {
   const [formDataSocial, setFormDataSocial] = React.useState({
     socialLinks: [{ platform: '', username: '', followers: '' }],
     // socialMedia: '???',
@@ -38,7 +35,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   });
   const [hoveredIcon, setHoveredIcon] = useState('');
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
-  const [socialMediaName, setSocalMediaName] = useState('');
   const thematicOptions = [
     'Мода',
     'Подорожі',
@@ -73,7 +69,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   ];
   const handleNextClick = e => {
     e.preventDefault();
-    dispatch(setRegistrationStep(4));
 
     // Опціонально, обробляти дані або передавати їх батьківському компоненту
 
@@ -113,20 +108,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     });
   };
 
-  const handleUserNameChange = event => {
-    const value = event.target.value;
-
-    // Оновлюємо значення username у першому елементі масиву socialLinks
-    setFormDataSocial(prevData => ({
-      ...prevData,
-      socialLinks: [
-        {
-          ...prevData.socialLinks[0],
-          username: value,
-        },
-      ],
-    }));
-  };
   const handleInputChange = e => {
     const { name, value } = e.target;
     setFormDataSocial(prevData => ({
@@ -177,15 +158,15 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
             </a>
           </li>
           <li
-            onMouseEnter={() => handleLinkMouseEnter('youtube')}
+            onMouseEnter={() => handleLinkMouseEnter('youTube')}
             onMouseLeave={handleLinkMouseLeave}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
               target="_blank"
-              onClick={() => handleSocialMediaClick('youtube')}
+              onClick={() => handleSocialMediaClick('youTube')}
             >
-              {hoveredIcon === 'youtube' || selectedSocialMedia === 'youtube' ? (
+              {hoveredIcon === 'youTube' || selectedSocialMedia === 'youTube' ? (
                 <Image priority src={youTubeHover} alt="youTube icon" />
               ) : (
                 <Image priority src={youTube} alt="youTube icon" />
@@ -225,28 +206,16 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
           </li>
         </ul>
         <form className={styles.form}>
-          <label htmlFor="username" className={styles.label}>
-            User name
+          <label htmlFor="social-link" className={styles.label}>
+            Social Link
           </label>
           <input
             type="text"
-            id="username"
-            name="username"
+            id="social-link"
+            name="social-link"
             className={styles.input}
-            onChange={handleUserNameChange}
-            value={formDataSocial.socialLinks[0].username}
+            onChange={handleInputChange}
           />
-          {/* <label htmlFor="blogLanguage" className={styles.label}>
-            Followers
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="followers"
-            name="followers"
-            value={formDataSocial.socialLinks.followers}
-            onChange={handleSocialMediaClick}
-          /> */}
           <label htmlFor="location" className={styles.label}>
             location
           </label>
@@ -269,7 +238,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
             value={formDataSocial.phone}
             onChange={handleInputChange}
           />
-          <label htmlFor="followers" className={styles.label}>
+          <label htmlFor="blogLanguage" className={styles.label}>
             Blog Language
           </label>
           <input
@@ -308,4 +277,4 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   );
 };
 
-export default RegistrationBlog;
+export default RegistrationBrandInfo;

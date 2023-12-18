@@ -61,3 +61,9 @@
 .link:not(:last-child) {
   margin-right: 100px;
 }
+.body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: rgb(var(--foreground-rgb));
+  background-color: #030c0e;
+}
