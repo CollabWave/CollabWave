@@ -17,7 +17,7 @@ export const setClicked = () => {
   resultsClicked = true;
 };
 
-export const ProjectsTable = ({ projects }) => {
+export const ProjectsTable = ({ projects, handleSearch, handleReset }) => {
   const [projectToShow, setProjectToShow] = useState('');
   const [pagination, setPagination] = useState({
     current: 1,
@@ -33,7 +33,7 @@ export const ProjectsTable = ({ projects }) => {
     <>
       <Table
         className={styles.table}
-        columns={BloggerColumns}
+        columns={BloggerColumns(handleSearch, handleReset)}
         dataSource={projectsWithKeys}
         pagination={pagination}
         onChange={handleTableChange}

@@ -1,13 +1,17 @@
 'use client';
 
-import { Tag, Popover } from 'antd';
+import { Tag, Popover, Button, Input, Space } from 'antd';
+
+import { SearchOutlined } from '@ant-design/icons';
 
 import { setClicked } from '@/app/(dashboard)/components/ProjectsTable/ProjectsTable';
 
 import styles from '../projects.module.css';
 import { montserrat } from '@/utils/fonts';
 
-export const BloggerColumns = [
+const sorter = (a, b) => (isNaN(a) && isNaN(b) ? (a || '').localeCompare(b || '') : a - b);
+
+export const BloggerColumns = (handleSearch, handleReset) => [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -17,6 +21,60 @@ export const BloggerColumns = [
     title: 'Project',
     dataIndex: 'project',
     key: 'project',
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+      <div
+        style={{
+          padding: 8,
+        }}
+        onKeyDown={e => e.stopPropagation()}
+      >
+        <Input
+          className={`${montserrat.className} ${styles.searchInput}`}
+          placeholder={`Search project`}
+          value={selectedKeys[0]}
+          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => handleSearch(selectedKeys, confirm, 'project')}
+          style={{
+            marginBottom: 8,
+            display: 'block',
+          }}
+        />
+        <Space>
+          <Button
+            className={`${montserrat.className} ${styles.searchBtn}`}
+            type="primary"
+            onClick={() => handleSearch(selectedKeys, confirm, 'project')}
+            icon={<SearchOutlined />}
+          >
+            Search
+          </Button>
+          <Button
+            className={`${montserrat.className} ${styles.searchBtn}`}
+            onClick={() => clearFilters && handleReset(clearFilters)}
+          >
+            Reset
+          </Button>
+          <Button
+            className={`${montserrat.className} ${styles.searchBtn}`}
+            onClick={() => {
+              close();
+            }}
+          >
+            Close
+          </Button>
+        </Space>
+      </div>
+    ),
+    filterIcon: filtered => (
+      <SearchOutlined
+        className="profile-input-label"
+        style={{
+          fontSize: '190%',
+        }}
+      />
+    ),
+    onFilter: (value, record) =>
+      record['project'].toString().toLowerCase().includes(value.toLowerCase()),
     render: (text, row) => (
       <a className="security-link" href={`/dashboard/projects/${row.id}`}>
         {text}
@@ -79,6 +137,7 @@ export const BloggerColumns = [
     title: 'Payment',
     dataIndex: 'payment',
     key: 'payment',
+    sorter: (a, b) => sorter(Number(a.payment.slice(0, -1)), Number(b.payment.slice(0, -1))),
   },
   {
     title: ' ',
