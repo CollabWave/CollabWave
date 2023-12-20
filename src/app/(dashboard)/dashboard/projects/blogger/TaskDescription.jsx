@@ -35,7 +35,7 @@ export const TaskDescription = ({ task }) => {
       {task && (
         <Form layout="vertical" form={form} onValuesChange={v => setValuesForm(v)}>
           <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
-            <Col span={24} style={{ marginBottom: '15px' }}>
+            <Col span={24} style={{ marginBottom: '35px' }}>
               <p className={`${styles.smallText} text`}>{valuesForm.description}</p>
             </Col>
             <Col xs={24} md={7}>
