@@ -132,7 +132,8 @@ main {
 .light .ant-pagination-next .anticon-right,
 .light .ant-pagination-prev .anticon-left,
 .light .ant-modal-close-icon,
-.light .ant-empty-description {
+.light .ant-empty-description,
+.light .ant-input-disabled#hashtags {
   color: var(--text-main-light);
 }
 
@@ -206,6 +207,18 @@ main {
 .dark .ant-table-thead > tr > th,
 .dark .ant-table-column-sorter-inner {
   color: var(--light-blue);
+}
+
+.dark .border_active,
+.dark .menu_border:hover,
+.dark .menu_border:focus {
+  border-bottom: 1px solid var(--light-blue);
+}
+
+.light .border_active,
+.light .menu_border:hover,
+.light .menu_border:focus {
+  border-bottom: 1px solid #ffb765;
 }
 
 .confirm-logout .ant-modal-confirm-btns {
@@ -355,7 +368,8 @@ main {
 .dark .text,
 .dark .ant-modal-close-icon,
 .dark .heading-small,
-.dark .ant-empty-description {
+.dark .ant-empty-description,
+.dark .ant-input-disabled#hashtags {
   color: var(--text-main-dark);
 }
 
@@ -379,7 +393,8 @@ main {
 .dark .ant-picker-input input,
 .dark .ant-select-selection-search-input,
 .dark .ant-select-item-option,
-.dark .ant-select-selection-item {
+.dark .ant-select-selection-item,
+.dark .ant-modal-title {
   color: var(--text-main-dark) !important;
 }
 
@@ -411,7 +426,8 @@ main {
   > td,
 :where(.css-dev-only-do-not-override-nllxry).ant-table-wrapper
   .ant-table-tbody
-  > tr.ant-table-placeholder {
+  > tr.ant-table-placeholder,
+.ant-modal-header {
   background-color: inherit !important;
 }
 
@@ -469,6 +485,8 @@ main {
 
 .dark .ant-picker-input input::placeholder,
 .dark .ant-picker-suffix,
+.dark .anticon-calendar,
+.dark .ant-picker-separator,
 .dark .header__search::placeholder,
 .dark .secondary-text,
 .ant-table-filter-dropdown .ant-input::placeholder {
@@ -790,4 +808,28 @@ main {
 
 .light .heading-small {
   color: #13264d;
+}
+
+.screen-upload .ant-upload-list-item,
+.screen-upload .ant-upload-list-item-container,
+.screen-upload .ant-upload {
+  width: 150px !important;
+  height: 170px !important;
+}
+
+.screen-upload {
+  height: 170px !important;
+}
+
+.screen-upload .anticon-eye,
+.screen-upload .anticon-delete {
+  font-size: 26px !important;
+  width: 26px !important;
+}
+
+.screen-upload .ant-upload-list {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
 }

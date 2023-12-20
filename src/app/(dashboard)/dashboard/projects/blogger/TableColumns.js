@@ -131,7 +131,9 @@ export const BloggerColumns = (handleSearch, handleReset) => [
   {
     title: 'Fulfillment',
     dataIndex: 'fulfillment',
-    render: (_, row) => <p>{`${row.tasksDone}/${row.tasksToDo}`}</p>,
+    render: (_, row) => (
+      <p>{`${row.tasks.filter(task => task.status === 'submitted').length}/${row.tasks.length}`}</p>
+    ),
   },
   {
     title: 'Payment',
