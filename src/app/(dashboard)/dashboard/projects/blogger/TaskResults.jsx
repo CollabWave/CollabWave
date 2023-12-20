@@ -70,7 +70,7 @@ export const TaskResults = ({ task, projectId }) => {
         {task && (
           <Form layout="vertical" form={resultsForm} onValuesChange={v => setValuesForm(v)}>
             <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
-              <Col span={24} style={{ marginBottom: '15px' }}>
+              <Col span={24} style={{ marginBottom: '35px' }}>
                 <p className={`${styles.smallText} text`}>
                   You have to submit the {valuesForm.type} you prepared for verification. You will
                   receive a notification after the customer reviews your {valuesForm.type}. If it is
@@ -103,7 +103,7 @@ export const TaskResults = ({ task, projectId }) => {
                   }
                   name={'date'}
                 >
-                  {valuesForm.datePublished && (
+                  {task.datePublished && (
                     <DatePicker
                       className={`${formStyles.input} profile-input`}
                       style={{ width: '100%', color: '#fff' }}
@@ -112,14 +112,14 @@ export const TaskResults = ({ task, projectId }) => {
                       disabled
                     />
                   )}
-                  {valuesForm.datePublished === '' && task.status === 'verified' && (
+                  {task.datePublished === '' && task.status === 'verified' && (
                     <DatePicker
                       className={`${formStyles.input} profile-input`}
                       style={{ width: '100%', color: '#fff' }}
                       format={dateFormat}
                     />
                   )}
-                  {valuesForm.datePublished === '' && task.status === 'not started' && (
+                  {task.datePublished === '' && task.status === 'not started' && (
                     <div>
                       <Tooltip
                         title={`You need to send your ${task.type} for a verification first`}
@@ -150,7 +150,7 @@ export const TaskResults = ({ task, projectId }) => {
                   name="link"
                 >
                   <Input
-                    disabled={valuesForm.status === 'verified' ? false : true}
+                    disabled={task.status === 'verified' ? false : true}
                     className={`${formStyles.input} profile-input`}
                   />
                 </Form.Item>
