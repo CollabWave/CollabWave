@@ -68,13 +68,19 @@ export const TasksModal = ({ projectId }) => {
             Statistics
           </li>
         </ul>
-        {infoToShow === 'description' && <TaskDescription task={taskToShow} />}
+        {infoToShow === 'description' && <TaskDescription task={taskToShow} project={project} />}
         {infoToShow === 'results' && <TaskResults task={taskToShow} projectId={projectId} />}
       </div>
       <div className={styles.rightSide}>
-        <Image className={styles.image} width={200} alt="brand photo" src={brand} />
+        <Image
+          className={styles.image}
+          width={200}
+          height={200}
+          alt="brand logo"
+          src={project.customer.logo ? project.customer.logo : brand}
+        />
         <h3 className={`${styles.brand} ${montserrat.variable} profile-heading`}>
-          {project.customer}
+          {project.customer.name}
         </h3>
         <Link
           className={`${styles.projectName} ${montserrat.variable} security-link`}

@@ -2,17 +2,19 @@ export const projects = [
   {
     id: '163dh82k9',
     project: 'The best KFC project',
-    customer: 'KFC',
+    customer: { name: 'KFC', logo: '/dashboard/kfc-icon.svg' },
+    poster: '/dashboard/food-poster.png',
     status: 'active',
     linkForSubscribers: 'https://github.com/CollabWave/CollabWave',
     promoCode: 'fast rabbit',
+    paymentType: 'cpc',
     tasks: [
       {
         id: 374,
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
-        type: 'reals',
+        type: 'reels',
         periodOfExecution: '2023/11/01 - 2023/12/01',
         datePublished: '2023/11/12',
         hashtags: '#tag #hash',
@@ -33,7 +35,7 @@ export const projects = [
         description:
           'Mauris pulvinar elementum augue, ac hendrerit lectus sagittis a. Integer tortor dolor, dapibus in urna quis, dictum bibendum orci. Suspendisse potenti. Fusce euismod, metus vulputate eleifend pulvinar, sem dolor ornare mauris, gravida vehicula nisl leo quis ipsum.',
         status: 'not started',
-        type: 'reals',
+        type: 'reels',
         periodOfExecution: '2023/11/10 - 2023/12/10',
         datePublished: '',
         wordsToUse: 'KFC, delicious, best, chicken',
@@ -86,7 +88,7 @@ export const projects = [
         description:
           'Integer suscipit luctus libero non tempus. Aliquam convallis, orci quis dictum imperdiet, diam orci accumsan nunc, ac congue mi eros eu urna. Suspendisse finibus nisl a mollis consectetur. Sed rhoncus metus vehicula gravida luctus. Mauris elementum pharetra maximus. Vivamus at dui at tellus placerat placerat at convallis orci. Nam facilisis cursus nibh, at tristique diam congue imperdiet.',
         status: 'submitted',
-        type: 'reals',
+        type: 'reels',
         periodOfExecution: '2023/11/01 - 2023/12/01',
         datePublished: '2023/11/14',
         hashtags: '#tag #hash',
@@ -108,10 +110,12 @@ export const projects = [
   {
     id: '393dlh89dk',
     project: 'Save the world',
-    customer: 'World',
+    customer: { name: 'World', logo: '' },
+    poster: '/dashboard/earth-poster.png',
     status: 'pending',
     linkForSubscribers: 'Hello subscribers!',
     promoCode: '',
+    paymentType: 'cpa',
     tasks: [
       {
         id: 474,
@@ -147,7 +151,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'not started',
         periodOfExecution: '2023/12/01 - 2024/01/01',
-        type: 'reals',
+        type: 'reels',
         datePublished: '',
         hashtags: '#world #save',
         wordsToUse: 'Hello world!',
@@ -161,10 +165,11 @@ export const projects = [
   {
     id: '023je83m92',
     project: 'Successful mwp',
-    customer: 'LDC',
+    customer: { name: 'LDC', logo: '' },
     status: 'closed',
     linkForSubscribers: 'Shit!',
     promoCode: 'oh no!',
+    paymentType: 'cpc',
     tasks: [
       {
         id: 575,
@@ -186,10 +191,11 @@ export const projects = [
   {
     id: 'j37sj380n',
     project: 'Project to do',
-    customer: 'Smb',
+    customer: { name: 'Smb', logo: '' },
     status: 'pending',
     linkForSubscribers: '',
     promoCode: 'promo',
+    paymentType: 'fixPrice',
     tasks: [
       {
         id: 776,
@@ -211,10 +217,12 @@ export const projects = [
   {
     id: 'ge83j202kd',
     project: 'Something good',
-    customer: 'GOD',
+    customer: { name: 'GOD', logo: '' },
+    poster: '/dashboard/poster1.png',
     status: 'active',
     linkForSubscribers: 'Good!',
     promoCode: 'good',
+    paymentType: 'cpa',
     tasks: [
       {
         id: 3742,
@@ -222,7 +230,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
         periodOfExecution: '2023/12/01 - 2024/01/01',
-        type: 'reals',
+        type: 'reels',
         datePublished: '2023/12/10',
         hashtags: '#god #angel #love',
         wordsToUse: '',
@@ -257,7 +265,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'not started',
         periodOfExecution: '2023/12/01 - 2024/01/01',
-        type: 'reals',
+        type: 'reels',
         datePublished: '',
         hashtags: '#god #angel #love',
         wordsToUse: '',
@@ -292,7 +300,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
         periodOfExecution: '2023/12/01 - 2024/01/01',
-        type: 'reals',
+        type: 'reels',
         datePublished: '2023/12/10',
         hashtags: '#god #angel #love',
         wordsToUse: '',
@@ -404,10 +412,11 @@ export const projects = [
   {
     id: 'd7391xja0',
     project: 'Something bad',
-    customer: 'DEVIL',
+    customer: { name: 'DEVIL', logo: '' },
     status: 'closed',
     linkForSubscribers: '',
     promoCode: 'bad',
+    paymentType: 'cpa',
     tasks: [
       {
         id: 13742,
@@ -415,7 +424,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
         periodOfExecution: '2023/09/01 - 2023/09/16',
-        type: 'reals',
+        type: 'reels',
         datePublished: '2023/09/10',
         hashtags: '#devil #evil',
         wordsToUse: '',
@@ -478,7 +487,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
         periodOfExecution: '2023/09/01 - 2023/09/16',
-        type: 'reals',
+        type: 'reels',
         datePublished: '2023/09/10',
         hashtags: '#devil #evil',
         wordsToUse: '',
@@ -499,7 +508,7 @@ export const projects = [
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra libero quis massa egestas fermentum. Maecenas hendrerit tempor mollis. Nam laoreet eleifend finibus. Maecenas vitae mattis lectus. Nulla sapien purus, cursus sed dui id, accumsan fermentum lectus. Mauris tempus metus quis pretium laoreet. Sed sed malesuada sem. Etiam in gravida nibh, non tempor nisl.',
         status: 'submitted',
         periodOfExecution: '2023/09/01 - 2023/09/16',
-        type: 'reals',
+        type: 'reels',
         datePublished: '2023/09/10',
         hashtags: '#devil #evil',
         wordsToUse: '',

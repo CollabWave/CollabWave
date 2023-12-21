@@ -42,6 +42,8 @@
 
 .image {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectName {
@@ -70,7 +72,7 @@
 .fulfillmentWrapper {
   border-radius: 50px;
   height: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   width: 90%;
 }
 
@@ -85,6 +87,7 @@
 }
 
 .smallText {
+  padding-top: 30px;
   font-size: 18px;
   text-align: center;
 }
@@ -112,4 +115,16 @@
 
 .rightContainer {
   width: 100%;
+}
+
+.posterWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.poster {
+  width: 250px !important;
+  height: 354px !important;
+  border-radius: 8px;
 }
