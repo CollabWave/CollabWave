@@ -1,0 +1,37 @@
+.card {
+  padding: 20px;
+  width: 310px;
+  height: 170px;
+  border-radius: 8px;
+  transition: scale 250ms ease-out, box-shadow 250ms ease-out;
+}
+
+.card:hover,
+.card:focus {
+  scale: 1.08;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.menuWrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.menuItem {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.filtersButton {
+  margin-bottom: 35px;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 250ms ease-out;
+}

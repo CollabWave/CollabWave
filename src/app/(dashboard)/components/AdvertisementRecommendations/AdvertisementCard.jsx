@@ -28,7 +28,7 @@ export const AdvertisementCard = ({ card }) => {
       <Button
         className={`${styles.viewButton} ghost-button`}
         type="ghost"
-        onClick={() => router.push(`/dashboard/projects/${card.id}`)}
+        onClick={() => router.push(`/dashboard/advertisements/${card.id}`)}
       >
         View
       </Button>

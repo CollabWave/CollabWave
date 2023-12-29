@@ -83,8 +83,8 @@ export const TasksModal = ({ projectId }) => {
           {project.customer.name}
         </h3>
         <Link
-          className={`${styles.projectName} ${montserrat.variable} security-link`}
-          href={`/dashboard/projects/${project.id}`}
+          className={`${styles.projectName} ${montserrat.variable} text-blue`}
+          href={`/dashboard/advertisements/${project.id}`}
         >
           {project.project}
         </Link>

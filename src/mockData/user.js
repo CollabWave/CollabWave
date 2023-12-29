@@ -4,8 +4,8 @@ export const user = {
     lastName: 'Cooper',
     nickName: '@MaCoo',
     area: [
-      { id: 1, value: 'fashon' },
-      { id: 14, value: 'sports' },
+      { id: 3, value: 'food and cooking' },
+      { id: 25, value: 'cosmetics and skincare' },
     ],
     gender: 'male',
     language: 'english',

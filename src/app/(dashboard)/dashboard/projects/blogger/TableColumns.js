@@ -76,7 +76,7 @@ export const BloggerColumns = (handleSearch, handleReset) => [
     onFilter: (value, record) =>
       record['project'].toString().toLowerCase().includes(value.toLowerCase()),
     render: (text, row) => (
-      <a className="security-link" href={`/dashboard/projects/${row.id}`}>
+      <a className="text-blue" href={`/dashboard/advertisements/${row.id}`}>
         {text}
       </a>
     ),
@@ -149,7 +149,7 @@ export const BloggerColumns = (handleSearch, handleReset) => [
         onClick={() => {
           setClicked();
         }}
-        className="security-link"
+        className="text-blue"
       >
         Tasks and results
       </a>
