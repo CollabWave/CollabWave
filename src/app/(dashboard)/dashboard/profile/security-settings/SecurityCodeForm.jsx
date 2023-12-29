@@ -48,7 +48,7 @@ export const SecurityCodeForm = ({ onBack, onFinish, device }) => {
             onChange={setSecurityCode}
           />
         )}
-        <Link className={`${styles.link} security-link ${montserrat.variable}`} href={'/'}>
+        <Link className={`${styles.link} text-blue ${montserrat.variable}`} href={'/'}>
           Didn't get a verification code?
         </Link>
       </Form>

@@ -1,0 +1,30 @@
+.cardWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.cardWrap:hover,
+.cardWrap:focus {
+  color: inherit;
+}
+
+.featuresWrap {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.rightWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 22px;
+}

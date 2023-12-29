@@ -204,7 +204,7 @@ main {
 .dark .ant-input-prefix,
 .dark .personal-info-cancel,
 .dark .security-title,
-.dark .security-link,
+.dark .text-blue,
 .dark .checkboxes-wrap .ant-checkbox-wrapper,
 .dark .ant-table-thead > tr > th,
 .dark .ant-table-column-sorter-inner {
@@ -319,7 +319,7 @@ main {
 .light .ant-input-prefix,
 .light .personal-info-cancel,
 .light .security-title,
-.light .security-link,
+.light .text-blue,
 .light .checkboxes-wrap .ant-checkbox-wrapper,
 .light .copy-button {
   color: var(--intensive-blue);
@@ -579,12 +579,12 @@ main {
   border-radius: 3px;
 }
 
-.dark .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox > .ant-checkbox-inner {
+.dark .ant-checkbox .ant-checkbox-inner {
   background-color: var(--bg-color-dark);
   border-color: var(--light-blue);
 }
 
-.dark .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox-checked > .ant-checkbox-inner,
+.dark .ant-checkbox-wrapper > .ant-checkbox-checked > .ant-checkbox-inner,
 .dark .ant-table-filter-dropdown .ant-btn-primary {
   background-color: var(--light-blue);
 }

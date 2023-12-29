@@ -202,7 +202,7 @@ export const TaskResults = ({ task, projectId }) => {
                   type="primary"
                   /* loading={loading}  */ htmlType="submit"
                 >
-                  {valuesForm.status === 'not started'
+                  {task.status === 'not started'
                     ? 'Submit for verification'
                     : 'Submit results'}
                 </Button>
