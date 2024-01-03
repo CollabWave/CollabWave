@@ -14,6 +14,7 @@ import {
 import ReactCountryFlag from 'react-country-flag';
 import countryList from 'country-list';
 import dayjs from 'dayjs';
+import { getCountryData } from 'countries-list';
 
 import { blogAreas, phonePattern, websitePattern } from '@/utils/common';
 
@@ -58,6 +59,17 @@ export const BloggerPersonalInfo = ({ user }) => {
       : `https://www.${href}`;
   };
 
+  const onFinish = values => {
+    const userData = { ...values };
+
+    if (user.countryCode !== values.countryCode) {
+      const userCountryData = getCountryData(values.countryCode);
+      userData.country = userCountryData.name;
+      userData.continent = userCountryData.continent;
+    }
+    //send userData to server
+  };
+
   const onCancel = () => {
     form.setFieldsValue(user);
   };
@@ -69,6 +81,7 @@ export const BloggerPersonalInfo = ({ user }) => {
         form={form}
         initialValues={valuesForm}
         onValuesChange={v => setValuesForm(v)}
+        onFinish={onFinish}
       >
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>
@@ -255,7 +268,7 @@ export const BloggerPersonalInfo = ({ user }) => {
                   Country
                 </p>
               }
-              name="country"
+              name="countryCode"
             >
               <Select
                 className={`${styles.input} profile-input`}

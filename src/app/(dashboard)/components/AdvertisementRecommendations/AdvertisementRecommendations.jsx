@@ -9,6 +9,7 @@ import { Row, Col, Button, Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import { advertisements } from '@/mockData/advertisements';
+import { user } from '@/mockData/user';
 
 import { AdvertisementCard } from './AdvertisementCard';
 
@@ -17,13 +18,16 @@ import personalStyles from '../../dashboard/profile/personal-info/personalInfo.m
 import { montserrat } from '@/utils/fonts';
 
 export const AdvertisementRecommendations = () => {
+
+  const recommendations = advertisements.filter(advertisement => advertisement.showLocation.includes(user.country) || advertisement.showLocation.includes(user.continent) || advertisement.showLocation.includes('World'));
+  
   const advertisementsList = useMemo(() => {
-    return advertisements.map((item, index) => (
+    return recommendations.map((item, index) => (
       <div key={index}>
         <AdvertisementCard card={item} />
       </div>
     ));
-  }, [advertisements]);
+  }, [recommendations]);
 
   const sliderRef = useRef(null);
 

@@ -7,6 +7,7 @@ export const advertisements = [
     paymentType: 'cpc',
     poster: '/dashboard/coffee-shop.webp',
     category: 'food and cooking',
+    showLocation: ['Estonia'],
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const advertisements = [
     paymentType: 'cpa',
     poster: '/dashboard/seasoning.webp',
     category: 'food and cooking',
+    showLocation: ['EU'],
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const advertisements = [
     paymentType: 'cpc',
     poster: '/dashboard/cleo.webp',
     category: 'cosmetics and skincare',
+    showLocation: ['World'],
   },
   {
     id: 4,
@@ -34,15 +37,7 @@ export const advertisements = [
     paymentType: 'cpa',
     poster: '/dashboard/brand.webp',
     category: 'cosmetics and skincare',
-  },
-  {
-    id: 5,
-    brand: 'Seasoning Haven',
-    logo: '/dashboard/seasoning-icon.svg',
-    location: { country: 'Estonia', city: 'Tallinn' },
-    paymentType: 'cpa',
-    poster: '/dashboard/seasoning.webp',
-    category: 'food and cooking',
+    showLocation: ['AS', 'EU'],
   },
   {
     id: '163dh82k9',
@@ -56,6 +51,7 @@ export const advertisements = [
     linkForSubscribers: 'https://github.com/CollabWave/CollabWave',
     promoCode: 'fast rabbit',
     paymentType: 'cpc',
+    showLocation: ['EU'],
     tasks: [
       {
         id: 374,
@@ -114,6 +110,7 @@ export const advertisements = [
     promoCode: '',
     paymentType: 'cpa',
     category: 'environment',
+    showLocation: ['Finland', 'Estonia'],
     tasks: [
       {
         id: 474,
@@ -154,6 +151,7 @@ export const advertisements = [
     promoCode: 'promo',
     paymentType: 'fixPrice',
     category: 'health',
+    showLocation: ['Germany'],
     tasks: [
       {
         id: 776,
@@ -176,6 +174,7 @@ export const advertisements = [
     linkForSubscribers: 'Good!',
     promoCode: 'good',
     category: 'culture and arts',
+    showLocation: ['Spain'],
     paymentType: 'cpa',
     tasks: [
       {
