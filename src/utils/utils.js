@@ -87,3 +87,23 @@ export const getBase64 = file =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
   });
+
+export const getLocationsFromArr = arr => {
+  const newArr = arr.reduce((acc, location) => {
+    location === 'EU'
+      ? acc.push('Europe')
+      : location === 'AF'
+      ? acc.push('Africa')
+      : location === 'AS'
+      ? acc.push('Asia')
+      : location === 'NA'
+      ? acc.push('North America')
+      : location === 'OC'
+      ? acc.push('Oceania')
+      : location === 'SA'
+      ? acc.push('South America')
+      : acc.push(location);
+    return acc;
+  }, []);
+  return newArr.join(', ');
+};
