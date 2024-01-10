@@ -196,10 +196,8 @@ main {
 .dark .sider__list_item:hover,
 .dark .sider__list_item:focus,
 .dark .sider__list_item_active,
-.dark .profile-nav-link:hover,
-.dark .profile-nav-link:focus,
-.light .profile-nav-link:hover,
-.light .profile-nav-link:focus,
+.profile-nav-link:hover,
+.profile-nav-link:focus,
 .dark .profile-input-label,
 .dark .ant-input-prefix,
 .dark .personal-info-cancel,
@@ -207,7 +205,9 @@ main {
 .dark .text-blue,
 .dark .checkboxes-wrap .ant-checkbox-wrapper,
 .dark .ant-table-thead > tr > th,
-.dark .ant-table-column-sorter-inner {
+.dark .ant-table-column-sorter-inner,
+.dark .ant-collapse-header-text,
+.dark .ant-collapse-expand-icon {
   color: var(--light-blue);
 }
 
@@ -321,7 +321,9 @@ main {
 .light .security-title,
 .light .text-blue,
 .light .checkboxes-wrap .ant-checkbox-wrapper,
-.light .copy-button {
+.light .copy-button,
+.light .ant-collapse-header-text,
+.light .ant-collapse-expand-icon {
   color: var(--intensive-blue);
 }
 
@@ -373,7 +375,8 @@ main {
 .dark .ant-empty-description,
 .dark .ant-input-disabled#hashtags,
 .dark .ant-input-disabled#promo,
-.dark .ant-input-disabled#link-subscribers {
+.dark .ant-input-disabled#link-subscribers,
+.dark .ant-collapse-content-box {
   color: var(--text-main-dark);
 }
 

@@ -38,6 +38,15 @@ const blogAreas = [
   { id: 30, value: 'influencer blogger' },
 ];
 
+const paymentTypes = {
+  cpc: 'cost per click',
+  cpa: 'cost per action',
+  cps: 'cost per sale',
+  cpi: 'cost per install',
+  cpm: 'cost per mile',
+  fixPrice: 'fixed price',
+};
+
 const phonePattern =
   /^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
 
@@ -53,11 +62,4 @@ const goToTop = () => {
   });
 };
 
-export {
-  goToTop,
-  languages,
-  blogAreas,
-  phonePattern,
-  websitePattern,
-  emailPattern,
-};
+export { goToTop, languages, blogAreas, paymentTypes, phonePattern, websitePattern, emailPattern };
