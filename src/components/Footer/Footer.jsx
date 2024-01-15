@@ -243,6 +243,7 @@ export const Footer = () => {
                 <Link
                   className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
                   href={''}
+                  target='_blank'
                 >
                   {hoveredIcon === 'telegram' ? (
                     <Image priority src={telegramHover} alt="Telegram icon" />

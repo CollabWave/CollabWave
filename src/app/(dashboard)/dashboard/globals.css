@@ -725,7 +725,8 @@ main {
 .dark .ant-pagination-prev:hover .anticon-left,
 .dark .ant-pagination-prev:focus .anticon-left,
 .dark .ant-pagination-next:hover .anticon-right,
-.dark .ant-pagination-next:focus .anticon-right {
+.dark .ant-pagination-next:focus .anticon-right,
+.dark .reversed-blue-hover:hover {
   color: var(--light-blue);
 }
 
@@ -748,7 +749,8 @@ main {
 .light .ant-pagination-prev:hover .anticon-left,
 .light .ant-pagination-prev:focus .anticon-left,
 .light .ant-pagination-next:hover .anticon-right,
-.light .ant-pagination-next:focus .anticon-right {
+.light .ant-pagination-next:focus .anticon-right,
+.light .reversed-blue-hover:hover {
   color: var(--intensive-blue);
 }
 
