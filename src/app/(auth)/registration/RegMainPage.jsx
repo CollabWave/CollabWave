@@ -81,27 +81,40 @@ const Registration = () => {
     }
     if (registrationStep === 3) {
       try {
-        const verificationResponse = await authService.verifyUser(userId, blogData);
+        const verificationResponse = await authService.verifyUser(userId, { info: blogData });
         console.log('Verification successful', verificationResponse.data);
         setVerify(true);
+        if (verificationResponse.data.data.verify) {
+          try {
+            // Отримайте значення email та password з combinedData
+            const { email, password } = combinedData;
+            const loginResponse = await authService.loginUser({ email, password });
+            console.log('Login successful', loginResponse.data);
+            router.push('/dashboard'); //переход на дашборд
+            // Додайте інші дії, які вам потрібні після успішного входу
+          } catch (error) {
+            console.error('Login failed', error);
+            // Додайте обробку помилок аутентифікації
+          }
+        }
       } catch (error) {
         setDataStatus('Error');
         console.error('Verification failed', error);
       }
     }
-    if (registrationStep === 4) {
-      try {
-        // Отримайте значення email та password з combinedData
-        const { email, password } = combinedData;
-        const loginResponse = await authService.loginUser({ email, password });
-        console.log('Login successful', loginResponse.data);
-        router.push('/dashboard'); //переход на дашборд
-        // Додайте інші дії, які вам потрібні після успішного входу
-      } catch (error) {
-        console.error('Login failed', error);
-        // Додайте обробку помилок аутентифікації
-      }
-    }
+    // if (registrationStep === 4) {
+    //   try {
+    //     // Отримайте значення email та password з combinedData
+    //     const { email, password } = combinedData;
+    //     const loginResponse = await authService.loginUser({ email, password });
+    //     console.log('Login successful', loginResponse.data);
+    //     router.push('/dashboard'); //переход на дашборд
+    //     // Додайте інші дії, які вам потрібні після успішного входу
+    //   } catch (error) {
+    //     console.error('Login failed', error);
+    //     // Додайте обробку помилок аутентифікації
+    //   }
+    // }
   };
 
   const handleClientSelection = selectedClient => {
