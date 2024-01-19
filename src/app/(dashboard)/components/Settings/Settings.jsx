@@ -23,8 +23,9 @@ export const Settings = () => {
       onOpenChange={setSettingsOpened}
     >
       <SettingOutlined
-        className={isSettingsOpened ? `${styles.iconOpened}` : 'icon__header'}
-        style={{ fontSize: '260%' }}
+        className={
+          isSettingsOpened ? `${styles.iconOpened} ${styles.icon}` : `icon__header ${styles.icon}`
+        }
       />
     </Popover>
   );

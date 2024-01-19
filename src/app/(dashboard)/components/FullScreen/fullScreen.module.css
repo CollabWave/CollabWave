@@ -1,5 +1,5 @@
 .outerWrap {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
 }
@@ -16,4 +16,10 @@
 .iconExit:focus {
   color: rgb(2, 92, 176);
   border-color: rgb(2, 92, 176);
+}
+
+@media screen and (min-width: 991px) {
+  .outerWrap {
+    display: flex;
+  }
 }

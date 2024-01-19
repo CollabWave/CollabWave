@@ -1,14 +1,77 @@
 .sider {
   overflow: visible;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.siderS {
+  z-index: 1000;
+  overflow: visible;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .list {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 45px;
   margin-top: 30px;
   font-size: 20px;
   font-weight: 500;
+}
+
+.arrow {
+  position: absolute;
+  top: 80px;
+  font-size: 300%;
+  border-radius: 50%;
+}
+
+.arrowLeft {
+  left: 310px;
+}
+
+.arrowRight {
+  left: 100px;
+}
+
+.burgerOpened {
+  position: absolute;
+  right: 280px;
+}
+
+@media screen and (max-width: 767px) {
+  .siderM {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .siderS {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .siderM {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .siderXxl {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .siderM {
+    display: none;
+  }
+
+  .mainPart {
+    margin-left: 360px;
+  }
+
+  .list {
+    display: flex;
+  }
 }

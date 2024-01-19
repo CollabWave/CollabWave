@@ -24,6 +24,7 @@
     "eslint-config-next": "13.4.19",
     "gl-noise": "^1.6.1",
     "gsap": "^3.12.2",
+    "hamburger-react": "^2.5.0",
     "maath": "^0.10.4",
     "next": "13.4.19",
     "next-themes": "^0.2.1",

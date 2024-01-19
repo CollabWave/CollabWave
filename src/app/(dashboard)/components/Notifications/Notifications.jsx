@@ -23,8 +23,11 @@ export const Notifications = () => {
       onOpenChange={setNotificationsOpened}
     >
       <BellOutlined
-        className={isNotificationsOpened ? `${styles.iconOpened}` : 'icon__header'}
-        style={{ fontSize: '260%' }}
+        className={
+          isNotificationsOpened
+            ? `${styles.iconOpened} ${styles.icon}`
+            : `icon__header ${styles.icon}`
+        }
       />
     </Popover>
   );

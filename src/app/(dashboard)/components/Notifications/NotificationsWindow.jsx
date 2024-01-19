@@ -9,7 +9,13 @@ export const NotificatonsWindow = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <div className={resolvedTheme === 'dark' ? `${styles.window}` : `${styles.windowLight}`}>
+    <div
+      className={
+        resolvedTheme === 'dark'
+          ? `${styles.window} ${styles.windowDark}`
+          : `${styles.windowLight} ${styles.window}`
+      }
+    >
       <ul className={`${styles.notificationsList} ${montserrat.className}`}>
         <li className={styles.notification}>Notification 1</li>
         <li className={styles.notification}>Notification 2</li>

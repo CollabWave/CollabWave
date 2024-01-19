@@ -1,5 +1,5 @@
 .switcher {
-  width: 110px;
+  width: 90px;
   display: inline-flex;
   padding: 0.325rem;
   column-gap: 0.325rem;
@@ -19,7 +19,7 @@
   justify-content: center;
   padding: 0 !important;
   width: 50px !important;
-  height: 50px;
+  height: 40px;
 }
 
 .button__dark_active {
@@ -40,4 +40,14 @@
 .button__light_active:hover {
   background-color: rgb(255, 177, 85) !important;
   color: rgb(255, 255, 255) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .switcher {
+    width: 110px;
+  }
+
+  .button {
+    height: 50px;
+  }
 }

@@ -2,6 +2,7 @@
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .window {
@@ -23,7 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .profileListLight {
@@ -47,11 +48,56 @@
 }
 
 .modalTitle {
-  font-size: 22px;
+  font-size: 15px;
   color: var(--text-main-light);
 }
 
 .modalTitleDark {
-  font-size: 22px;
+  font-size: 15px;
   color: var(--text-main-dark);
+}
+
+.text,
+.confirmDesktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    display: block;
+  }
+
+  .profileList {
+    font-size: 20px;
+  }
+
+  .modalTitle {
+    font-size: 18px;
+  }
+
+  .modalTitleDark {
+    font-size: 18px;
+  }
+
+  .confirmDesktop {
+    display: block;
+  }
+
+  .confirmMobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .profileList {
+    font-size: 22px;
+  }
+
+  .modalTitle {
+    font-size: 22px;
+  }
+
+  .modalTitleDark {
+    font-size: 22px;
+  }
 }

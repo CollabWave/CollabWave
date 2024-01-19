@@ -1,9 +1,34 @@
 .text {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--text-main-dark);
 }
 
 .textLight {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--text-main-light);
+}
+
+.icon {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 18px;
+  }
+
+  .textLight {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .text {
+    font-size: 20px;
+  }
+
+  .textLight {
+    font-size: 20px;
+  }
 }
