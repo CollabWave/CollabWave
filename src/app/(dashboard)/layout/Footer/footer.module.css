@@ -10,6 +10,18 @@
 }
 
 .text {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .text {
+    font-size: 20px;
+  }
 }

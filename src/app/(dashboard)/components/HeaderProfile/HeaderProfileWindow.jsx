@@ -14,11 +14,33 @@ export const HeaderProfileWindow = () => {
 
   const { confirm } = Modal;
 
-  const showConfirm = () => {
+  const showConfirmMobile = () => {
     confirm({
-      title: <span className={resolvedTheme === 'light' ? styles.modalTitle : styles.modalTitleDark}>Are you shure you want to log out? 😟</span>,
-      icon: <ExclamationCircleFilled style={{fontSize: "200%"}} />,
-      className: "confirm-logout",
+      title: (
+        <span className={resolvedTheme === 'light' ? styles.modalTitle : styles.modalTitleDark}>
+          Are you shure you want to log out? 😟
+        </span>
+      ),
+      icon: <ExclamationCircleFilled style={{ fontSize: '200%' }} />,
+      className: 'confirm-logout',
+      width: 320,
+      onOk() {
+        console.log('OK');
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+  };
+  const showConfirmDesktop = () => {
+    confirm({
+      title: (
+        <span className={resolvedTheme === 'light' ? styles.modalTitle : styles.modalTitleDark}>
+          Are you shure you want to log out? 😟
+        </span>
+      ),
+      icon: <ExclamationCircleFilled style={{ fontSize: '200%' }} />,
+      className: 'confirm-logout',
       width: 500,
       onOk() {
         console.log('OK');
@@ -42,7 +64,10 @@ export const HeaderProfileWindow = () => {
           <Link href={'/dashboard/profile/personal-info'}>Profile</Link>
         </li>
         <li>
-          <Link href={''} onClick={showConfirm}>
+          <Link className={styles.confirmDesktop} href={''} onClick={showConfirmDesktop}>
+            Logout
+          </Link>
+          <Link className={styles.confirmMobile} href={''} onClick={showConfirmMobile}>
             Logout
           </Link>
         </li>

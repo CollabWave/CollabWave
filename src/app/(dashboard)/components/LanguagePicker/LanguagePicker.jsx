@@ -25,14 +25,7 @@ export const LanguagePicker = () => {
             align="center"
           >
             English
-            <ReactCountryFlag
-              style={{
-                fontSize: '25px',
-                lineHeight: '25px',
-              }}
-              svg
-              countryCode="GB"
-            />
+            <ReactCountryFlag className={styles.icon} svg countryCode="GB" />
           </Space>
         </Radio>
         <Radio value="ua">
@@ -45,14 +38,7 @@ export const LanguagePicker = () => {
             align="center"
           >
             Ukrainian
-            <ReactCountryFlag
-              style={{
-                fontSize: '25px',
-                lineHeight: '25px',
-              }}
-              svg
-              countryCode="UA"
-            />
+            <ReactCountryFlag className={styles.icon} svg countryCode="UA" />
           </Space>
         </Radio>
       </Space>

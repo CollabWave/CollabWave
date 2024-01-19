@@ -5,14 +5,18 @@
   border-radius: 7px;
 }
 
+.icon {
+  font-size: 200%;
+}
+
 .window {
-  width: 350px;
-  padding: 30px;
+  width: 250px;
+  padding: 10px;
   background-color: var(bg-color-dark);
 }
 
 .header {
-  font-size: 22px;
+  font-size: 18px;
   color: rgb(51, 156, 253);
   transition: color 250ms ease-out;
 }
@@ -31,4 +35,25 @@
 .headerLight:hover,
 .headerLight:focus {
   color: rgb(2, 106, 204);
+}
+
+@media screen and (min-width: 768px) {
+  .icon {
+    font-size: 260%;
+  }
+
+  .window {
+    width: 350px;
+    padding: 30px;
+  }
+
+  .header {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    font-size: 22px;
+  }
 }

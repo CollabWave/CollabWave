@@ -27,7 +27,7 @@ export const HeaderProfile = () => {
           shape="circle"
           size={50}
         />
-        {`${user.firstName} ${user.lastName}`}
+        <p className={styles.text}>{`${user.firstName} ${user.lastName}`}</p>
       </Space>
     </Popover>
   );

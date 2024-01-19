@@ -105,12 +105,14 @@ main {
   background-color: var(--bg-collapse-light) !important;
 }
 
-.dark .sider {
+.dark .sider,
+.dark .ant-drawer-content {
   color: var(--text-secondary-color-dark);
   background-color: var(--bg-sider-dark) !important;
 }
 
-.light .header__search {
+.light .header__search,
+.light .header__searchMobile {
   color: var(--text-main-light);
   transition: border 250ms ease-out;
 }
@@ -125,6 +127,7 @@ main {
 }
 
 .light .header__search::placeholder,
+.light .header__searchMobile::placeholder,
 .light .profile-heading,
 .light .profile-input,
 .light .text,
@@ -143,7 +146,8 @@ main {
   color: var(--text-light-light);
 }
 
-.dark .header__search {
+.dark .header__search,
+.dark .header__searchMobile {
   background-color: var(--bg-color-dark);
   color: var(--text-main-dark);
   transition: border 250ms ease-out;
@@ -155,22 +159,10 @@ main {
 
 .light .icon__search {
   color: rgb(64, 64, 64);
-  font-size: 190%;
-  margin-right: 10px;
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
 }
 
 .dark .icon__search {
   color: #fff;
-  font-size: 190%;
-  margin-right: 10px;
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
 }
 
 .dark .icon__header {
@@ -185,8 +177,10 @@ main {
 
 .light .sider__list_item:hover,
 .light .sider__list_item:focus,
-.light .sider__list_item_active {
-  color: #ffb765;
+.light .sider__list_item_active,
+.light .ant-menu-item-selected,
+.light .ant-menu-item-active {
+  color: #ffb765 !important;
 }
 
 .dark .sider__list {
@@ -335,7 +329,9 @@ main {
 }
 
 .light .blue-hover:hover,
-.light .blue-hover:focus {
+.light .blue-hover:focus,
+.dark .ant-menu-item-active,
+.dark .ant-menu-item-selected {
   color: var(--light-blue) !important;
 }
 
@@ -376,7 +372,8 @@ main {
 .dark .ant-input-disabled#hashtags,
 .dark .ant-input-disabled#promo,
 .dark .ant-input-disabled#link-subscribers,
-.dark .ant-collapse-content-box {
+.dark .ant-collapse-content-box,
+.ant-menu {
   color: var(--text-main-dark);
 }
 
@@ -434,7 +431,10 @@ main {
 :where(.css-dev-only-do-not-override-nllxry).ant-table-wrapper
   .ant-table-tbody
   > tr.ant-table-placeholder,
-.ant-modal-header {
+.ant-modal-header,
+.ant-menu-item-selected,
+.ant-menu,
+.ant-menu-item {
   background-color: inherit !important;
 }
 
@@ -496,6 +496,7 @@ main {
 .dark .anticon-calendar,
 .dark .ant-picker-separator,
 .dark .header__search::placeholder,
+.dark .header__searchMobile::placeholder,
 .dark .secondary-text,
 .ant-table-filter-dropdown .ant-input::placeholder {
   color: var(--text-light-dark);
@@ -842,4 +843,40 @@ main {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
+}
+
+.ant-layout-sider-collapsed {
+  min-width: 120px !important;
+}
+
+.siderM .ant-menu-title-content {
+  font-size: 19px;
+}
+
+.ant-menu {
+  border-inline-end: none !important;
+}
+
+.ant-menu-item {
+  margin-bottom: 30px !important;
+}
+
+.hamburger-react,
+.hamburger-react div {
+  position: relative;
+  z-index: 2000;
+}
+
+.mobile-menu .ant-drawer-body {
+  padding-left: 0;
+}
+
+.mobile-menu .ant-menu {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .confirm-logout .ant-modal-confirm-btns .ant-btn span {
+    font-size: 16px;
+  }
 }
