@@ -14,6 +14,7 @@ const successAlert = async (message, color, title) =>
     title: title ? title : 'Success',
     text: message,
     background: color,
+    width: '500px',
     backdrop: `
     rgba(0,0,123,0.4)
     url("https://sweetalert2.github.io/images/nyan-cat.gif")

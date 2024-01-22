@@ -8,10 +8,15 @@ import styles from '../profile.module.css';
 
 const NotificationsPage = () => {
   return user.role === 'blogger' ? (
-    <div className={styles.wrap}>
-      <BloggerProfileLeftSide user={user} />
-      <BloggerNotificationSettings />
-    </div>
+    <>
+      <div className={styles.wrapMobile}>
+        <BloggerNotificationSettings />
+      </div>
+      <div className={styles.wrapDesktop}>
+        <BloggerProfileLeftSide user={user} />
+        <BloggerNotificationSettings />
+      </div>
+    </>
   ) : (
     <div className={styles.wrap}>
       <BrandProfileLeftSide />

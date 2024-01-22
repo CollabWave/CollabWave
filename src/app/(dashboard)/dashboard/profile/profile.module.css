@@ -1,21 +1,23 @@
-.wrap {
-  margin-top: 130px;
-  display: flex;
-  justify-content: space-between;
+.wrapDesktop {
+  margin-top: 30px;
+  display: none;
+}
+
+.wrapMobile {
+  margin-top: 30px;
 }
 
 .leftSide {
-  margin-left: 40px;
-  padding: 70px;
+  width: 90%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
   border-radius: 7px;
   height: 100%;
 }
 
 .avatarWraper {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 40px auto;
-  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -30,31 +32,42 @@
   );
 }
 
+.avatarMobile {
+  display: flex;
+  width: 95px;
+  height: 95px;
+  margin: 0 auto 20px auto;
+}
+
+.avatarDesktop {
+  display: none;
+}
+
 .text {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-align: center;
   font-family: var(--font-montserrat);
 }
 
 .name {
-  font-size: 26px;
+  font-size: 16px;
 }
 
 .nickName {
-  font-size: 22px;
+  font-size: 15px;
 }
 
 .area {
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .nav {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-  font-size: 22px;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -64,8 +77,86 @@
 }
 
 .navItem {
-  width: 277px;
+  width: 220px;
   padding: 10px 30px 10px 20px;
   border-radius: 7px;
   transition: background-color 250ms ease-out;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapDesktop {
+    display: block;
+  }
+
+  .wrapMobile {
+    display: none;
+  }
+
+  .avatarMobile {
+    display: none;
+  }
+
+  .avatarDesktop {
+    display: flex;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 30px auto;
+  }
+
+  .text {
+    margin-bottom: 30px;
+  }
+
+  .leftSide {
+    margin-top: 110px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .tabletWrap,
+  .nav {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapDesktop {
+    margin-top: 130px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .leftSide {
+    min-width: 350px;
+    margin: 0 0 40px 0;
+    display: block;
+    padding: 70px 20px;
+  }
+
+  .nav {
+    align-items: flex-start;
+    font-size: 18px;
+    gap: 30px;
+  }
+
+  .navItem {
+    width: 250px;
+  }
+
+  .name {
+    font-size: 21px;
+  }
+
+  .nickName {
+    font-size: 17px;
+  }
+
+  .area {
+    font-size: 15px;
+  }
 }

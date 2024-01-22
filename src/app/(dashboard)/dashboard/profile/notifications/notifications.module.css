@@ -1,6 +1,6 @@
 .text {
-  margin-bottom: 30px;
-  font-size: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -12,4 +12,20 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  width: 50px;
+  overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .text {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .text {
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
 }

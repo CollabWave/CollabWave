@@ -25,7 +25,7 @@ export const SecurityCodeForm = ({ onBack, onFinish, device }) => {
         </div>
         <div className={styles.imageWrap}>
           <Image
-            width={200}
+            width={120}
             src={device === 'email' ? securityMailImage : securityPhoneImage}
             alt="code verification"
           />

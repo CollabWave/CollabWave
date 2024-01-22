@@ -25,35 +25,35 @@ export const bloggerMenu = [
     'Dashboard',
     'sub1',
     <Link className="" href="/dashboard">
-      <DashboardOutlined style={{ fontSize: '210%' }} />
+      <DashboardOutlined style={{ fontSize: '150%' }} />
     </Link>
   ),
   getItem(
     'Advertisement offers',
     'sub2',
     <Link className="" href="/dashboard/advertisements">
-      <FileSearchOutlined style={{ fontSize: '210%' }} />
+      <FileSearchOutlined style={{ fontSize: '150%' }} />
     </Link>
   ),
   getItem(
     'Projects',
     'sub3',
     <Link className="" href="/dashboard/projects">
-      <BulbOutlined style={{ fontSize: '210%' }} />
+      <BulbOutlined style={{ fontSize: '150%' }} />
     </Link>
   ),
   getItem(
     'Collaborations',
     'sub4',
     <Link className="" href="/dashboard/collaborations">
-      <UsergroupAddOutlined style={{ fontSize: '210%' }} />
+      <UsergroupAddOutlined style={{ fontSize: '150%' }} />
     </Link>
   ),
   getItem(
     'Statistics',
     'sub5',
     <Link className="" href="/dashboard/statistics">
-      <LineChartOutlined style={{ fontSize: '210%' }} />
+      <LineChartOutlined style={{ fontSize: '150%' }} />
     </Link>
   ),
 ];

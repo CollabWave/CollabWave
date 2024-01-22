@@ -454,7 +454,7 @@ main {
 }
 
 .ant-picker-input input {
-  font-size: 22px !important;
+  font-size: 15px !important;
 }
 
 .ant-picker-cell,
@@ -464,7 +464,7 @@ main {
 .ant-picker-footer,
 .ant-form-item-explain-error,
 .confirm-logout .ant-modal-confirm-btns .ant-btn span {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .ant-picker-cell-inner {
@@ -488,7 +488,7 @@ main {
 .ant-select-item-option-content,
 .ant-select-selection-search-input,
 .ant-image-mask-info {
-  font-size: 22px;
+  font-size: 15px;
 }
 
 .dark .ant-picker-input input::placeholder,
@@ -528,25 +528,25 @@ main {
 }
 
 #twoFactorAuth_2fa {
-  width: 60px;
-  height: 30px;
+  width: 50px;
+  height: 25px;
 }
 #twoFactorAuth_2fa .ant-switch-handle::before {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   right: 5px;
-  inset-inline-start: -5px;
+  inset-inline-start: -2px;
 }
 
 .vi__character {
-  line-height: 80px;
-  font-size: 24px;
+  line-height: 60px;
+  font-size: 18px;
   font-weight: 700;
   border: 3px solid #c5d3e0;
   border-radius: 0.625rem;
-  width: 55px;
-  height: 80px;
+  width: 40px;
+  height: 60px;
 }
 
 .vi__character--inactive {
@@ -573,13 +573,13 @@ main {
 
 .checkboxes-wrap .ant-checkbox-wrapper,
 .checkboxes-wrap .ant-col {
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .checkboxes-wrap .ant-checkbox-wrapper > .ant-checkbox > .ant-checkbox-inner {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   border-radius: 3px;
 }
 
@@ -610,8 +610,15 @@ main {
 }
 
 .checkboxes-header {
-  height: 100px;
-  padding: 26px;
+  height: 70px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.ant-checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .dark .checkboxes-header {
@@ -637,8 +644,11 @@ main {
 }
 
 .checkboxes-content {
-  height: 100px;
-  padding: 26px;
+  height: 80px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dark .checkboxes-content {
@@ -651,11 +661,6 @@ main {
 
 .ant-checkbox-group {
   display: block;
-}
-
-.ant-checkbox-inner,
-.ant-checkbox-input {
-  transform: scale(1.3);
 }
 
 .dark .ant-table-thead > tr > th,
@@ -850,7 +855,7 @@ main {
 }
 
 .siderM .ant-menu-title-content {
-  font-size: 19px;
+  font-size: 15px;
 }
 
 .ant-menu {
@@ -858,7 +863,7 @@ main {
 }
 
 .ant-menu-item {
-  margin-bottom: 30px !important;
+  margin-bottom: 18px !important;
 }
 
 .hamburger-react,
@@ -877,6 +882,67 @@ main {
 
 @media screen and (max-width: 767px) {
   .confirm-logout .ant-modal-confirm-btns .ant-btn span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ant-checkbox-wrapper {
+    display: inline-flex;
+    flex-direction: unset;
+  }
+
+  .checkboxes-header {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .confirm-logout .ant-modal-confirm-btns .ant-btn span,
+  .ant-select-item-option,
+  .ant-select-selection-item,
+  .ant-select-item-option-content,
+  .ant-select-selection-search-input,
+  .ant-image-mask-info {
     font-size: 16px;
+  }
+
+  .ant-picker-input input {
+    font-size: 16px !important;
+  }
+
+  .checkboxes-wrap .ant-checkbox-wrapper,
+  .checkboxes-wrap .ant-col {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .confirm-logout .ant-modal-confirm-btns .ant-btn span,
+  .ant-select-item-option,
+  .ant-select-selection-item,
+  .ant-select-item-option-content,
+  .ant-select-selection-search-input,
+  .ant-image-mask-info {
+    font-size: 17px;
+  }
+
+  .ant-picker-input input {
+    font-size: 17px !important;
+  }
+
+  .checkboxes-wrap .ant-checkbox-wrapper,
+  .checkboxes-wrap .ant-col {
+    font-size: 18px;
+  }
+
+  .checkboxes-content {
+    height: 100px;
+    padding: 17px;
+  }
+
+  .checkboxes-header {
+    height: 100px;
+    padding-top: 0;
   }
 }

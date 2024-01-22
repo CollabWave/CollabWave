@@ -20,19 +20,24 @@ import styles from './profile.module.css';
 export const BloggerProfileLeftSide = ({ user }) => {
   const pathname = usePathname();
   return (
-    <Col className={`${styles.leftSide} profile-card`} md={7}>
-      <div className={styles.avatarWraper}>
-        <Avatar icon={<UserOutlined />} shape="circle" alt="Profile picture" size={150} />
+    <Col className={`${styles.leftSide} profile-card`}>
+      <div className={styles.tabletWrap}>
+        <div className={`${styles.avatarWraper} ${styles.avatarMobile}`}>
+          <Avatar icon={<UserOutlined />} shape="circle" alt="Profile picture" size={80} />
+        </div>
+        <div className={`${styles.avatarWraper} ${styles.avatarDesktop}`}>
+          <Avatar icon={<UserOutlined />} shape="circle" alt="Profile picture" size={100} />
+        </div>
+        <h2
+          className={`${styles.text} ${styles.name} ${montserrat.variable}`}
+        >{`${user.firstName} ${user.lastName}`}</h2>
+        <h3 className={`${styles.text} ${styles.nickName} ${montserrat.variable}`}>
+          {user.nickName}
+        </h3>
+        <p className={`${styles.text} ${styles.area} ${montserrat.variable}`}>
+          {makeUserAreaString(user.area)}
+        </p>
       </div>
-      <h2
-        className={`${styles.text} ${styles.name} ${montserrat.variable}`}
-      >{`${user.firstName} ${user.lastName}`}</h2>
-      <h3 className={`${styles.text} ${styles.nickName} ${montserrat.variable}`}>
-        {user.nickName}
-      </h3>
-      <p className={`${styles.text} ${styles.area} ${montserrat.variable}`}>
-        {makeUserAreaString(user.area)}
-      </p>
       <ul className={styles.nav}>
         <li
           className={`${styles.navItem} ${

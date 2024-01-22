@@ -125,18 +125,18 @@ export const PasswordForm = ({ user }) => {
             <Input.Password className={`${formStyles.input} profile-input`} />
           </Form.Item>
         </Col>
-        <Col xs={24} md={12} xl={24}>
-          <Button
-            style={{ width: '100%', marginTop: '30px' }}
-            className={`${formStyles.button} personal-info-save`}
-            loading={isLoading}
-            type="primary"
-            htmlType="submit"
-          >
-            Confirm
-          </Button>
-        </Col>
       </Row>
+      <Col xs={24} md={12} xl={24}>
+        <Button
+          style={{ width: '100%', marginTop: '30px' }}
+          className={`${formStyles.button} personal-info-save`}
+          loading={isLoading}
+          type="primary"
+          htmlType="submit"
+        >
+          Confirm
+        </Button>
+      </Col>
     </Form>
   );
 };

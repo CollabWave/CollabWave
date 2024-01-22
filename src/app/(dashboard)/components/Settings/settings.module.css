@@ -16,7 +16,7 @@
 }
 
 .header {
-  font-size: 18px;
+  font-size: 14px;
   color: rgb(51, 156, 253);
   transition: color 250ms ease-out;
 }
@@ -27,7 +27,7 @@
 }
 
 .headerLight {
-  font-size: 22px;
+  font-size: 14px;
   color: var(--text-hover-dark);
   transition: color 250ms ease-out;
 }
@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 768px) {
   .icon {
-    font-size: 260%;
+    font-size: 200%;
   }
 
   .window {
@@ -48,12 +48,20 @@
   }
 
   .header {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  .headerLight {
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .header {
-    font-size: 22px;
+    font-size: 18px;
+  }
+
+  .headerLight {
+    font-size: 18px;
   }
 }

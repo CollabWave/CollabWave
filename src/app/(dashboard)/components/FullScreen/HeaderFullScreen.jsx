@@ -23,9 +23,9 @@ export const HeaderFullscreen = () => {
             type={isFullscreen ? 'ghost' : 'text'}
             icon={
               isFullscreen ? (
-                <FullscreenExitOutlined className={styles.iconExit} style={{ fontSize: '260%' }} />
+                <FullscreenExitOutlined className={styles.iconExit} style={{ fontSize: '200%' }} />
               ) : (
-                <FullscreenOutlined className="icon__header" style={{ fontSize: '260%' }} />
+                <FullscreenOutlined className="icon__header" style={{ fontSize: '200%' }} />
               )
             }
           />
