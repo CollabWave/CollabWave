@@ -4,6 +4,8 @@ import { useState, useCallback } from 'react';
 
 import { Col, Row, Button, Form, Checkbox } from 'antd';
 
+import { LeftOutlined } from '@ant-design/icons';
+
 import { CheckboxColumn } from './CheckboxColumn';
 
 import personalStyles from '../personal-info/personalInfo.module.css';
@@ -62,48 +64,56 @@ export const BloggerNotificationSettings = () => {
   ];
 
   return (
-    <Col md={15} className={`${personalStyles.rightSide} profile-card`}>
-      <Form name="notifications" onFinish={onFinish}>
-        <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
-          Notifications settings
-        </h3>
-        <p className={`${styles.text} ${montserrat.className} profile-heading`}>
-          Choose how to receive notifications. These notification settings apply to the things you
-          are watching.
-        </p>
-        <div className={styles.outerWrap}>
-          {options.map(item => (
-            <CheckboxColumn
-              reset={cancelPressed}
-              key={item.id}
-              column={item}
-              handleCheck={handleCheck(item.id)}
-            />
-          ))}
-        </div>
-        <Row className={personalStyles.buttonsWrap} gutter={[10, 10]} wrap={false}>
-          <Col span={12}>
-            <Button
-              className={`${personalStyles.button} personal-info-cancel`}
-              block
-              type="ghost"
-              onClick={onCancel}
-            >
-              Cancel
-            </Button>
-          </Col>
-          <Col span={12}>
-            <Button
-              className={`${personalStyles.button} personal-info-save`}
-              block
-              type="primary"
-              /* loading={loading}  */ htmlType="submit"
-            >
-              Save
-            </Button>
-          </Col>
-        </Row>
-      </Form>
-    </Col>
+    <>
+      <div
+        className={`${personalStyles.backWrap} text-blue ${montserrat.className}`}
+        onClick={() => router.back()}
+      >
+        <LeftOutlined /> <p>Back</p>
+      </div>
+      <Col className={`${personalStyles.rightSide} profile-card`}>
+        <Form name="notifications" onFinish={onFinish}>
+          <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
+            Notifications settings
+          </h3>
+          <p className={`${styles.text} ${montserrat.className} profile-heading`}>
+            Choose how to receive notifications. These notification settings apply to the things you
+            are watching.
+          </p>
+          <div className={styles.outerWrap}>
+            {options.map(item => (
+              <CheckboxColumn
+                reset={cancelPressed}
+                key={item.id}
+                column={item}
+                handleCheck={handleCheck(item.id)}
+              />
+            ))}
+          </div>
+          <Row className={personalStyles.buttonsWrap} gutter={[10, 10]} wrap={false}>
+            <Col span={12}>
+              <Button
+                className={`${personalStyles.button} personal-info-cancel`}
+                block
+                type="ghost"
+                onClick={onCancel}
+              >
+                Cancel
+              </Button>
+            </Col>
+            <Col span={12}>
+              <Button
+                className={`${personalStyles.button} personal-info-save`}
+                block
+                type="primary"
+                /* loading={loading}  */ htmlType="submit"
+              >
+                Save
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Col>
+    </>
   );
 };

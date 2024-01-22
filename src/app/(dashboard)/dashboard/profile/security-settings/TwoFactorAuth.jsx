@@ -35,7 +35,7 @@ export const TwoFactorAuth = ({ user }) => {
         onValuesChange={v => setValuesForm(v)}
         onFinish={() => setVerifyClicked(true)}
       >
-        <Row>
+        <Row className={styles.margin}>
           <Col span={24}>
             <Form.Item>
               <Row gutter={[10, 10]} justify="space-between" align="middle">
@@ -58,7 +58,7 @@ export const TwoFactorAuth = ({ user }) => {
           </Col>
 
           {isEnabled && (
-            <Col span={24}>
+            <Col>
               <Radio.Group value={selectedOption} onChange={e => setSelectedOption(e.target.value)}>
                 <Radio value="phone" /* disabled={user?.phone.verified} */>
                   <Form.Item
@@ -122,14 +122,18 @@ export const TwoFactorAuth = ({ user }) => {
       </Form>
 
       <Modal
-        width={'700px'}
+        width={'500px'}
         destroyOnClose
         open={verifyClicked}
         footer={false}
         closable={false}
         onCancel={() => setVerifyClicked(false)}
       >
-        <SecurityCodeForm device={selectedOption} onBack={() => setVerifyClicked(false)} onFinish={onVerify} />
+        <SecurityCodeForm
+          device={selectedOption}
+          onBack={() => setVerifyClicked(false)}
+          onFinish={onVerify}
+        />
       </Modal>
     </>
   );

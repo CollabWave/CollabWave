@@ -41,7 +41,7 @@ export const HeaderProfileWindow = () => {
       ),
       icon: <ExclamationCircleFilled style={{ fontSize: '200%' }} />,
       className: 'confirm-logout',
-      width: 500,
+      width: 410,
       onOk() {
         console.log('OK');
       },
@@ -61,7 +61,12 @@ export const HeaderProfileWindow = () => {
         }
       >
         <li>
-          <Link href={'/dashboard/profile/personal-info'}>Profile</Link>
+          <Link className={styles.profileLinkMobile} href={'/dashboard/profile'}>
+            Profile
+          </Link>
+          <Link className={styles.profileLinkDesktop} href={'/dashboard/profile/personal-info'}>
+            Profile
+          </Link>
         </li>
         <li>
           <Link className={styles.confirmDesktop} href={''} onClick={showConfirmDesktop}>

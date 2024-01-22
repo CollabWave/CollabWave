@@ -1,10 +1,10 @@
 .text {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-main-dark);
 }
 
 .textLight {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-main-light);
 }
 
@@ -15,20 +15,20 @@
 
 @media screen and (min-width: 768px) {
   .text {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .textLight {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .text {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .textLight {
-    font-size: 20px;
+    font-size: 16px;
   }
 }

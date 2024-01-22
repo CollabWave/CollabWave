@@ -8,10 +8,15 @@ import styles from '../profile.module.css';
 
 const SecuritySettingsPage = () => {
   return user.role === 'blogger' ? (
-    <div className={styles.wrap}>
-      <BloggerProfileLeftSide user={user} />
-      <SecuritySettings user={user} />
-    </div>
+    <>
+      <div className={styles.wrapMobile}>
+        <SecuritySettings user={user} />
+      </div>
+      <div className={styles.wrapDesktop}>
+        <BloggerProfileLeftSide user={user} />
+        <SecuritySettings user={user} />
+      </div>
+    </>
   ) : (
     <div className={styles.wrap}>
       <BrandProfileLeftSide />

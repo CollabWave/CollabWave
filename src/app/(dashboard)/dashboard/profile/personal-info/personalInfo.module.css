@@ -1,46 +1,126 @@
 .rightSide {
-  margin-right: 50px;
-  padding: 90px 70px;
+  width: 90%;
+  padding: 30px 40px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 7px;
 }
 
 .heading {
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 
 .label {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .input {
-  height: 60px;
-  font-size: 22px;
+  height: 40px;
+  font-size: 15px;
   background-color: inherit;
 }
 
 .button {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 500;
-  padding-top: 29px;
-  padding-bottom: 29px;
+  padding-top: 17px;
+  padding-bottom: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 250ms ease-out, border-color 250ms ease-out, color 250ms ease-out;
 }
 
-.buttonsWrap {
-  margin-top: 50px;
-}
-
 .flagWrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
 }
 
 .flag {
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.headingMargin {
+  margin-top: 20px;
+}
+
+.backWrap {
+  margin: 15px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .headingMargin {
+    margin-top: 30px;
+  }
+
+  .rightSide {
+    margin-top: 30px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+
+  .input {
+    height: 53px;
+    font-size: 16px;
+  }
+
+  .button {
+    font-size: 18px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  .backWrap {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .rightSide {
+    margin: 0 50px 0 0;
+    min-width: 620px;
+  }
+
+  .headingMargin {
+    margin-top: 50px;
+  }
+
+  .heading {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .input {
+    height: 58px;
+    font-size: 17px;
+  }
+
+  .button {
+    font-size: 19px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .flag {
+    font-size: 25px;
+    line-height: 25px;
+  }
 }

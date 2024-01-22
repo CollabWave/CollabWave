@@ -41,7 +41,7 @@ export const SideMenu = () => {
         }}
         trigger={null}
         className={`${styles.sider} ${styles.siderXxl} sider`}
-        width={360}
+        width={280}
       >
         <Link className="" href="/dashboard">
           <Image src="/Logo.png" alt="Collabwave logo" width={250} height={100} />
@@ -50,12 +50,11 @@ export const SideMenu = () => {
         {user.role === 'blogger' && <BloggerDesktopMenu />}
       </Layout.Sider>
       <Layout.Sider
-        style={{ zIndex: 1000 }}
         trigger={null}
         className={`${styles.sider} ${styles.siderM} sider siderM`}
         collapsible
         collapsed={collapsed}
-        width={330}
+        width={300}
       >
         <Link className="" href="/dashboard">
           <Flex>

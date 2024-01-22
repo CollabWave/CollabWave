@@ -30,7 +30,7 @@ export const montserrat = Montserrat({
 export default function DashboardLayout({ children }) {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         style={{
           minHeight: '100vh',

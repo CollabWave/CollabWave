@@ -18,7 +18,7 @@ export const MobileHeader = ({ isOpen, setIsOpen }) => {
         <HeaderSearch />
         <Settings />
       </Flex>
-      <Hamburger toggled={isOpen} toggle={setIsOpen} />
+      <Hamburger size={25} toggled={isOpen} toggle={setIsOpen} />
     </Row>
   );
 };
