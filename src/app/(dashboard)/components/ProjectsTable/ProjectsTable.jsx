@@ -36,6 +36,7 @@ export const ProjectsTable = ({ projects, handleSearch, handleReset }) => {
         columns={BloggerColumns(handleSearch, handleReset)}
         dataSource={projectsWithKeys}
         pagination={pagination}
+        scroll={{ x: 800 }}
         onChange={handleTableChange}
         onRow={r => ({
           onClick: () => {

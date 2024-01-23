@@ -14,8 +14,8 @@ export const AdvertisementCard = ({ advertisement }) => {
     >
       <Image
         style={advertisement.logo ? { opacity: 1 } : { opacity: 0 }}
-        width={48}
-        height={48}
+        width={40}
+        height={40}
         alt="brand logo"
         src={advertisement.logo}
       />

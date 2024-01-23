@@ -21,10 +21,10 @@ export const BloggerColumns = (handleSearch, handleReset) => [
     title: 'Project',
     dataIndex: 'project',
     key: 'project',
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div
         style={{
-          padding: 8,
+          padding: 5,
         }}
         onKeyDown={e => e.stopPropagation()}
       >
@@ -36,7 +36,7 @@ export const BloggerColumns = (handleSearch, handleReset) => [
           onPressEnter={() => handleSearch(selectedKeys, confirm, 'project')}
           style={{
             marginBottom: 8,
-            display: 'block',
+            display: 'inline-block',
           }}
         />
         <Space>
@@ -54,14 +54,6 @@ export const BloggerColumns = (handleSearch, handleReset) => [
           >
             Reset
           </Button>
-          <Button
-            className={`${montserrat.className} ${styles.searchBtn}`}
-            onClick={() => {
-              close();
-            }}
-          >
-            Close
-          </Button>
         </Space>
       </div>
     ),
@@ -69,7 +61,7 @@ export const BloggerColumns = (handleSearch, handleReset) => [
       <SearchOutlined
         className="profile-input-label"
         style={{
-          fontSize: '190%',
+          fontSize: '150%',
         }}
       />
     ),
