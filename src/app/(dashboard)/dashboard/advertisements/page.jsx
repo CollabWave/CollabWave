@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 
-import { List } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 
 import { advertisements } from '@/mockData/advertisements';
 import { user } from '@/mockData/user';
 
-import { AdvertisementCard } from '../../components/AdvertisementCard/AdvertisementCard';
+import { AdvertisementList } from './AdvertisementsList';
 import { CategoriesFilter } from '../../components/CategoriesFilter/CategoriesFilter';
 
 import styles from './advertisements.module.css';
@@ -55,27 +54,20 @@ const AdvertisementOffersPage = () => {
         </li>
       </ul>
       {!viewAllChoosen && (
-        <List
-          itemLayout="horizontal"
-          grid={{ gutter: [16, 24], column: 4 }}
-          className="text"
-          pagination={
-            userAreaAdvertisements.length > 8
-              ? {
-                  onChange: page => {
-                    console.log(page);
-                  },
-                  pageSize: 8,
-                }
-              : false
-          }
-          dataSource={userAreaAdvertisements}
-          renderItem={item => (
-            <li className={`${styles.card} secondary-background advertisement-card`} key={item.id}>
-              <AdvertisementCard advertisement={item} />
-            </li>
-          )}
-        />
+        <>
+          <div className={styles.mobileList}>
+            <AdvertisementList arr={userAreaAdvertisements} itemsCount={4} columnCount={1} />
+          </div>
+          <div className={styles.tabletSmallList}>
+            <AdvertisementList arr={userAreaAdvertisements} itemsCount={4} columnCount={2} />
+          </div>
+          <div className={styles.tabletList}>
+            <AdvertisementList arr={userAreaAdvertisements} itemsCount={6} columnCount={3} />
+          </div>
+          <div className={styles.desktopList}>
+            <AdvertisementList arr={userAreaAdvertisements} itemsCount={8} columnCount={4} />
+          </div>
+        </>
       )}
       {viewAllChoosen && (
         <>
@@ -90,55 +82,35 @@ const AdvertisementOffersPage = () => {
           </button>
           {openFilters && <CategoriesFilter setFilters={setFilters} />}
           {filters.length === 0 ? (
-            <List
-              itemLayout="horizontal"
-              grid={{ gutter: [16, 24], column: 4 }}
-              className="text"
-              pagination={
-                advertisements.length > 8
-                  ? {
-                      onChange: page => {
-                        console.log(page);
-                      },
-                      pageSize: 8,
-                    }
-                  : false
-              }
-              dataSource={advertisements}
-              renderItem={item => (
-                <li
-                  className={`${styles.card} secondary-background advertisement-card`}
-                  key={item.id}
-                >
-                  <AdvertisementCard advertisement={item} />
-                </li>
-              )}
-            />
+            <>
+              <div className={styles.mobileList}>
+                <AdvertisementList arr={advertisements} itemsCount={4} columnCount={1} />
+              </div>
+              <div className={styles.tabletSmallList}>
+                <AdvertisementList arr={advertisements} itemsCount={4} columnCount={2} />
+              </div>
+              <div className={styles.tabletList}>
+                <AdvertisementList arr={advertisements} itemsCount={6} columnCount={3} />
+              </div>
+              <div className={styles.desktopList}>
+                <AdvertisementList arr={advertisements} itemsCount={8} columnCount={4} />
+              </div>
+            </>
           ) : (
-            <List
-              itemLayout="horizontal"
-              grid={{ gutter: [16, 24], column: 4 }}
-              className="text"
-              pagination={
-                filteredAdvertisements.length > 8
-                  ? {
-                      onChange: page => {
-                        console.log(page);
-                      },
-                      pageSize: 8,
-                    }
-                  : false
-              }
-              dataSource={filteredAdvertisements}
-              renderItem={item => (
-                <li
-                  className={`${styles.card} secondary-background advertisement-card`}
-                  key={item.id}
-                >
-                  <AdvertisementCard advertisement={item} />
-                </li>
-              )}
-            />
+            <>
+              <div className={styles.mobileList}>
+                <AdvertisementList arr={filteredAdvertisements} itemsCount={4} columnCount={1} />
+              </div>
+              <div className={styles.tabletSmallList}>
+                <AdvertisementList arr={filteredAdvertisements} itemsCount={4} columnCount={2} />
+              </div>
+              <div className={styles.tabletList}>
+                <AdvertisementList arr={filteredAdvertisements} itemsCount={6} columnCount={3} />
+              </div>
+              <div className={styles.desktopList}>
+                <AdvertisementList arr={filteredAdvertisements} itemsCount={8} columnCount={4} />
+              </div>
+            </>
           )}
         </>
       )}

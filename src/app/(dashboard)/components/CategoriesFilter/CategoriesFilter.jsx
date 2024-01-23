@@ -17,9 +17,18 @@ export const CategoriesFilter = ({ setFilters }) => {
 
   return (
     <Checkbox.Group className={styles.wrap} onChange={onChange}>
-      <Row>
+      <Row className={styles.mobileCheckboxes}>
         {areasWithLables.map(area => (
-          <Col span={6}>
+          <Col span={12} style={{ justifyContent: 'center' }}>
+            <Checkbox className={`${montserrat.className} ${styles.col} text `} value={area.value}>
+              {area.label}
+            </Checkbox>
+          </Col>
+        ))}
+      </Row>
+      <Row className={styles.desktopCheckboxes}>
+        {areasWithLables.map(area => (
+          <Col span={6} style={{ justifyContent: 'center' }}>
             <Checkbox className={`${montserrat.className} ${styles.col} text `} value={area.value}>
               {area.label}
             </Checkbox>

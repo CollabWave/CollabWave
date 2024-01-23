@@ -464,7 +464,7 @@ main {
 .ant-picker-footer,
 .ant-form-item-explain-error,
 .confirm-logout .ant-modal-confirm-btns .ant-btn span {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .ant-picker-cell-inner {
@@ -669,7 +669,7 @@ main {
 }
 
 .ant-table-cell {
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   border: 1px solid #b3cbe1 !important;
 }
@@ -687,6 +687,21 @@ main {
   border-width: 1px;
   border-style: solid;
   border-radius: 0 !important;
+}
+
+.ant-pagination-item,
+.ant-pagination-item > a,
+.ant-pagination-next,
+.ant-pagination-prev {
+  min-width: 25px !important;
+  height: 25px !important;
+  padding: 0 !important;
+}
+
+.ant-pagination-item > a {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .dark .ant-pagination-item {
@@ -914,6 +929,14 @@ main {
   .checkboxes-wrap .ant-checkbox-wrapper,
   .checkboxes-wrap .ant-col {
     font-size: 16px;
+  }
+
+  .ant-pagination-item,
+  .ant-pagination-item > a,
+  .ant-pagination-next,
+  .ant-pagination-prev {
+    min-width: 32px !important;
+    height: 32px !important;
   }
 }
 

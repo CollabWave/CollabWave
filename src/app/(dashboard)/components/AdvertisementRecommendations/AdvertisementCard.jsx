@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import { useState } from 'react';
 
 import { useRouter } from 'next/navigation';
@@ -22,7 +24,7 @@ export const AdvertisementCard = ({ card }) => {
       onMouseLeave={() => setCardHovered(false)}
       bordered={false}
       className={`${styles.card} secondary-background ${montserrat.className} advertisement-card`}
-      cover={<img className={styles.poster} alt="advertisement poster" src={card.poster} />}
+      cover={<Image width={210} height={320} className={styles.poster} alt="advertisement poster" src={card.poster} />}
       style={cardHovered ? { backgroundImage: `url(${card.poster})` } : null}
     >
       <Button
