@@ -1,6 +1,6 @@
 'use client';
 
-import { Image, Flex, Col, Avatar, Collapse } from 'antd';
+import { Flex, Col, Avatar, Collapse } from 'antd';
 import { TrademarkOutlined } from '@ant-design/icons';
 
 import { usePathname } from 'next/navigation';
@@ -59,17 +59,17 @@ const ProjectDescriptionPage = () => {
   ];
 
   return (
-    <div className={`${layoutStyles.wrap} ${montserrat.className}`}>
-      <Col className={`${layoutStyles.leftSide} profile-card`} md={7}>
-        <div className={layoutStyles.avatarWraper}>
+    <div className={`${styles.wrapDesktop} ${montserrat.className}`}>
+      <Col className={`${styles.leftSide} profile-card`}>
+        <div className={`${layoutStyles.avatarWraper} ${styles.avatar}`}>
           {advertisementToShow.logo ? (
             <Avatar
               shape="circle"
-              size={150}
+              size={100}
               src={<img src={advertisementToShow.logo} alt="brand logo" />}
             />
           ) : (
-            <Avatar icon={<TrademarkOutlined />} shape="circle" alt="brand logo" size={150} />
+            <Avatar icon={<TrademarkOutlined />} shape="circle" alt="brand logo" size={100} />
           )}
         </div>
         <Flex vertical gap="middle">
@@ -103,7 +103,7 @@ const ProjectDescriptionPage = () => {
           </Flex>
         </Flex>
       </Col>
-      <Col md={15} className={`${personalStyles.rightSide} profile-card`}>
+      <Col className={`${styles.rightSide} profile-card`}>
         <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
           {advertisementToShow.project || advertisementToShow.brand}
         </h3>

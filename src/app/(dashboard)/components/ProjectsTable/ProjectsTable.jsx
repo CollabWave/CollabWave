@@ -7,7 +7,7 @@ import { Table, Modal } from 'antd';
 import { addKeysToArray } from '@/utils/utils';
 
 import { BloggerColumns } from '../../dashboard/projects/blogger/TableColumns';
-import { TasksModal } from '../../dashboard/projects/blogger/TasksModal';
+import { TasksModal } from '../../dashboard/projects/blogger/tasksModal/TasksModal';
 
 import styles from './projectsTable.module.css';
 

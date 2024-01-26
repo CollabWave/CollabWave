@@ -9,8 +9,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { getBase64 } from '@/utils/utils';
 
-import styles from '../projects.module.css';
-import formStyles from '../../profile/personal-info/personalInfo.module.css';
+import styles from '../../projects.module.css';
+import formStyles from '../../../profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 
 export const TaskResults = ({ task, projectId }) => {
@@ -184,8 +184,7 @@ export const TaskResults = ({ task, projectId }) => {
               </Col>
             </Row>
             <Row className={formStyles.buttonsWrap} gutter={[8, 8]} wrap={false}>
-              <Col span={9}></Col>
-              <Col span={7}>
+              <Col span={12}>
                 <Button
                   className={`${formStyles.button} personal-info-cancel`}
                   block
@@ -195,16 +194,14 @@ export const TaskResults = ({ task, projectId }) => {
                   Cancel
                 </Button>
               </Col>
-              <Col span={7}>
+              <Col span={12}>
                 <Button
                   className={`${formStyles.button} personal-info-save`}
                   block
                   type="primary"
                   /* loading={loading}  */ htmlType="submit"
                 >
-                  {task.status === 'not started'
-                    ? 'Submit for verification'
-                    : 'Submit results'}
+                  {task.status === 'not started' ? 'Submit for verification' : 'Submit results'}
                 </Button>
               </Col>
             </Row>

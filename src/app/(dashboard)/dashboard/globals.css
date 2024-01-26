@@ -439,7 +439,7 @@ main {
 }
 
 .ant-picker-panel-container {
-  width: 360px;
+  width: 260px;
 }
 
 .ant-picker-panel-layout,
@@ -464,15 +464,15 @@ main {
 .ant-picker-footer,
 .ant-form-item-explain-error,
 .confirm-logout .ant-modal-confirm-btns .ant-btn span {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .ant-picker-cell-inner {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  height: 30px !important;
-  width: 30px;
+  height: 20px !important;
+  width: 20px;
 }
 
 .ant-picker-cell-inner::before {
@@ -842,26 +842,22 @@ main {
 }
 
 .screen-upload .ant-upload-list-item,
-.screen-upload .ant-upload-list-item-container,
 .screen-upload .ant-upload {
-  width: 150px !important;
-  height: 170px !important;
-}
-
-.screen-upload {
-  height: 170px !important;
+  width: 100px !important;
+  height: 110px !important;
 }
 
 .anticon-eye,
 .screen-upload .anticon-delete {
-  font-size: 26px !important;
-  width: 26px !important;
+  font-size: 20px !important;
+  width: 20px !important;
 }
 
 .screen-upload .ant-upload-list {
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -895,6 +891,12 @@ main {
   font-size: 15px;
 }
 
+@media screen and (min-width: 480px) {
+  .screen-upload .ant-upload-list {
+    justify-content: flex-start;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .confirm-logout .ant-modal-confirm-btns .ant-btn span {
     font-size: 14px;
@@ -909,6 +911,36 @@ main {
 
   .checkboxes-header {
     align-items: center;
+  }
+
+  .screen-upload .ant-upload-list-item,
+  .screen-upload .ant-upload-list-item-container,
+  .screen-upload .ant-upload {
+    width: 150px !important;
+    height: 170px !important;
+  }
+
+  .screen-upload {
+    height: 170px !important;
+  }
+
+  .ant-picker-panel-container {
+    width: 360px;
+  }
+
+  .ant-picker-cell,
+  .ant-picker-header,
+  .ant-picker-header button,
+  .ant-picker-body th,
+  .ant-picker-footer,
+  .ant-form-item-explain-error,
+  .confirm-logout .ant-modal-confirm-btns .ant-btn span {
+    font-size: 15px;
+  }
+
+  .ant-picker-cell-inner {
+    height: 25px !important;
+    width: 25px;
   }
 }
 

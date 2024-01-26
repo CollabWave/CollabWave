@@ -18,26 +18,26 @@
 }
 
 .modalWrap {
-  padding: 30px 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  padding: 15px 5px;
 }
 
 .rightSide {
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .leftSide {
-  width: calc(100% - 300px);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .brand {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 .image {
@@ -47,13 +47,13 @@
 }
 
 .projectName {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .projectName,
 .tasksMenuItem,
 .uploadButton {
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .tasksMenu {
@@ -65,15 +65,15 @@
 .tasksMenuItem {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
 }
 
 .fulfillmentWrapper {
   border-radius: 50px;
-  height: 40px;
+  height: 30px;
   margin-bottom: 80px;
-  width: 90%;
+  width: 80%;
 }
 
 .fulfillmentLine {
@@ -87,8 +87,7 @@
 }
 
 .smallText {
-  padding-top: 30px;
-  font-size: 18px;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -104,8 +103,8 @@
 .menuWrap {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 50px;
-  font-size: 22px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .menuItem {
@@ -119,18 +118,129 @@
 
 .posterWrap {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
   gap: 20px;
 }
 
 .poster {
-  width: 250px !important;
-  height: 354px !important;
+  width: 150px !important;
+  height: 212px !important;
   border-radius: 8px;
+}
+
+.desktopModal {
+  display: none;
+}
+
+.backWrap {
+  margin: 15px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .modalWrap {
+    padding: 30px 20px;
+  }
+
+  .rightSide {
+    flex-direction: row;
+  }
+
+  .projectName,
+  .tasksMenuItem,
+  .uploadButton,
+  .menuWrap {
+    font-size: 16px;
+  }
+
+  .smallText {
+    font-size: 15px;
+  }
+
+  .projectName {
+    margin-bottom: 20px;
+  }
+
+  .brand {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+
+  .backWrap {
+    font-size: 15px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .searchInput {
     font-size: 15px;
+  }
+
+  .backWrap {
+    font-size: 16px;
+  }
+
+  .projectName,
+  .tasksMenuItem,
+  .uploadButton,
+  .menuWrap {
+    font-size: 17px;
+  }
+
+  .posterWrap {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .menuWrap {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .modalWrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .desktopModal {
+    display: block;
+  }
+
+  .tabletModal {
+    display: none;
+  }
+
+  .rightSide {
+    width: 30%;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .leftSide {
+    width: 70%;
+  }
+
+  .projectName,
+  .tasksMenuItem,
+  .uploadButton {
+    font-size: 18px;
+  }
+
+  .smallText {
+    font-size: 16px;
+  }
+
+  .poster {
+    width: 200px !important;
+    height: 283px !important;
   }
 }

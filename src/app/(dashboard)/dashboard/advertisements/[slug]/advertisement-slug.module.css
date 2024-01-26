@@ -5,16 +5,99 @@
 }
 
 .smallHeading {
-  font-size: 19px;
+  font-size: 12px;
   font-weight: 500;
 }
 
 .text {
-  font-size: 21px;
+  font-size: 13px;
 }
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.avatar {
+  display: flex;
+  width: 110px;
+  height: 110px;
+  margin: auto;
+}
+
+.wrapDesktop {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.leftSide {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 20px 15px;
+  border-radius: 7px;
+}
+
+.rightSide {
+  width: 90%;
+  padding: 30px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapDesktop {
+    margin-top: 130px;
+    flex-direction: row;
+    padding: 0 15px;
+  }
+
+  .rightSide {
+    min-width: 300px;
+  }
+
+  .leftSide {
+    display: block;
+    padding: 70px 20px;
+  }
+
+  .avatar {
+    margin: 0 auto 30px auto;
+  }
+
+  .smallHeading {
+    font-size: 13px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapDesktop {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .rightSide {
+    margin: 0 50px 0 0;
+    min-width: 620px;
+  }
+
+  .smallHeading {
+    font-size: 15px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
 }

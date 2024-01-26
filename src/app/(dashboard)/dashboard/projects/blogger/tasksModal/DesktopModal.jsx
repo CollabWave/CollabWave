@@ -5,31 +5,29 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Flex } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 
-import { projects } from '@/mockData/projects';
+import brand from '../../../../../../assets/images/dashboard/brand.png';
 
 import { TaskDescription } from './TaskDescription';
 import { TaskResults } from './TaskResults';
 
-import brand from '../../../../../assets/images/dashboard/brand.png';
-
-import styles from '../projects.module.css';
+import styles from '../../projects.module.css';
 import { montserrat } from '@/utils/fonts';
 
-export const TasksModal = ({ projectId }) => {
-  const project = projects.find(project => project.id === projectId);
-  const [taskToShow, setTaskToShow] = useState({});
-  const [taskNumber, setTaskNumber] = useState(0);
+export const DesktopModal = ({
+  taskToShow,
+  setTaskToShow,
+  taskNumber,
+  setTaskNumber,
+  fulfillment,
+  project,
+  projectId,
+}) => {
   const [infoToShow, setInfoToShow] = useState('description');
-  const [fulfillment, setFulfillment] = useState(0);
 
   useEffect(() => {
-    const submittedTasks = project.tasks.filter(task => task.status === 'submitted').length;
-    const allTasks = project.tasks.length;
-    const submittedTasksPercent = Math.round((submittedTasks / allTasks) * 100);
-    setFulfillment(submittedTasksPercent);
-
     setTaskToShow(project.tasks[0]);
   }, []);
 
@@ -72,33 +70,35 @@ export const TasksModal = ({ projectId }) => {
         {infoToShow === 'results' && <TaskResults task={taskToShow} projectId={projectId} />}
       </div>
       <div className={styles.rightSide}>
-        <Image
-          className={styles.image}
-          width={200}
-          height={200}
-          alt="brand logo"
-          src={project.customer.logo ? project.customer.logo : brand}
-        />
-        <h3 className={`${styles.brand} ${montserrat.variable} profile-heading`}>
-          {project.customer.name}
-        </h3>
-        <Link
-          className={`${styles.projectName} ${montserrat.variable} text-blue`}
-          href={`/dashboard/advertisements/${project.id}`}
-        >
-          {project.project}
-        </Link>
-        <div className={`${styles.fulfillmentWrapper} fulfillment-wrapper`}>
-          <div
-            className={`${styles.fulfillmentLine} fulfillment-line text`}
-            style={{ width: `${fulfillment}%` }}
+        <Flex align="center" vertical>
+          <Image
+            className={styles.image}
+            width={150}
+            height={150}
+            alt="brand logo"
+            src={project.customer.logo ? project.customer.logo : brand}
+          />
+          <h3 className={`${styles.brand} ${montserrat.variable} profile-heading`}>
+            {project.customer.name}
+          </h3>
+          <Link
+            className={`${styles.projectName} ${montserrat.variable} text-blue`}
+            href={`/dashboard/advertisements/${project.id}`}
           >
-            {fulfillment}%
+            {project.project}
+          </Link>
+          <div className={`${styles.fulfillmentWrapper} fulfillment-wrapper`}>
+            <div
+              className={`${styles.fulfillmentLine} fulfillment-line text`}
+              style={{ width: `${fulfillment}%` }}
+            >
+              {fulfillment}%
+            </div>
+            <p className={`${styles.smallText} ${montserrat.variable} text`}>
+              Fulfillment of your tasks
+            </p>
           </div>
-          <p className={`${styles.smallText} ${montserrat.variable} text`}>
-            Fulfillment of your tasks
-          </p>
-        </div>
+        </Flex>
         <ul className={styles.tasksMenu}>
           {project.tasks.map((task, index) => (
             <li
