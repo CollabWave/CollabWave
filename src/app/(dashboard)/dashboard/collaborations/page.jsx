@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 
-import { List } from 'antd';
-
 import { influencers } from '@/mockData/influencers';
 
 import { CategoriesFilter } from '../../components/CategoriesFilter/CategoriesFilter';
-import { CollaboratorCard } from './CollaboratorCard';
+import { CollaboratorsList } from './CollaboratorsList';
 
 import styles from './collaborations.module.css';
 import sectionStyles from '../../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
@@ -53,49 +51,35 @@ const CollaborationsPage = () => {
       </ul>
       {openFilters && <CategoriesFilter setFilters={setFilters} />}
       {filters.length === 0 ? (
-        <List
-          itemLayout="horizontal"
-          grid={{ gutter: [16, 24], column: 4 }}
-          className="text"
-          pagination={
-            influencers.length > 8
-              ? {
-                  onChange: page => {
-                    console.log(page);
-                  },
-                  pageSize: 8,
-                }
-              : false
-          }
-          dataSource={influencers}
-          renderItem={item => (
-            <li className={`${styles.card} secondary-background advertisement-card`} key={item.id}>
-              <CollaboratorCard influencer={item} />
-            </li>
-          )}
-        />
+        <>
+          <div className={styles.mobileList}>
+            <CollaboratorsList arr={influencers} itemsCount={4} columnCount={1} />
+          </div>
+          <div className={styles.tabletSmallList}>
+            <CollaboratorsList arr={influencers} itemsCount={4} columnCount={2} />
+          </div>
+          <div className={styles.tabletList}>
+            <CollaboratorsList arr={influencers} itemsCount={6} columnCount={3} />
+          </div>
+          <div className={styles.desktopList}>
+            <CollaboratorsList arr={influencers} itemsCount={8} columnCount={4} />
+          </div>
+        </>
       ) : (
-        <List
-          itemLayout="horizontal"
-          grid={{ gutter: [16, 24], column: 4 }}
-          className="text"
-          pagination={
-            filteredInfluencers.length > 8
-              ? {
-                  onChange: page => {
-                    console.log(page);
-                  },
-                  pageSize: 8,
-                }
-              : false
-          }
-          dataSource={filteredInfluencers}
-          renderItem={item => (
-            <li className={`${styles.card} secondary-background advertisement-card`} key={item.id}>
-              <CollaboratorCard influencer={item} />
-            </li>
-          )}
-        />
+        <>
+          <div className={styles.mobileList}>
+            <CollaboratorsList arr={filteredInfluencers} itemsCount={4} columnCount={1} />
+          </div>
+          <div className={styles.tabletSmallList}>
+            <CollaboratorsList arr={filteredInfluencers} itemsCount={4} columnCount={2} />
+          </div>
+          <div className={styles.tabletList}>
+            <CollaboratorsList arr={filteredInfluencers} itemsCount={6} columnCount={3} />
+          </div>
+          <div className={styles.desktopList}>
+            <CollaboratorsList arr={filteredInfluencers} itemsCount={8} columnCount={4} />
+          </div>
+        </>
       )}
     </div>
   );

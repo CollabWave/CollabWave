@@ -18,17 +18,17 @@ export const CollaboratorCard = ({ influencer }) => {
     return formatter.format(number);
   }
   return (
-    <div className={montserrat.className}>
+    <div className={`${montserrat.className} ${styles.card}`}>
       <Image
         style={{ borderRadius: 0 }}
-        width={200}
-        height={256}
+        width={220}
+        height={281}
         alt={`${influencer.nickname} photo`}
         src={influencer.photo}
       />
       <div className={styles.cardBottom}>
         <Flex justify="space-between" align="center" style={{ marginBottom: '6px' }}>
-          <p style={{ fontSize: '16px' }}>{influencer.nickname}</p>
+          <p className={styles.heading}>{influencer.nickname}</p>
           <Link
             className={styles.socialLink}
             target="_blank"

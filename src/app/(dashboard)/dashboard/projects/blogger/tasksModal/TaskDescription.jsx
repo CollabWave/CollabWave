@@ -8,8 +8,8 @@ import { CopyOutlined, DownloadOutlined, ZoomInOutlined, ZoomOutOutlined } from 
 
 import dayjs from 'dayjs';
 
-import styles from '../projects.module.css';
-import formStyles from '../../profile/personal-info/personalInfo.module.css';
+import styles from '../../projects.module.css';
+import formStyles from '../../../profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 
 export const TaskDescription = ({ task, project }) => {
@@ -61,7 +61,7 @@ export const TaskDescription = ({ task, project }) => {
               {project.poster && (
                 <Image
                   className={styles.poster}
-                  width={250}
+                  width={200}
                   src={project.poster}
                   preview={{
                     toolbarRender: (

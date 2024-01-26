@@ -5,7 +5,7 @@
 
 .button {
   margin-bottom: 35px;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   background-color: transparent;
   border: none;
@@ -14,17 +14,11 @@
 }
 
 .card {
-  width: 200px;
-  height: 390px;
+  width: 220px;
+  height: 400px;
   border-radius: 8px;
   cursor: pointer;
   transition: scale 250ms ease-out, box-shadow 250ms ease-out;
-}
-
-.card:hover,
-.card:focus {
-  scale: 1.08;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .cardBottom {
@@ -35,6 +29,71 @@
   height: 32px;
 }
 
+.heading {
+  font-size: 14px;
+}
+
 .text {
-  font-size: 18px;
+  font-size: 13px;
+}
+
+.desktopList,
+.tabletSmallList,
+.tabletList {
+  display: none;
+}
+
+.mobileList {
+  display: block;
+  width: 250px;
+  margin: 0 auto 20px auto;
+}
+
+@media screen and (min-width: 600px) {
+  .mobileList {
+    display: none;
+  }
+
+  .card {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .tabletSmallList {
+    display: block;
+    width: 500px;
+    margin: 0 auto 30px auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1279px) {
+  .tabletList {
+    display: block;
+    width: 750px;
+    margin: 0 auto 30px auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .button {
+    font-size: 17px;
+  }
+
+  .desktopList {
+    display: block;
+    width: 1000px;
+    margin: 0 auto 30px auto;
+  }
+
+  .tabletList,
+  .tabletSmallList {
+    display: none;
+  }
 }
