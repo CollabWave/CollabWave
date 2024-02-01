@@ -22,11 +22,6 @@ const RegistrationForm = ({ onNextClick }) => {
       dispatch(setRegistrationStep(2));
     }
   };
-  // useEffect(() => {
-  //   // Викликаємо setRegistrationStep після завершення рендерингу
-  //   dispatch(setRegistrationStep(1));
-  // }, [formData]);
-
   const handleInputChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
@@ -38,9 +33,9 @@ const RegistrationForm = ({ onNextClick }) => {
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
         <form className={styles.form}>
-          <label htmlFor="email" className={styles.label}>
+          {/* <label htmlFor="email" className={styles.label}>
             EMAIL
-          </label>
+          </label> */}
           <input
             type="text"
             id="email"
@@ -48,10 +43,9 @@ const RegistrationForm = ({ onNextClick }) => {
             value={formData.email}
             onChange={handleInputChange}
             className={styles.input}
+            placeholder="Email"
           />
-          <label htmlFor="password" className={styles.label}>
-            Password
-          </label>
+
           <input
             type="password"
             id="password"
@@ -59,6 +53,7 @@ const RegistrationForm = ({ onNextClick }) => {
             value={formData.password}
             onChange={handleInputChange}
             className={styles.input}
+            placeholder="Password"
           />
           <p className={styles.line}>or</p>
           <div className={styles.div_button}>
@@ -66,7 +61,7 @@ const RegistrationForm = ({ onNextClick }) => {
               <Image src={google} alt="Image Alt Text" width={20} className={styles.google_img} />
               Google
             </button>
-            <div className={styles.div_button}>
+            <div className={`${styles.div_button} ${styles.div_button_next}`}>
               <button
                 className={`${styles.button} ${styles.button_next}`}
                 onClick={handleNextClick}

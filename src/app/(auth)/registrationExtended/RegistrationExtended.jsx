@@ -44,6 +44,10 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
     }
   };
 
+  const handlePrevClick = () => {
+    dispatch(setRegistrationStep(1));
+  };
+
   // Додаємо визначення PropTypes для документації
   RegistrationExtended.propTypes = {
     onNextClick: PropTypes.func.isRequired,
@@ -57,9 +61,9 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
         <h1 className={styles.title}>Tell about yourself!</h1>
         <form className={styles.form}>
           <div>
-            <label htmlFor="firstName" className={styles.label}>
+            {/* <label htmlFor="firstName" className={styles.label}>
               First name
-            </label>
+            </label> */}
             <input
               className={styles.input}
               type="text"
@@ -67,10 +71,11 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
               name="firstName"
               value={formData.name}
               onChange={handleInputChange}
+              placeholder="First name"
             />
-            <label htmlFor="lastName" className={styles.label}>
+            {/* <label htmlFor="lastName" className={styles.label}>
               Last name
-            </label>
+            </label> */}
           </div>
           <input
             className={styles.input}
@@ -79,18 +84,8 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
+            placeholder=" Last name"
           />
-          {/* <label htmlFor="city" className={styles.label}>
-            City
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-          /> */}
           <p className={styles.checkbox}>
             <input
               type="checkbox"
@@ -104,14 +99,12 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
             </a>
           </p>
           <div className={styles.cont_button}>
-            <div>
-              <button
-                className={`${styles.button} ${styles.button_next}`}
-                onClick={handleNextClick}
-              >
-                Next
-              </button>
-            </div>
+            <button className={`${styles.button} ${styles.button_next}`} onClick={handlePrevClick}>
+              Back
+            </button>
+            <button className={`${styles.button} ${styles.button_next}`} onClick={handleNextClick}>
+              Next
+            </button>
           </div>
         </form>
       </div>
