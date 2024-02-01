@@ -51,13 +51,28 @@
 }
 
 .input {
-  border-radius: 20px;
+  font-family: Robototo;
+  border-radius: 10px;
+  margin-top: 15px;
   width: 320px;
   height: 40px;
   padding: 0 15px;
-  font-size: 16px;
+  font-size: 15px;
   background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
   color: white;
+  border: 1px solid transparent; /* Додаємо товщину границі */
+  background-clip: padding-box; /* Границя обмежена відступом padding */
+  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
+
+  /* Градієнтний бордер */
+  border-image: radial-gradient(circle at center, #ffd439 70%, #000000 80%, #000000 100%);
+  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+}
+.input::placeholder {
+  color: white;
+}
+.input:not(:last-child) {
+  margin-right: 40px;
 }
 .label {
   display: flex;
@@ -114,9 +129,11 @@
 }
 .button {
   display: flex;
+  align-items: center;
   position: relative;
   background-color: black;
-  border-radius: 4em;
+  border-radius: 10px;
+  height: 40px;
   font-size: 16px;
   color: white;
   padding: 0.8em 1.8em;
@@ -127,6 +144,13 @@
   cursor: pointer;
   transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
+  border: 1px solid transparent; /* Додаємо товщину границі */
+  background-clip: padding-box; /* Границя обмежена відступом padding */
+  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
+
+  /* Градієнтний бордер */
+  border-image: radial-gradient(circle at center, #82efee 70%, #000000 80%, #000000 100%);
+  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
 }
 .button_back {
   margin-right: 135px;
@@ -162,4 +186,33 @@
 
 .button:active {
   top: 1px;
+}
+.div_select {
+  display: flex;
+  margin-top: 32px;
+}
+.birthDay {
+  font-family: Robototo;
+  border-radius: 10px;
+  margin-top: 15px;
+  width: 85px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 15px;
+  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
+  color: white;
+  border: 1px solid transparent; /* Додаємо товщину границі */
+  background-clip: padding-box; /* Границя обмежена відступом padding */
+  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
+
+  /* Градієнтний бордер */
+  border-image: radial-gradient(circle at center, #ffd439 70%, #000000 80%, #000000 100%);
+  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+  margin-left: 22px;
+}
+.cont_button {
+  margin-top: 40px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -22,9 +22,8 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
     socialLinks: [{ platform: '', username: '', followers: '' }],
-    // socialMedia: '???',
     type: '',
-    gender: 'male',
+    gender: '',
     birthDate: {
       date: 15,
       month: 3,
@@ -32,9 +31,9 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     },
     location: '',
     phone: '',
-    language: 'ua',
+    language: '',
     education: '-',
-    blogLanguage: 'ua',
+    blogLanguage: '',
   });
   const [hoveredIcon, setHoveredIcon] = useState('');
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
@@ -75,14 +74,9 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     e.preventDefault();
     dispatch(setRegistrationStep(4));
 
-    // Опціонально, обробляти дані або передавати їх батьківському компоненту
-
-    // Передавання данних батьківському компоненту чи іншій функції
     if (onNextClick) {
       onNextClick(formDataSocial);
     }
-
-    // Ваш код для обробки після передачі даних батьківському компоненту чи іншій функції
   };
   const handleThematicChange = event => {
     const selectedThematic = event.target.value;
@@ -103,7 +97,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     setSelectedSocialMedia(socialMedia);
     setFormDataSocial(prevData => {
       const updatedSocialLinks = [...prevData.socialLinks];
-      // Оновлюємо перший елемент масиву socialLinks
       updatedSocialLinks[0] = { ...updatedSocialLinks[0], platform: socialMedia };
 
       return {
@@ -111,6 +104,13 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
         socialLinks: updatedSocialLinks,
       };
     });
+  };
+  const generateOptions = (start, end) => {
+    const options = [];
+    for (let i = start; i <= end; i++) {
+      options.push(i.toString());
+    }
+    return options;
   };
 
   const handleUserNameChange = event => {
@@ -127,12 +127,28 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
       ],
     }));
   };
+  const handlePrevClick = () => {
+    dispatch(setRegistrationStep(2));
+  };
   const handleInputChange = e => {
     const { name, value } = e.target;
-    setFormDataSocial(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+    // Розділіть логіку обробки для кожного поля окремо
+    if (name === 'date' || name === 'month' || name === 'year') {
+      setFormDataSocial(prevData => ({
+        ...prevData,
+        birthDate: {
+          ...prevData.birthDate,
+          [name]: value,
+        },
+      }));
+    } else {
+      // Якщо це інше поле, обробіть його так само, як раніше
+      setFormDataSocial(prevData => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   return (
@@ -141,8 +157,8 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
       <div className={styles.container_form}>
         <div>
           <h1 className={styles.title}>Add a social contection</h1>
-          <p className={styles.text}> Link your social media account where you plan to advertise</p>
-          <p className={styles.text}>To register you must have at least 1000 subscribers</p>
+          {/* <p className={styles.text}> Link your social media account where you plan to advertise</p>
+          <p className={styles.text}>To register you must have at least 1000 subscribers</p> */}
         </div>
         <ul className={styles.socialIcons}>
           <li
@@ -225,79 +241,165 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
           </li>
         </ul>
         <form className={styles.form}>
-          <label htmlFor="username" className={styles.label}>
-            User name
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            className={styles.input}
-            onChange={handleUserNameChange}
-            value={formDataSocial.socialLinks[0].username}
-          />
-          {/* <label htmlFor="blogLanguage" className={styles.label}>
-            Followers
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="followers"
-            name="followers"
-            value={formDataSocial.socialLinks.followers}
-            onChange={handleSocialMediaClick}
-          /> */}
-          <label htmlFor="location" className={styles.label}>
-            location
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="location"
-            name="location"
-            value={formDataSocial.location}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="phone" className={styles.label}>
-            Phone
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="phone"
-            name="phone"
-            value={formDataSocial.phone}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="followers" className={styles.label}>
-            Blog Language
-          </label>
-          <input
-            className={styles.input}
-            type="text"
-            id="blogLanguage"
-            name="blogLanguage"
-            value={formDataSocial.blogLanguage}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="type" className={styles.label}>
-            Thematic
-          </label>
-          <div>
+          <div className={styles.div_select}>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className={styles.input}
+              onChange={handleUserNameChange}
+              value={formDataSocial.socialLinks[0].username}
+              placeholder="User name"
+            />
+            <select
+              id="language"
+              name="language"
+              className={styles.input}
+              onChange={handleInputChange}
+              defaultValue=""
+              value={formDataSocial.language}
+            >
+              <option value="" disabled>
+                Language
+              </option>
+              <option value="en">English</option>
+              <option value="ua">Ukrainian</option>
+            </select>
+          </div>
+          <div className={styles.div_select}>
+            <input
+              className={styles.input}
+              type="text"
+              id="location"
+              name="location"
+              value={formDataSocial.location}
+              onChange={handleInputChange}
+              placeholder="location"
+            />
             <select
               id="type"
               name="type"
               className={styles.input}
               onChange={handleThematicChange}
+              defaultValue=""
               value={formDataSocial.type}
             >
-              <option value="">Оберіть тематику</option>
+              <option value="" disabled>
+                Thematic
+              </option>
               {thematicOptions.map((thematic, index) => (
                 <option key={index} value={thematic}>
                   {thematic}
                 </option>
               ))}
             </select>
+          </div>
+          <div className={styles.div_select}>
+            <input
+              className={styles.input}
+              type="text"
+              id="phone"
+              name="phone"
+              value={formDataSocial.phone}
+              onChange={handleInputChange}
+              placeholder="Phone"
+            />
+            <select
+              id="blogLanguage"
+              name="blogLanguage"
+              className={styles.input}
+              onChange={handleInputChange}
+              defaultValue=""
+              value={formDataSocial.blogLanguage}
+            >
+              <option value="" disabled>
+                Blog language
+              </option>
+              <option value="ua">Українська</option>
+              <option value="ru">Російська</option>
+              <option value="en">Англійська</option>
+            </select>
+          </div>
+          <div className={styles.div_select}>
+            <select
+              id="gender"
+              name="gender"
+              className={styles.input}
+              onChange={handleInputChange}
+              defaultValue=""
+              value={formDataSocial.gender}
+            >
+              <option value="" disabled>
+                Gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+
+            <div>
+              {/* <label htmlFor="day">Day:</label> */}
+              <select
+                id="day"
+                name="date"
+                className={styles.birthDay}
+                onChange={handleInputChange}
+                value={formDataSocial.birthDate.date}
+                // defaultValue=""
+              >
+                {/* <option value="" disabled>
+                  Select Day
+                </option> */}
+                {generateOptions(1, 31).map(day => (
+                  <option key={day} value={day}>
+                    {day}
+                  </option>
+                ))}
+              </select>
+
+              {/* <label htmlFor="month">Month:</label> */}
+              <select
+                id="month"
+                name="month"
+                className={styles.birthDay}
+                onChange={handleInputChange}
+                value={formDataSocial.birthDate.month}
+                // defaultValue=""
+              >
+                {/* <option value="" disabled>
+                  Select Month
+                </option> */}
+                {generateOptions(1, 12).map(month => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+
+              {/* <label htmlFor="year">Year:</label> */}
+              <select
+                id="year"
+                name="year"
+                className={styles.birthDay}
+                onChange={handleInputChange}
+                value={formDataSocial.birthDate.year}
+                // defaultValue=""
+              >
+                {/* <option value="" disabled>
+                  Select Year
+                </option> */}
+                {generateOptions(1970, new Date().getFullYear()).map(year => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className={styles.cont_button}>
+            <button className={`${styles.button} ${styles.button_next}`} onClick={handlePrevClick}>
+              Back
+            </button>
             <button className={`${styles.button} ${styles.button_next}`} onClick={handleNextClick}>
               Next
             </button>
