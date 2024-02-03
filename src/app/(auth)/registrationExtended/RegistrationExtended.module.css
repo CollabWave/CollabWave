@@ -105,10 +105,12 @@
 }
 .checkbox {
   margin-top: 20px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 13px;
 }
 .checkbox_input {
   margin-right: 10px;
@@ -132,4 +134,38 @@
   width: 300px;
   display: flex;
   justify-content: space-between;
+}
+.error {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-family: serif;
+  font-size: 13px;
+}
+.inputError {
+  font-family: Robototo;
+  border-radius: 10px;
+  margin-top: 35px;
+  width: 320px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 15px;
+  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
+  color: white;
+  border: 1px solid transparent; /* Додаємо товщину границі */
+  background-clip: padding-box; /* Границя обмежена відступом padding */
+  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
+
+  /* Градієнтний бордер */
+  border-image: radial-gradient(circle at center, #f10505 70%, #000000 80%, #000000 100%);
+  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+}
+.errorText {
+  display: none;
+}
+.checkboxInputError {
+  border: 1px solid red; /* або інші стилі для підсвічування червоним кольором */
+}
+.divCheckbox {
+  margin-bottom: 50px;
 }

@@ -9,22 +9,73 @@ import PropTypes from 'prop-types';
 
 const RegistrationForm = ({ onNextClick }) => {
   const dispatch = useDispatch();
-  const registrationStep = useSelector(state => state.auth.registrationStep);
   const [formData, setFormData] = useState({
     role: 'blogger',
     password: '',
     email: '',
   });
 
-  const handleNextClick = () => {
-    if (onNextClick) {
-      onNextClick(formData);
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+  const [isValid, setIsValid] = useState({
+    email: true,
+    password: true,
+  });
+  const [isFormBlocked, setIsFormBlocked] = useState(false);
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { email: '', password: '' };
+    const newIsValid = { email: true, password: true };
+
+    // Перевірка на заповненість полів
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+      newIsValid.email = false;
+      valid = false;
+    }
+
+    if (!formData.password.trim()) {
+      newErrors.password = 'Password is required';
+      newIsValid.password = false;
+      valid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Invalid email address';
+      newIsValid.email = false;
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    setIsValid(newIsValid);
+    return valid;
+  };
+
+  const handleNextClick = async e => {
+    e.preventDefault();
+    if (validateForm()) {
       dispatch(setRegistrationStep(2));
+      if (onNextClick) {
+        onNextClick(formData);
+        dispatch(setRegistrationStep(2));
+      }
     }
   };
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleNextClick();
+    }
   };
 
   return (
@@ -32,29 +83,38 @@ const RegistrationForm = ({ onNextClick }) => {
       <Image src={regImg} alt="Photo" width={450} />
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
-        <form className={styles.form}>
-          {/* <label htmlFor="email" className={styles.label}>
-            EMAIL
-          </label> */}
+        <form className={styles.form} onKeyDown={handleKeyDown}>
           <input
             type="text"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className={styles.input}
+            disabled={isFormBlocked}
+            className={`${styles.input} ${!isValid.email ? styles.inputError : ''}`}
             placeholder="Email"
           />
-
+          {errors.email && (
+            <p className={styles.error} color="white">
+              Email invalid
+            </p>
+          )}
           <input
             type="password"
             id="password"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
-            className={styles.input}
+            disabled={isFormBlocked}
+            className={`${styles.input} ${!isValid.password ? styles.inputError : ''}`}
             placeholder="Password"
           />
+          {errors.password && (
+            <p className={styles.error} color="white">
+              Password required
+            </p>
+          )}
+
           <p className={styles.line}>or</p>
           <div className={styles.div_button}>
             <button className={`${styles.button} ${styles.button_google}`}>
@@ -63,6 +123,7 @@ const RegistrationForm = ({ onNextClick }) => {
             </button>
             <div className={`${styles.div_button} ${styles.div_button_next}`}>
               <button
+                type="button"
                 className={`${styles.button} ${styles.button_next}`}
                 onClick={handleNextClick}
               >
