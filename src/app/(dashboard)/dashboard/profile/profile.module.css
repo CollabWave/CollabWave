@@ -18,6 +18,7 @@
 }
 
 .avatarWraper {
+  position: relative;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -41,6 +42,15 @@
 
 .avatarDesktop {
   display: none;
+}
+
+.upload {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  font-size: 180%;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 .text {
@@ -120,6 +130,11 @@
   .nav {
     flex-basis: 100%;
   }
+
+  .upload {
+    top: 80px;
+    right: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -129,6 +144,11 @@
     display: flex;
     justify-content: space-between;
     gap: 15px;
+  }
+
+  .upload {
+    top: 80px;
+    right: 0;
   }
 
   .leftSide {
