@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 
 import { emailPattern, phonePattern } from '@/utils/common';
 
+import { formsService } from '@/api/forms/forms.service';
+
 import { Container } from '../Container/Container';
 
 import phone from '../../assets/images/svg/phone.svg';
@@ -47,7 +49,7 @@ export const Footer = () => {
     setHoveredIcon('');
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = async e => {
     e.preventDefault();
     setErrorMessage('');
     if (!formData.name) {
@@ -78,8 +80,13 @@ export const Footer = () => {
       setErrorMessage('Do not forget to add your message!');
       return;
     }
-    console.log(formData);
-    setErrorMessage('Your message is sent! We will respond as soon as possible.');
+    try {
+      console.log("here")
+      await formsService.sendFormData(formData);
+      setErrorMessage('Your message is sent! We will respond as soon as possible.');
+    } catch (error) {
+      setErrorMessage('Something went wrong, please try again later!');
+    }
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
@@ -243,7 +250,7 @@ export const Footer = () => {
                 <Link
                   className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
                   href={''}
-                  target='_blank'
+                  target="_blank"
                 >
                   {hoveredIcon === 'telegram' ? (
                     <Image priority src={telegramHover} alt="Telegram icon" />
