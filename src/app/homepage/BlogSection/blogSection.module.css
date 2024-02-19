@@ -3,22 +3,26 @@
   margin-top: 77px;
   margin-left: auto;
   margin-right: auto;
-  width: 1150px;
+  width: 1000px;
   justify-content: space-between;
   overflow: clip !important;
   overflow-clip-margin: 26px;
 }
 
 .card {
-  margin-left: 30px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
+.image {
+  border-radius: 7px;
+  margin: 0 auto;
+}
+
 .title {
-  width: 517px;
-  padding: 0 9px;
+  width: 471px;
   color: #ffd439;
   text-transform: uppercase;
   text-align: center;
@@ -31,20 +35,19 @@
 
 .relativeWrap {
   position: relative;
-  width: 1250px;
 }
 
 .leftArrow {
   position: absolute;
   width: 45px;
-  top: 285px;
-  left: -25px;
+  top: 270px;
+  left: -7px;
   cursor: pointer;
 }
 
 .rightArrow {
   position: absolute;
-  top: 285px;
+  top: 270px;
   right: -25px;
   cursor: pointer;
 }

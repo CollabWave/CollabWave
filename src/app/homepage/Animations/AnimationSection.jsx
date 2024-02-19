@@ -66,7 +66,7 @@ export const AnimationSection = ({
         />
       </animated.div>
       <div style={{ height: '100px' }} id="mobileStop"></div>
-      <div style={{ height: '300px' }}></div>
+      <div style={{ height: '240px' }}></div>
       {startSphereFalling && visibleItem !== 'buttons' && (
         <animated.div className={styles.sphereContainer} style={animationStyles}>
           <SphereModel
