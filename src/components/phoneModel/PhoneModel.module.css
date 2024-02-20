@@ -2,8 +2,8 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  top: 0;
-  left: 500px;
+  top: 30px;
+  left: 450px;
   background-color: transparent;
   z-index: 1;
   pointer-events: none;

@@ -15,7 +15,7 @@
 
 .card {
   width: 220px;
-  height: 400px;
+  height: 420px;
   border-radius: 8px;
   cursor: pointer;
   transition: scale 250ms ease-out, box-shadow 250ms ease-out;
@@ -35,6 +35,11 @@
 
 .text {
   font-size: 13px;
+}
+
+.filterText {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .desktopList,

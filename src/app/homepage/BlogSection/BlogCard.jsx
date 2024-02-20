@@ -10,9 +10,9 @@ export const BlogCard = ({ post }) => {
     <>
       <Link className={styles.card} href={`/blog/${post.slug}`}>
         <Image
-          style={{ borderRadius: '7px' }}
-          width={517}
-          height={570}
+          className={styles.image}
+          width={414}
+          height={456}
           src={post.image}
           /* {`${imagePath}${post.image}`} */ alt={post.title}
         />

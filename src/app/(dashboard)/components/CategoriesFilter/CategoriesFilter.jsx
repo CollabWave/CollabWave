@@ -8,7 +8,6 @@ import { montserrat } from '@/utils/fonts';
 export const CategoriesFilter = ({ setFilters }) => {
   const onChange = checkedValues => {
     setFilters(checkedValues);
-    console.log('checked = ', checkedValues);
   };
 
   const areasWithLables = blogAreas.map(area => {

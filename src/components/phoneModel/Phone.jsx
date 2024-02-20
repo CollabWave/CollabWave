@@ -47,7 +47,7 @@ export function Model(props) {
       },
     });
 
-    t1.to(camera.position, { x: 2.7, z: 5 }, 'key1').to(scene.rotation, {
+    t1.to(camera.position, { x: 3.5, z: 5.5 }, 'key1').to(scene.rotation, {
       x: 2.1,
       y: 0.45,
       z: 0,
