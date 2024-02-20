@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { formsService } from '@/api/forms/forms.service';
+
 import { emailPattern, phonePattern, websitePattern } from '@/utils/common';
 
 import styles from './CreateForm.module.css';
@@ -18,12 +20,12 @@ export const CreateForm = () => {
     phone: '',
     message: '',
     website: '',
-    subscribe: '',
-    acceptTerms: '',
+    subscribe: false,
+    acceptTerms: false,
   });
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = async e => {
     e.preventDefault();
     setErrorMessage('');
 
@@ -62,18 +64,26 @@ export const CreateForm = () => {
     // }
 
     if (!formData.acceptTerms) {
-      setErrorMessage('You must accept our terms & conditions');
+      setErrorMessage('You have to accept our terms & conditions');
+      return;
     }
 
-    console.log(formData);
-    setErrorMessage('Your message is sent! We will respond as soon as possible.');
+    const dataToSend = { ...formData };
+    delete dataToSend.acceptTerms;
+
+    try {
+      await formsService.sendFormData(dataToSend);
+      setErrorMessage('Your message is sent! We will respond as soon as possible.');
+    } catch (error) {
+      setErrorMessage('Something went wrong, please try again later!');
+    }
     setFormData({
       email: '',
       phone: '',
       website: '',
       message: '',
-      subscribe: '',
-      acceptTerms: '',
+      subscribe: false,
+      acceptTerms: false,
     });
   };
 
@@ -153,7 +163,7 @@ export const CreateForm = () => {
               components: {
                 Checkbox: {
                   colorPrimary: 'green',
-                  colorBgContainer: '#04423e',
+                  colorBgContainer: 'rgba(4, 66, 62, 0.3)',
                   colorBorder: '#FFFFFF',
                   colorText: '#FFFFFF',
                   paddingContentHorizontalSM: 8,
@@ -164,16 +174,19 @@ export const CreateForm = () => {
             }}
           >
             <Checkbox
-            //   onChange={e => {
-            //     console.log(`checked = ${e.target.checked}`);
-            //   }}
+              checked={formData.subscribe}
+              onChange={e => {
+                setFormData({ ...formData, subscribe: e.target.checked });
+              }}
             >
               Subscribe
             </Checkbox>{' '}
             <Checkbox
-            //   onChange={e => {
-            //     console.log(`checked = ${e.target.checked}`);
-            //   }}
+              checked={formData.acceptTerms}
+              onChange={e => {
+                setFormData({ ...formData, acceptTerms: e.target.checked });
+                console.log(`checked = ${e.target.checked}`);
+              }}
             >
               I accept <Link href={''}>the offer agreement</Link> and give{' '}
               <Link href={''}>consent</Link>
@@ -186,6 +199,9 @@ export const CreateForm = () => {
           Submit
         </button>
       </form>
+      {errorMessage && (
+        <p className={`${styles.error} ${roboto.variable} ${styles.link}`}>{errorMessage}</p>
+      )}
     </div>
   );
 };

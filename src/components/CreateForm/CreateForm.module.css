@@ -1,9 +1,10 @@
 .form_wrapper {
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   border: 1px solid #04423e;
   border-radius: 30px;
-  background-color: #04423e;
+  background-color: rgba(4, 66, 62, 0.3);
 }
 
 .form_title {
@@ -44,6 +45,8 @@
   border: 0;
   outline: 0;
   border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
   background: linear-gradient(45deg, #031311, #093f38);
 }
 
@@ -66,9 +69,15 @@
 .button {
   display: inline-flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .button_icon {
   padding-right: 3px;
+}
+
+.error {
+  margin-top: 10px;
+  text-align: center;
+  color: #82efee;
 }

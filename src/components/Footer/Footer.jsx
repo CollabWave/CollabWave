@@ -81,7 +81,6 @@ export const Footer = () => {
       return;
     }
     try {
-      console.log("here")
       await formsService.sendFormData(formData);
       setErrorMessage('Your message is sent! We will respond as soon as possible.');
     } catch (error) {
