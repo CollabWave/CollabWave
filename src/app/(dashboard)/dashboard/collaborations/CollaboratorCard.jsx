@@ -27,7 +27,7 @@ export const CollaboratorCard = ({ influencer }) => {
         src={influencer.photo}
       />
       <div className={styles.cardBottom}>
-        <Flex justify="space-between" align="center" style={{ marginBottom: '6px' }}>
+        <Flex vertical={influencer.nickname.length > 14} gap={"5px"} justify="space-between" align="center" style={{ marginBottom: '6px' }}>
           <p className={styles.heading}>{influencer.nickname}</p>
           <Link
             className={styles.socialLink}
