@@ -6,7 +6,7 @@ import styles from '@/components/Footer/footer.module.css';
 import { blogger_btn } from '../blogger.module.css';
 import { roboto } from '@/utils/fonts';
 
-export const TitleSection = () => {
+export const TitleSectionBrand = () => {
   return (
     <Section>
       <BloggerTitle />
