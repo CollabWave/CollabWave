@@ -22,6 +22,7 @@ const Registration = () => {
   const dispatch = useDispatch();
   const clientType = useSelector(state => state.auth.clientType);
   const registrationStep = useSelector(state => state.auth.registrationStep);
+  console.log(clientType, registrationStep)
   const [verify, setVerify] = useState(false);
   const [blogDataFetch, setBlogDataFetch] = useState(null);
   const [dataStatus, setDataStatus] = useState('');

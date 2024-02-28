@@ -3,8 +3,9 @@ import { DissolveMaterial } from '@/components/SphereModel/DissolveMaterial';
 
 export function BrandButton(props) {
   const { nodes, materials } = useGLTF('/brandButton-transformed.glb');
+
   return (
-    <group {...props} dispose={null} scale={31} rotation={[1.6, 0, 0.01]}>
+    <group {...props} dispose={null} scale={31} rotation={[1.6, 0, 0.01]} position={[-5.2, 0, 0]}>
       <mesh geometry={nodes.Curve.geometry} material={materials.SVGMat} scale={4.676}>
         {' '}
         <DissolveMaterial

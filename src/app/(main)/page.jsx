@@ -7,7 +7,7 @@ import { Container } from '@/components/Container/Container';
 
 import { Title } from '../homepage/MainTitle/Title';
 
-import { ButtonsSection } from '../homepage/Animations/ButtonsSection';
+import ButtonsWrapper from '../homepage/Animations/ButtonsWraper';
 import { AnimationSection } from '../homepage/Animations/AnimationSection';
 import { AboutSection } from '../homepage/AboutSection/AboutSection';
 import { FeaturesSection } from '../homepage/FeaturesSection/FeaturesSection';
@@ -33,7 +33,7 @@ export default function Home() {
           onFadeOut={onFadeOut}
         />
 
-        <ButtonsSection
+        <ButtonsWrapper
           itemDisplayed={itemDisplayed}
           visibleItem={visibleItem}
           onFadeOut={onFadeOut}

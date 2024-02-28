@@ -5,7 +5,7 @@ export function BloggerButton(props) {
   const { nodes, materials } = useGLTF('/bloggerButton-transformed.glb');
 
   return (
-    <group {...props} dispose={null} scale={15} rotation={[1.6, 0, 0.01]}>
+    <group {...props} dispose={null} scale={15} rotation={[1.6, 0, 0.01]} position={[-5.2, 0, 0]}>
       <mesh geometry={nodes.Curve.geometry} material={materials.SVGMat} scale={8.753}>
         <DissolveMaterial
           baseMaterial={materials.SVGMat}
