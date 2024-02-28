@@ -1,6 +1,12 @@
 .box_img {
   display: flex;
 }
+.title {
+  margin-top: 45%;
+  margin-left: 25%;
+  color: #ffd439;
+  font-family: Cinzel;
+}
 .container_form {
   display: flex;
   flex-direction: column;
@@ -24,24 +30,18 @@
   font-size: 15px;
   background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
   color: white;
-  border: 1px solid transparent; /* Додаємо товщину границі */
+  border: 0;
+  border-bottom: solid 1px transparent;
   background-clip: padding-box; /* Границя обмежена відступом padding */
   box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
 
   /* Градієнтний бордер */
-  border-image: radial-gradient(circle at center, #ffd439 70%, #000000 80%, #000000 100%);
+  border-image: radial-gradient(circle at center, #ffd439 100%, #000000 80%, #000000 100%);
   border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
 }
 
 .input::placeholder {
   color: white;
-}
-
-.title {
-  margin-top: 25%;
-  margin-left: 25%;
-  color: #ffd439;
-  font-family: Cinzel;
 }
 
 .google_img {
@@ -64,13 +64,14 @@
   cursor: pointer;
   transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
-  border: 1px solid transparent; /* Додаємо товщину границі */
-  background-clip: padding-box; /* Границя обмежена відступом padding */
-  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
+  border: 0;
+  border-bottom: solid 1px transparent;
 
-  /* Градієнтний бордер */
-  border-image: radial-gradient(circle at center, #82efee 70%, #000000 80%, #000000 100%);
-  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+  background-clip: padding-box;
+  box-sizing: border-box;
+
+  border-image: radial-gradient(circle at center, #82efee 70%, #000000 100%);
+  border-image-slice: 1;
 }
 
 .button:hover {
@@ -155,11 +156,41 @@
   font-size: 15px;
   background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
   color: white;
-  border: 1px solid transparent; /* Додаємо товщину границі */
+  border: 0;
+  border-bottom: solid 1px transparent;
   background-clip: padding-box; /* Границя обмежена відступом padding */
   box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
 
   /* Градієнтний бордер */
   border-image: radial-gradient(circle at center, #f10505 70%, #000000 80%, #000000 100%);
   border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+}
+.button_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  background-color: black;
+  border-radius: 10px;
+  height: 40px;
+  width: 160px;
+  font-size: 16px;
+  color: white;
+  padding: 0.8em 1.8em;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  border: 0;
+  border-bottom: solid 1px transparent;
+  background-clip: padding-box;
+  box-sizing: border-box;
+
+  border-image: radial-gradient(circle at center, #82efee 70%, #000000 80%, #000000 100%);
+  border-image-slice: 1;
 }
