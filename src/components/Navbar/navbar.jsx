@@ -59,16 +59,6 @@ export default function NavBar() {
                 <p>I’m brand</p>
               </Link>
             </li>
-            <li className={`${styles.li} ${styles.liForHover}`}>
-              <Link
-                className={styles.link}
-                href={{
-                  pathname: '',
-                }}
-              >
-                <p>How does it work?</p>
-              </Link>
-            </li>
           </ul>
         </nav>
         <nav>

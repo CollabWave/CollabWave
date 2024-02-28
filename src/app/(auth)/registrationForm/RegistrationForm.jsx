@@ -6,6 +6,7 @@ import regImg from '../../../image/regImg.jpg';
 import google from '../../../image/google.png';
 import styles from './RegistrationForm.module.css';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 const RegistrationForm = ({ onNextClick }) => {
   const dispatch = useDispatch();
@@ -81,6 +82,9 @@ const RegistrationForm = ({ onNextClick }) => {
   return (
     <div className={styles.box_img}>
       <Image src={regImg} alt="Photo" width={450} />
+      {/* <Link> */}
+      <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
+      {/* </Link> */}
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
         <form className={styles.form} onKeyDown={handleKeyDown}>

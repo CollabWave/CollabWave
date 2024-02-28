@@ -165,14 +165,6 @@ export const Footer = () => {
                     Influencers
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    className={`${styles.link} ${roboto.variable} ${styles.hoverLink}`}
-                    href={''}
-                  >
-                    How does it work?
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>
