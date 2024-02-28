@@ -1,5 +1,5 @@
 import pageStyles from '../../../homepage/page.module.css';
-import styles from '../blogger.module.css';
+import styles from '../../blogger/blogger.module.css';
 
 export const BrandTitle = () => {
   return (

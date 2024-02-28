@@ -1,11 +1,12 @@
 'use client';
-import Link from 'next/link';
+
+import { useRouter } from 'next/navigation';
+
 import { Section } from '@/components/Section/Section';
 import { BloggerTitle } from './BloggerTitle';
 import { LogoCarousel } from './LogoCarousel';
-import RegistrationForm from '../../../(auth)/registrationForm/RegistrationForm';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 
 import styles from '@/components/Footer/footer.module.css';
@@ -14,33 +15,25 @@ import { roboto } from '@/utils/fonts';
 
 const TitleSectionBlogger = () => {
   const dispatch = useDispatch();
-  const clientType = useSelector(state => state.auth.clientType);
-  const registrationStep = useSelector(state => state.auth.registrationStep);
+  const router = useRouter();
 
-  const handleNextClick = () => {
+  const handleBloggerButtonClick = e => {
+    e.preventDefault();
+    dispatch(setClientType('blog'));
     dispatch(setRegistrationStep(1));
-    console.log('blahblah');
-  };
-  const handleClientSelection = selectedClient => {
-    dispatch(setClientType(selectedClient));
-    console.log('tratra');
+    router.push('/registration');
   };
 
   return (
     <Section>
-      <BloggerTitle title={`FOR BLOGERS `} />
+      <BloggerTitle />
       <LogoCarousel />
-      <Link href="registration">
-        <button
-          className={`${styles.button} ${blogger_btn} ${roboto.variable}`}
-          // onClick={() => {
-          //   handleClientSelection('blog');
-          //   handleNextClick();
-          // }}
-        >
-          Become an influencer
-        </button>
-      </Link>
+      <button
+        className={`${styles.button} ${blogger_btn} ${roboto.variable}`}
+        onClick={handleBloggerButtonClick}
+      >
+        Create a blogger account
+      </button>
     </Section>
   );
 };
