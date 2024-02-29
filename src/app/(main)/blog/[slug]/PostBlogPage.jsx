@@ -62,8 +62,8 @@ export const PostBlogPage = () => {
               <li className={styles.latestPostItem}>
                 <Link href={`/blog/${post.slug}`}>
                   <Image
-                    width={250}
-                    height={275}
+                    width={200}
+                    height={220}
                     className={styles.smallImage}
                     src={post.image} /* {`${imagePath}${post.image}`} */
                     alt={post.title}
