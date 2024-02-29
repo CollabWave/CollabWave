@@ -194,3 +194,19 @@
   border-image: radial-gradient(circle at center, #82efee 70%, #000000 80%, #000000 100%);
   border-image-slice: 1;
 }
+.checkbox {
+  margin-top: 20px;
+  /* margin-bottom: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 13px;
+}
+.checkbox_input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.divCheckbox {
+  margin-bottom: 50px;
+}

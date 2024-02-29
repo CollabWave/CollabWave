@@ -59,18 +59,19 @@ const Registration = () => {
 
   const handleRegistrationBlogData = async blogData => {
     setBlogDataFetch(prevBlogData => ({
-      ...prevBlogData,
+      // ...prevBlogData,
       ...blogData,
     }));
 
-    const combinedData = {
-      ...blogData,
-      ...blogDataFetch,
-    };
+    // const combinedData = {
+    //   ...blogData,
+    //   ...blogDataFetch,
+    // };
 
-    if (registrationStep === 2) {
+    if (registrationStep === 1) {
+      console.log(blogData);
       try {
-        const response = await authService.registerUser(combinedData);
+        const response = await authService.registerUser(blogData);
 
         setDataStatus('success');
         setUserId(response.data.data._id);
