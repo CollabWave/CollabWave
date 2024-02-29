@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 
 import { BrandButtonModel } from '@/components/3D Buttons/BrandButton/BrandButtonModel';

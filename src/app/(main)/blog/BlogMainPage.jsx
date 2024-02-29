@@ -74,7 +74,7 @@ export const BlogMainPage = () => {
           }}
           className={styles.inputWrap}
         >
-          <Image className={styles.searchIcon} src={search} priority width={25} height={25} />
+          <Image className={styles.searchIcon} src={search} priority width={22} height={22} />
 
           <input
             className={`${styles.input} ${roboto.variable}`}
@@ -92,8 +92,8 @@ export const BlogMainPage = () => {
               <div className={styles.post}>
                 <Image
                   className={styles.image}
-                  width={350}
-                  height={386}
+                  width={320}
+                  height={353}
                   src={post.image}/* {`${imagePath}${post.image}`} */
                   alt={post.title}
                 />
