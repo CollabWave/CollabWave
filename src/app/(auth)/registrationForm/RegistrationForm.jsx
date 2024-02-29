@@ -10,28 +10,44 @@ import Link from 'next/link';
 
 const RegistrationForm = ({ onNextClick }) => {
   const dispatch = useDispatch();
+
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+  const [isFormBlocked, setIsFormBlocked] = useState(false);
+
   const [formData, setFormData] = useState({
     role: 'blogger',
     password: '',
     email: '',
+    firstName: '',
+    lastName: '',
   });
 
   const [errors, setErrors] = useState({
     email: '',
     password: '',
+    firstName: '',
+    lastName: '',
+    checkbox: '',
   });
   const [isValid, setIsValid] = useState({
     email: true,
     password: true,
+    firstName: true,
+    lastName: true,
+    checkbox: false,
   });
-  const [isFormBlocked, setIsFormBlocked] = useState(false);
 
   const validateForm = () => {
     let valid = true;
-    const newErrors = { email: '', password: '' };
-    const newIsValid = { email: true, password: true };
+    const newErrors = { email: '', password: '', firstName: '', lastName: '', checkbox: '' };
+    const newIsValid = {
+      email: true,
+      password: true,
+      firstName: true,
+      lastName: true,
+      checkbox: false,
+    };
 
-    // Перевірка на заповненість полів
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
       newIsValid.email = false;
@@ -78,6 +94,9 @@ const RegistrationForm = ({ onNextClick }) => {
       handleNextClick();
     }
   };
+  const handleCheckboxChange = event => {
+    setIsCheckboxChecked(event.target.checked);
+  };
 
   return (
     <div className={styles.box_img}>
@@ -118,8 +137,53 @@ const RegistrationForm = ({ onNextClick }) => {
               Password required
             </p>
           )}
-
+          <div>
+            <input
+              className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="First name"
+            />
+            {errors.lastName && !isValid.lastName && !formData.lastName && (
+              <p className={`${styles.error} ${styles.errorMessage}`}>{errors.firstName}</p>
+            )}
+          </div>
+          <input
+            className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            placeholder=" Last name"
+          />
+          {errors.lastName && !isValid.lastName && (
+            <p className={`${styles.error} ${styles.errorMessage}`}>{errors.lastName}</p>
+          )}
+          <div className={styles.divCheckbox}>
+            <p className={styles.checkbox}>
+              <input
+                type="checkbox"
+                className={`${styles.checkbox_input} ${
+                  !isValid.checkbox ? styles.checkboxInputError : ''
+                }`}
+                checked={isCheckboxChecked}
+                onChange={handleCheckboxChange}
+              />
+              я погоджуюсь з умовами{'\u00A0'}
+              <a href="" className={styles.link}>
+                використання
+              </a>
+            </p>{' '}
+            {errors.checkbox && !isValid.checkbox && (
+              <p className={`${styles.error} ${styles.errorMessage}`}>{errors.checkbox}</p>
+            )}
+          </div>
           <p className={styles.line}>or</p>
+
           <div className={styles.div_button}>
             <button className={`${styles.button} ${styles.button_google}`}>
               <Image src={google} alt="Image Alt Text" width={20} className={styles.google_img} />

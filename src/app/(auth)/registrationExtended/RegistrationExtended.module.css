@@ -116,6 +116,9 @@
   margin-right: 10px;
   cursor: pointer;
 }
+.divCheckbox {
+  margin-bottom: 50px;
+}
 .terms_link {
   margin-left: 5px;
 }
@@ -165,7 +168,4 @@
 }
 .checkboxInputError {
   border: 1px solid red; /* або інші стилі для підсвічування червоним кольором */
-}
-.divCheckbox {
-  margin-bottom: 50px;
 }
