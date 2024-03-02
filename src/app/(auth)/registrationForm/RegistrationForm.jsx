@@ -100,7 +100,7 @@ const RegistrationForm = ({ onNextClick }) => {
 
   return (
     <div className={styles.box_img}>
-      <Image src={regImg} alt="Photo" width={450} />
+      <Image src={regImg} alt="Photo" className={styles.img} />
       {/* <Link> */}
       <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
       {/* </Link> */}
