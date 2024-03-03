@@ -21,23 +21,13 @@
 }
 
 .input {
-  font-family: Robototo;
-  border-radius: 10px;
-  margin-top: 35px;
-  width: 320px;
-  height: 40px;
-  padding: 0 15px;
-  font-size: 15px;
-  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
-  color: white;
+  padding-left: 20px;
+  height: 90%;
+  width: 99.5%;
   border: 0;
-  border-bottom: solid 1px transparent;
-  background-clip: padding-box; /* Границя обмежена відступом padding */
-  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
-
-  /* Градієнтний бордер */
-  border-image: radial-gradient(circle at center, #ffd439 100%, #000000 80%, #000000 100%);
-  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+  outline: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #031311, #093f38);
 }
 
 .input::placeholder {
@@ -150,23 +140,13 @@
   font-size: 13px;
 }
 .inputError {
-  font-family: Robototo;
-  border-radius: 10px;
-  margin-top: 35px;
-  width: 320px;
-  height: 40px;
-  padding: 0 15px;
-  font-size: 15px;
-  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
-  color: white;
+  padding-left: 20px;
+  height: 90%;
+  width: 99.5%;
   border: 0;
-  border-bottom: solid 1px transparent;
-  background-clip: padding-box; /* Границя обмежена відступом padding */
-  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
-
-  /* Градієнтний бордер */
-  border-image: radial-gradient(circle at center, #f10505 70%, #000000 80%, #000000 100%);
-  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
+  outline: 0;
+  border-radius: 10px;
+  border: 0;
 }
 .button_login {
   display: flex;
@@ -220,4 +200,24 @@
 .link {
   margin-right: 5px;
   color: #3366bb;
+}
+.gradient {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(255, 212, 57));
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.gradientError {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(226, 31, 9));
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
