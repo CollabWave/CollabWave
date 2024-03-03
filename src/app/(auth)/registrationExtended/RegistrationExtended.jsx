@@ -100,7 +100,7 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
       <div className={styles.divform}>
         <h1 className={styles.title}>Tell about yourself!</h1>
         <form className={styles.form} onKeyDown={handleKeyDown}>
-          <div>
+          <div className={styles.gradient}>
             <input
               className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
               type="text"
@@ -114,15 +114,17 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
               <p className={`${styles.error} ${styles.errorMessage}`}>{errors.firstName}</p>
             )}
           </div>
-          <input
-            className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            placeholder=" Last name"
-          />
+          <div className={styles.gradient}>
+            <input
+              className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              placeholder=" Last name"
+            />
+          </div>
           {errors.lastName && !isValid.lastName && (
             <p className={`${styles.error} ${styles.errorMessage}`}>{errors.lastName}</p>
           )}
