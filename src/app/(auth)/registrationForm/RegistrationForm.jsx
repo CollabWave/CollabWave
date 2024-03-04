@@ -59,6 +59,17 @@ const RegistrationForm = ({ onNextClick }) => {
       newIsValid.password = false;
       valid = false;
     }
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+      newIsValid.firstName = false;
+      valid = false;
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+      newIsValid.lastName = false;
+      valid = false;
+    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -102,7 +113,9 @@ const RegistrationForm = ({ onNextClick }) => {
     <div className={styles.box_img}>
       <Image src={regImg} alt="Photo" className={styles.img} />
       {/* <Link> */}
-      <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
+      <div className={styles.btn_gradient}>
+        <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
+      </div>
       {/* </Link> */}
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
@@ -125,7 +138,7 @@ const RegistrationForm = ({ onNextClick }) => {
             )} */}
           </div>
 
-          <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
+          <div className={`${styles.gradient} ${!isValid.password ? styles.gradientError : ''}`}>
             <input
               type="password"
               id="password"
@@ -144,7 +157,7 @@ const RegistrationForm = ({ onNextClick }) => {
           </div>
 
           <div>
-            <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
+            <div className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}>
               <input
                 className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
                 type="text"
@@ -159,7 +172,7 @@ const RegistrationForm = ({ onNextClick }) => {
               )} */}
             </div>
           </div>
-          <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
+          <div className={`${styles.gradient} ${!isValid.lastName ? styles.gradientError : ''}`}>
             <input
               className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
               type="text"
@@ -167,7 +180,7 @@ const RegistrationForm = ({ onNextClick }) => {
               name="lastName"
               value={formData.lastName}
               onChange={handleInputChange}
-              placeholder=" Last name"
+              placeholder="Last name"
             />
             {/* {errors.lastName && !isValid.lastName && (
               <p className={`${styles.error} ${styles.errorMessage}`}>{errors.lastName}</p>
@@ -195,21 +208,23 @@ const RegistrationForm = ({ onNextClick }) => {
           </div>
           <p className={styles.line}>or</p>
 
-          <div className={styles.div_button}>
+          <div className={styles.btn_gradient_google}>
             <button className={`${styles.button} ${styles.button_google}`}>
               <Image src={google} alt="Image Alt Text" width={20} className={styles.google_img} />
               Google
             </button>
-            <div className={`${styles.div_button} ${styles.div_button_next}`}>
-              <button
-                type="button"
-                className={`${styles.button} ${styles.button_next}`}
-                onClick={handleNextClick}
-              >
-                Next
-              </button>
-            </div>
           </div>
+          {/* <div className={`${styles.div_button} ${styles.div_button_next}`}> */}
+          <div className={styles.btn_gradient_next}>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.button_next}`}
+              onClick={handleNextClick}
+            >
+              Next
+            </button>
+          </div>
+          {/* </div> */}
         </form>
       </div>
     </div>
