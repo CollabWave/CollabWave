@@ -28,6 +28,7 @@
   outline: 0;
   border-radius: 10px;
   background: linear-gradient(45deg, #031311, #093f38);
+  color: white;
 }
 
 .input::placeholder {
@@ -42,28 +43,35 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: black;
+  background: linear-gradient(45deg, #031311, #03211d);
   border-radius: 10px;
   height: 40px;
   width: 160px;
   font-size: 16px;
   color: white;
-  padding: 0.8em 1.8em;
-  cursor: pointer;
-  user-select: none;
+  /* padding: 0.8em 1.8em; */
+  /* cursor: pointer;
+  user-select: none; */
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
+  /* transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; */
   border: 0;
-  border-bottom: solid 1px transparent;
+  /* border-bottom: solid 1px transparent; */
 
-  background-clip: padding-box;
+  /* background-clip: padding-box;
   box-sizing: border-box;
 
   border-image: radial-gradient(circle at center, #82efee 70%, #000000 100%);
-  border-image-slice: 1;
+  border-image-slice: 1; */
+  /* padding-left: 20px;
+  height: 90%;
+  width: 99.5%;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #031311, #093f38); */
 }
 
 .button:hover {
@@ -101,14 +109,14 @@
 .div_button {
   margin-top: 50px;
 }
-.div_button_next {
-  margin-top: 50px;
-  /* margin-left: 200px; */
-  display: flex;
+/* .div_button_next { */
+/* margin-top: 50px; */
+/* margin-left: 200px; */
+/* display: flex;
   justify-content: end;
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; */
+/* } */
 .line {
   text-align: center;
   line-height: 1;
@@ -125,14 +133,7 @@
   vertical-align: middle;
   margin: 0 10px;
 }
-.button_google {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  width: 270px;
-  height: 40px;
-  border-radius: 10px;
-}
+
 .error {
   display: contents;
   color: red;
@@ -148,35 +149,7 @@
   border-radius: 10px;
   border: 0;
 }
-.button_login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 5%;
-  top: 5%;
-  background-color: black;
-  border-radius: 10px;
-  height: 40px;
-  width: 160px;
-  font-size: 16px;
-  color: white;
-  padding: 0.8em 1.8em;
-  cursor: pointer;
-  user-select: none;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
-  border: 0;
-  border-bottom: solid 1px transparent;
-  background-clip: padding-box;
-  box-sizing: border-box;
 
-  border-image: radial-gradient(circle at center, #82efee 70%, #000000 80%, #000000 100%);
-  border-image-slice: 1;
-}
 .checkbox {
   margin-top: 20px;
   /* margin-bottom: 50px; */
@@ -220,4 +193,66 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.btn_gradient {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(130, 239, 238));
+  height: 43px;
+  width: 163px;
+}
+.btn_gradient_google {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(130, 239, 238));
+  height: 43px;
+  width: 273px;
+}
+.btn_gradient_next {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(130, 239, 238));
+  height: 43px;
+  width: 163px;
+}
+.button_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #031311, #03211d);
+  border-radius: 10px;
+  height: 40px;
+  width: 160px;
+  font-size: 16px;
+  color: white;
+  padding: 0.8em 1.8em;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+}
+.button_google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #031311, #03211d);
+  border: 0;
 }
