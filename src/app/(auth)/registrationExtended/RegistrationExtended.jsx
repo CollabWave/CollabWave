@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import React from 'react';
 import Image from 'next/image';
@@ -17,9 +16,11 @@ import tiktokHover from '../../../assets/images/svg/tikTokHover.svg';
 import youTube from '../../../assets/images/svg/youtube.svg';
 import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
 import PropTypes from 'prop-types';
+import Button from '../components/Button/ButtonNext';
 import { useDispatch } from 'react-redux';
 import { setRegistrationStep } from '@/redux/auth/authSlice';
-const RegistrationExtended = ({ onNextClick, onInputChange }) => {
+const RegistrationExtended = ({ onNextClick }) => {
+  const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
     socialLinks: [{ platform: '', username: '', followers: '' }],
   });
@@ -31,6 +32,19 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
   };
   const handleLinkMouseEnter = iconName => {
     setHoveredIcon(iconName);
+  };
+
+  const handleSocialMediaClick = socialMedia => {
+    setSelectedSocialMedia(socialMedia);
+    setFormDataSocial(prevData => {
+      const updatedSocialLinks = [...prevData.socialLinks];
+      updatedSocialLinks[0] = { ...updatedSocialLinks[0], platform: socialMedia };
+
+      return {
+        ...prevData,
+        socialLinks: updatedSocialLinks,
+      };
+    });
   };
 
   const handleUserNameChange = event => {
@@ -116,16 +130,16 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
   //     handleNextClick(e);
   //   }
   // };
-  // const handleNextClick = async e => {
-  //   e.preventDefault();
-  //   if (validateForm()) {
-  //     dispatch(setRegistrationStep(3));
-  //     if (onNextClick) {
-  //       onNextClick(formData);
-  //       dispatch(setRegistrationStep(3));
-  //     }
-  //   }
-  // };
+  const handleNextClick = async e => {
+    e.preventDefault();
+    // if (validateForm()) {
+    // dispatch(setRegistrationStep(3));
+    if (onNextClick) {
+      onNextClick(formDataSocial);
+      dispatch(setRegistrationStep(3));
+    }
+    // }
+  };
 
   // const handlePrevClick = () => {
   //   dispatch(setRegistrationStep(1));
@@ -227,7 +241,18 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
             placeholder="User name"
           />
         </div>
+        <div className={styles.btn_gradient_next}>
+          <button
+            type="button"
+            className={`${styles.button} ${styles.button_next}`}
+            onClick={handleNextClick}
+          >
+            Next
+          </button>
+          {/* <Button onClick={handleNextClick}>Next</Button> */}
+        </div>
       </div>
+      {/* </div> */}
       {/* <div className={styles.divform}>
         <h1 className={styles.title}>Tell about yourself!</h1>
         <form className={styles.form} onKeyDown={handleKeyDown}>
@@ -279,14 +304,7 @@ const RegistrationExtended = ({ onNextClick, onInputChange }) => {
             )}
           </div>
 
-          <div className={styles.cont_button}>
-            <button className={`${styles.button} ${styles.button_next}`} onClick={handlePrevClick}>
-              Back
-            </button>
-            <button className={`${styles.button} ${styles.button_next}`} onClick={handleNextClick}>
-              Next
-            </button>
-          </div>
+   
         </form>
       </div> */}
     </div>
