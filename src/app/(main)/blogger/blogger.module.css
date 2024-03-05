@@ -7,7 +7,7 @@
   letter-spacing: 1.3px;
   text-align: center;
   text-transform: uppercase;
-  padding-bottom: 150px;
+  padding-bottom: 80px;
 }
 
 .blogger_btn {
@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 150px;
   margin-top: 80px;
 }
 .blogger_slider_icon {
