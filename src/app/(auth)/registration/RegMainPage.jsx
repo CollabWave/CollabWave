@@ -39,39 +39,21 @@ const Registration = () => {
     }
   };
 
-  // const handleRegistrationBlogData = blogData => {
-  //   setBlogDataFetch(prevBlogData => ({
-  //     ...prevBlogData,
-  //     ...blogData,
-  //   }));
-  // };
-  // const handleVerificationBlogData = async blogData => {
-  //   if (registrationStep === 3) {
-  //     try {
-  //       const verificationResponse = await authService.verifyUser(userId, userDataSocMedia);
-  //       console.log('Verification successful', verificationResponse.data);
-  //     } catch (error) {
-  //       setDataStatus('Error');
-  //       console.error('Verification failed', error);
-  //     }
-  //   }
-  //   console.log('Received data in parent component:', blogData);
-  // };
-
   const handleRegistrationBlogData = async blogData => {
     setBlogDataFetch(prevBlogData => ({
-      ...prevBlogData,
+      // ...prevBlogData,
       ...blogData,
     }));
 
-    const combinedData = {
-      ...blogData,
-      ...blogDataFetch,
-    };
+    // const combinedData = {
+    //   ...blogData,
+    //   ...blogDataFetch,
+    // };
 
-    if (registrationStep === 2) {
+    if (registrationStep === 1) {
+      console.log(blogData);
       try {
-        const response = await authService.registerUser(combinedData);
+        const response = await authService.registerUser(blogData);
 
         setDataStatus('success');
         setUserId(response.data.data._id);
@@ -87,15 +69,12 @@ const Registration = () => {
         setVerify(true);
         if (verificationResponse.data.data.verify) {
           try {
-            // Отримайте значення email та password з combinedData
             const { email, password } = combinedData;
             const loginResponse = await authService.loginUser({ email, password });
             console.log('Login successful', loginResponse.data);
-            router.push('/dashboard'); //переход на дашборд
-            // Додайте інші дії, які вам потрібні після успішного входу
+            router.push('/dashboard');
           } catch (error) {
             console.error('Login failed', error);
-            // Додайте обробку помилок аутентифікації
           }
         }
       } catch (error) {
@@ -141,7 +120,7 @@ const Registration = () => {
               className={styles.li}
               data-tooltip="Бренд"
               onClick={() => {
-                handleClientSelection('brand'); // Змінено з 'blog' на 'brand'
+                handleClientSelection('brand');
                 handleNextClick();
               }}
             >
@@ -150,13 +129,13 @@ const Registration = () => {
           </ul>
         </div>
       )}
-      {registrationStep === 1 && clientType === 'blog' && (
+      {/* {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationForm
           onNextClick={handleRegistrationBlogData}
           // onInputChange={handleFormInputChange}
         />
-      )}
-      {registrationStep === 2 && clientType === 'blog' && (
+      )} */}
+      {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationExtended onNextClick={handleRegistrationBlogData} />
       )}
       {registrationStep === 3 && clientType === 'blog' && (

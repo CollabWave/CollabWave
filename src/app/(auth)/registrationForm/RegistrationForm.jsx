@@ -10,28 +10,44 @@ import Link from 'next/link';
 
 const RegistrationForm = ({ onNextClick }) => {
   const dispatch = useDispatch();
+
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+  const [isFormBlocked, setIsFormBlocked] = useState(false);
+
   const [formData, setFormData] = useState({
     role: 'blogger',
     password: '',
     email: '',
+    firstName: '',
+    lastName: '',
   });
 
   const [errors, setErrors] = useState({
     email: '',
     password: '',
+    firstName: '',
+    lastName: '',
+    checkbox: '',
   });
   const [isValid, setIsValid] = useState({
     email: true,
     password: true,
+    firstName: true,
+    lastName: true,
+    checkbox: false,
   });
-  const [isFormBlocked, setIsFormBlocked] = useState(false);
 
   const validateForm = () => {
     let valid = true;
-    const newErrors = { email: '', password: '' };
-    const newIsValid = { email: true, password: true };
+    const newErrors = { email: '', password: '', firstName: '', lastName: '', checkbox: '' };
+    const newIsValid = {
+      email: true,
+      password: true,
+      firstName: true,
+      lastName: true,
+      checkbox: false,
+    };
 
-    // Перевірка на заповненість полів
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
       newIsValid.email = false;
@@ -41,6 +57,17 @@ const RegistrationForm = ({ onNextClick }) => {
     if (!formData.password.trim()) {
       newErrors.password = 'Password is required';
       newIsValid.password = false;
+      valid = false;
+    }
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+      newIsValid.firstName = false;
+      valid = false;
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+      newIsValid.lastName = false;
       valid = false;
     }
 
@@ -78,63 +105,126 @@ const RegistrationForm = ({ onNextClick }) => {
       handleNextClick();
     }
   };
+  const handleCheckboxChange = event => {
+    setIsCheckboxChecked(event.target.checked);
+  };
 
   return (
     <div className={styles.box_img}>
-      <Image src={regImg} alt="Photo" width={450} />
+      <Image src={regImg} alt="Photo" className={styles.img} />
       {/* <Link> */}
-      <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
+      <div className={styles.btn_gradient}>
+        <button className={`${styles.button_login} ${styles.button_next}`}>Login</button>
+      </div>
       {/* </Link> */}
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
         <form className={styles.form} onKeyDown={handleKeyDown}>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            disabled={isFormBlocked}
-            className={`${styles.input} ${!isValid.email ? styles.inputError : ''}`}
-            placeholder="Email"
-          />
-          {errors.email && (
-            <p className={styles.error} color="white">
-              Email invalid
-            </p>
-          )}
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            disabled={isFormBlocked}
-            className={`${styles.input} ${!isValid.password ? styles.inputError : ''}`}
-            placeholder="Password"
-          />
-          {errors.password && (
-            <p className={styles.error} color="white">
-              Password required
-            </p>
-          )}
+          <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              disabled={isFormBlocked}
+              className={`${styles.input} ${!isValid.email ? styles.inputError : ''}`}
+              placeholder="Email"
+            />
+            {/* {errors.email && (
+              <p className={styles.error} color="white">
+                Email invalid
+              </p>
+            )} */}
+          </div>
 
+          <div className={`${styles.gradient} ${!isValid.password ? styles.gradientError : ''}`}>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              disabled={isFormBlocked}
+              className={`${styles.input} ${!isValid.password ? styles.inputError : ''}`}
+              placeholder="Password"
+            />
+            {/* {errors.password && (
+              <p className={styles.error} color="white">
+                Password required
+              </p>
+            )} */}
+          </div>
+
+          <div>
+            <div className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}>
+              <input
+                className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="First name"
+              />
+              {/* {errors.lastName && !isValid.lastName && !formData.lastName && (
+                <p className={`${styles.error} ${styles.errorMessage}`}>{errors.firstName}</p>
+              )} */}
+            </div>
+          </div>
+          <div className={`${styles.gradient} ${!isValid.lastName ? styles.gradientError : ''}`}>
+            <input
+              className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              placeholder="Last name"
+            />
+            {/* {errors.lastName && !isValid.lastName && (
+              <p className={`${styles.error} ${styles.errorMessage}`}>{errors.lastName}</p>
+            )} */}
+          </div>
+
+          <div className={styles.divCheckbox}>
+            <p className={styles.checkbox}>
+              <input
+                type="checkbox"
+                className={`${styles.checkbox_input} ${
+                  !isValid.checkbox ? styles.checkboxInputError : ''
+                }`}
+                checked={isCheckboxChecked}
+                onChange={handleCheckboxChange}
+              />
+              я погоджуюсь з умовами{'\u00A0'}
+              <a href="" className={styles.link}>
+                використання
+              </a>
+            </p>{' '}
+            {errors.checkbox && !isValid.checkbox && (
+              <p className={`${styles.error} ${styles.errorMessage}`}>{errors.checkbox}</p>
+            )}
+          </div>
           <p className={styles.line}>or</p>
-          <div className={styles.div_button}>
+
+          <div className={styles.btn_gradient_google}>
             <button className={`${styles.button} ${styles.button_google}`}>
               <Image src={google} alt="Image Alt Text" width={20} className={styles.google_img} />
               Google
             </button>
-            <div className={`${styles.div_button} ${styles.div_button_next}`}>
-              <button
-                type="button"
-                className={`${styles.button} ${styles.button_next}`}
-                onClick={handleNextClick}
-              >
-                Next
-              </button>
-            </div>
           </div>
+          {/* <div className={`${styles.div_button} ${styles.div_button_next}`}> */}
+          <div className={styles.btn_gradient_next}>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.button_next}`}
+              onClick={handleNextClick}
+            >
+              Next
+            </button>
+          </div>
+          {/* </div> */}
         </form>
       </div>
     </div>
