@@ -10,13 +10,18 @@
   padding-bottom: 80px;
 }
 
+.title_spot {
+  z-index: 1;
+}
+
 .blogger_btn {
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 80px;
+  margin-top: 100px;
 }
+
 .blogger_slider_icon {
   width: 100px;
   height: 100px;
@@ -27,6 +32,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
+  z-index: 2;
 }
 
 .usage_span {
@@ -45,13 +51,13 @@
 .features_list_wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 .features_list {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
   width: 800px;
 }
 

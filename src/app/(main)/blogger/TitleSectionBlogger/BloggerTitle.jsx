@@ -8,7 +8,7 @@ export const BloggerTitle = () => {
       <h2 className={styles.blogger_title}>
         COLLABORATION WITH PREMIUM <br /> BRANDS{' '}
       </h2>
-      <div className={pageStyles.light__spot}></div>
+      <div className={`${pageStyles.light__spot} ${styles.title_spot}`}></div>
     </>
   );
 };

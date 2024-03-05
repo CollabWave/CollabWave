@@ -1,7 +1,8 @@
 import { Section } from '@/components/Section/Section';
-import { about__cardText } from '../../../homepage/AboutSection/aboutSection.module.css';
-import styles from '../blogger.module.css';
 import { SectionTitle } from '@/components/SectionTitle.jsx/SectionTitle';
+
+import styles from '../blogger.module.css';
+import { about__cardText } from '../../../homepage/AboutSection/aboutSection.module.css';
 
 export const UsageSection = () => {
   return (

@@ -1,13 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 
 import { Section } from '@/components/Section/Section';
 import { BloggerTitle } from './BloggerTitle';
 import { LogoCarousel } from './LogoCarousel';
-
-import { useDispatch } from 'react-redux';
-import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
 
 import styles from '@/components/Footer/footer.module.css';
 import { blogger_btn } from '../blogger.module.css';
