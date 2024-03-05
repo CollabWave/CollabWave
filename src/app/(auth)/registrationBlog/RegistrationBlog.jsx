@@ -116,7 +116,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   const handleUserNameChange = event => {
     const value = event.target.value;
 
-    // Оновлюємо значення username у першому елементі масиву socialLinks
     setFormDataSocial(prevData => ({
       ...prevData,
       socialLinks: [
