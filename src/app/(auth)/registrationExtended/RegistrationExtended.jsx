@@ -26,6 +26,31 @@ const RegistrationExtended = ({ onNextClick }) => {
   const [hoveredIcon, setHoveredIcon] = useState('');
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
 
+  const [errors, setErrors] = useState({
+    username: '',
+  });
+  const [isValid, setIsValid] = useState({
+    username: true,
+  });
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { username: '' };
+    const newIsValid = {
+      username: true,
+    };
+
+    if (!formDataSocial.socialLinks[0].username.trim()) {
+      newErrors.username = 'Username is required';
+      newIsValid.username = false;
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    setIsValid(newIsValid);
+    return valid;
+  };
+
   const handleLinkMouseLeave = () => {
     setHoveredIcon('');
   };
