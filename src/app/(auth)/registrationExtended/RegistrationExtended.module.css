@@ -5,6 +5,7 @@
   width: 50%;
   height: 70%;
 }
+
 .list_container {
   display: flex;
   flex-direction: column;
@@ -15,6 +16,16 @@
   margin-top: 25%;
   color: #ffd439;
   font-family: Cinzel;
+  font-size: 45px;
+}
+.text {
+  color: white;
+}
+.text_subscribers {
+  color: rgb(130, 239, 238);
+}
+.text_star {
+  color: red;
 }
 .socialIcons {
   display: flex;
@@ -169,4 +180,20 @@
 
 .button:active {
   top: 1px;
+}
+.gradientError {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(226, 31, 9));
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.img_back {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 60px;
+  cursor: pointer;
 }

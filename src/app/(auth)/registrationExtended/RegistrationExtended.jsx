@@ -15,8 +15,7 @@ import tiktok from '../../../assets/images/svg/tikTok.svg';
 import tiktokHover from '../../../assets/images/svg/tikTokHover.svg';
 import youTube from '../../../assets/images/svg/youtube.svg';
 import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
-import PropTypes from 'prop-types';
-import Button from '../components/Button/ButtonNext';
+import prevBtn from '../../../image/prevBtn.png';
 import { useDispatch } from 'react-redux';
 import { setRegistrationStep } from '@/redux/auth/authSlice';
 const RegistrationExtended = ({ onNextClick }) => {
@@ -60,96 +59,43 @@ const RegistrationExtended = ({ onNextClick }) => {
       ],
     }));
   };
-  // const dispatch = useDispatch();
-  // const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  // const [formData, setFormData] = useState({
-  //   firstName: '',
-  //   lastName: '',
-  // });
-  // const [errors, setErrors] = useState({
-  //   firstName: '',
-  //   lastName: '',
-  //   checkbox: '',
-  // });
-  // const [isValid, setIsValid] = useState({
-  //   firstName: true,
-  //   lastName: true,
-  //   checkbox: false,
-  // });
 
-  // const validateForm = () => {
-  //   let valid = true;
-  //   const newErrors = { firstName: '', lastName: '', checkbox: '' };
-  //   const newIsValid = { firstName: true, lastName: true, checkbox: false };
-
-  //   // Перевірка на заповненість полів
-  //   if (!formData.firstName.trim()) {
-  //     newErrors.firstName = 'First name is required';
-  //     newIsValid.firstName = false;
-  //     valid = false;
-  //   }
-
-  //   if (!formData.lastName.trim()) {
-  //     newErrors.lastName = 'Last name is required';
-  //     newIsValid.lastName = false;
-  //     valid = false;
-  //   }
-
-  //   // Перевірка чекбокса
-  //   if (!isCheckboxChecked) {
-  //     newErrors.checkbox = 'Please agree to the terms before proceeding';
-  //     valid = false;
-  //   } else {
-  //     newIsValid.checkbox = true;
-  //   }
-
-  //   setErrors(newErrors);
-  //   setIsValid(newIsValid);
-  //   return valid;
-  // };
-
-  // const handleCheckboxChange = event => {
-  //   setIsCheckboxChecked(event.target.checked);
-  // };
-
-  // const handleButtonClick = e => {
-  //   e.preventDefault();
-  //   if (!isCheckboxChecked) {
-  //     alert('Будь ласка, погодьтеся з умовами користування, перш ніж продовжувати.');
-  //   }
-  // };
-
-  // const handleInputChange = e => {
-  //   const { name, value } = e.target;
-  //   setFormData(prevState => ({ ...prevState, [name]: value }));
-  // };
-
-  // const handleKeyDown = e => {
-  //   if (e.key === 'Enter') {
-  //     e.preventDefault();
-  //     handleNextClick(e);
-  //   }
-  // };
   const handleNextClick = async e => {
     e.preventDefault();
-    // if (validateForm()) {
-    // dispatch(setRegistrationStep(3));
-    if (onNextClick) {
-      onNextClick(formDataSocial);
+    if (validateForm()) {
       dispatch(setRegistrationStep(3));
+      if (onNextClick) {
+        onNextClick(formDataSocial);
+        dispatch(setRegistrationStep(3));
+      }
     }
-    // }
   };
-
-  // const handlePrevClick = () => {
-  //   dispatch(setRegistrationStep(1));
-  // };
-
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleNextClick();
+    }
+  };
+  const handleCheckboxChange = event => {
+    setIsCheckboxChecked(event.target.checked);
+  };
+  const handlePrevClick = () => {
+    dispatch(setRegistrationStep(1));
+  };
   return (
     <div className={styles.container}>
       <Image src={regImg} alt="registration image" className={styles.img} />
+      <div onClick={handlePrevClick}>
+        <Image src={prevBtn} alt="back" className={styles.img_back}></Image>
+      </div>
       <div className={styles.list_container}>
         <h1 className={styles.title}>ADD A SOCIAL CONNECTION</h1>
+        <p className={styles.text}>
+          Link your social media account where you plan to advertise <br />
+          To register you must have at least{' '}
+          <span className={styles.text_subscribers}>1000 subscribers</span>{' '}
+          <span className={styles.text_star}>*</span>
+        </p>
         <ul className={styles.socialIcons}>
           <li
             onMouseEnter={() => handleLinkMouseEnter('facebook')}
@@ -230,7 +176,11 @@ const RegistrationExtended = ({ onNextClick }) => {
             </a>
           </li>
         </ul>
-        <div className={styles.gradient}>
+
+        <div
+          className={`${styles.gradient} ${!isValid.username ? styles.gradientError : ''}`}
+          onKeyDown={handleKeyDown}
+        >
           <input
             type="text"
             id="username"
@@ -312,3 +262,77 @@ const RegistrationExtended = ({ onNextClick }) => {
 };
 
 export default RegistrationExtended;
+
+// const dispatch = useDispatch();
+// const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+// const [formData, setFormData] = useState({
+//   firstName: '',
+//   lastName: '',
+// });
+// const [errors, setErrors] = useState({
+//   firstName: '',
+//   lastName: '',
+//   checkbox: '',
+// });
+// const [isValid, setIsValid] = useState({
+//   firstName: true,
+//   lastName: true,
+//   checkbox: false,
+// });
+
+// const validateForm = () => {
+//   let valid = true;
+//   const newErrors = { firstName: '', lastName: '', checkbox: '' };
+//   const newIsValid = { firstName: true, lastName: true, checkbox: false };
+
+//   // Перевірка на заповненість полів
+//   if (!formData.firstName.trim()) {
+//     newErrors.firstName = 'First name is required';
+//     newIsValid.firstName = false;
+//     valid = false;
+//   }
+
+//   if (!formData.lastName.trim()) {
+//     newErrors.lastName = 'Last name is required';
+//     newIsValid.lastName = false;
+//     valid = false;
+//   }
+
+//   // Перевірка чекбокса
+//   if (!isCheckboxChecked) {
+//     newErrors.checkbox = 'Please agree to the terms before proceeding';
+//     valid = false;
+//   } else {
+//     newIsValid.checkbox = true;
+//   }
+
+//   setErrors(newErrors);
+//   setIsValid(newIsValid);
+//   return valid;
+// };
+
+// const handleCheckboxChange = event => {
+//   setIsCheckboxChecked(event.target.checked);
+// };
+
+// const handleButtonClick = e => {
+//   e.preventDefault();
+//   if (!isCheckboxChecked) {
+//     alert('Будь ласка, погодьтеся з умовами користування, перш ніж продовжувати.');
+//   }
+// };
+
+// const handleInputChange = e => {
+//   const { name, value } = e.target;
+//   setFormData(prevState => ({ ...prevState, [name]: value }));
+// };
+
+// const handleKeyDown = e => {
+//   if (e.key === 'Enter') {
+//     e.preventDefault();
+//     handleNextClick(e);
+//   }
+// };
+// const handlePrevClick = () => {
+//   dispatch(setRegistrationStep(1));
+// };
