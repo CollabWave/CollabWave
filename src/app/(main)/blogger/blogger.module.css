@@ -7,7 +7,7 @@
   letter-spacing: 1.3px;
   text-align: center;
   text-transform: uppercase;
-  padding-bottom: 150px;
+  padding-bottom: 80px;
 }
 
 .blogger_btn {
@@ -15,18 +15,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 100px;
 }
+
 .blogger_slider_icon {
   width: 100px;
   height: 100px;
 }
 
 .logo_carousel {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
+  z-index: 10;
 }
 
 .usage_span {
@@ -45,13 +48,13 @@
 .features_list_wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 .features_list {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
   width: 800px;
 }
 
