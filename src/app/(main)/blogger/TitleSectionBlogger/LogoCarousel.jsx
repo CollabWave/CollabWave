@@ -21,14 +21,14 @@ import pumaHover from '../../../../assets/images/svg/pumaHover.svg';
 import { useState } from 'react';
 
 export const LogoCarousel = () => {
-  const [hoveredBrandIcon, setHoveredBrandIcon] = useState('');
+  const [hoveredBloggerIcon, setHoveredBloggerIcon] = useState('');
 
   const handleLinkMouseEnter = iconName => {
-    setHoveredBrandIcon(iconName);
+    setHoveredBloggerIcon(iconName);
   };
 
   const handleLinkMouseLeave = () => {
-    setHoveredBrandIcon('');
+    setHoveredBloggerIcon('');
   };
 
   return (
@@ -39,10 +39,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('adidas')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'adidas' ? (
-            <Image src={adidasHover} alt="Adidas icon" />
+          {hoveredBloggerIcon === 'adidas' ? (
+            <Image priority src={adidasHover} alt="Adidas icon" />
           ) : (
-            <Image src={adidas} alt="Adidas icon" />
+            <Image priority src={adidas} alt="Adidas icon" />
           )}
         </li>
         <li
@@ -50,10 +50,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('burger')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'burger' ? (
-            <Image src={burgerKingHover} alt="Burger King icon" />
+          {hoveredBloggerIcon === 'burger' ? (
+            <Image priority src={burgerKingHover} alt="Burger King icon" />
           ) : (
-            <Image src={burgerKing} alt="Burger King icon" />
+            <Image priority src={burgerKing} alt="Burger King icon" />
           )}
         </li>
         <li
@@ -61,10 +61,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('nike')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'nike' ? (
-            <Image src={nikeHover} alt="Nike icon" />
+          {hoveredBloggerIcon === 'nike' ? (
+            <Image priority src={nikeHover} alt="Nike icon" />
           ) : (
-            <Image src={nike} alt="Nike icon" />
+            <Image priority src={nike} alt="Nike icon" />
           )}
         </li>
         <li
@@ -72,10 +72,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('apple')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'apple' ? (
-            <Image src={appleHover} alt="Apple icon" />
+          {hoveredBloggerIcon === 'apple' ? (
+            <Image priority src={appleHover} alt="Apple icon" />
           ) : (
-            <Image src={apple} alt="Apple icon" />
+            <Image priority src={apple} alt="Apple icon" />
           )}
         </li>
         <li
@@ -83,10 +83,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('cola')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'cola' ? (
-            <Image src={cocaColaHover} alt="Coca-cola icon" />
+          {hoveredBloggerIcon === 'cola' ? (
+            <Image priority src={cocaColaHover} alt="Coca-cola icon" />
           ) : (
-            <Image src={cocaCola} alt="Coca-cola icon" />
+            <Image priority src={cocaCola} alt="Coca-cola icon" />
           )}
         </li>
         <li
@@ -94,10 +94,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('mcdonalds')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'mcdonalds' ? (
-            <Image src={mcDonaldsHover} alt="McDonald's icon" />
+          {hoveredBloggerIcon === 'mcdonalds' ? (
+            <Image priority src={mcDonaldsHover} alt="McDonald's icon" />
           ) : (
-            <Image src={mcDonalds} alt="McDonald's icon" />
+            <Image priority src={mcDonalds} alt="McDonald's icon" />
           )}
         </li>
         <li
@@ -105,10 +105,10 @@ export const LogoCarousel = () => {
           onMouseEnter={() => handleLinkMouseEnter('puma')}
           onMouseLeave={handleLinkMouseLeave}
         >
-          {hoveredBrandIcon === 'puma' ? (
-            <Image src={pumaHover} alt="Puma icon" />
+          {hoveredBloggerIcon === 'puma' ? (
+            <Image priority src={pumaHover} alt="Puma icon" />
           ) : (
-            <Image src={puma} alt="Puma icon" />
+            <Image priority src={puma} alt="Puma icon" />
           )}
         </li>
       </ul>

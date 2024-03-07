@@ -18,14 +18,14 @@ export const BrandFeatureSection = () => {
       <div className={styles.features_list_wrapper}>
         <ul className={styles.features_list}>
           <li>
-            <Image src={connection} alt="Connection icon" />
+            <Image src={connection} alt="Connection icon" priority />
             <p className={`${styles.features_text} ${about__cardText} `}>
               Our platform is where business meets creativity. We provide many opportunities for our
               brands.
             </p>
           </li>
           <li>
-            <Image src={mouthpiece} alt="Mouthpiece icon" />
+            <Image src={mouthpiece} alt="Mouthpiece icon" priority />
             <p className={`${styles.features_text} ${about__cardText} `}>
               Visibility: Thanks to our extensive partnerships with bloggers, your products and
               services will get the attention they deserve. Your brand will be able to gain more
@@ -33,7 +33,7 @@ export const BrandFeatureSection = () => {
             </p>
           </li>
           <li>
-            <Image src={moneyFace} alt="Money mouth face icon" />
+            <Image src={moneyFace} alt="Money mouth face icon" priority />
             <p className={`${styles.features_text} ${about__cardText} `}>
               Earning: We value your business and offer honest monetization. With our platform, your
               brand can save time in finding a blogger who will bring you customers, which will
@@ -41,14 +41,14 @@ export const BrandFeatureSection = () => {
             </p>
           </li>
           <li>
-            <Image src={analytics} alt="Analytics icon" />
+            <Image src={analytics} alt="Analytics icon" priority />
             <p className={`${styles.features_text} ${about__cardText} `}>
               Analytics: We provide you unique blogger selection tools. You can choose it according
               to the criteria you need, as well as find reviews about the blogger.
             </p>
           </li>
           <li>
-            <Image src={earth} alt="Earth icon" />
+            <Image src={earth} alt="Earth icon" priority />
             <p className={`${styles.features_text} ${about__cardText} `}>
               Network: The platform connects you with bloggers and professionals in your field,
               saving you time and guaranteeing your money.
