@@ -398,7 +398,8 @@ main {
 .dark .ant-select-selection-search-input,
 .dark .ant-select-item-option,
 .dark .ant-select-selection-item,
-.dark .ant-modal-title {
+.dark .ant-modal-title,
+.dark .ant-checkbox-wrapper {
   color: var(--text-main-dark) !important;
 }
 
@@ -515,7 +516,8 @@ main {
 }
 
 .dark .ant-picker-panel-container,
-.dark .ant-select-dropdown {
+.dark .ant-select-dropdown,
+.dark .ant-dropdown-menu {
   background-color: var(--bg-color-dark) !important;
 }
 
@@ -889,6 +891,10 @@ main {
 
 .mobile-menu .ant-menu {
   font-size: 15px;
+}
+
+.search-dropdown .ant-checkbox-wrapper {
+  flex-direction: row !important;
 }
 
 @media screen and (min-width: 480px) {

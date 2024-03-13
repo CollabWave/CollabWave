@@ -7,6 +7,7 @@
 
 .input {
   height: 50px;
+  width: 300px;
   padding-left: 55px;
   font-weight: 600;
   font-size: 16px;
@@ -22,10 +23,15 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .desktopIcon {
   left: 15px;
+}
+
+.filterDesktopIcon {
+  left: 255px;
 }
 
 .modalIcon {
@@ -35,6 +41,10 @@
 .mobileIcon {
   font-size: 200%;
   cursor: pointer;
+}
+
+.filterMobileIcon {
+  right: 25px;
 }
 
 .mobileInput {
