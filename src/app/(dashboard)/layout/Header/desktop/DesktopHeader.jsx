@@ -12,10 +12,10 @@ export const DesktopHeader = () => {
   return (
     <Row className={`${styles.header} header`}>
       <Col md={1} />
-      <Col md={7}>
+      <Col md={8}>
         <HeaderSearch />
       </Col>
-      <Col md={3} />
+      <Col md={2} />
       <Col md={2}>
         <HeaderFullscreen />
       </Col>
