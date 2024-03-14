@@ -1,5 +1,4 @@
-import { BloggerProfileLeftSide } from '../BloggerProfileLeftSide';
-import { BrandProfileLeftSide } from '../BrandProfileLeftSIde';
+import { ProfileLeftSide } from '../ProfileLeftSide';
 import { SecuritySettings } from './SecuritySettings';
 
 import { user } from '@/mockData/user';
@@ -7,21 +6,16 @@ import { user } from '@/mockData/user';
 import styles from '../profile.module.css';
 
 const SecuritySettingsPage = () => {
-  return user.role === 'blogger' ? (
+  return (
     <>
       <div className={styles.wrapMobile}>
         <SecuritySettings user={user} />
       </div>
       <div className={styles.wrapDesktop}>
-        <BloggerProfileLeftSide user={user} />
+        <ProfileLeftSide />
         <SecuritySettings user={user} />
       </div>
     </>
-  ) : (
-    <div className={styles.wrap}>
-      <BrandProfileLeftSide />
-      <SecuritySettings user={user} />
-    </div>
   );
 };
 

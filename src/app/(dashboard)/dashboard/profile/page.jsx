@@ -1,14 +1,9 @@
+import { ProfileLeftSide } from './ProfileLeftSide';
+
 import { user } from '@/mockData/user';
 
-import { BloggerProfileLeftSide } from './BloggerProfileLeftSide';
-import { BrandProfileLeftSide } from './BrandProfileLeftSIde';
-
 const ProfilePage = () => {
-  return user.role === 'blogger' ? (
-    <BloggerProfileLeftSide user={user} />
-  ) : (
-    <BrandProfileLeftSide />
-  );
+  return <ProfileLeftSide user={user} />;
 };
 
 export default ProfilePage;

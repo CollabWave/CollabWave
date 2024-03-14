@@ -15,6 +15,7 @@ import {
 
 import { usePathname } from 'next/navigation';
 
+import { user } from '@/mockData/user';
 import { makeUserAreaString } from '@/utils/utils';
 
 import { montserrat } from '@/utils/fonts';
@@ -37,7 +38,7 @@ const beforeUpload = file => {
   return isJpgOrPng && isLt2M;
 };
 
-export const BloggerProfileLeftSide = ({ user }) => {
+export const ProfileLeftSide = () => {
   const pathname = usePathname();
   const [currentUser, setCurrentUser] = useState(user);
 
@@ -103,10 +104,10 @@ export const BloggerProfileLeftSide = ({ user }) => {
           className={`${styles.text} ${styles.name} ${montserrat.variable}`}
         >{`${user.firstName} ${user.lastName}`}</h2>
         <h3 className={`${styles.text} ${styles.nickName} ${montserrat.variable}`}>
-          {user.nickName}
+          {user.role === 'blogger' ? user.nickName : user.brand}
         </h3>
         <p className={`${styles.text} ${styles.area} ${montserrat.variable}`}>
-          {makeUserAreaString(user.area)}
+          {user.role === 'blogger' ? makeUserAreaString(user.area) : user.position}
         </p>
       </div>
       <ul className={styles.nav}>

@@ -1,24 +1,30 @@
-import { BloggerProfileLeftSide } from '../BloggerProfileLeftSide';
-import { BrandProfileLeftSide } from '../BrandProfileLeftSIde';
+import { ProfileLeftSide } from '../ProfileLeftSide';
 import { BloggerPersonalInfo } from './BloggerPersonalInfo';
+import { BrandPersonalInfo } from './BrandPersonalInfo';
 
 import { user } from '@/mockData/user';
 
 import styles from '../profile.module.css';
 
 const PersonalInfoPage = () => {
-  return user.role === 'blogger' ? (
+  return (
     <>
       <div className={styles.wrapMobile}>
-        <BloggerPersonalInfo user={user} />
+        {user.role === 'blogger' ? (
+          <BloggerPersonalInfo user={user} />
+        ) : (
+          <BrandPersonalInfo user={user} />
+        )}
       </div>
       <div className={styles.wrapDesktop}>
-        <BloggerProfileLeftSide user={user} />
-        <BloggerPersonalInfo user={user} />
+        <ProfileLeftSide />
+        {user.role === 'blogger' ? (
+          <BloggerPersonalInfo user={user} />
+        ) : (
+          <BrandPersonalInfo user={user} />
+        )}
       </div>
     </>
-  ) : (
-    <BrandProfileLeftSide />
   );
 };
 
