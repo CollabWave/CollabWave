@@ -5,15 +5,13 @@ import { useTheme } from 'next-themes';
 
 import { HeaderProfileWindow } from './HeaderProfileWindow';
 
+import { user } from '@/mockData/user';
+
 import styles from './headerProfile.module.css';
 import { montserrat } from '@/utils/fonts';
 export const HeaderProfile = () => {
   const { resolvedTheme } = useTheme();
 
-  const user = {
-    firstName: 'Mark',
-    lastName: 'Cooper',
-  };
   return (
     <Popover
       content={<HeaderProfileWindow />}

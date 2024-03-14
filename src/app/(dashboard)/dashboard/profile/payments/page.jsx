@@ -1,22 +1,21 @@
-import { BloggerProfileLeftSide } from '../BloggerProfileLeftSide';
+import { ProfileLeftSide } from '../ProfileLeftSide';
 import { BrandProfileLeftSide } from '../BrandProfileLeftSIde';
 import { Payments } from './Payments';
 
 import { user } from '@/mockData/user';
-
 import styles from '../profile.module.css';
 
 const PaymentsPage = () => {
-  return user.role === 'blogger' ? (
-    <div className={styles.wrap}>
-      <BloggerProfileLeftSide user={user} />
+  return (
+    <>
+      <div className={styles.wrapMobile}>
       <Payments />
-    </div>
-  ) : (
-    <div className={styles.wrap}>
-      <BrandProfileLeftSide />
-      <Payments />
-    </div>
+      </div>
+      <div className={styles.wrapDesktop}>
+        <ProfileLeftSide />
+        <Payments />
+      </div>
+    </>
   );
 };
 

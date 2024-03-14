@@ -5,12 +5,12 @@ import { Menu } from 'antd';
 
 import { bloggerMenu, brandMenu } from './menuItems';
 
+import { user } from '@/mockData/user';
+
 import { montserrat } from '@/utils/fonts';
 
 export const MobileMenu = ({ collapsed, setCollapsed }) => {
-  const user = {
-    role: 'blogger',
-  };
+
   return (
     <>
       <Link className="" href="/dashboard">

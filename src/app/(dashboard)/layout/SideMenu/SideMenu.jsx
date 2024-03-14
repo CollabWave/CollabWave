@@ -14,6 +14,8 @@ import { bloggerMenu, brandMenu } from './menuItems';
 import { BrandDesktopMenu } from './BrandDesktopMenu';
 import { BloggerDesktopMenu } from './BloggerDesktopMenu';
 
+import { user } from '@/mockData/user';
+
 import styles from './sideMenu.module.css';
 import { montserrat } from '@/utils/fonts';
 
@@ -22,10 +24,6 @@ export const SideMenu = () => {
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
-  };
-
-  const user = {
-    role: 'blogger',
   };
 
   return (
