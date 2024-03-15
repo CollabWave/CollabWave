@@ -43,7 +43,7 @@ export const HeaderSearch = () => {
         </div>
       ),
     },
-    {
+    user.role === 'blogger' && {
       key: '2',
       label: (
         <div role="button" className="search-dropdown" onClick={e => handleOnClickOption(e)}>
@@ -121,6 +121,22 @@ export const HeaderSearch = () => {
     }
   };
 
+  const findInfluencers = () => {
+    if (filterOption === '' || filterOption === 'name') {
+      router.push(`/dashboard/influencers?name=${query}`);
+      return;
+    }
+    switch (filterOption) {
+      case 'area':
+        router.push(`/dashboard/influencers?category=${query}`);
+        break;
+      case 'location':
+        router.push(`/dashboard/influencers?location=${query}`);
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       <div className={styles.wraper}>
@@ -131,13 +147,13 @@ export const HeaderSearch = () => {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              findAdvertisements();
+              user.role === 'blogger' ? findAdvertisements() : findInfluencers();
             }
           }}
         />
         <SearchOutlined
           className={`${styles.icon} ${styles.desktopIcon} icon__search`}
-          onClick={() => findAdvertisements()}
+          onClick={() => (user.role === 'blogger' ? findAdvertisements() : findInfluencers())}
         />
         <Dropdown
           className={`${montserrat.className}`}
@@ -164,7 +180,7 @@ export const HeaderSearch = () => {
         <SearchOutlined
           className={`${styles.icon} ${styles.modalIcon} icon__search`}
           onClick={() => {
-            findAdvertisements();
+            user.role === 'blogger' ? findAdvertisements() : findInfluencers();
             setIsModalOpen(false);
           }}
         />
@@ -175,7 +191,7 @@ export const HeaderSearch = () => {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              findAdvertisements();
+              user.role === 'blogger' ? findAdvertisements() : findInfluencers();
               setIsModalOpen(false);
             }
           }}

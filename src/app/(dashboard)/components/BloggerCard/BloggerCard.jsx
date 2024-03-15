@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Flex, Space } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
 
-import styles from './collaborations.module.css';
+import styles from './bloggerCard.module.css';
 import { montserrat } from '@/utils/fonts';
 
 import tiktok from '../../../../assets/images/svg/tikTokHover.svg';
@@ -12,7 +12,7 @@ import instagram from '../../../../assets/images/svg/instagramHover.svg';
 import telegram from '../../../../assets/images/svg/telegramHover.svg';
 import youtube from '../../../../assets/images/svg/youtubeHover.svg';
 
-export const CollaboratorCard = ({ influencer }) => {
+export const BloggerCard = ({ influencer }) => {
   function formatCompactNumber(number) {
     const formatter = new Intl.NumberFormat('en', { notation: 'compact' });
     return formatter.format(number);

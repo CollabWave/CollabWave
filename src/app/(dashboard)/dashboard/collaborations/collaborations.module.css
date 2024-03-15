@@ -1,6 +1,7 @@
 .buttonsWrap {
   display: flex;
   gap: 30px;
+  padding-top: 20px;
 }
 
 .button {
@@ -11,26 +12,6 @@
   border: none;
   cursor: pointer;
   transition: color 250ms ease-out;
-}
-
-.card {
-  width: 220px;
-  height: 420px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: scale 250ms ease-out, box-shadow 250ms ease-out;
-}
-
-.cardBottom {
-  padding: 10px 15px;
-}
-
-.socialLink {
-  height: 32px;
-}
-
-.heading {
-  font-size: 14px;
 }
 
 .text {
@@ -57,10 +38,6 @@
 @media screen and (min-width: 600px) {
   .mobileList {
     display: none;
-  }
-
-  .card {
-    margin-right: 30px;
   }
 }
 

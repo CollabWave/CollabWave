@@ -32,6 +32,7 @@ export const user = {
   firstName: 'Harland',
   lastName: 'Sanders',
   position: 'project manager',
+  area: { id: 3, value: 'food and cooking' },
   gender: 'male',
   language: 'english',
   birthDate: '1890/09/09',

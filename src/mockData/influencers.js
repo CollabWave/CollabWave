@@ -1,6 +1,8 @@
 export const influencers = [
   {
     id: 'jhds732j',
+    firstName: 'Elizabeth',
+    lastName: 'Stone',
     nickname: '@lipglosslady',
     photo: '/dashboard/influencer1.png',
     location: 'Canada',
@@ -13,6 +15,8 @@ export const influencers = [
   },
   {
     id: 'jdla732j',
+    firstName: 'Jennifer',
+    lastName: 'Air',
     nickname: '@orangeamir',
     photo: '/dashboard/influencer2.png',
     location: 'Estonia',
@@ -22,6 +26,8 @@ export const influencers = [
   },
   {
     id: 'jd493kj',
+    firstName: 'Cortney',
+    lastName: 'Fothblake',
     nickname: '@lovelylily',
     photo: '/dashboard/influencer3.png',
     location: 'Finland',
@@ -31,6 +37,8 @@ export const influencers = [
   },
   {
     id: 'jd49oei8',
+    firstName: 'Veronica',
+    lastName: 'Riverbridge',
     nickname: '@lavenderdaydream',
     photo: '/dashboard/influencer4.png',
     location: 'Ireland',
@@ -43,6 +51,8 @@ export const influencers = [
   },
   {
     id: 'oie4oei8',
+    firstName: 'Linda',
+    lastName: 'White',
     nickname: '@ldsofgh',
     photo: '/dashboard/influencer5.png',
     location: 'Italy',
@@ -52,6 +62,8 @@ export const influencers = [
   },
   {
     id: 'oie4848c',
+    firstName: 'Mary',
+    lastName: 'Hopetown',
     nickname: '@uvjdk',
     photo: '/dashboard/influencer6.png',
     location: 'Poland',
@@ -61,6 +73,8 @@ export const influencers = [
   },
   {
     id: '84j848c',
+    firstName: 'Demi',
+    lastName: 'Brown',
     nickname: '@aldjj',
     photo: '/dashboard/influencer7.png',
     location: 'Ukraine',
@@ -70,6 +84,8 @@ export const influencers = [
   },
   {
     id: '84je7cd8',
+    firstName: 'Barbara',
+    lastName: 'Bitterneet',
     nickname: '@ldjdhdbsslcn',
     photo: '/dashboard/influencer8.png',
     location: 'Germany',

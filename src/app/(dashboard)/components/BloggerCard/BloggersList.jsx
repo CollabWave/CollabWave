@@ -1,21 +1,21 @@
 import { List } from 'antd';
 
-import { CollaboratorCard } from './CollaboratorCard';
+import { BloggerCard } from './BloggerCard';
 
-import styles from './collaborations.module.css';
+import styles from './bloggerCard.module.css';
 
-export const CollaboratorsList = ({ arr, itemsCount, columnsCount }) => {
+export const BloggersList = ({ arr, itemsCount, columnsCount }) => {
   return (
     <List
       itemLayout="horizontal"
       grid={{ gutter: [16, 24], column: columnsCount }}
-      className={`${styles.list} text`}
+      className="text"
       pagination={
         arr.length > itemsCount
           ? {
-              onChange: page => {
+             /*  onChange: page => {
                 console.log(page);
-              },
+              }, */
               pageSize: itemsCount,
             }
           : false
@@ -23,7 +23,7 @@ export const CollaboratorsList = ({ arr, itemsCount, columnsCount }) => {
       dataSource={arr}
       renderItem={item => (
         <li className={`${styles.card} secondary-background advertisement-card`} key={item.id}>
-          <CollaboratorCard influencer={item} />
+          <BloggerCard influencer={item} />
         </li>
       )}
     />

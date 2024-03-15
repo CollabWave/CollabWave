@@ -6,10 +6,11 @@ import { influencers } from '@/mockData/influencers';
 
 import { CategoriesFilter } from '../../components/CategoriesFilter/CategoriesFilter';
 import { SocialNetworksFilter } from '../../components/SocialNetworksFilter/SocialNetworksFilter';
-import { CollaboratorsList } from './CollaboratorsList';
+import { BloggersList } from '../../components/BloggerCard/BloggersList';
 
 import styles from './collaborations.module.css';
 import sectionStyles from '../../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
+import personalStyles from '../profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 
 const CollaborationsPage = () => {
@@ -33,6 +34,9 @@ const CollaborationsPage = () => {
 
   return (
     <div className={`${sectionStyles.sectionWrap} ${montserrat.className}`}>
+      <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
+        Collaborations
+      </h3>
       <ul className={styles.buttonsWrap}>
         <li>
           <button
@@ -74,31 +78,31 @@ const CollaborationsPage = () => {
       {areaFilters.length === 0 && networkFilters.length === 0 ? (
         <>
           <div className={styles.mobileList}>
-            <CollaboratorsList arr={influencers} itemsCount={4} columnCount={1} />
+            <BloggersList arr={influencers} itemsCount={4} columnCount={1} />
           </div>
           <div className={styles.tabletSmallList}>
-            <CollaboratorsList arr={influencers} itemsCount={4} columnCount={2} />
+            <BloggersList arr={influencers} itemsCount={4} columnCount={2} />
           </div>
           <div className={styles.tabletList}>
-            <CollaboratorsList arr={influencers} itemsCount={6} columnCount={3} />
+            <BloggersList arr={influencers} itemsCount={6} columnCount={3} />
           </div>
           <div className={styles.desktopList}>
-            <CollaboratorsList arr={influencers} itemsCount={8} columnCount={4} />
+            <BloggersList arr={influencers} itemsCount={8} columnCount={4} />
           </div>
         </>
       ) : (
         <>
           <div className={styles.mobileList}>
-            <CollaboratorsList arr={filteredInfluencers} itemsCount={4} columnCount={1} />
+            <BloggersList arr={filteredInfluencers} itemsCount={4} columnCount={1} />
           </div>
           <div className={styles.tabletSmallList}>
-            <CollaboratorsList arr={filteredInfluencers} itemsCount={4} columnCount={2} />
+            <BloggersList arr={filteredInfluencers} itemsCount={4} columnCount={2} />
           </div>
           <div className={styles.tabletList}>
-            <CollaboratorsList arr={filteredInfluencers} itemsCount={6} columnCount={3} />
+            <BloggersList arr={filteredInfluencers} itemsCount={6} columnCount={3} />
           </div>
           <div className={styles.desktopList}>
-            <CollaboratorsList arr={filteredInfluencers} itemsCount={8} columnCount={4} />
+            <BloggersList arr={filteredInfluencers} itemsCount={8} columnCount={4} />
           </div>
         </>
       )}
