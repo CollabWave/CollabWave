@@ -26,6 +26,7 @@ const Registration = () => {
   const [blogDataFetch, setBlogDataFetch] = useState(null);
   const [dataStatus, setDataStatus] = useState('');
   const [userId, setUserId] = useState('');
+  const [subscribersStatus, setSubscribersStatus] = useState('');
 
   const router = useRouter();
 
@@ -50,7 +51,6 @@ const Registration = () => {
     // };
 
     if (registrationStep === 1) {
-      console.log(blogData);
       try {
         const response = await authService.registerUser(blogData);
 
@@ -59,6 +59,16 @@ const Registration = () => {
       } catch (error) {
         setDataStatus('Error');
         console.error('Registration failed', error);
+      }
+    }
+    if (registrationStep === 2) {
+      try {
+        const subscribersResponse = await authService.checkSubscribers(userId, blogData);
+        console.log('Subscribers', subscribersResponse);
+        setSubscribersStatus('Ok');
+      } catch (error) {
+        setSubscribersStatus('Error');
+        console.log('eroor');
       }
     }
     if (registrationStep === 3) {
@@ -81,19 +91,6 @@ const Registration = () => {
         console.error('Verification failed', error);
       }
     }
-    // if (registrationStep === 4) {
-    //   try {
-    //     // Отримайте значення email та password з combinedData
-    //     const { email, password } = combinedData;
-    //     const loginResponse = await authService.loginUser({ email, password });
-    //     console.log('Login successful', loginResponse.data);
-    //     router.push('/dashboard'); //переход на дашборд
-    //     // Додайте інші дії, які вам потрібні після успішного входу
-    //   } catch (error) {
-    //     console.error('Login failed', error);
-    //     // Додайте обробку помилок аутентифікації
-    //   }
-    // }
   };
 
   const handleClientSelection = selectedClient => {

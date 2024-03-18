@@ -21,7 +21,7 @@ import { setRegistrationStep } from '@/redux/auth/authSlice';
 const RegistrationExtended = ({ onNextClick }) => {
   const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
-    socialLinks: [{ platform: '', username: '', followers: '' }],
+    socialLinks: [{ platform: '', username: '' }],
   });
   const [hoveredIcon, setHoveredIcon] = useState('');
   const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
@@ -89,6 +89,7 @@ const RegistrationExtended = ({ onNextClick }) => {
     e.preventDefault();
     if (validateForm()) {
       dispatch(setRegistrationStep(3));
+      onNextClick(formDataSocial);
       if (onNextClick) {
         onNextClick(formDataSocial);
         dispatch(setRegistrationStep(3));
