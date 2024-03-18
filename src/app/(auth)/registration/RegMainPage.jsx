@@ -41,14 +41,14 @@ const Registration = () => {
 
   const handleRegistrationBlogData = async blogData => {
     setBlogDataFetch(prevBlogData => ({
-      // ...prevBlogData,
+      ...prevBlogData,
       ...blogData,
     }));
 
-    // const combinedData = {
-    //   ...blogData,
-    //   ...blogDataFetch,
-    // };
+    const combinedData = {
+      ...blogData,
+      ...blogDataFetch,
+    };
 
     if (registrationStep === 1) {
       try {

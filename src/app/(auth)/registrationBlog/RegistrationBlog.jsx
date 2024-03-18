@@ -21,7 +21,7 @@ import { roboto } from '@/utils/fonts';
 const RegistrationBlog = ({ formInputData, onNextClick }) => {
   const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
-    socialLinks: [{ platform: '', username: '', followers: '' }],
+    // socialLinks: [{ platform: '', username: '', followers: '' }],
     type: '',
     gender: '',
     birthDate: {
@@ -159,7 +159,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
           {/* <p className={styles.text}> Link your social media account where you plan to advertise</p>
           <p className={styles.text}>To register you must have at least 1000 subscribers</p> */}
         </div>
-        <ul className={styles.socialIcons}>
+        {/* <ul className={styles.socialIcons}>
           <li
             onMouseEnter={() => handleLinkMouseEnter('facebook')}
             onMouseLeave={handleLinkMouseLeave}
@@ -238,10 +238,10 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               )}
             </a>
           </li>
-        </ul>
+        </ul> */}
         <form className={styles.form}>
           <div className={styles.div_select}>
-            <input
+            {/* <input
               type="text"
               id="username"
               name="username"
@@ -249,7 +249,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               onChange={handleUserNameChange}
               value={formDataSocial.socialLinks[0].username}
               placeholder="User name"
-            />
+            /> */}
             <select
               id="language"
               name="language"
