@@ -90,14 +90,7 @@
 .div_button {
   margin-top: 50px;
 }
-/* .div_button_next { */
-/* margin-top: 50px; */
-/* margin-left: 200px; */
-/* display: flex;
-  justify-content: end;
-  display: flex;
-  justify-content: center; */
-/* } */
+
 .line {
   text-align: center;
   line-height: 1;
@@ -237,3 +230,42 @@
   background: linear-gradient(45deg, #031311, #03211d);
   border: 0;
 }
+
+.matovoyeSteklo {
+  position: relative; /* Встановлюємо позицію, щоб можна було розмістити псевдоелемент */
+  /* background: rgba(255, 255, 255, 0.2); Прозорий фон */
+  padding: 30px;
+  border-radius: 10px;
+  background: inherit;
+  overflow: hidden;
+  box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.matovoyeSteklo::before {
+  content: ''; /* Додати псевдоелемент для ефекту матового скла */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 10px; /* Заокруглені кути, щоб відповідати головному елементу */
+  z-index: -1;
+  box-shadow: inset 0 0 2000px rgba(241, 241, 241, 0.5);
+  filter: blur(10px);
+}
+/* .matovoyeSteklo:before {
+  content: '';
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(241, 241, 241, 0.5);
+  filter: blur(10px);
+  margin: -20px;
+} */

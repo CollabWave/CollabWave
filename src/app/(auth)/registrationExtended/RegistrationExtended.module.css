@@ -2,8 +2,8 @@
   display: flex;
 }
 .img {
-  width: 50%;
-  height: 70%;
+  width: 45vw;
+  height: 120vh;
 }
 
 .list_container {

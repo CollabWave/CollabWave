@@ -120,71 +120,75 @@ const RegistrationForm = ({ onNextClick }) => {
       <div className={styles.container_form}>
         <h1 className={styles.title}>Registration</h1>
         <form className={styles.form} onKeyDown={handleKeyDown}>
-          <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              disabled={isFormBlocked}
-              className={`${styles.input} ${!isValid.email ? styles.inputError : ''}`}
-              placeholder="Email"
-            />
-            {/* {errors.email && (
+          <div className={styles.matovoyeSteklo}>
+            <div className={`${styles.gradient} ${!isValid.email ? styles.gradientError : ''}`}>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                disabled={isFormBlocked}
+                className={`${styles.input} ${!isValid.email ? styles.inputError : ''}`}
+                placeholder="Email"
+              />
+              {/* {errors.email && (
               <p className={styles.error} color="white">
                 Email invalid
               </p>
             )} */}
-          </div>
+            </div>
 
-          <div className={`${styles.gradient} ${!isValid.password ? styles.gradientError : ''}`}>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              disabled={isFormBlocked}
-              className={`${styles.input} ${!isValid.password ? styles.inputError : ''}`}
-              placeholder="Password"
-            />
-            {/* {errors.password && (
+            <div className={`${styles.gradient} ${!isValid.password ? styles.gradientError : ''}`}>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                disabled={isFormBlocked}
+                className={`${styles.input} ${!isValid.password ? styles.inputError : ''}`}
+                placeholder="Password"
+              />
+              {/* {errors.password && (
               <p className={styles.error} color="white">
                 Password required
               </p>
             )} */}
-          </div>
+            </div>
 
-          <div>
-            <div className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}>
-              <input
-                className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="First name"
-              />
-              {/* {errors.lastName && !isValid.lastName && !formData.lastName && (
+            <div>
+              <div
+                className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}
+              >
+                <input
+                  className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="First name"
+                />
+                {/* {errors.lastName && !isValid.lastName && !formData.lastName && (
                 <p className={`${styles.error} ${styles.errorMessage}`}>{errors.firstName}</p>
               )} */}
+              </div>
             </div>
-          </div>
-          <div className={`${styles.gradient} ${!isValid.lastName ? styles.gradientError : ''}`}>
-            <input
-              className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              placeholder="Last name"
-            />
-            {/* {errors.lastName && !isValid.lastName && (
+            <div className={`${styles.gradient} ${!isValid.lastName ? styles.gradientError : ''}`}>
+              <input
+                className={`${styles.input} ${!isValid.lastName ? styles.inputError : ''}`}
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                placeholder="Last name"
+              />
+              {/* {errors.lastName && !isValid.lastName && (
               <p className={`${styles.error} ${styles.errorMessage}`}>{errors.lastName}</p>
             )} */}
+            </div>
           </div>
 
           <div className={styles.divCheckbox}>
