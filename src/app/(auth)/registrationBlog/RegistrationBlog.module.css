@@ -51,22 +51,14 @@
 }
 
 .input {
-  font-family: Robototo;
+  padding-left: 20px;
+  height: 90%;
+  width: 99.5%;
+  border: 0;
+  outline: 0;
   border-radius: 10px;
-  margin-top: 15px;
-  width: 320px;
-  height: 40px;
-  padding: 0 15px;
-  font-size: 15px;
-  background: radial-gradient(circle, #1b4b4a 0%, #232121 100%);
+  background: linear-gradient(45deg, #031311, #093f38);
   color: white;
-  border: 1px solid transparent; /* Додаємо товщину границі */
-  background-clip: padding-box; /* Границя обмежена відступом padding */
-  box-sizing: border-box; /* Рахунок ширини границі як частина загальної ширини елемента */
-
-  /* Градієнтний бордер */
-  border-image: radial-gradient(circle at center, #ffd439 70%, #000000 80%, #000000 100%);
-  border-image-slice: 1; /* Слайсінг градієнта на весь бордер */
 }
 .input::placeholder {
   color: white;
@@ -215,4 +207,24 @@
   width: 300px;
   display: flex;
   justify-content: space-between;
+}
+.gradient {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(255, 212, 57));
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.gradientError {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(226, 31, 9));
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
