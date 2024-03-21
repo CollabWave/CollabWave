@@ -126,19 +126,19 @@ const Registration = () => {
           </ul>
         </div>
       )}
-      {registrationStep === 1 && clientType === 'blog' && (
+      {/* {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationForm
           onNextClick={handleRegistrationBlogData}
           // onInputChange={handleFormInputChange}
         />
-      )}
+      )} */}
       {/* {registrationStep === 2 && clientType === 'blog' && (
         <RegistrationExtended onNextClick={handleRegistrationBlogData} />
       )} */}
-      {/* {registrationStep === 1 && clientType === 'blog' && (
+      {registrationStep === 1 && clientType === 'blog' && (
         // dataStatus === 'success' &&
         <RegistrationBlog onNextClick={handleRegistrationBlogData} />
-      )} */}
+      )}
       {registrationStep === 1 && clientType === 'brand' && (
         <RegistrationBrand onNextClick={handleRegistrationBlogData} />
       )}

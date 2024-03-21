@@ -6,22 +6,10 @@ import { setRegistrationStep } from '@/redux/auth/authSlice';
 import styles from './RegistrationBlog.module.css';
 import Image from 'next/image';
 import blogImg from '../../../image/reg-blog.png';
-import telegram from '../../../assets/images/svg/telegram.svg';
-import telegramHover from '../../../assets/images/svg/telegramHover.svg';
-import facebook from '../../../assets/images/svg/facebook.svg';
-import facebookHover from '../../../assets/images/svg/facebookHover.svg';
-import instagram from '../../../assets/images/svg/instagram.svg';
-import instagramHover from '../../../assets/images/svg/instagramHover.svg';
-import tiktok from '../../../assets/images/svg/tikTok.svg';
-import tiktokHover from '../../../assets/images/svg/tikTokHover.svg';
-import youTube from '../../../assets/images/svg/youtube.svg';
-import youTubeHover from '../../../assets/images/svg/youtubeHover.svg';
-import { roboto } from '@/utils/fonts';
 
 const RegistrationBlog = ({ formInputData, onNextClick }) => {
   const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
-    // socialLinks: [{ platform: '', username: '', followers: '' }],
     type: '',
     gender: '',
     birthDate: {
@@ -35,9 +23,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     education: '-',
     blogLanguage: '',
   });
-  const [hoveredIcon, setHoveredIcon] = useState('');
-  const [selectedSocialMedia, setSelectedSocialMedia] = useState(null);
-  const [socialMediaName, setSocalMediaName] = useState('');
   const thematicOptions = [
     'Мода',
     'Подорожі',
@@ -70,11 +55,84 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     'Розважальний контент',
     'Блогер інфлюенсер',
   ];
+
+  const [errors, setErrors] = useState({
+    type: '',
+    gender: '',
+    location: '',
+    phone: '',
+    language: '',
+    blogLanguage: '',
+  });
+  const [isValid, setIsValid] = useState({
+    type: true,
+    gender: true,
+    location: true,
+    phone: true,
+    language: true,
+    blogLanguage: true,
+  });
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = {
+      type: '',
+      gender: '',
+      location: '',
+      phone: '',
+      language: '',
+      blogLanguage: '',
+    };
+    const newIsValid = {
+      type: true,
+      gender: true,
+      location: true,
+      phone: true,
+      language: true,
+      blogLanguage: true,
+    };
+
+    if (!formDataSocial.type.trim()) {
+      newErrors.type = 'type is required';
+      newIsValid.type = false;
+      valid = false;
+    }
+
+    if (!formDataSocial.gender.trim()) {
+      newErrors.gender = 'gender is required';
+      newIsValid.gender = false;
+      valid = false;
+    }
+    if (!formDataSocial.location.trim()) {
+      newErrors.location = 'First name is required';
+      newIsValid.location = false;
+      valid = false;
+    }
+
+    if (!formDataSocial.phone.trim()) {
+      newErrors.phone = 'Last name is required';
+      newIsValid.phone = false;
+      valid = false;
+    }
+    if (!formDataSocial.language.trim()) {
+      newErrors.language = 'language is required';
+      newIsValid.language = false;
+      valid = false;
+    }
+    if (!formDataSocial.blogLanguage.trim()) {
+      newErrors.blogLanguage = 'blogLanguage is required';
+      newIsValid.blogLanguage = false;
+      valid = false;
+    }
+    setErrors(newErrors);
+    setIsValid(newIsValid);
+    return valid;
+  };
+
   const handleNextClick = e => {
     e.preventDefault();
-    dispatch(setRegistrationStep(4));
-
-    if (onNextClick) {
+    if (validateForm()) {
+      dispatch(setRegistrationStep(4));
       onNextClick(formDataSocial);
     }
   };
@@ -85,26 +143,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
       type: selectedThematic,
     }));
   };
-  const handleLinkMouseEnter = iconName => {
-    setHoveredIcon(iconName);
-  };
 
-  const handleLinkMouseLeave = () => {
-    setHoveredIcon('');
-  };
-
-  const handleSocialMediaClick = socialMedia => {
-    setSelectedSocialMedia(socialMedia);
-    setFormDataSocial(prevData => {
-      const updatedSocialLinks = [...prevData.socialLinks];
-      updatedSocialLinks[0] = { ...updatedSocialLinks[0], platform: socialMedia };
-
-      return {
-        ...prevData,
-        socialLinks: updatedSocialLinks,
-      };
-    });
-  };
   const generateOptions = (start, end) => {
     const options = [];
     for (let i = start; i <= end; i++) {
@@ -112,27 +151,12 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
     }
     return options;
   };
-
-  const handleUserNameChange = event => {
-    const value = event.target.value;
-
-    setFormDataSocial(prevData => ({
-      ...prevData,
-      socialLinks: [
-        {
-          ...prevData.socialLinks[0],
-          username: value,
-        },
-      ],
-    }));
-  };
   const handlePrevClick = () => {
     dispatch(setRegistrationStep(2));
   };
   const handleInputChange = e => {
     const { name, value } = e.target;
 
-    // Розділіть логіку обробки для кожного поля окремо
     if (name === 'date' || name === 'month' || name === 'year') {
       setFormDataSocial(prevData => ({
         ...prevData,
@@ -142,7 +166,6 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
         },
       }));
     } else {
-      // Якщо це інше поле, обробіть його так само, як раніше
       setFormDataSocial(prevData => ({
         ...prevData,
         [name]: value,
@@ -159,101 +182,12 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
           {/* <p className={styles.text}> Link your social media account where you plan to advertise</p>
           <p className={styles.text}>To register you must have at least 1000 subscribers</p> */}
         </div>
-        {/* <ul className={styles.socialIcons}>
-          <li
-            onMouseEnter={() => handleLinkMouseEnter('facebook')}
-            onMouseLeave={handleLinkMouseLeave}
-          >
-            <a
-              className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
-              target="_blank"
-              onClick={() => handleSocialMediaClick('facebook')}
-            >
-              {hoveredIcon === 'facebook' || selectedSocialMedia === 'facebook' ? (
-                <Image priority src={facebookHover} alt="Facebook icon" />
-              ) : (
-                <Image priority src={facebook} alt="Facebook icon" />
-              )}
-            </a>
-          </li>
-          <li
-            onMouseEnter={() => handleLinkMouseEnter('telegram')}
-            onMouseLeave={handleLinkMouseLeave}
-          >
-            <a
-              className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
-              onClick={() => handleSocialMediaClick('telegram')}
-            >
-              {hoveredIcon === 'telegram' || selectedSocialMedia === 'telegram' ? (
-                <Image priority src={telegramHover} alt="Telegram icon" />
-              ) : (
-                <Image priority src={telegram} alt="Telegram icon" />
-              )}
-            </a>
-          </li>
-          <li
-            onMouseEnter={() => handleLinkMouseEnter('youtube')}
-            onMouseLeave={handleLinkMouseLeave}
-          >
-            <a
-              className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
-              target="_blank"
-              onClick={() => handleSocialMediaClick('youtube')}
-            >
-              {hoveredIcon === 'youtube' || selectedSocialMedia === 'youtube' ? (
-                <Image priority src={youTubeHover} alt="youTube icon" />
-              ) : (
-                <Image priority src={youTube} alt="youTube icon" />
-              )}
-            </a>
-          </li>
-          <li
-            onMouseEnter={() => handleLinkMouseEnter('tiktok')}
-            onMouseLeave={handleLinkMouseLeave}
-          >
-            <a
-              className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
-              onClick={() => handleSocialMediaClick('tiktok')}
-            >
-              {hoveredIcon === 'tiktok' || selectedSocialMedia === 'tiktok' ? (
-                <Image priority src={tiktokHover} alt="TikTok icon" />
-              ) : (
-                <Image priority src={tiktok} alt="TikTok icon" />
-              )}
-            </a>
-          </li>
-          <li
-            onMouseEnter={() => handleLinkMouseEnter('instagram')}
-            onMouseLeave={handleLinkMouseLeave}
-          >
-            <a
-              className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
-              onClick={() => handleSocialMediaClick('instagram')}
-              target="_blank"
-            >
-              {hoveredIcon === 'instagram' || selectedSocialMedia === 'instagram' ? (
-                <Image priority src={instagramHover} alt="Instagram icon" />
-              ) : (
-                <Image priority src={instagram} alt="Instagram icon" />
-              )}
-            </a>
-          </li>
-        </ul> */}
         <form className={styles.form}>
-          <div className={styles.div_select}>
-            {/* <input
-              type="text"
-              id="username"
-              name="username"
-              className={styles.input}
-              onChange={handleUserNameChange}
-              value={formDataSocial.socialLinks[0].username}
-              placeholder="User name"
-            /> */}
+          <div className={`${styles.gradient} ${!isValid.language ? styles.gradientError : ''}`}>
             <select
               id="language"
               name="language"
-              className={styles.input}
+              className={`${styles.input} ${!isValid.language ? styles.inputError : ''}`}
               onChange={handleInputChange}
               defaultValue=""
               value={formDataSocial.language}
@@ -265,9 +199,10 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               <option value="ua">Ukrainian</option>
             </select>
           </div>
-          <div className={styles.div_select}>
+          {/* <div className={styles.div_select}> */}
+          <div className={`${styles.gradient} ${!isValid.location ? styles.gradientError : ''}`}>
             <input
-              className={styles.input}
+              className={`${styles.input} ${!isValid.location ? styles.inputError : ''}`}
               type="text"
               id="location"
               name="location"
@@ -275,10 +210,12 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               onChange={handleInputChange}
               placeholder="location"
             />
+          </div>
+          <div className={`${styles.gradient} ${!isValid.type ? styles.gradientError : ''}`}>
             <select
               id="type"
               name="type"
-              className={styles.input}
+              className={`${styles.input} ${!isValid.type ? styles.inputError : ''}`}
               onChange={handleThematicChange}
               defaultValue=""
               value={formDataSocial.type}
@@ -293,9 +230,11 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               ))}
             </select>
           </div>
-          <div className={styles.div_select}>
+          {/* </div> */}
+          {/* <div className={styles.div_select}> */}
+          <div className={`${styles.gradient} ${!isValid.phone ? styles.gradientError : ''}`}>
             <input
-              className={styles.input}
+              className={`${styles.input} ${!isValid.phone ? styles.inputError : ''}`}
               type="text"
               id="phone"
               name="phone"
@@ -303,10 +242,14 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               onChange={handleInputChange}
               placeholder="Phone"
             />
+          </div>
+          <div
+            className={`${styles.gradient} ${!isValid.blogLanguage ? styles.gradientError : ''}`}
+          >
             <select
               id="blogLanguage"
               name="blogLanguage"
-              className={styles.input}
+              className={`${styles.input} ${!isValid.blogLanguage ? styles.inputError : ''}`}
               onChange={handleInputChange}
               defaultValue=""
               value={formDataSocial.blogLanguage}
@@ -319,11 +262,13 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               <option value="en">Англійська</option>
             </select>
           </div>
-          <div className={styles.div_select}>
+          {/* </div> */}
+          {/* <div className={styles.div_select}> */}
+          <div className={`${styles.gradient} ${!isValid.gender ? styles.gradientError : ''}`}>
             <select
               id="gender"
               name="gender"
-              className={styles.input}
+              className={`${styles.input} ${!isValid.gender ? styles.inputError : ''}`}
               onChange={handleInputChange}
               defaultValue=""
               value={formDataSocial.gender}
@@ -335,66 +280,67 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
+          </div>
 
-            <div>
-              {/* <label htmlFor="day">Day:</label> */}
-              <select
-                id="day"
-                name="date"
-                className={styles.birthDay}
-                onChange={handleInputChange}
-                value={formDataSocial.birthDate.date}
-                // defaultValue=""
-              >
-                {/* <option value="" disabled>
+          <div>
+            {/* <label htmlFor="day">Day:</label> */}
+            <select
+              id="day"
+              name="date"
+              className={styles.birthDay}
+              onChange={handleInputChange}
+              value={formDataSocial.birthDate.date}
+              // defaultValue=""
+            >
+              {/* <option value="" disabled>
                   Select Day
                 </option> */}
-                {generateOptions(1, 31).map(day => (
-                  <option key={day} value={day}>
-                    {day}
-                  </option>
-                ))}
-              </select>
+              {generateOptions(1, 31).map(day => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
+            </select>
 
-              {/* <label htmlFor="month">Month:</label> */}
-              <select
-                id="month"
-                name="month"
-                className={styles.birthDay}
-                onChange={handleInputChange}
-                value={formDataSocial.birthDate.month}
-                // defaultValue=""
-              >
-                {/* <option value="" disabled>
+            {/* <label htmlFor="month">Month:</label> */}
+            <select
+              id="month"
+              name="month"
+              className={styles.birthDay}
+              onChange={handleInputChange}
+              value={formDataSocial.birthDate.month}
+              // defaultValue=""
+            >
+              {/* <option value="" disabled>
                   Select Month
                 </option> */}
-                {generateOptions(1, 12).map(month => (
-                  <option key={month} value={month}>
-                    {month}
-                  </option>
-                ))}
-              </select>
+              {generateOptions(1, 12).map(month => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
 
-              {/* <label htmlFor="year">Year:</label> */}
-              <select
-                id="year"
-                name="year"
-                className={styles.birthDay}
-                onChange={handleInputChange}
-                value={formDataSocial.birthDate.year}
-                // defaultValue=""
-              >
-                {/* <option value="" disabled>
+            {/* <label htmlFor="year">Year:</label> */}
+            <select
+              id="year"
+              name="year"
+              className={styles.birthDay}
+              onChange={handleInputChange}
+              value={formDataSocial.birthDate.year}
+              // defaultValue=""
+            >
+              {/* <option value="" disabled>
                   Select Year
                 </option> */}
-                {generateOptions(1970, new Date().getFullYear()).map(year => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-            </div>
+              {generateOptions(1970, new Date().getFullYear()).map(year => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
           </div>
+          {/* </div> */}
           <div className={styles.cont_button}>
             <button className={`${styles.button} ${styles.button_next}`} onClick={handlePrevClick}>
               Back
