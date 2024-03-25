@@ -157,23 +157,19 @@ const RegistrationForm = ({ onNextClick }) => {
             )} */}
             </div>
 
-            <div>
-              <div
-                className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}
-              >
-                <input
-                  className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="First name"
-                />
-                {/* {errors.lastName && !isValid.lastName && !formData.lastName && (
+            <div className={`${styles.gradient} ${!isValid.firstName ? styles.gradientError : ''}`}>
+              <input
+                className={`${styles.input} ${!isValid.firstName ? styles.inputError : ''}`}
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="First name"
+              />
+              {/* {errors.lastName && !isValid.lastName && !formData.lastName && (
                 <p className={`${styles.error} ${styles.errorMessage}`}>{errors.firstName}</p>
               )} */}
-              </div>
             </div>
             <div className={`${styles.gradient} ${!isValid.lastName ? styles.gradientError : ''}`}>
               <input

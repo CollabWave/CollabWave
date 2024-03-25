@@ -6,7 +6,7 @@ import { setRegistrationStep } from '@/redux/auth/authSlice';
 import styles from './RegistrationBlog.module.css';
 import Image from 'next/image';
 import blogImg from '../../../image/reg-blog.png';
-
+import prevBtn from '../../../image/prevBtn.png';
 const RegistrationBlog = ({ formInputData, onNextClick }) => {
   const dispatch = useDispatch();
   const [formDataSocial, setFormDataSocial] = React.useState({
@@ -176,6 +176,9 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
   return (
     <div className={styles.conatainer}>
       <Image src={blogImg} alt="Blogger" width="450"></Image>
+      <div onClick={handlePrevClick}>
+        <Image src={prevBtn} alt="back" className={styles.img_back}></Image>
+      </div>
       <div className={styles.container_form}>
         <div>
           <h1 className={styles.title}>Add a social contection</h1>
@@ -341,13 +344,15 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
             </select>
           </div>
           {/* </div> */}
-          <div className={styles.cont_button}>
-            <button className={`${styles.button} ${styles.button_next}`} onClick={handlePrevClick}>
-              Back
-            </button>
-            <button className={`${styles.button} ${styles.button_next}`} onClick={handleNextClick}>
+          <div className={styles.btn_gradient_next}>
+            <button
+              type="button"
+              className={`${styles.button} ${styles.button_next}`}
+              onClick={handleNextClick}
+            >
               Next
             </button>
+            {/* <Button onClick={handleNextClick}>Next</Button> */}
           </div>
         </form>
       </div>

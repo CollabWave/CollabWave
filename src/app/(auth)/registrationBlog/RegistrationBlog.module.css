@@ -147,6 +147,34 @@
 .button_back {
   margin-right: 135px;
 }
+.btn_gradient_next {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(130, 239, 238));
+  height: 43px;
+  width: 163px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(45deg, #031311, #03211d);
+  border-radius: 10px;
+  height: 40px;
+  width: 160px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+}
+
 .button:hover {
   transition-duration: 0.1s;
   background-color: #3a3a3a;
@@ -227,4 +255,10 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+}
+.img_back {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 60px;
+  cursor: pointer;
 }
