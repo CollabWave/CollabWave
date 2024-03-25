@@ -156,6 +156,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.gradient:not(:last-child) {
   margin-bottom: 30px;
 }
 .gradientError {
@@ -231,9 +233,8 @@
   border: 0;
 }
 
-.matovoyeSteklo {
-  position: relative; /* Встановлюємо позицію, щоб можна було розмістити псевдоелемент */
-  /* background: rgba(255, 255, 255, 0.2); Прозорий фон */
+/* .matovoyeSteklo {
+  position: relative;
   padding: 30px;
   border-radius: 10px;
   background: inherit;
@@ -243,20 +244,7 @@
   max-width: 500px;
 }
 
-.matovoyeSteklo::before {
-  content: ''; /* Додати псевдоелемент для ефекту матового скла */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: 10px; /* Заокруглені кути, щоб відповідати головному елементу */
-  z-index: -1;
-  box-shadow: inset 0 0 2000px rgba(241, 241, 241, 0.5);
-  filter: blur(10px);
-}
-/* .matovoyeSteklo:before {
+.matovoyeSteklo:before {
   content: '';
   position: absolute;
   background: inherit;
@@ -265,7 +253,34 @@
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: inset 0 0 2000px rgba(241, 241, 241, 0.5);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   filter: blur(10px);
   margin: -20px;
 } */
+.matovoyeSteklo {
+  position: relative;
+  padding: 30px;
+
+  background: inherit;
+  overflow: hidden;
+  box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.matovoyeSteklo:before {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 10px;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
