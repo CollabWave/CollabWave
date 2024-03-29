@@ -10,7 +10,7 @@ import { Card, Button, Avatar } from 'antd';
 
 import { CreditCardOutlined, EnvironmentOutlined } from '@ant-design/icons';
 
-import styles from './advertisementRecommendations.module.css';
+import styles from './advertisementCard.module.css';
 import { montserrat } from '@/utils/fonts';
 
 export const AdvertisementCard = ({ card }) => {
@@ -24,7 +24,15 @@ export const AdvertisementCard = ({ card }) => {
       onMouseLeave={() => setCardHovered(false)}
       bordered={false}
       className={`${styles.card} secondary-background ${montserrat.className} advertisement-card`}
-      cover={<Image width={210} height={320} className={styles.poster} alt="advertisement poster" src={card.poster} />}
+      cover={
+        <Image
+          width={210}
+          height={320}
+          className={styles.poster}
+          alt="advertisement poster"
+          src={card.poster}
+        />
+      }
       style={cardHovered ? { backgroundImage: `url(${card.poster})` } : null}
     >
       <Button

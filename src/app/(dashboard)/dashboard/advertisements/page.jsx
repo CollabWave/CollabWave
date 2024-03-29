@@ -12,7 +12,7 @@ import { AdvertisementList } from './AdvertisementsList';
 import { CategoriesFilter } from '../../components/CategoriesFilter/CategoriesFilter';
 
 import styles from './advertisements.module.css';
-import sectionStyles from '../../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
+import sectionStyles from '../../components/DashboardRecommendations/recommendations.module.css';
 import personalStyles from '../profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 

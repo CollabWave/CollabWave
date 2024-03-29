@@ -1,15 +1,14 @@
 import { user } from '@/mockData/user';
 
-import { AdvertisementRecommendations } from '../components/AdvertisementRecommendations/AdvertisementRecommendations';
-import { BloggerRecommendations } from '../components/BloggerRecommendations/BloggerRecommendations';
+import { Recommendations } from '../components/DashboardRecommendations/Recommendations';
 import { ActiveProjects } from '../components/ActiveProjects/ActiveProjects';
 
-import styles from '../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
+import styles from '../components/DashboardRecommendations/recommendations.module.css';
 
 const Dashboard = () => {
   return (
     <div className={styles.sectionWrap}>
-      {user.role === 'blogger' ? <AdvertisementRecommendations /> : <BloggerRecommendations />}
+      <Recommendations />
       <ActiveProjects />
     </div>
   );
