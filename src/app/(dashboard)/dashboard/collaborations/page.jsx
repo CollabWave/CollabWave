@@ -9,7 +9,7 @@ import { SocialNetworksFilter } from '../../components/SocialNetworksFilter/Soci
 import { BloggersList } from '../../components/BloggerCard/BloggersList';
 
 import styles from './collaborations.module.css';
-import sectionStyles from '../../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
+import sectionStyles from '../../components/DashboardRecommendations/recommendations.module.css';
 import personalStyles from '../profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 

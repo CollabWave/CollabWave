@@ -10,25 +10,34 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import { advertisements } from '@/mockData/advertisements';
 import { user } from '@/mockData/user';
+import { influencers } from '@/mockData/influencers';
 
-import { AdvertisementCard } from './AdvertisementCard';
+import { AdvertisementCard } from '../AdvertisementRecommendationCard/AdvertisementCard';
+import { BloggerCard } from '../BloggerCard/BloggerCard';
 
-import styles from './advertisementRecommendations.module.css';
+import styles from './recommendations.module.css';
 import personalStyles from '../../dashboard/profile/personal-info/personalInfo.module.css';
 import { montserrat } from '@/utils/fonts';
 
-export const AdvertisementRecommendations = () => {
-  const recommendations = advertisements.filter(
-    advertisement =>
-      advertisement.showLocation.includes(user.country) ||
-      advertisement.showLocation.includes(user.continent) ||
-      advertisement.showLocation.includes('World')
-  );
+export const Recommendations = () => {
+  const recommendations =
+    user.role === 'blogger'
+      ? advertisements.filter(
+          advertisement =>
+            advertisement.showLocation.includes(user.country) ||
+            advertisement.showLocation.includes(user.continent) ||
+            advertisement.showLocation.includes('World')
+        )
+      : influencers.filter(blogger => blogger.area.find(area => area.value === user.area.value));
 
-  const advertisementsList = useMemo(() => {
+  const recommendationsList = useMemo(() => {
     return recommendations.map((item, index) => (
       <div key={index}>
-        <AdvertisementCard card={item} />
+        {user.role === 'blogger' ? (
+          <AdvertisementCard card={item} />
+        ) : (
+          <BloggerCard influencer={item} />
+        )}
       </div>
     ));
   }, [recommendations]);
@@ -43,7 +52,7 @@ export const AdvertisementRecommendations = () => {
   return (
     <>
       <h3 className={`${personalStyles.heading} ${montserrat.className} profile-heading`}>
-        Advertisement recommendations
+        {user.role === 'blogger' ? 'Advertisement recommendations' : 'Influencers recommendations'}
       </h3>
       <Row className={styles.buttonsWrap}>
         <Col>
@@ -52,7 +61,11 @@ export const AdvertisementRecommendations = () => {
             size="medium"
             borderd="false"
             type="text"
-            onClick={() => router.push('dashboard/advertisements')}
+            onClick={() =>
+              user.role === 'blogger'
+                ? router.push('dashboard/advertisements')
+                : router.push('dashboard/influencers')
+            }
           >
             View All
           </Button>
@@ -90,22 +103,37 @@ export const AdvertisementRecommendations = () => {
       </Row>
       <div className={styles.mobileCarousel}>
         <Carousel ref={sliderMobileRef} dots={false} slidesToShow={1}>
-          {advertisementsList}
+          {recommendationsList}
         </Carousel>
       </div>
       <div className={styles.smallTabletCarousel}>
-        <Carousel ref={sliderSmallTabletRef} dots={false} slidesToShow={2}>
-          {advertisementsList}
+        <Carousel
+          ref={sliderSmallTabletRef}
+          dots={false}
+          slidesToShow={2}
+          infinite={recommendationsList.length < 2 ? false : true}
+        >
+          {recommendationsList}
         </Carousel>
       </div>
       <div className={styles.tabletCarousel}>
-        <Carousel ref={sliderTabletRef} dots={false} slidesToShow={3}>
-          {advertisementsList}
+        <Carousel
+          ref={sliderTabletRef}
+          dots={false}
+          slidesToShow={3}
+          infinite={recommendationsList.length < 3 ? false : true}
+        >
+          {recommendationsList}
         </Carousel>
       </div>
       <div className={styles.desktopCarousel}>
-        <Carousel ref={sliderRef} dots={false} slidesToShow={4}>
-          {advertisementsList}
+        <Carousel
+          ref={sliderRef}
+          dots={false}
+          slidesToShow={4}
+          infinite={recommendationsList.length < 4 ? false : true}
+        >
+          {recommendationsList}
         </Carousel>
       </div>
     </>

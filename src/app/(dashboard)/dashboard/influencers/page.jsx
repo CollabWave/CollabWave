@@ -11,7 +11,7 @@ import { user } from '@/mockData/user';
 import { BloggersList } from '../../components/BloggerCard/BloggersList';
 import { CategoriesFilter } from '../../components/CategoriesFilter/CategoriesFilter';
 
-import sectionStyles from '../../components/AdvertisementRecommendations/advertisementRecommendations.module.css';
+import sectionStyles from '../../components/DashboardRecommendations/recommendations.module.css';
 import personalStyles from '../profile/personal-info/personalInfo.module.css';
 import listsStyles from '../advertisements/advertisements.module.css';
 import { montserrat } from '@/utils/fonts';

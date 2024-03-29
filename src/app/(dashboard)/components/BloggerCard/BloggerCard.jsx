@@ -18,7 +18,7 @@ export const BloggerCard = ({ influencer }) => {
     return formatter.format(number);
   }
   return (
-    <div className={`${montserrat.className} ${styles.card}`}>
+    <div className={`${montserrat.className} ${styles.card} secondary-background advertisement-card`}>
       <Image
         style={{ borderRadius: 0 }}
         width={220}
@@ -28,7 +28,7 @@ export const BloggerCard = ({ influencer }) => {
       />
       <div className={styles.cardBottom}>
         <Flex vertical={influencer.nickname.length > 14} gap={"5px"} justify="space-between" align="center" style={{ marginBottom: '6px' }}>
-          <p className={styles.heading}>{influencer.nickname}</p>
+          <p className={`${styles.heading} text`}>{influencer.nickname}</p>
           <Link
             className={styles.socialLink}
             target="_blank"
