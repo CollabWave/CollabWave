@@ -22,7 +22,7 @@ const Registration = () => {
   const dispatch = useDispatch();
   const clientType = useSelector(state => state.auth.clientType);
   const registrationStep = useSelector(state => state.auth.registrationStep);
-  console.log(clientType, registrationStep)
+  console.log(clientType, registrationStep);
   const [verify, setVerify] = useState(false);
   const [blogDataFetch, setBlogDataFetch] = useState(null);
   const [dataStatus, setDataStatus] = useState('');
@@ -126,13 +126,13 @@ const Registration = () => {
           </ul>
         </div>
       )}
-      {registrationStep === 1 && clientType === 'blog' && (
+      {/* {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationForm
           onNextClick={handleRegistrationBlogData}
           // onInputChange={handleFormInputChange}
         />
-      )}
-      {registrationStep === 2 && clientType === 'blog' && (
+      )} */}
+      {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationExtended onNextClick={handleRegistrationBlogData} />
       )}
       {registrationStep === 3 && clientType === 'blog' && (
