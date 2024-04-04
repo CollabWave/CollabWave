@@ -126,6 +126,7 @@ const RegistrationExtended = ({ onNextClick }) => {
           <li
             onMouseEnter={() => handleLinkMouseEnter('facebook')}
             onMouseLeave={handleLinkMouseLeave}
+            className={styles.gradient_social}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
@@ -142,6 +143,7 @@ const RegistrationExtended = ({ onNextClick }) => {
           <li
             onMouseEnter={() => handleLinkMouseEnter('telegram')}
             onMouseLeave={handleLinkMouseLeave}
+            className={styles.gradient_social}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
@@ -157,6 +159,7 @@ const RegistrationExtended = ({ onNextClick }) => {
           <li
             onMouseEnter={() => handleLinkMouseEnter('youtube')}
             onMouseLeave={handleLinkMouseLeave}
+            className={styles.gradient_social}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
@@ -173,6 +176,7 @@ const RegistrationExtended = ({ onNextClick }) => {
           <li
             onMouseEnter={() => handleLinkMouseEnter('tiktok')}
             onMouseLeave={handleLinkMouseLeave}
+            className={styles.gradient_social}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
@@ -188,6 +192,7 @@ const RegistrationExtended = ({ onNextClick }) => {
           <li
             onMouseEnter={() => handleLinkMouseEnter('instagram')}
             onMouseLeave={handleLinkMouseLeave}
+            className={styles.gradient_social}
           >
             <a
               className={`${styles.link} ${roboto.variable} ${styles.linkWithIcon} ${styles.hoverLink}`}
