@@ -85,6 +85,17 @@ const RegistrationForm = ({ onNextClick }) => {
 
   const handleNextClick = async e => {
     e.preventDefault();
+    if (!isCheckboxChecked) {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        checkbox: 'Please agree to the terms and conditions.',
+      }));
+      setIsValid(prevIsValid => ({
+        ...prevIsValid,
+        checkbox: false,
+      }));
+      return;
+    }
     if (validateForm()) {
       dispatch(setRegistrationStep(2));
       if (onNextClick) {
