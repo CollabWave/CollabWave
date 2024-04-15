@@ -1,30 +1,61 @@
 .card {
-    width: 220px;
-    height: 420px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: scale 250ms ease-out, box-shadow 250ms ease-out;
-  }
+  position: relative;
+  width: 220px;
+  height: 430px;
+  border-radius: 8px;
+  transition: scale 250ms ease-out, box-shadow 250ms ease-out;
+}
 
-  
 .cardBottom {
-    padding: 10px 15px;
-  }
-  
-  .socialLink {
-    height: 32px;
-  }
-  
-  .heading {
-    font-size: 14px;
-  }
-  
-  .text {
-    font-size: 13px;
-  }
+  padding: 10px 15px;
+}
 
-  @media screen and (min-width: 600px) {
-    .card {
-      margin-right: 30px;
-    }
+.socialLink {
+  height: 32px;
+}
+
+.heading {
+  font-size: 14px;
+}
+
+.text {
+  font-size: 13px;
+}
+
+.cardContent {
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.card:hover .cardContent {
+  transform: translateY(-20px);
+}
+
+.actionLinks {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px;
+}
+
+.actionLinks li {
+	list-style: none;
+	transform: translateY(20px);
+	transition: transform 0.5s linear;
+	opacity: 0;
+}
+
+.card:hover .actionLinks li {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    margin-right: 30px;
   }
+}
