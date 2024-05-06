@@ -170,7 +170,7 @@ const RegistrationBlog = ({ formInputData, onNextClick }) => {
       </div>
       <div className={styles.container_form}>
         <div>
-          <h1 className={styles.title}>Add a social contection</h1>
+          <h1 className={styles.title}>Add a social conection</h1>
         </div>
         <form className={styles.form}>
           <div className={`${styles.gradient} ${!isValid.language ? styles.gradientError : ''}`}>
