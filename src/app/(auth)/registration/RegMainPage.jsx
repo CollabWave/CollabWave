@@ -6,6 +6,7 @@ import Link from 'next/link';
 import styles from './Registration.module.css';
 import blogger from '../../../image/blogger.jpeg';
 import brand from '../../../image/brand.jpeg';
+import RegErrorPage from '../RegError/RegErrorPage';
 import RegistrationBlog from '../registrationBlog/RegistrationBlog';
 import RegistrationBrand from '../registrationBrand/RegistrationBrand';
 import RegistrationForm from '../registrationForm/RegistrationForm';
@@ -126,18 +127,26 @@ const Registration = () => {
           </ul>
         </div>
       )}
-      {/* {registrationStep === 1 && clientType === 'blog' && (
+      {registrationStep === 1 && clientType === 'blog' && (
         <RegistrationForm
           onNextClick={handleRegistrationBlogData}
           // onInputChange={handleFormInputChange}
         />
       )}
-      {registrationStep === 2 && clientType === 'blog' && (
+      {registrationStep === 2 && clientType === 'blog' && dataStatus === 'success' ? (
         <RegistrationExtended onNextClick={handleRegistrationBlogData} />
-      )} */}
-      {registrationStep === 1 && clientType === 'blog' && (
-        // dataStatus === 'success' &&
+      ) : (
+        registrationStep === 2 &&
+        clientType === 'blog' &&
+        dataStatus !== 'success' && <RegErrorPage />
+      )}
+
+      {registrationStep === 3 && clientType === 'blog' && subscribersStatus === 'Ok' ? (
         <RegistrationBlog onNextClick={handleRegistrationBlogData} />
+      ) : (
+        registrationStep === 3 &&
+        clientType === 'blog' &&
+        subscribersStatus !== 'Ok' && <RegErrorPage />
       )}
       {registrationStep === 1 && clientType === 'brand' && (
         <RegistrationBrand onNextClick={handleRegistrationBlogData} />
