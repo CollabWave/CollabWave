@@ -13,7 +13,7 @@ import RegistrationForm from '../registrationForm/RegistrationForm';
 import RegistrationExtended from '../registrationExtended/RegistrationExtended';
 import RegistrationBrandNextStep from '../RegistrationBrandNextStep/RegistrationBrandNextStep';
 import RegistrationBrandInfo from '../RegistrationBrandInfo/RegistrationBrandInfo';
-
+import { Spinner } from '@/components/Spinner/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 // import { setClientType, setRegistrationStep } from '../../../../../redux/auth/authSlice';
 import { setClientType, setRegistrationStep } from '@/redux/auth/authSlice';
@@ -29,7 +29,7 @@ const Registration = () => {
   const [dataStatus, setDataStatus] = useState('');
   const [userId, setUserId] = useState('');
   const [subscribersStatus, setSubscribersStatus] = useState('');
-
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleNextClick = () => {
@@ -53,27 +53,33 @@ const Registration = () => {
     };
 
     if (registrationStep === 1) {
+      setIsLoading(true);
       try {
         const response = await authService.registerUser(blogData);
-
         setDataStatus('success');
         setUserId(response.data.data._id);
+        setIsLoading(false);
       } catch (error) {
         setDataStatus('Error');
         console.error('Registration failed', error);
+        setIsLoading(false);
       }
     }
     if (registrationStep === 2) {
+      setIsLoading(true);
       try {
         const subscribersResponse = await authService.checkSubscribers(userId, blogData);
         console.log('Subscribers', subscribersResponse);
         setSubscribersStatus('Ok');
+        setIsLoading(false);
       } catch (error) {
         setSubscribersStatus('Error');
         console.log('eroor');
+        setIsLoading(false);
       }
     }
     if (registrationStep === 3) {
+      setIsLoading(true);
       try {
         const verificationResponse = await authService.verifyUser(userId, { info: blogData });
         console.log('Verification successful', verificationResponse.data);
@@ -84,13 +90,16 @@ const Registration = () => {
             const loginResponse = await authService.loginUser({ email, password });
             console.log('Login successful', loginResponse.data);
             router.push('/dashboard');
+            setIsLoading(false);
           } catch (error) {
             console.error('Login failed', error);
+            setIsLoading(false);
           }
         }
       } catch (error) {
         setDataStatus('Error');
         console.error('Verification failed', error);
+        setIsLoading(false);
       }
     }
   };
@@ -128,25 +137,48 @@ const Registration = () => {
         </div>
       )}
       {registrationStep === 1 && clientType === 'blog' && (
-        <RegistrationForm
-          onNextClick={handleRegistrationBlogData}
-          // onInputChange={handleFormInputChange}
-        />
-      )}
-      {registrationStep === 2 && clientType === 'blog' && dataStatus === 'success' ? (
-        <RegistrationExtended onNextClick={handleRegistrationBlogData} />
-      ) : (
-        registrationStep === 2 &&
-        clientType === 'blog' &&
-        dataStatus !== 'success' && <RegErrorPage />
+        <>
+          {isLoading ? (
+            <Spinner color={'#82efee'} />
+          ) : (
+            <RegistrationForm
+              onNextClick={handleRegistrationBlogData}
+              // onInputChange={handleFormInputChange}
+            />
+          )}
+        </>
       )}
 
-      {registrationStep === 3 && clientType === 'blog' && subscribersStatus === 'Ok' ? (
-        <RegistrationBlog onNextClick={handleRegistrationBlogData} />
-      ) : (
-        registrationStep === 3 &&
-        clientType === 'blog' &&
-        subscribersStatus !== 'Ok' && <RegErrorPage />
+      {registrationStep === 2 && clientType === 'blog' && (
+        <>
+          {isLoading ? (
+            <Spinner color={'#82efee'} />
+          ) : (
+            <>
+              {dataStatus === 'success' ? (
+                <RegistrationExtended onNextClick={handleRegistrationBlogData} />
+              ) : (
+                <RegErrorPage />
+              )}
+            </>
+          )}
+        </>
+      )}
+
+      {registrationStep === 3 && clientType === 'blog' && (
+        <>
+          {isLoading ? (
+            <Spinner color={'#82efee'} />
+          ) : (
+            <>
+              {subscribersStatus === 'Ok' ? (
+                <RegistrationBlog onNextClick={handleRegistrationBlogData} />
+              ) : (
+                <RegErrorPage />
+              )}
+            </>
+          )}
+        </>
       )}
       {registrationStep === 1 && clientType === 'brand' && (
         <RegistrationBrand onNextClick={handleRegistrationBlogData} />
