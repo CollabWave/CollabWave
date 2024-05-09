@@ -262,3 +262,8 @@
   margin-left: 60px;
   cursor: pointer;
 }
+.ant-select-item-option-content {
+  background-color: red;
+  color: red;
+  background: red;
+}

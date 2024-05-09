@@ -65,7 +65,6 @@ main {
   min-height: 80%;
   border-radius: 7px;
 }
-
 .ant-collapse-header {
   display: flex;
   justify-content: space-between;
@@ -443,7 +442,6 @@ main {
 .ant-picker-panel-container {
   width: 260px;
 }
-
 .ant-picker-panel-layout,
 .ant-picker-date-panel,
 .ant-picker-panel,
